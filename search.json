@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "The elegance in this picture has been playfully elevated with AI.\n\nA long time ago, I earned a degree in psychology, specializing in cognitive and affective science, without pursuing a career in this field.\nCurrently, my interests are centered on the world of computing.\nThis website serves as a platform for publishing my notes."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Week 1: When and Why to Fine-Tune an LLM\n\n\n\n\n\n\nmastering-llm\n\n\n\nMy notes for the first week of the Mastering LLM course/conference.\n\n\n\n\n\nMay 26, 2024\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "posts/mastering-llm_week_1/index.html",
     "href": "posts/mastering-llm_week_1/index.html",
     "title": "Week 1: When and Why to Fine-Tune an LLM",
@@ -88,7 +74,7 @@
     "href": "posts/mastering-llm_week_1/index.html#establish-standards-for-ideal-promptoutput-pairs",
     "title": "Week 1: When and Why to Fine-Tune an LLM",
     "section": "Establish Standards for Ideal Prompt/Output Pairs",
-    "text": "Establish Standards for Ideal Prompt/Output Pairs\nDon’t mix “okay” answers with “great” ones in your dataset. You should have a clear distinction between them.\nIt is hard to write great answers, but we are good at evaluating which ones we prefer. There are many algorithms to implement those preferences. Currently, the one that seems to work best is Direct Preference Optimization (DPO).\nRemark: the 23th of May, 2024, an article was published on a new algorithm found to be both simpler and more effective than DPO: Simple Preference Optimization (SimPO). This is very new at the time of writing (25th of May, 2024), so we will have to wait and see how it really performs.\n\nWhat is DPO?\nBasically, instead of linking a single output to a prompt, you will create a dataset with a prompt and a preference between two outputs: a chosen response and a rejected response.\nSee more:\n\nthe original article on the DPO algorithm (Rafailov et al., 2023).\na practical example of DPO with the TRL library from HuggingFace\n\n\n\nPractical Application and Comparison of DPO\nThe use case was to automate responses to incoming emails. Here are the results of the blinded comparisons (ordered from best to worst):\n\nDPO\nHuman Agent\nSupervised Fine-Tuning on Mistral\nGPT-4\n\nDPO consistently produced “super human” responses in comparison of the other methods."
+    "text": "Establish Standards for Ideal Prompt/Output Pairs\nDon’t mix “okay” answers with “great” ones in your dataset. You should have a clear distinction between them.\nIt is hard to write great answers, but we are good at evaluating which ones we prefer. There are many algorithms to implement those preferences. Currently, the one that seems to work best is Direct Preference Optimization (DPO).\nRemark: the 23th of May, 2024, an article was published on a new algorithm found to be both simpler and more effective than DPO: Simple Preference Optimization (SimPO). This is very new at the time of writing (25th of May, 2024), so we will have to wait and see how it really performs.\n\nWhat is DPO?\nBasically, instead of linking a single output to a prompt, you will create a dataset with a prompt and a preference between two outputs: a chosen response and a rejected response.\nSee more:\n\nThe original article on the DPO algorithm (Rafailov et al., 2023).\nA practical example of DPO with the TRL library from HuggingFace\n\n\n\nPractical Application and Comparison of DPO\nThe use case was to automate responses to incoming emails. Here are the results of the blinded comparisons (ordered from best to worst):\n\nDPO\nHuman Agent\nSupervised Fine-Tuning on Mistral\nGPT-4\n\nDPO consistently produced “super human” responses in comparison of the other methods."
   },
   {
     "objectID": "posts/mastering-llm_week_1/index.html#references",
@@ -96,5 +82,19 @@
     "title": "Week 1: When and Why to Fine-Tune an LLM",
     "section": "References",
     "text": "References\n\nYour AI Product Needs Evals\nA short course on OSS Licensing for Research and Education\nDPD error caused chatbot to swear at customer\nAir Canada has to honor a refund policy its chatbot made up\nBelgian man dies by suicide following exchanges with chatbot\nThe SimPO article (Meng et al., 2024)\nThe original article on the DPO algorithm (Rafailov et al., 2023)\nA practical example of DPO with the TRL library from HuggingFace"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "The elegance in this picture has been playfully elevated with AI.\n\nA long time ago, I earned a degree in psychology, specializing in cognitive and affective science, without pursuing a career in this field.\nCurrently, my interests are centered on the world of computing.\nThis website serves as a platform for publishing my notes."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Week 1: When and Why to Fine-Tune an LLM\n\n\n\n\n\n\nmastering-llm\n\n\n\nMy notes for the first week of the Mastering LLM course/conference.\n\n\n\n\n\nMay 26, 2024\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
   }
 ]
