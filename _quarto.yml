@@ -57,3 +57,6 @@ format:
     monofont: Fira Code
 
     link-external-icon: true
+
+execute:
+  freeze: auto
