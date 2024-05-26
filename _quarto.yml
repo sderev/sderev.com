@@ -36,7 +36,7 @@ format:
 
     mainfont: Crimson Pro
     fontcolor: "#222"
-    fontsize: 1.6rem
+    fontsize: 1.4rem
     linestretch: 1.6
 
     anchor-sections: true
