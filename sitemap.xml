@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://sderev.com/posts/mastering-llm_week_1/index.html</loc>
+    <lastmod>2024-05-26T23:51:47.452Z</lastmod>
+  </url>
+  <url>
     <loc>https://sderev.com/about.html</loc>
-    <lastmod>2024-05-26T23:28:08.818Z</lastmod>
+    <lastmod>2024-05-26T23:51:47.444Z</lastmod>
   </url>
   <url>
     <loc>https://sderev.com/index.html</loc>
-    <lastmod>2024-05-26T23:35:04.388Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sderev.com/posts/mastering-llm_week_1/index.html</loc>
-    <lastmod>2024-05-26T23:28:08.818Z</lastmod>
+    <lastmod>2024-05-26T23:51:47.444Z</lastmod>
   </url>
 </urlset>

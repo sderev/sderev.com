@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "The elegance in this picture has been playfully elevated with AI.\n\nA long time ago, I earned a degree in psychology, specializing in cognitive and affective science, without pursuing a career in this field.\nCurrently, my interests are centered on the world of computing.\nThis website serves as a platform for publishing my notes."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "test :::{#posts} :::\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1: When and Why to Fine-Tune an LLM\n\n\n\n\n\n\nmastering-llm\n\n\n\nMy notes for the first week of the Mastering LLM course/conference.\n\n\n\n\n\nMay 26, 2024\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "posts/mastering-llm_week_1/index.html",
     "href": "posts/mastering-llm_week_1/index.html",
     "title": "Week 1: When and Why to Fine-Tune an LLM",
@@ -96,5 +82,19 @@
     "title": "Week 1: When and Why to Fine-Tune an LLM",
     "section": "References",
     "text": "References\n\nYour AI Product Needs Evals\nA short course on OSS Licensing for Research and Education\nDPD error caused chatbot to swear at customer\nAir Canada has to honor a refund policy its chatbot made up\nBelgian man dies by suicide following exchanges with chatbot\nThe SimPO article (Meng et al., 2024)\nThe original article on the DPO algorithm (Rafailov et al., 2023)\nA practical example of DPO with the TRL library from HuggingFace"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "The elegance in this picture has been playfully elevated with AI.\n\nA long time ago, I earned a degree in psychology, specializing in cognitive and affective science, without pursuing a career in this field.\nCurrently, my interests are centered on the world of computing.\nThis website serves as a platform for publishing some of my notes."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Week 1: When and Why to Fine-Tune an LLM\n\n\n\n\n\n\nmastering-llm\n\n\n\nMy notes for the first week of the Mastering LLM course/conference.\n\n\n\n\n\nMay 26, 2024\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
   }
 ]
