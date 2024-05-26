@@ -120,8 +120,8 @@ Basically, instead of linking a single output to a prompt, you will create a dat
 
 **See more**:
 
-* [the original article on the DPO algorithm (Rafailov *et al.*, 2023)](https://arxiv.org/abs/2305.18290).
-* [a practical example of DPO with the TRL library from HuggingFace](https://huggingface.co/docs/trl/main/en/dpo_trainer)
+* [The original article on the DPO algorithm (Rafailov *et al.*, 2023)](https://arxiv.org/abs/2305.18290).
+* [A practical example of DPO with the TRL library from HuggingFace](https://huggingface.co/docs/trl/main/en/dpo_trainer)
 
 ### Practical Application and Comparison of DPO
 
