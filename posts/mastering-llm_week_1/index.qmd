@@ -2,14 +2,14 @@
 title: "Week 1: When and Why to Fine-Tune an LLM"
 date: "2024-05-26"
 categories: [mastering-llm]
-description: "My notes for the first week of the Mastering LLM course/conference."
+description: "My notes for the first week of the [Mastering LLMs](https://maven.com/parlance-labs/fine-tuning) conference hosted by [Hamel Husain](https://x.com/HamelHusain) and [Dan Becker](https://x.com/dan_s_becker)."
 image: "img/robot_reading_a_book.png"
 ---
-Since this was a verbal presentation, I have rephrased the quotes for better readability, and enriched some of the content with additional information.
+I have rephrased the quotes for better readability, and enriched some of the content with additional information.
 
 ## Start Simple
 
-> * Do not start by trying to fine-tune but with prompt engineering and RAG
+> * Do not start by trying to fine-tune but with prompt engineering and retrieval augmented generation (RAG)
 > * Use OpenAI, Claude, etc.
 > * "Vibe-checks" are okay in the beginning
 > * Write simple tests and assertions
@@ -43,9 +43,9 @@ While using and/or generating fewer tokens can reduce latency, a fine-tuned mode
 
 For very specialized tasks, general models may not perform adequately. Fine-tuning can help to address these issues.
 
-### A Prompt Engineering is Impractical
+### When Prompt Engineering Becomes Impractical
 
-When dealing with complex tasks requiring numerous conditions and detailed prompts, prompt engineering can become inefficient. Then, fine-tuning can be a better solution.
+For complex tasks that require detailed prompts with many conditions, prompt engineering can become inefficient. In such cases, fine-tuning can be an effective solution.
 
 ## Fine-Tuning vs RAG
 
@@ -67,7 +67,7 @@ It is paramount to clean and have a consistent template for your data.
 >
 > Hamel Husain
 
-But you do you :). OpenAI, Anthropic, Google, and the other all used stolen data to train their models while legislating against *their intellectual property* being open source.
+But you do you. OpenAI, Anthropic, Google, and the other all used stolen data to train their models while legislating against *their intellectual property* being open source.
 
 This was not in the course, but I think it might be relevant regarding the intellectual property: [A short course on OSS Licensing for Research and Education](https://gw-ospo.github.io/oss-licensing/intro.html).
 
@@ -82,6 +82,8 @@ You probably know what you are doing.
 Which one to choose will depend on the problem you are trying to solve with fine-tuning. Basically, if you're not building a chatbot, you might not need an instruct model.
 
 ## Which Size to Choose
+
+Choosing the right model size is crucial as it affects both performance and operational costs.
 
 Try the 7B range models first, but you should develop an intuition with experience. Is the task something a small model can do? Does it require more "reasoning"?
 
@@ -112,7 +114,7 @@ Don't mix "okay" answers with "great" ones in your dataset. You should have a cl
 
 It is hard to write great answers, but we are good at evaluating which ones we prefer. There are many algorithms to implement those preferences. Currently, the one that seems to work best is Direct Preference Optimization (DPO).
 
-**Remark**: the 23th of May, 2024, an article was published on a new algorithm found to be both simpler and more effective than DPO: [Simple Preference Optimization (SimPO)](https://arxiv.org/abs/2405.14734). This is very new at the time of writing (25th of May, 2024), so we will have to wait and see how it really performs.
+**Remark**: the 23rd of May, 2024, an article was published on a new algorithm found to be both simpler and more effective than DPO: [Simple Preference Optimization (SimPO)](https://arxiv.org/abs/2405.14734). This is very new at the time of writing (25th of May, 2024), so we will have to wait and see how it really performs.
 
 ### What is DPO?
 
