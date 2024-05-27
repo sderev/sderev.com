@@ -33,6 +33,6 @@ about:
 ___
 A long time ago, I earned a degree in psychology, specializing in cognitive and affective science, without pursuing a career in this field.
 
-Currently, my interests are centered on the world of computing.
+Currently, my interests are centered on AI/ML.
 
 This website serves as a platform for publishing some of my notes.
