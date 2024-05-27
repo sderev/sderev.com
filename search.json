@@ -4,14 +4,14 @@
     "href": "posts/mastering-llm_week_1/index.html",
     "title": "Week 1: When and Why to Fine-Tune an LLM",
     "section": "",
-    "text": "Since this was a verbal presentation, I have rephrased the quotes for better readability, and enriched some of the content with additional information."
+    "text": "I have rephrased the quotes for better readability, and enriched some of the content with additional information."
   },
   {
     "objectID": "posts/mastering-llm_week_1/index.html#start-simple",
     "href": "posts/mastering-llm_week_1/index.html#start-simple",
     "title": "Week 1: When and Why to Fine-Tune an LLM",
     "section": "Start Simple",
-    "text": "Start Simple\n\n\nDo not start by trying to fine-tune but with prompt engineering and RAG\nUse OpenAI, Claude, etc.\n“Vibe-checks” are okay in the beginning\nWrite simple tests and assertions\nShip fast"
+    "text": "Start Simple\n\n\nDo not start by trying to fine-tune but with prompt engineering and retrieval augmented generation (RAG)\nUse OpenAI, Claude, etc.\n“Vibe-checks” are okay in the beginning\nWrite simple tests and assertions\nShip fast"
   },
   {
     "objectID": "posts/mastering-llm_week_1/index.html#evaluations-are-central",
@@ -25,7 +25,7 @@
     "href": "posts/mastering-llm_week_1/index.html#when-to-fine-tune",
     "title": "Week 1: When and Why to Fine-Tune an LLM",
     "section": "When to Fine-Tune",
-    "text": "When to Fine-Tune\n\nIf you have a prompt that resembles a programming language with numerous conditional statements, it’s an indication that fine-tuning might be beneficial.\nAdditionally, because of the diverse types of examples and various edge cases, it is challenging to cover all possibilities with just a few examples. However, there are strategies to enhance these few-shot examples. For instance, you could use RAG and maintain a database of different examples, making the few-shot examples dynamic. This approach can sometimes be effective.\nThese are some indicators to consider when evaluating the problem itself.\nHamel Husain\n\n\nData Privacy\nFine-tuning allows you to use private data to customize a model without exposing sensitive information to third-party services.\n\n\nQuality vs Latency Trade-off\nWhile using and/or generating fewer tokens can reduce latency, a fine-tuned model may also become so specialized that it limits its ability to perform other tasks.\n\n\nExtremely Narrow Problem\nFor very specialized tasks, general models may not perform adequately. Fine-tuning can help to address these issues.\n\n\nA Prompt Engineering is Impractical\nWhen dealing with complex tasks requiring numerous conditions and detailed prompts, prompt engineering can become inefficient. Then, fine-tuning can be a better solution."
+    "text": "When to Fine-Tune\n\nIf you have a prompt that resembles a programming language with numerous conditional statements, it’s an indication that fine-tuning might be beneficial.\nAdditionally, because of the diverse types of examples and various edge cases, it is challenging to cover all possibilities with just a few examples. However, there are strategies to enhance these few-shot examples. For instance, you could use RAG and maintain a database of different examples, making the few-shot examples dynamic. This approach can sometimes be effective.\nThese are some indicators to consider when evaluating the problem itself.\nHamel Husain\n\n\nData Privacy\nFine-tuning allows you to use private data to customize a model without exposing sensitive information to third-party services.\n\n\nQuality vs Latency Trade-off\nWhile using and/or generating fewer tokens can reduce latency, a fine-tuned model may also become so specialized that it limits its ability to perform other tasks.\n\n\nExtremely Narrow Problem\nFor very specialized tasks, general models may not perform adequately. Fine-tuning can help to address these issues.\n\n\nWhen Prompt Engineering Becomes Impractical\nFor complex tasks that require detailed prompts with many conditions, prompt engineering can become inefficient. In such cases, fine-tuning can be an effective solution."
   },
   {
     "objectID": "posts/mastering-llm_week_1/index.html#fine-tuning-vs-rag",
@@ -46,7 +46,7 @@
     "href": "posts/mastering-llm_week_1/index.html#synthetic-data",
     "title": "Week 1: When and Why to Fine-Tune an LLM",
     "section": "Synthetic Data",
-    "text": "Synthetic Data\n\nUse the most powerful model to generate synthetic data. To avoid any legal issues, Mistral Large seems quite permissive in its terms and conditions.\nHamel Husain\n\nBut you do you :). OpenAI, Anthropic, Google, and the other all used stolen data to train their models while legislating against their intellectual property being open source.\nThis was not in the course, but I think it might be relevant regarding the intellectual property: A short course on OSS Licensing for Research and Education.\nYou probably know what you are doing."
+    "text": "Synthetic Data\n\nUse the most powerful model to generate synthetic data. To avoid any legal issues, Mistral Large seems quite permissive in its terms and conditions.\nHamel Husain\n\nBut you do you. OpenAI, Anthropic, Google, and the other all used stolen data to train their models while legislating against their intellectual property being open source.\nThis was not in the course, but I think it might be relevant regarding the intellectual property: A short course on OSS Licensing for Research and Education.\nYou probably know what you are doing."
   },
   {
     "objectID": "posts/mastering-llm_week_1/index.html#base-models-vs-instruct-models",
@@ -60,7 +60,7 @@
     "href": "posts/mastering-llm_week_1/index.html#which-size-to-choose",
     "title": "Week 1: When and Why to Fine-Tune an LLM",
     "section": "Which Size to Choose",
-    "text": "Which Size to Choose\nTry the 7B range models first, but you should develop an intuition with experience. Is the task something a small model can do? Does it require more “reasoning”?\n\nA larger model will cost more and be harder to host. I only fine-tune when it’s a very narrow problem, and where I think it’s going to fit in a small model.\nHamel Husain"
+    "text": "Which Size to Choose\nChoosing the right model size is crucial as it affects both performance and operational costs.\nTry the 7B range models first, but you should develop an intuition with experience. Is the task something a small model can do? Does it require more “reasoning”?\n\nA larger model will cost more and be harder to host. I only fine-tune when it’s a very narrow problem, and where I think it’s going to fit in a small model.\nHamel Husain"
   },
   {
     "objectID": "posts/mastering-llm_week_1/index.html#manage-user-expectations",
@@ -74,7 +74,7 @@
     "href": "posts/mastering-llm_week_1/index.html#establish-standards-for-ideal-promptoutput-pairs",
     "title": "Week 1: When and Why to Fine-Tune an LLM",
     "section": "Establish Standards for Ideal Prompt/Output Pairs",
-    "text": "Establish Standards for Ideal Prompt/Output Pairs\nDon’t mix “okay” answers with “great” ones in your dataset. You should have a clear distinction between them.\nIt is hard to write great answers, but we are good at evaluating which ones we prefer. There are many algorithms to implement those preferences. Currently, the one that seems to work best is Direct Preference Optimization (DPO).\nRemark: the 23th of May, 2024, an article was published on a new algorithm found to be both simpler and more effective than DPO: Simple Preference Optimization (SimPO). This is very new at the time of writing (25th of May, 2024), so we will have to wait and see how it really performs.\n\nWhat is DPO?\nBasically, instead of linking a single output to a prompt, you will create a dataset with a prompt and a preference between two outputs: a chosen response and a rejected response.\nSee more:\n\nThe original article on the DPO algorithm (Rafailov et al., 2023).\nA practical example of DPO with the TRL library from HuggingFace\n\n\n\nPractical Application and Comparison of DPO\nThe use case was to automate responses to incoming emails. Here are the results of the blinded comparisons (ordered from best to worst):\n\nDPO\nHuman Agent\nSupervised Fine-Tuning on Mistral\nGPT-4\n\nDPO consistently produced “super human” responses in comparison of the other methods."
+    "text": "Establish Standards for Ideal Prompt/Output Pairs\nDon’t mix “okay” answers with “great” ones in your dataset. You should have a clear distinction between them.\nIt is hard to write great answers, but we are good at evaluating which ones we prefer. There are many algorithms to implement those preferences. Currently, the one that seems to work best is Direct Preference Optimization (DPO).\nRemark: the 23rd of May, 2024, an article was published on a new algorithm found to be both simpler and more effective than DPO: Simple Preference Optimization (SimPO). This is very new at the time of writing (25th of May, 2024), so we will have to wait and see how it really performs.\n\nWhat is DPO?\nBasically, instead of linking a single output to a prompt, you will create a dataset with a prompt and a preference between two outputs: a chosen response and a rejected response.\nSee more:\n\nThe original article on the DPO algorithm (Rafailov et al., 2023).\nA practical example of DPO with the TRL library from HuggingFace\n\n\n\nPractical Application and Comparison of DPO\nThe use case was to automate responses to incoming emails. Here are the results of the blinded comparisons (ordered from best to worst):\n\nDPO\nHuman Agent\nSupervised Fine-Tuning on Mistral\nGPT-4\n\nDPO consistently produced “super human” responses in comparison of the other methods."
   },
   {
     "objectID": "posts/mastering-llm_week_1/index.html#references",
@@ -95,6 +95,6 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Week 1: When and Why to Fine-Tune an LLM\n\n\n\n\n\n\nmastering-llm\n\n\n\nMy notes for the first week of the Mastering LLM course/conference.\n\n\n\n\n\nMay 26, 2024\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Week 1: When and Why to Fine-Tune an LLM\n\n\n\n\n\n\nmastering-llm\n\n\n\nMy notes for the first week of the Mastering LLMs conference hosted by Hamel Husain and Dan Becker.\n\n\n\n\n\nMay 26, 2024\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
   }
 ]
