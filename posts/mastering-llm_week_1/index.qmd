@@ -134,7 +134,7 @@ The use case was to automate responses to incoming emails. Here are the results 
 3. Supervised Fine-Tuning on Mistral
 4. GPT-4
 
-DPO consistently produced "super human" responses in comparison of the other methods.
+DPO consistently produced "super human" responses in comparison to the other methods.
 
 ## References
 
