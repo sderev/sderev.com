@@ -143,7 +143,7 @@ DPO consistently produced "super human" responses in comparison to the other met
 * [DPD error caused chatbot to swear at customer](https://www.bbc.com/news/technology-68025677)
 * [Air Canada has to honor a refund policy its chatbot made up](https://www.wired.com/story/air-canada-chatbot-refund-policy/)
 * [Belgian man dies by suicide following exchanges with chatbot](https://www.brusselstimes.com/430098/belgian-man-commits-suicide-following-exchanges-with-chatgpt)
-* [The SimPO article (Meng *et al.*, 2024)](https://arxiv.org/abs/2405.14734)
-* [The original article on the DPO algorithm (Rafailov *et al.*, 2023)](https://arxiv.org/abs/2305.18290)
+* [SimPO: Simple Preference Optimization with a Reference-Free Reward (Meng *et al.*, 2024)](https://arxiv.org/abs/2405.14734)
+* [Direct Preference Optimization: Your Language Model is Secretly a Reward Model (Rafailov *et al.*, 2023)](https://arxiv.org/abs/2305.18290)
 * [A practical example of DPO with the TRL library from HuggingFace](https://huggingface.co/docs/trl/main/en/dpo_trainer)
 
