@@ -81,7 +81,7 @@
     "href": "posts/mastering-llm_week_1/index.html#references",
     "title": "Week 1: When and Why to Fine-Tune an LLM",
     "section": "References",
-    "text": "References\n\nYour AI Product Needs Evals\nA short course on OSS Licensing for Research and Education\nDPD error caused chatbot to swear at customer\nAir Canada has to honor a refund policy its chatbot made up\nBelgian man dies by suicide following exchanges with chatbot\nThe SimPO article (Meng et al., 2024)\nThe original article on the DPO algorithm (Rafailov et al., 2023)\nA practical example of DPO with the TRL library from HuggingFace"
+    "text": "References\n\nYour AI Product Needs Evals\nA short course on OSS Licensing for Research and Education\nDPD error caused chatbot to swear at customer\nAir Canada has to honor a refund policy its chatbot made up\nBelgian man dies by suicide following exchanges with chatbot\nSimPO: Simple Preference Optimization with a Reference-Free Reward (Meng et al., 2024)\nDirect Preference Optimization: Your Language Model is Secretly a Reward Model (Rafailov et al., 2023)\nA practical example of DPO with the TRL library from HuggingFace"
   },
   {
     "objectID": "about.html",
