@@ -4,7 +4,9 @@ project:
 website:
   title: "Sébastien De Revière"
   site-url: https://sderev.com
-  description: "Personal website of Sébastien De Revière"
+  repo-url: https://github.com/sderev/sderev.com
+  description: "Personal Website of Sébastien De Revière"
+
   navbar:
     right:
       - index.qmd
@@ -13,8 +15,11 @@ website:
         href: https://github.com/sderev
       - icon: twitter
         href: https://twitter.com/sdereviere
+
   twitter-card:
     creator: "@sdereviere"
+  open-graph: true
+
   reader-mode: false
 
   page-footer: 
