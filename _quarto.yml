@@ -39,9 +39,9 @@ format:
 
     email-obfuscation: javascript
 
-    # mainfont: Crimson Pro
+    mainfont: Crimson Pro
     fontcolor: "#222"
-    fontsize: 1.4rem
+    fontsize: 1.63rem
     linestretch: 1.6
 
     anchor-sections: true
