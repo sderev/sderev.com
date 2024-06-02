@@ -1,10 +1,20 @@
+/*-- fonts --*/
+@font-face {
+    font-family: "Crimson Pro";
+    src: url("https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+}
+
+@font-face {
+    font-family: "Fira Code";
+    src: url("https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Fira+Code:wght@300..700&display=swap");
+}
+
 /*-- scss:defaults --*/
 $toc-font-size: .95em;
-
 $code-block-bg-padding: 1em;
 $code-color: #333;
 $code-font-size: .8rem;
-$code-block-font-size: .8rem;
+$code-block-font-size: .80rem;
 
 $navbar-bg: GhostWhite;
 $navbar-fg: #222;
