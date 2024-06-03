@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2024-06-03">
-<meta name="description" content="Open the URL nearest to the cursor in your web browser with a simple keybind.">
+<meta name="description" content="Improve your Vim workflow by opening the URL nearest to the cursor in your web browser with a simple keybind. This blog post provides a step-by-step guide on setting up custom scripts and configuring Vim to achieve this functionality.">
 
 <title>Sébastien De Revière - Vim: Open the URL Nearest to the Cursor in a Web Browser</title>
 <style>
@@ -75,6 +75,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,13 +109,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Sébastien De Revière - Vim: Open the URL Nearest to the Cursor in a Web Browser">
-<meta property="og:description" content="Open the URL nearest to the cursor in your web browser with a simple keybind.">
+<meta property="og:description" content="Improve your Vim workflow by opening the URL nearest to the cursor in your web browser with a simple keybind. This blog post provides a step-by-step guide on setting up custom scripts and configuring Vim to achieve this functionality.">
 <meta property="og:image" content="https://sderev.com/posts/vim-url-opener/img/vintage-computer-setup.png">
 <meta property="og:site_name" content="Sébastien De Revière">
 <meta property="og:image:height" content="768">
 <meta property="og:image:width" content="768">
 <meta name="twitter:title" content="Sébastien De Revière - Vim: Open the URL Nearest to the Cursor in a Web Browser">
-<meta name="twitter:description" content="Open the URL nearest to the cursor in your web browser with a simple keybind.">
+<meta name="twitter:description" content="Improve your Vim workflow by opening the URL nearest to the cursor in your web browser with a simple keybind. This blog post provides a step-by-step guide on setting up custom scripts and configuring Vim to achieve this functionality.">
 <meta name="twitter:image" content="https://sderev.com/posts/vim-url-opener/img/vintage-computer-setup.png">
 <meta name="twitter:creator" content="@sdereviere">
 <meta name="twitter:image-height" content="768">
@@ -170,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <h1 class="title">Vim: Open the URL Nearest to the Cursor in a Web Browser</h1>
                   <div>
         <div class="description">
-          Open the URL nearest to the cursor in your web browser with a simple keybind.
+          Improve your Vim workflow by opening the URL nearest to the cursor in your web browser with a simple keybind. This blog post provides a step-by-step guide on setting up custom scripts and configuring Vim to achieve this functionality.
         </div>
       </div>
                           <div class="quarto-categories">
@@ -206,12 +208,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>You can easily open a URL in your web browser with a simple keybind right from Vim. The common practice is to use <code>gx</code> as the keybind.</p>
-<p>I wrote a small script to improve this workflow: it extracts the URL nearest to the cursor, so that you don’t have to place the cursor exactly under the URL anymore.</p>
+<p>You can easily open a URL in your web browser with a simple keybind right from Vim. The common practice is to use <code>gx</code> as the keybind. However, you need to place the cursor exactly under the URL to open it.</p>
+<p>That’s why I wrote a small script to improve this workflow: it extracts the URL nearest to the cursor, so that you don’t have to place the cursor exactly under the URL anymore.</p>
 <p>It also works for Windows via WSL.</p>
-<video>
-&lt;source src=“videos/demo_extract_and_open_nearest_url.mp4” type”video/mp4”&gt;
-</video>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/demo_extract_and_open_nearest_url.mp4"></video></div>
 <section id="installation" class="level2">
 <h2 class="anchored" data-anchor-id="installation">Installation</h2>
 <p>I created a <a href="https://github.com/sderev/vim-open-url">GitHub repository</a> where you can find the scripts, the Vim function, and a shorter version of the instructions below.</p>
@@ -222,106 +222,110 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<p>Note that this is not a Vim plugin, but a set of Unix filters following the Unix philosophy: “Do one thing and do it well.”</p>
-<p>This workflow is made of three parts:</p>
+<p>This is not a Vim plugin but a set of Unix filters following the philosophy: “Do one thing and do it well.”</p>
+<p>This workflow is made of three components:</p>
 <ul>
 <li>a Bash script (to call the web browser);</li>
 <li>a Python script (to extract the URL nearest to the cursor);</li>
 <li>a Vim function and a keybind (to call the scripts).</li>
 </ul>
 </section>
-<section id="add-the-scripts-to-your-path" class="level2">
-<h2 class="anchored" data-anchor-id="add-the-scripts-to-your-path">Add the Scripts to Your <code>PATH</code></h2>
+<section id="adding-the-scripts-to-your-path" class="level2">
+<h2 class="anchored" data-anchor-id="adding-the-scripts-to-your-path">Adding the Scripts to Your <code>PATH</code></h2>
 <p>The two scripts should be in your <code>PATH</code>. This environment variable contains a list of directories in which the shell looks for executables.</p>
-<p>If you don’t have a custom directory in which you place your scripts to be in your <code>PATH</code>, one default should be <code>/usr/local/bin</code>. They should also be executable, so you should run <code>chmod +x /path/to/script</code>.</p>
-<section id="create-a-custom-directory-for-your-scripts" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-custom-directory-for-your-scripts">Create a Custom Directory for Your Scripts</h3>
-<p>Personally, I have a directory <code>~/.scripts</code> in which I place all my scripts.</p>
+<p>If you don’t have a custom directory for your scripts, you can use <code>/usr/local/bin</code>. Ensure that the scripts are executable by running <code>chmod +x /path/to/script</code>.</p>
+<section id="creating-a-custom-directory-for-your-scripts" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-custom-directory-for-your-scripts">Creating a Custom Directory for Your Scripts</h3>
+<p>Personally, I use <code>~/.scripts</code> for my custom scripts.</p>
 <p>Adding a directory to your <code>PATH</code> environment variable is done by adding the following line to your <code>.bashrc</code> or <code>.zshrc</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$PATH</span>:/path/to/your/directory</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"/path/to/your/directory:</span><span class="va">$PATH</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, source your <code>.bashrc</code> or <code>.zshrc</code> file:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">source</span> ~/.bashrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or initialize a new instance of your shell:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">exec</span> <span class="at">-l</span> <span class="va">$SHELL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="bash-script-calling-your-web-browser" class="level2">
 <h2 class="anchored" data-anchor-id="bash-script-calling-your-web-browser">Bash Script: Calling your Web Browser</h2>
-<p>This script just call the executable of your web browser and takes a URL as argument. If you’re using WSL and use Brave, you should create this script:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">/mnt/c/Program\ Files/BraveSoftware/Brave-Browser/Application/brave.exe</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If you’re on Linux or MacOS, just change the path appropriately.</p>
+<p>This script just call your web browser’s executable with a URL as an argument. If you’re using WSL and Brave, the script should look like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="ex">/mnt/c/Program\ Files/BraveSoftware/Brave-Browser/Application/brave.exe</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Adjust the path according to your web browser and operating system.</p>
 <p>I named the script <code>brave</code>, but you can name it whatever you want. Just remember to change the name in the Vim function.</p>
 </section>
 <section id="python-script-extract-the-url-nearest-to-the-cursor" class="level2">
 <h2 class="anchored" data-anchor-id="python-script-extract-the-url-nearest-to-the-cursor">Python Script: Extract the URL Nearest to the Cursor</h2>
-<p>As for the Bash script, paste the code below in an executable file and put it in your <code>PATH</code>. I named it <code>extract_nearest_url</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#!/usr/bin/python3</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="im">import</span> re</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="im">import</span> shlex</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="im">import</span> sys</span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="kw">def</span> main():</span>
-<span id="cb3-9"><a href="#cb3-9"></a>    line <span class="op">=</span> sys.argv[<span class="dv">1</span>] <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">""</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a>    cursor_pos <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="dv">2</span>]) <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="dv">0</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>    url <span class="op">=</span> extract_nearest_url(line, cursor_pos)</span>
-<span id="cb3-12"><a href="#cb3-12"></a>    <span class="bu">print</span>(url, end<span class="op">=</span><span class="st">""</span>)  <span class="co"># Print without additional newline</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a></span>
-<span id="cb3-14"><a href="#cb3-14"></a></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="kw">def</span> extract_nearest_url(line, cursor_pos):</span>
-<span id="cb3-16"><a href="#cb3-16"></a>    <span class="co"># Regular expression to extract URLs</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a>    url_patterns <span class="op">=</span> (</span>
-<span id="cb3-18"><a href="#cb3-18"></a>        <span class="vs">r"\[.*?\]\((\S+?)\)"</span>,  <span class="co"># Markdown link</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a>        <span class="vs">r"&lt;(\S+?)&gt;"</span>,  <span class="co"># Angle brackets</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a>        <span class="vs">r"\\href\{(\S+?)\}\{.*?\}"</span>,  <span class="co"># LaTeX \href{}{}</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a>        <span class="vs">r"(http[s]?://\S+)"</span>,  <span class="co"># Plain URLs with protocol</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a>        <span class="vs">r"(\b\S+\.\S+)\b"</span>,  <span class="co"># Plain URLs without protocol</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a>    )</span>
-<span id="cb3-24"><a href="#cb3-24"></a>    pattern <span class="op">=</span> <span class="st">"|"</span>.join(url_patterns)</span>
-<span id="cb3-25"><a href="#cb3-25"></a>    matches <span class="op">=</span> re.finditer(pattern, line)</span>
-<span id="cb3-26"><a href="#cb3-26"></a></span>
-<span id="cb3-27"><a href="#cb3-27"></a>    closest_url <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb3-28"><a href="#cb3-28"></a>    min_distance <span class="op">=</span> <span class="bu">float</span>(<span class="st">"inf"</span>)</span>
-<span id="cb3-29"><a href="#cb3-29"></a></span>
-<span id="cb3-30"><a href="#cb3-30"></a>    <span class="co"># Extract URL</span></span>
-<span id="cb3-31"><a href="#cb3-31"></a>    <span class="cf">for</span> match <span class="kw">in</span> matches:</span>
-<span id="cb3-32"><a href="#cb3-32"></a>        url <span class="op">=</span> <span class="bu">next</span>((group <span class="cf">for</span> group <span class="kw">in</span> match.groups() <span class="cf">if</span> group), <span class="va">None</span>)</span>
-<span id="cb3-33"><a href="#cb3-33"></a></span>
-<span id="cb3-34"><a href="#cb3-34"></a>        <span class="co"># Calculate distances to cursor position</span></span>
-<span id="cb3-35"><a href="#cb3-35"></a>        start_pos <span class="op">=</span> match.start()</span>
-<span id="cb3-36"><a href="#cb3-36"></a>        end_pos <span class="op">=</span> match.end()</span>
-<span id="cb3-37"><a href="#cb3-37"></a>        distance <span class="op">=</span> <span class="bu">min</span>(<span class="bu">abs</span>(cursor_pos <span class="op">-</span> start_pos), <span class="bu">abs</span>(cursor_pos <span class="op">-</span> end_pos))</span>
-<span id="cb3-38"><a href="#cb3-38"></a></span>
-<span id="cb3-39"><a href="#cb3-39"></a>        <span class="co"># Update closest URL</span></span>
-<span id="cb3-40"><a href="#cb3-40"></a>        <span class="cf">if</span> distance <span class="op">&lt;</span> min_distance:</span>
-<span id="cb3-41"><a href="#cb3-41"></a>            min_distance <span class="op">=</span> distance</span>
-<span id="cb3-42"><a href="#cb3-42"></a>            <span class="co"># Clean the URL by removing any trailing punctuation and whitespace</span></span>
-<span id="cb3-43"><a href="#cb3-43"></a>            cleaned_url <span class="op">=</span> re.sub(<span class="vs">r"[),.\s]*$"</span>, <span class="st">""</span>, url)</span>
-<span id="cb3-44"><a href="#cb3-44"></a>            closest_url <span class="op">=</span> shlex.quote(cleaned_url)</span>
-<span id="cb3-45"><a href="#cb3-45"></a></span>
-<span id="cb3-46"><a href="#cb3-46"></a>    <span class="cf">return</span> closest_url <span class="cf">if</span> closest_url <span class="cf">else</span> <span class="st">""</span></span>
-<span id="cb3-47"><a href="#cb3-47"></a></span>
-<span id="cb3-48"><a href="#cb3-48"></a></span>
-<span id="cb3-49"><a href="#cb3-49"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb3-50"><a href="#cb3-50"></a>    main()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Like the Bash script, place the code below in an executable file within your <code>PATH</code>. I named it <code>extract_nearest_url</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#!/usr/bin/python3</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="im">import</span> re</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="im">import</span> shlex</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="im">import</span> sys</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="kw">def</span> main():</span>
+<span id="cb5-9"><a href="#cb5-9"></a>    line <span class="op">=</span> sys.argv[<span class="dv">1</span>] <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>    cursor_pos <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="dv">2</span>]) <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>    url <span class="op">=</span> extract_nearest_url(line, cursor_pos)</span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="bu">print</span>(url, end<span class="op">=</span><span class="st">""</span>)  <span class="co"># Print without additional newline</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a></span>
+<span id="cb5-14"><a href="#cb5-14"></a></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="kw">def</span> extract_nearest_url(line, cursor_pos):</span>
+<span id="cb5-16"><a href="#cb5-16"></a>    <span class="co"># Regular expression to extract URLs</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>    url_patterns <span class="op">=</span> (</span>
+<span id="cb5-18"><a href="#cb5-18"></a>        <span class="vs">r"\[.*?\]\((\S+?)\)"</span>,  <span class="co"># Markdown link</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a>        <span class="vs">r"&lt;(\S+?)&gt;"</span>,  <span class="co"># Angle brackets</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a>        <span class="vs">r"\\href\{(\S+?)\}\{.*?\}"</span>,  <span class="co"># LaTeX \href{}{}</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>        <span class="vs">r"(http[s]?://\S+)"</span>,  <span class="co"># Plain URLs with protocol</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>        <span class="vs">r"(\b\S+\.\S+)\b"</span>,  <span class="co"># Plain URLs without protocol</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>    )</span>
+<span id="cb5-24"><a href="#cb5-24"></a>    pattern <span class="op">=</span> <span class="st">"|"</span>.join(url_patterns)</span>
+<span id="cb5-25"><a href="#cb5-25"></a>    matches <span class="op">=</span> re.finditer(pattern, line)</span>
+<span id="cb5-26"><a href="#cb5-26"></a></span>
+<span id="cb5-27"><a href="#cb5-27"></a>    closest_url <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a>    min_distance <span class="op">=</span> <span class="bu">float</span>(<span class="st">"inf"</span>)</span>
+<span id="cb5-29"><a href="#cb5-29"></a></span>
+<span id="cb5-30"><a href="#cb5-30"></a>    <span class="co"># Extract URL</span></span>
+<span id="cb5-31"><a href="#cb5-31"></a>    <span class="cf">for</span> match <span class="kw">in</span> matches:</span>
+<span id="cb5-32"><a href="#cb5-32"></a>        url <span class="op">=</span> <span class="bu">next</span>((group <span class="cf">for</span> group <span class="kw">in</span> match.groups() <span class="cf">if</span> group), <span class="va">None</span>)</span>
+<span id="cb5-33"><a href="#cb5-33"></a></span>
+<span id="cb5-34"><a href="#cb5-34"></a>        <span class="co"># Calculate distances to cursor position</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a>        start_pos <span class="op">=</span> match.start()</span>
+<span id="cb5-36"><a href="#cb5-36"></a>        end_pos <span class="op">=</span> match.end()</span>
+<span id="cb5-37"><a href="#cb5-37"></a>        distance <span class="op">=</span> <span class="bu">min</span>(<span class="bu">abs</span>(cursor_pos <span class="op">-</span> start_pos), <span class="bu">abs</span>(cursor_pos <span class="op">-</span> end_pos))</span>
+<span id="cb5-38"><a href="#cb5-38"></a></span>
+<span id="cb5-39"><a href="#cb5-39"></a>        <span class="co"># Update closest URL</span></span>
+<span id="cb5-40"><a href="#cb5-40"></a>        <span class="cf">if</span> distance <span class="op">&lt;</span> min_distance:</span>
+<span id="cb5-41"><a href="#cb5-41"></a>            min_distance <span class="op">=</span> distance</span>
+<span id="cb5-42"><a href="#cb5-42"></a>            <span class="co"># Clean the URL by removing any trailing punctuation and whitespace</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a>            cleaned_url <span class="op">=</span> re.sub(<span class="vs">r"[),.\s]*$"</span>, <span class="st">""</span>, url)</span>
+<span id="cb5-44"><a href="#cb5-44"></a>            closest_url <span class="op">=</span> shlex.quote(cleaned_url)</span>
+<span id="cb5-45"><a href="#cb5-45"></a></span>
+<span id="cb5-46"><a href="#cb5-46"></a>    <span class="cf">return</span> closest_url <span class="cf">if</span> closest_url <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a></span>
+<span id="cb5-48"><a href="#cb5-48"></a></span>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb5-50"><a href="#cb5-50"></a>    main()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="vim-function-and-keybind" class="level2">
 <h2 class="anchored" data-anchor-id="vim-function-and-keybind">Vim Function and Keybind</h2>
 <p>Add the following code to your <code>.vimrc</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>" This function opens the URL nearest to the cursor in Brave </span>
-<span id="cb4-2"><a href="#cb4-2"></a>function! OpenURLNearestToCursor()</span>
-<span id="cb4-3"><a href="#cb4-3"></a>  let l:line = getline('.')</span>
-<span id="cb4-4"><a href="#cb4-4"></a>  let l:col = col('.')</span>
-<span id="cb4-5"><a href="#cb4-5"></a>  let l:cleaned_url = system('extract_nearest_url "' . l:line . '" ' . l:col)</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a>  " If a URL has been found, open it in Brave</span>
-<span id="cb4-8"><a href="#cb4-8"></a>  if l:cleaned_url != ''</span>
-<span id="cb4-9"><a href="#cb4-9"></a>      silent exec "!brave " . l:cleaned_url</span>
-<span id="cb4-10"><a href="#cb4-10"></a>      redraw!</span>
-<span id="cb4-11"><a href="#cb4-11"></a>  endif</span>
-<span id="cb4-12"><a href="#cb4-12"></a>endfunction</span>
-<span id="cb4-13"><a href="#cb4-13"></a></span>
-<span id="cb4-14"><a href="#cb4-14"></a>" Bind the function to the `gx` key in normal mode</span>
-<span id="cb4-15"><a href="#cb4-15"></a>nnoremap gx :call OpenURLNearestToCursor()&lt;CR&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>" This function opens the URL nearest to the cursor in Brave </span>
+<span id="cb6-2"><a href="#cb6-2"></a>function! OpenURLNearestToCursor()</span>
+<span id="cb6-3"><a href="#cb6-3"></a>  let l:line = getline('.')</span>
+<span id="cb6-4"><a href="#cb6-4"></a>  let l:col = col('.')</span>
+<span id="cb6-5"><a href="#cb6-5"></a>  let l:cleaned_url = system('extract_nearest_url "' . l:line . '" ' . l:col)</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a>  " If a URL has been found, open it in Brave</span>
+<span id="cb6-8"><a href="#cb6-8"></a>  if l:cleaned_url != ''</span>
+<span id="cb6-9"><a href="#cb6-9"></a>      silent exec "!brave " . l:cleaned_url</span>
+<span id="cb6-10"><a href="#cb6-10"></a>      redraw!</span>
+<span id="cb6-11"><a href="#cb6-11"></a>  endif</span>
+<span id="cb6-12"><a href="#cb6-12"></a>endfunction</span>
+<span id="cb6-13"><a href="#cb6-13"></a></span>
+<span id="cb6-14"><a href="#cb6-14"></a>" Bind the function to the `gx` key in normal mode</span>
+<span id="cb6-15"><a href="#cb6-15"></a>nnoremap gx :call OpenURLNearestToCursor()&lt;CR&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Notice that the function calls the <code>extract_nearest_url</code> script and the <code>brave</code> script. If you named them differently, you should change the names in the function.</p>
 <p>Finally, on the last line, you can see the keybind <code>gx</code>. You can change it to whatever you want.</p>
 </section>
@@ -771,6 +775,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 
