@@ -84,6 +84,13 @@
     "text": "References\n\nYour AI Product Needs Evals\nA short course on OSS Licensing for Research and Education\nDPD error caused chatbot to swear at customer\nAir Canada has to honor a refund policy its chatbot made up\nBelgian man dies by suicide following exchanges with chatbot\nSimPO: Simple Preference Optimization with a Reference-Free Reward (Meng et al., 2024)\nDirect Preference Optimization: Your Language Model is Secretly a Reward Model (Rafailov et al., 2023)\nA practical example of DPO with the TRL library from HuggingFace"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Vim: Open the URL Nearest to the Cursor in a Web Browser\n\n\n\n\n\n\nvim\n\n\nworkflow\n\n\n\nOpen the URL nearest to the cursor in your web browser with a simple keybind.\n\n\n\n\n\nJun 3, 2024\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1: When and Why to Fine-Tune an LLM\n\n\n\n\n\n\nmastering-llm\n\n\n\nMy notes for the first week of the Mastering LLMs conference hosted by Hamel Husain and Dan Becker.\n\n\n\n\n\nMay 26, 2024\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -91,10 +98,66 @@
     "text": "The elegance in this picture has been playfully elevated with AI.\n\nA long time ago, I earned a degree in psychology, specializing in cognitive and affective science, without pursuing a career in this field.\nCurrently, my interests are centered on AI/ML.\nThis website serves as a platform for publishing some of my notes."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Blog",
+    "objectID": "posts/vim-url-opener/index.html",
+    "href": "posts/vim-url-opener/index.html",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
     "section": "",
-    "text": "Week 1: When and Why to Fine-Tune an LLM\n\n\n\n\n\n\nmastering-llm\n\n\n\nMy notes for the first week of the Mastering LLMs conference hosted by Hamel Husain and Dan Becker.\n\n\n\n\n\nMay 26, 2024\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
+    "text": "You can easily open a URL in your web browser with a simple keybind right from Vim. The common practice is to use gx as the keybind.\nI wrote a small script to improve this workflow: it extracts the URL nearest to the cursor, so that you don’t have to place the cursor exactly under the URL anymore.\nIt also works for Windows via WSL."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#installation",
+    "href": "posts/vim-url-opener/index.html#installation",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Installation",
+    "text": "Installation\nI created a GitHub repository where you can find the scripts, the Vim function, and a shorter version of the instructions below."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#usage",
+    "href": "posts/vim-url-opener/index.html#usage",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Usage",
+    "text": "Usage\nTo open a URL in your web browser, just place the cursor near the URL and press gx. There is no need to have your cursor exactly under the URL."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#setup",
+    "href": "posts/vim-url-opener/index.html#setup",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Setup",
+    "text": "Setup\nNote that this is not a Vim plugin, but a set of Unix filters following the Unix philosophy: “Do one thing and do it well.”\nThis workflow is made of three parts:\n\na Bash script (to call the web browser);\na Python script (to extract the URL nearest to the cursor);\na Vim function and a keybind (to call the scripts)."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#add-the-scripts-to-your-path",
+    "href": "posts/vim-url-opener/index.html#add-the-scripts-to-your-path",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Add the Scripts to Your PATH",
+    "text": "Add the Scripts to Your PATH\nThe two scripts should be in your PATH. This environment variable contains a list of directories in which the shell looks for executables.\nIf you don’t have a custom directory in which you place your scripts to be in your PATH, one default should be /usr/local/bin. They should also be executable, so you should run chmod +x /path/to/script.\n\nCreate a Custom Directory for Your Scripts\nPersonally, I have a directory ~/.scripts in which I place all my scripts.\nAdding a directory to your PATH environment variable is done by adding the following line to your .bashrc or .zshrc:\nexport PATH=$PATH:/path/to/your/directory"
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#bash-script-calling-your-web-browser",
+    "href": "posts/vim-url-opener/index.html#bash-script-calling-your-web-browser",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Bash Script: Calling your Web Browser",
+    "text": "Bash Script: Calling your Web Browser\nThis script just call the executable of your web browser and takes a URL as argument. If you’re using WSL and use Brave, you should create this script:\n#!/bin/bash\n\n/mnt/c/Program\\ Files/BraveSoftware/Brave-Browser/Application/brave.exe \"$1\"\nIf you’re on Linux or MacOS, just change the path appropriately.\nI named the script brave, but you can name it whatever you want. Just remember to change the name in the Vim function."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#python-script-extract-the-url-nearest-to-the-cursor",
+    "href": "posts/vim-url-opener/index.html#python-script-extract-the-url-nearest-to-the-cursor",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Python Script: Extract the URL Nearest to the Cursor",
+    "text": "Python Script: Extract the URL Nearest to the Cursor\nAs for the Bash script, paste the code below in an executable file and put it in your PATH. I named it extract_nearest_url.\n#!/usr/bin/python3\n\nimport re\nimport shlex\nimport sys\n\n\ndef main():\n    line = sys.argv[1] if len(sys.argv) &gt; 1 else \"\"\n    cursor_pos = int(sys.argv[2]) if len(sys.argv) &gt; 2 else 0\n    url = extract_nearest_url(line, cursor_pos)\n    print(url, end=\"\")  # Print without additional newline\n\n\ndef extract_nearest_url(line, cursor_pos):\n    # Regular expression to extract URLs\n    url_patterns = (\n        r\"\\[.*?\\]\\((\\S+?)\\)\",  # Markdown link\n        r\"&lt;(\\S+?)&gt;\",  # Angle brackets\n        r\"\\\\href\\{(\\S+?)\\}\\{.*?\\}\",  # LaTeX \\href{}{}\n        r\"(http[s]?://\\S+)\",  # Plain URLs with protocol\n        r\"(\\b\\S+\\.\\S+)\\b\",  # Plain URLs without protocol\n    )\n    pattern = \"|\".join(url_patterns)\n    matches = re.finditer(pattern, line)\n\n    closest_url = None\n    min_distance = float(\"inf\")\n\n    # Extract URL\n    for match in matches:\n        url = next((group for group in match.groups() if group), None)\n\n        # Calculate distances to cursor position\n        start_pos = match.start()\n        end_pos = match.end()\n        distance = min(abs(cursor_pos - start_pos), abs(cursor_pos - end_pos))\n\n        # Update closest URL\n        if distance &lt; min_distance:\n            min_distance = distance\n            # Clean the URL by removing any trailing punctuation and whitespace\n            cleaned_url = re.sub(r\"[),.\\s]*$\", \"\", url)\n            closest_url = shlex.quote(cleaned_url)\n\n    return closest_url if closest_url else \"\"\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#vim-function-and-keybind",
+    "href": "posts/vim-url-opener/index.html#vim-function-and-keybind",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Vim Function and Keybind",
+    "text": "Vim Function and Keybind\nAdd the following code to your .vimrc:\n\" This function opens the URL nearest to the cursor in Brave \nfunction! OpenURLNearestToCursor()\n  let l:line = getline('.')\n  let l:col = col('.')\n  let l:cleaned_url = system('extract_nearest_url \"' . l:line . '\" ' . l:col)\n\n  \" If a URL has been found, open it in Brave\n  if l:cleaned_url != ''\n      silent exec \"!brave \" . l:cleaned_url\n      redraw!\n  endif\nendfunction\n\n\" Bind the function to the `gx` key in normal mode\nnnoremap gx :call OpenURLNearestToCursor()&lt;CR&gt;\nNotice that the function calls the extract_nearest_url script and the brave script. If you named them differently, you should change the names in the function.\nFinally, on the last line, you can see the keybind gx. You can change it to whatever you want."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#conclusion",
+    "href": "posts/vim-url-opener/index.html#conclusion",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis workflow is an improvement over the ordinary gx keybind. You don’t have to place the cursor exactly under the URL anymore. It’s a small change, but it’s pleasant to use."
   }
 ]

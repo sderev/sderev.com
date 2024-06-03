@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/vim-url-opener/index.html",
       "/posts/mastering-llm_week_1/index.html"
     ]
   }
