@@ -316,19 +316,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Add the following code to your <code>.vimrc</code>:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>" This function opens the URL nearest to the cursor in Brave </span>
 <span id="cb6-2"><a href="#cb6-2"></a>function! OpenURLNearestToCursor()</span>
-<span id="cb6-3"><a href="#cb6-3"></a>  let l:line = getline('.')</span>
-<span id="cb6-4"><a href="#cb6-4"></a>  let l:col = col('.')</span>
-<span id="cb6-5"><a href="#cb6-5"></a>  let l:cleaned_url = system('extract_nearest_url ' . l:line . ' ' . l:col)</span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a>  " If a URL has been found, open it in Brave</span>
-<span id="cb6-8"><a href="#cb6-8"></a>  if l:cleaned_url != ''</span>
-<span id="cb6-9"><a href="#cb6-9"></a>      silent exec "!brave " . fnameescape(l:cleaned_url)</span>
-<span id="cb6-10"><a href="#cb6-10"></a>      redraw!</span>
-<span id="cb6-11"><a href="#cb6-11"></a>  endif</span>
-<span id="cb6-12"><a href="#cb6-12"></a>endfunction</span>
-<span id="cb6-13"><a href="#cb6-13"></a></span>
-<span id="cb6-14"><a href="#cb6-14"></a>" Bind the function to the `gx` key in normal mode</span>
-<span id="cb6-15"><a href="#cb6-15"></a>nnoremap gx :call OpenURLNearestToCursor()&lt;CR&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3"></a>  " Get the current line and column</span>
+<span id="cb6-4"><a href="#cb6-4"></a>  let l:line = getline('.')</span>
+<span id="cb6-5"><a href="#cb6-5"></a>  let l:col = col('.')</span>
+<span id="cb6-6"><a href="#cb6-6"></a>  let l:escaped_line = shellescape(l:line)</span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a>  " Extract the URL nearest to the cursor</span>
+<span id="cb6-9"><a href="#cb6-9"></a>  let l:command = 'extract_nearest_url ' . l:escaped_line . ' ' . l:col</span>
+<span id="cb6-10"><a href="#cb6-10"></a>  let l:cleaned_url = system(l:command)</span>
+<span id="cb6-11"><a href="#cb6-11"></a></span>
+<span id="cb6-12"><a href="#cb6-12"></a>  " If a URL has been found, open it in Brave</span>
+<span id="cb6-13"><a href="#cb6-13"></a>  if l:cleaned_url != ''</span>
+<span id="cb6-14"><a href="#cb6-14"></a>      silent exec "!brave " . fnameescape(l:cleaned_url)</span>
+<span id="cb6-15"><a href="#cb6-15"></a>      redraw!</span>
+<span id="cb6-16"><a href="#cb6-16"></a>  endif</span>
+<span id="cb6-17"><a href="#cb6-17"></a>endfunction</span>
+<span id="cb6-18"><a href="#cb6-18"></a></span>
+<span id="cb6-19"><a href="#cb6-19"></a>" Bind the function to the `gx` key in normal mode</span>
+<span id="cb6-20"><a href="#cb6-20"></a>nnoremap gx :call OpenURLNearestToCursor()&lt;CR&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Notice that the function calls the <code>extract_nearest_url</code> script and the <code>brave</code> script on lines 5 and 9 respectively. If you named them differently, you should change the names in the function.</p>
 <p>Finally, on the last line, you can see the keybind <code>gx</code>. You can change it to whatever you want.</p>
 </section>
