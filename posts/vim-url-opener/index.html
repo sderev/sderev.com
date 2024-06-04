@@ -319,9 +319,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-3"><a href="#cb6-3"></a>  " Get the current line and column</span>
 <span id="cb6-4"><a href="#cb6-4"></a>  let l:line = getline('.')</span>
 <span id="cb6-5"><a href="#cb6-5"></a>  let l:col = col('.')</span>
-<span id="cb6-6"><a href="#cb6-6"></a>  let l:escaped_line = shellescape(l:line)</span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a>  " Extract the URL nearest to the cursor</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a>  " Extract the URL nearest to the cursor</span>
+<span id="cb6-8"><a href="#cb6-8"></a>  let l:escaped_line = shellescape(l:line)</span>
 <span id="cb6-9"><a href="#cb6-9"></a>  let l:command = 'extract_nearest_url ' . l:escaped_line . ' ' . l:col</span>
 <span id="cb6-10"><a href="#cb6-10"></a>  let l:cleaned_url = system(l:command)</span>
 <span id="cb6-11"><a href="#cb6-11"></a></span>
