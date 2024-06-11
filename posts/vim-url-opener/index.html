@@ -260,56 +260,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#!/usr/bin/python3</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="im">import</span> re</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="im">import</span> shlex</span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="im">import</span> sys</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="im">import</span> sys</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
 <span id="cb5-6"><a href="#cb5-6"></a></span>
-<span id="cb5-7"><a href="#cb5-7"></a></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="kw">def</span> main():</span>
-<span id="cb5-9"><a href="#cb5-9"></a>    line <span class="op">=</span> <span class="st">" "</span>.join(sys.argv[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]) <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">""</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>    <span class="cf">try</span>:</span>
-<span id="cb5-11"><a href="#cb5-11"></a>        cursor_pos <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb5-12"><a href="#cb5-12"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
-<span id="cb5-13"><a href="#cb5-13"></a>        sys.exit(<span class="st">"Error: Cursor position must be an integer"</span>)</span>
-<span id="cb5-14"><a href="#cb5-14"></a>    url <span class="op">=</span> extract_nearest_url(line, cursor_pos)</span>
-<span id="cb5-15"><a href="#cb5-15"></a>    <span class="bu">print</span>(url, end<span class="op">=</span><span class="st">""</span>)  <span class="co"># Print without additional newline</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="kw">def</span> main():</span>
+<span id="cb5-8"><a href="#cb5-8"></a>    line <span class="op">=</span> <span class="st">" "</span>.join(sys.argv[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]) <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>    <span class="cf">try</span>:</span>
+<span id="cb5-10"><a href="#cb5-10"></a>        cursor_pos <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb5-11"><a href="#cb5-11"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb5-12"><a href="#cb5-12"></a>        sys.exit(<span class="st">"Error: Cursor position must be an integer"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13"></a>    url <span class="op">=</span> extract_nearest_url(line, cursor_pos)</span>
+<span id="cb5-14"><a href="#cb5-14"></a>    <span class="bu">print</span>(url, end<span class="op">=</span><span class="st">""</span>)  <span class="co"># Print without additional newline</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
 <span id="cb5-16"><a href="#cb5-16"></a></span>
-<span id="cb5-17"><a href="#cb5-17"></a></span>
-<span id="cb5-18"><a href="#cb5-18"></a><span class="kw">def</span> extract_nearest_url(line, cursor_pos):</span>
-<span id="cb5-19"><a href="#cb5-19"></a>    <span class="co"># Regular expression to extract URLs</span></span>
-<span id="cb5-20"><a href="#cb5-20"></a>    url_patterns <span class="op">=</span> (</span>
-<span id="cb5-21"><a href="#cb5-21"></a>        <span class="vs">r"\[.*?\]\((\S+?)\)"</span>,  <span class="co"># Markdown link</span></span>
-<span id="cb5-22"><a href="#cb5-22"></a>        <span class="vs">r"&lt;(\S+?)&gt;"</span>,  <span class="co"># Angle brackets</span></span>
-<span id="cb5-23"><a href="#cb5-23"></a>        <span class="vs">r"\\href\{(\S+?)\}\{.*?\}"</span>,  <span class="co"># LaTeX \href{}{}</span></span>
-<span id="cb5-24"><a href="#cb5-24"></a>        <span class="vs">r"(http[s]?://\S+)"</span>,  <span class="co"># Plain URLs with protocol</span></span>
-<span id="cb5-25"><a href="#cb5-25"></a>        <span class="vs">r"(\b\S+\.\S+)\b"</span>,  <span class="co"># Plain URLs without protocol</span></span>
-<span id="cb5-26"><a href="#cb5-26"></a>    )</span>
-<span id="cb5-27"><a href="#cb5-27"></a>    pattern <span class="op">=</span> <span class="st">"|"</span>.join(url_patterns)</span>
-<span id="cb5-28"><a href="#cb5-28"></a>    matches <span class="op">=</span> re.finditer(pattern, line)</span>
-<span id="cb5-29"><a href="#cb5-29"></a></span>
-<span id="cb5-30"><a href="#cb5-30"></a>    closest_url <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb5-31"><a href="#cb5-31"></a>    min_distance <span class="op">=</span> <span class="bu">float</span>(<span class="st">"inf"</span>)</span>
-<span id="cb5-32"><a href="#cb5-32"></a></span>
-<span id="cb5-33"><a href="#cb5-33"></a>    <span class="co"># Extract URL</span></span>
-<span id="cb5-34"><a href="#cb5-34"></a>    <span class="cf">for</span> match <span class="kw">in</span> matches:</span>
-<span id="cb5-35"><a href="#cb5-35"></a>        url <span class="op">=</span> <span class="bu">next</span>((group <span class="cf">for</span> group <span class="kw">in</span> match.groups() <span class="cf">if</span> group), <span class="va">None</span>)</span>
-<span id="cb5-36"><a href="#cb5-36"></a></span>
-<span id="cb5-37"><a href="#cb5-37"></a>        <span class="co"># Calculate distances to cursor position</span></span>
-<span id="cb5-38"><a href="#cb5-38"></a>        start_pos <span class="op">=</span> match.start()</span>
-<span id="cb5-39"><a href="#cb5-39"></a>        end_pos <span class="op">=</span> match.end()</span>
-<span id="cb5-40"><a href="#cb5-40"></a>        distance <span class="op">=</span> <span class="bu">min</span>(<span class="bu">abs</span>(cursor_pos <span class="op">-</span> start_pos), <span class="bu">abs</span>(cursor_pos <span class="op">-</span> end_pos))</span>
-<span id="cb5-41"><a href="#cb5-41"></a></span>
-<span id="cb5-42"><a href="#cb5-42"></a>        <span class="co"># Update closest URL</span></span>
-<span id="cb5-43"><a href="#cb5-43"></a>        <span class="cf">if</span> distance <span class="op">&lt;</span> min_distance:</span>
-<span id="cb5-44"><a href="#cb5-44"></a>            min_distance <span class="op">=</span> distance</span>
-<span id="cb5-45"><a href="#cb5-45"></a>            <span class="co"># Clean the URL by removing any trailing punctuation and whitespace</span></span>
-<span id="cb5-46"><a href="#cb5-46"></a>            cleaned_url <span class="op">=</span> re.sub(<span class="vs">r"[),.\s]*$"</span>, <span class="st">""</span>, url)</span>
-<span id="cb5-47"><a href="#cb5-47"></a>            closest_url <span class="op">=</span> shlex.quote(cleaned_url)</span>
-<span id="cb5-48"><a href="#cb5-48"></a></span>
-<span id="cb5-49"><a href="#cb5-49"></a>    <span class="cf">return</span> closest_url <span class="cf">if</span> closest_url <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="kw">def</span> extract_nearest_url(line, cursor_pos):</span>
+<span id="cb5-18"><a href="#cb5-18"></a>    <span class="co"># Regular expression to extract URLs</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a>    url_patterns <span class="op">=</span> (</span>
+<span id="cb5-20"><a href="#cb5-20"></a>        <span class="vs">r"\[.*?\]\((\S+?)\)"</span>,  <span class="co"># Markdown link</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>        <span class="vs">r"&lt;(\S+?)&gt;"</span>,  <span class="co"># Angle brackets</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>        <span class="vs">r"\\href\{(\S+?)\}\{.*?\}"</span>,  <span class="co"># LaTeX \href{}{}</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>        <span class="vs">r"(http[s]?://\S+)"</span>,  <span class="co"># Plain URLs with protocol</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a>        <span class="vs">r"(\b\S+\.\S+)\b"</span>,  <span class="co"># Plain URLs without protocol</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a>    )</span>
+<span id="cb5-26"><a href="#cb5-26"></a>    pattern <span class="op">=</span> <span class="st">"|"</span>.join(url_patterns)</span>
+<span id="cb5-27"><a href="#cb5-27"></a>    matches <span class="op">=</span> re.finditer(pattern, line)</span>
+<span id="cb5-28"><a href="#cb5-28"></a></span>
+<span id="cb5-29"><a href="#cb5-29"></a>    nearest_url <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-30"><a href="#cb5-30"></a>    min_distance <span class="op">=</span> <span class="bu">float</span>(<span class="st">"inf"</span>)</span>
+<span id="cb5-31"><a href="#cb5-31"></a></span>
+<span id="cb5-32"><a href="#cb5-32"></a>    <span class="co"># Extract URL</span></span>
+<span id="cb5-33"><a href="#cb5-33"></a>    <span class="cf">for</span> match <span class="kw">in</span> matches:</span>
+<span id="cb5-34"><a href="#cb5-34"></a>        url <span class="op">=</span> <span class="bu">next</span>((group <span class="cf">for</span> group <span class="kw">in</span> match.groups() <span class="cf">if</span> group), <span class="va">None</span>)</span>
+<span id="cb5-35"><a href="#cb5-35"></a></span>
+<span id="cb5-36"><a href="#cb5-36"></a>        <span class="co"># Calculate distances to cursor position</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a>        start_pos <span class="op">=</span> match.start()</span>
+<span id="cb5-38"><a href="#cb5-38"></a>        end_pos <span class="op">=</span> match.end()</span>
+<span id="cb5-39"><a href="#cb5-39"></a>        distance <span class="op">=</span> <span class="bu">min</span>(<span class="bu">abs</span>(cursor_pos <span class="op">-</span> start_pos), <span class="bu">abs</span>(cursor_pos <span class="op">-</span> end_pos))</span>
+<span id="cb5-40"><a href="#cb5-40"></a></span>
+<span id="cb5-41"><a href="#cb5-41"></a>        <span class="co"># Update nearest URL</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a>        <span class="cf">if</span> distance <span class="op">&lt;</span> min_distance:</span>
+<span id="cb5-43"><a href="#cb5-43"></a>            min_distance <span class="op">=</span> distance</span>
+<span id="cb5-44"><a href="#cb5-44"></a>            <span class="co"># Clean the URL by removing any trailing punctuation and whitespace</span></span>
+<span id="cb5-45"><a href="#cb5-45"></a>            cleaned_url <span class="op">=</span> re.sub(<span class="vs">r"[),.\s]*$"</span>, <span class="st">""</span>, url)</span>
+<span id="cb5-46"><a href="#cb5-46"></a>            nearest_url <span class="op">=</span> cleaned_url</span>
+<span id="cb5-47"><a href="#cb5-47"></a></span>
+<span id="cb5-48"><a href="#cb5-48"></a>    <span class="cf">return</span> nearest_url <span class="cf">if</span> nearest_url <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-49"><a href="#cb5-49"></a></span>
 <span id="cb5-50"><a href="#cb5-50"></a></span>
-<span id="cb5-51"><a href="#cb5-51"></a></span>
-<span id="cb5-52"><a href="#cb5-52"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb5-53"><a href="#cb5-53"></a>    main()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-51"><a href="#cb5-51"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb5-52"><a href="#cb5-52"></a>    main()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="vim-function-and-keybind" class="level2">
 <h2 class="anchored" data-anchor-id="vim-function-and-keybind">Vim Function and Keybind</h2>
