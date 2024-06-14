@@ -1,0 +1,15 @@
+---
+title: "How to increase the max upload file size for a PHP web server"
+subtitle: "[Zettel#27](/zettel/27)"
+date: 2022-11-28
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+**Modify `/etc/php/X.X/fpm/php.ini` according to your needs:**
+```bash
+upload_max_filesize = 15MB
+post_max_size = 25MB
+```
+
+`post_max_size` has to be $\geq$ than `upload_max_filesize`, for the former is the maximum size for all `POST` body data.

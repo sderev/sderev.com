@@ -1,0 +1,9 @@
+---
+title: "`ed` Is Pronounced \"ee-dee\""
+subtitle: "[Zettel#104](/zettel/104)"
+date: 2023-07-04
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+This was stated by Brian Kernighan: <https://youtu.be/NTfOnGZUZDk?t=113>.

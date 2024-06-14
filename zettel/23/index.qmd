@@ -1,0 +1,11 @@
+---
+title: "Set timezone in Linux"
+subtitle: "[Zettel#23](/zettel/23)"
+date: 2022-11-25
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+```bash
+sudo timedatectl set-timezone Europe/Paris
+```

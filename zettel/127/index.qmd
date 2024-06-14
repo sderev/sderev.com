@@ -1,0 +1,90 @@
+---
+title: "Equality vs Identity in Python"
+subtitle: "[Zettel#127](/zettel/127)"
+date: 2023-10-05
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+## Equality (`==`) and Identity (`is`)
+
+* **Equality (`==`)**: Checks if two objects represent the same data.
+
+  ```python
+  x = [2, 1, 3, 4]
+  y = [2, 1, 3, 4]
+  x == y  # True
+  ```
+
+* **Identity (`is`)**: Checks if two objects are the same object in memory.
+
+  ```python
+  x is y # False
+  z = x
+  x is z  # True
+  ```
+
+## Default Behavior in Custom Classes
+
+* By default, equality checks in custom classes behave like identity checks.
+* This can be customized using the `__eq__` method.
+
+  ```python
+  class Point:
+      def __init__(self, x, y):
+          self.x = x
+          self.y = y
+  p = Point(1, 2)
+  q = Point(1, 2)
+  p == q  # False
+  ```
+
+## Integer Identity Quirks
+
+* Python optimizes integer objects for values between -5 and 256.
+* This optimization can sometimes extend to other integers within the same scope.
+
+  ```python
+  x, y = 300, 300
+  x is y  # True
+  ```
+## Quirkiness Explained
+
+* Assigning the same integer value to different variables doesn't guarantee identity.
+
+```python
+a = 300
+b = 300
+a is b  # False
+a == b  # True
+```
+This behavior is quirky because it defies the intuition that two variables with the same value should be identical. However, Python's memory optimization rules make this untrue for integers outside the -5 to 256 range.
+
+## String Optimization
+
+* Python also optimizes short strings.
+
+  ```python
+  word1 = "Hello"
+  word2 = "Hello"
+  word1 is word2  # True
+  ```
+
+## When to Use `is`
+
+* Rarely used except for checking sentinel values like `None`.
+
+  ```python
+  x = None
+  x is None  # True
+  ```
+
+## Summary
+
+* Use `==` for equality checks.
+* Use `is` mainly for `None` checks, as recommended by PEP 8.
+
+## References
+
+* [PEP 8 Programming Recommendations for `None` Checks](https://www.python.org/dev/peps/pep-0008/#programming-recommendations)
+* [Python Morsels – When is equality the same as identity?](https://www.pythonmorsels.com/when-is-equality-the-same-as-identity/)

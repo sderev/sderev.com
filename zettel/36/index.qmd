@@ -1,0 +1,18 @@
+---
+title: "Changer de langue (citation de Cioran)"
+subtitle: "[Zettel#36](/zettel/36)"
+date: 2023-02-24
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+> Si on en croit Simone Weil, changer de religion est aussi dangereux pour un croyant que changer de langue pour un écrivain. Je ne suis pas tout à fait de cet avis. Écrire dans une langue étrangère est une émancipation.  C'est se libérer de son propre passé. Je dois avouer cependant qu'au commencement le français me faisait l'effet d'une camisole de force. Rien ne saurait moins convenir à un Balkanique que la rigueur de cette langue. [...] Lorsque plus tard je me suis mis à écrire en français, j'ai fini par me rendre compte qu'adopter une langue étrangère était peut-être une libération mais aussi une épreuve, voire un supplice, un supplice fascinant néanmoins.
+>
+> Avec Gerd Bergfleth, 1984.
+>
+> Cioran
+
+## Related Zettel
+
+* [Zettel#9](/zettel/9)
+* [Zettel#94](/zettel/94)

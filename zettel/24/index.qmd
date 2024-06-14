@@ -1,0 +1,47 @@
+---
+title: "How to easily copy a public SSH key to another machine"
+subtitle: "[Zettel#24](/zettel/24)"
+date: 2022-11-27
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+```bash
+ssh-copy-id user@server
+```
+
+**Use the `-i` flag to specify a particular key**
+
+```bash
+ssh-copy-id -i $HOME/.ssh/id_ed25519 user@server
+```
+
+**From the documentation:**
+
+> If the filename does not end in *.pub* this is added.
+
+So, you don't copy your private key, it's alright. But add it nonetheless if you want to feel extra secured.
+
+**To disable root ssh login, add this to `/etc/sshd_config`:**
+
+```bash
+PermitRootLogin no
+```
+
+**To force ssh key login only, add this to `/etc/sshd_config`:**
+
+```bash
+PubkeyAuthentication yes
+PasswordAuthentication no
+```
+
+**Finally, restart ssh:**
+
+```bash
+sudo systemctl restart ssh
+```
+
+## Related Zettel
+
+* [Zettel#20](/zettel/20)
+* [Zettel#88](/zettel/88)

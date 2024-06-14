@@ -1,0 +1,116 @@
+---
+title: "ChatGPT Integration for Code Analysis in Vim"
+subtitle: "[Zettel#122](/zettel/122)"
+date: 2023-09-23
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+Integrate OpenAI's ChatGPT models into your Vim environment for real-time code analysis.
+
+This guide will walk you through setting up a workflow that combines Vim, Tmux, and my CLI tool called `lmt`—that allows for interaction with ChatGPT from the terminal. You'll be able to select lines of code in Vim, send them to `lmt` via a Bash script, and view the analysis in a new Tmux pane.
+
+## Requirements
+
+* Vim
+* Tmux
+* `lmt`
+
+## Installation
+
+First, ensure that Vim and Tmux are installed on your system. You can install `lmt` from its [GitHub repository](https://github.com/sderev/lmterminal), or you can use `pip` or `pipx`:
+
+```bash
+pipx install lmterminal
+```
+
+### Create a Bash Script
+
+Create a Bash script that accomplishes the following:
+
+* Reads selected lines from Vim's standard input.
+* Writes these lines to a temporary file.
+* Echoes the original lines back to Vim to preserve them.
+* Opens a new Tmux pane and runs `lmt` with the contents of the temporary file.
+* Removes the temporary file.
+
+Here's the script:
+
+```bash
+#!/bin/bash
+
+cleanup() {
+    rm -f "$temp_file"
+}
+
+# Create a temporary file.
+temp_file=$(mktemp) || {
+    echo "Failed to create temporary file." >&2
+    exit 1
+}
+trap cleanup EXIT INT TERM
+
+if [ -t 0 ]; then
+    echo "No input to read. Skipping stdin reading." >&2
+else
+    # Read selected lines piped from Vim and write them to the temporary file.
+    cat > "$temp_file"
+    # Output the selected lines back to Vim to preserve the original file.
+    cat "$temp_file"
+fi
+
+# Reconstruct the arguments string, adding quotes back where necessary
+args=""
+for arg in "$@"; do
+    if [[ $arg == *" "* ]]; then
+        args+="\"$arg\" "
+    else
+        args+="$arg "
+    fi
+done
+args=${args%?}
+
+# Get the user's preferred shell with a fallback on `sh`
+user_shell="${SHELL:-/bin/sh}"
+
+# Open a new Tmux pane and run the `lmt` command with the temporary file as input.
+# Opening a new shell session to keep the pane open for reading the output.
+tmux_cmd="cat $temp_file | lmt $args --rich; $user_shell"
+tmux split-window -v "$tmux_cmd"
+```
+
+Don't forget to change `zsh` in the last line by `bash` if that's the shell you use.
+
+### Vim Configuration
+
+In Vim, after selecting lines in visual mode, press `!` to filter the selected lines through the Bash script.
+
+```vim
+:'<,'>!path/to/your_script
+```
+
+Place your script in your system's `PATH` for easier access.
+
+### 3. Tmux Configuration
+
+Make sure Tmux is running so that the script can open a new pane.
+
+## Usage
+
+1. Select lines in Vim.
+2. Press `!` and enter `path/to/your_script`.
+3. A new Tmux pane will open, running `lmt` to analyze the selected lines.
+4. The Tmux pane will remain open, allowing you to read the output at your leisure.
+
+## Advanced Customization with LMT
+
+The `lmt` tool allows for advanced customization through the `-t/--template` option. This enables you to design and use your own templates for the `system` prompt, broadening the potential applications of this workflow.
+
+## That's it!
+
+* This workflow is particularly useful for quickly analyzing code without leaving your Vim/Tmux environment.
+* The `lmt` tool can be configured with different system behaviors or templates for various types of code analysis.
+
+## Related Zettel
+
+* [Zettel#134](/zettel/134)

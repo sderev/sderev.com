@@ -1,6 +1,24 @@
 /*-- fonts --*/
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Fira+Code:wght@300..700&display=swap');
 
+h1 code {
+  font-size: 1.3rem;
+  background-color: #f1f1f1;
+  padding: 0.2em;
+  border-radius: 0.2em;
+}
+
+h2 code {
+    font-size: 1.1rem;
+}
+
+.listing-subtitle a {
+    color: #333 !important;
+    pointer-events: none;
+    texst-decoration: none;
+    cursor: default;
+}
+
 /*-- scss:defaults --*/
 $toc-font-size: .95em;
 $code-block-bg-padding: 1em;

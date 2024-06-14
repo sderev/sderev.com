@@ -1,0 +1,60 @@
+---
+title: "How to Execute Parallel and Concurrent Commands in Bash"
+subtitle: "[Zettel#149](/zettel/149)"
+date: 2024-04-19
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+**As a reminder**:
+
+> Parallelism is doing a lot of things at once. Concurrency can be used to run things in parallel, but concurrency is about structuring things.
+>
+> Rob Pike
+
+## Using `&` and `wait`
+
+This is for concurrent execution.
+
+Using `&` after a command will put it in the background, and `wait` will wait for all background processes to finish.
+
+### Example
+
+```bash
+#!/bin/bash
+
+echo "Starting"
+
+command1 &
+command2 &
+wait
+
+echo "Finished"
+```
+
+## Using GNU Parallel
+
+### Example
+
+```bash
+#!/bin/bash
+
+echo "Starting"
+
+parallel ::: "command1" "command2"
+
+echo "Finished"
+```
+
+### Example Using pipe
+
+```bash
+#!/bin/bash
+
+echo "Starting"
+
+echo "command1" > commands.txt
+echo "command2" >> commands.txt
+
+cat commands.txt | parallel
+```

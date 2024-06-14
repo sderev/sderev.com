@@ -1,0 +1,105 @@
+---
+title: "GPG Key Configuration for Signing Commits with Git and GitHub"
+subtitle: "[Zettel#142](/zettel/142)"
+date: 2024-02-15
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+A step-by-step guide to generating a GPG key, configuring Git to use it for signing commits, adding the key to GitHub, verifying commit signatures, and setting up GPG agent for passphrase caching.
+
+## Generate a GPG Key
+
+1. Open a terminal and run:
+
+   ```sh
+   gpg --full-generate-key
+   ```
+   
+2. Follow the prompts to select the key type, key size (recommend 4096 bits for RSA), and expiration. Enter your name and email address.
+
+## Configure Git to Sign Commits with GPG Key
+
+1. List GPG keys to find your key ID:
+
+   ```sh
+   gpg --list-secret-keys --keyid-format LONG
+   ```
+
+   Look for the sec line followed by the key type and size, and then the key ID in this format: `rsa4096/ABCDEFGH12345678 2021-01-01 [SC]`. The key ID in this example is `ABCDEFGH12345678`.
+   
+2. Configure Git to use your GPG key:
+
+   ```sh
+   git config --global user.signingkey YOUR_GPG_KEY_ID
+   ```
+
+   You can now sign your commits using `git commit -S`.
+
+3. To sign all commits by default in all repositories, use:
+
+   ```sh
+   git config --global commit.gpgSign true
+   ```
+
+## Add Your GPG Key to GitHub
+
+### Via GitHub Web Interface
+
+1. Export your public GPG key:
+
+   ```sh
+   gpg --armor --export YOUR_GPG_KEY_ID
+   ```
+   
+2. Copy the exported key (including the `-----BEGIN PGP PUBLIC KEY BLOCK-----` and `-----END PGP PUBLIC KEY BLOCK-----`).
+
+3. Go to GitHub > Settings > SSH and GPG keys > New GPG key, paste your key, and save.
+
+### Via `gh` CLI Utility
+
+Run to add your GPG key to GitHub:
+
+```sh
+gh api user/gpg_keys -F armored_public_key="$(gpg --armor --export YOUR_GPG_KEY_ID)"
+```
+
+## Verify Commit Signature
+
+To verify the signature of the latest commit, run:
+
+```sh
+git log --show-signature -1
+```
+
+## Configure GPG Agent for Passphrase Caching
+
+1. Edit `~/.gnupg/gpg-agent.conf` (create if it doesn't exist):
+
+   ```sh
+   vim ~/.gnupg/gpg-agent.conf
+   ```
+
+2. Add or modify the following lines:
+
+   ```
+   default-cache-ttl 3600
+   max-cache-ttl 86400
+   ```
+
+   Adjust the values according to your security and convenience needs.
+
+3. Restart the GPG agent:
+
+   ```sh
+   gpgconf --kill gpg-agent
+   gpg-agent --daemon
+   ```
+
+### Stay in Your Terminal when Prompted for Passphrase
+
+To avoid the passphrase prompt from opening a new window, add the following line to your shell configuration file (e.g., `~/.bashrc`, `~/.zshrc`):
+
+```bash
+export GPG_TTY=$(tty)
+```

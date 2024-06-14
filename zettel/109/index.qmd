@@ -1,0 +1,39 @@
+---
+title: "Utilizing Alternative Delimiters in Vim's Substitution Command"
+subtitle: "[Zettel#109](/zettel/109)"
+date: 2023-07-30
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+Vim's `:s` command lets you use substitution with regular expressions. While `/` is the common delimiter, you can use other characters (except for `\`, `"`, `|`). 
+
+## Examples
+
+### Standard Substitution
+
+```vim
+:s/foo/bar/g
+```
+
+### Same substitution with `#` as delimiter
+
+```vim
+:s#foo#bar#g
+```
+
+Using a different delimiter lets you avoid escaping slashes in patterns like file paths.
+
+## Simplifying File Path Substitution
+
+### With Escaping Slashes
+
+```vim
+:s/\/User\/local\/bin\//\/usr\/sbin\//g
+```
+
+### Using `#` as Delimiter
+
+```vim
+:s#/User/local/bin/#/usr/sbin/#g
+```

@@ -1,0 +1,26 @@
+---
+title: "Vim Command for Retrieving Syntax Highlighting Information"
+subtitle: "[Zettel#130](/zettel/130)"
+date: 2023-10-11
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+## Command
+
+```vim
+:echo synIDattr(synID(line("."), col("."), 1), "name")
+```
+
+## Description
+
+This Vim command outputs the syntax highlighting group name for the character under the cursor.
+
+## Components
+
+* `synID`: Gets the syntax ID for a given line and column.
+* `synIDattr`: Retrieves an attribute of a syntax ID, in this case, the "name".
+
+## Usage
+
+Run the command in Vim's command-line mode to identify the syntax group of the character where the cursor is currently positioned.
