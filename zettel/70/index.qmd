@@ -1,6 +1,6 @@
 ---
 title: "Distributing a Python CLI Application with Autocompletion"
-subtitle: "[Zettel#70](/zettel/70)"
+subtitle: "Zettel#70"
 date: 2023-04-16
 date-modified: ""
 date-format: iso

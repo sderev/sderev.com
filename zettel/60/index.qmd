@@ -1,6 +1,6 @@
 ---
 title: "How to use macros in Vim"
-subtitle: "[Zettel#60](/zettel/60)"
+subtitle: "Zettel#60"
 date: 2023-04-07
 date-modified: ""
 date-format: iso

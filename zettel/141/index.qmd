@@ -1,6 +1,6 @@
 ---
 title: "Managing Git Configurations Conditionally"
-subtitle: "[Zettel#141](/zettel/141)"
+subtitle: "Zettel#141"
 date: 2024-02-12
 date-modified: ""
 date-format: iso

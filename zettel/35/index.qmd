@@ -1,6 +1,6 @@
 ---
 title: "How to automatically create ordered lists in Vim"
-subtitle: "[Zettel#35](/zettel/35)"
+subtitle: "Zettel#35"
 date: 2023-02-23
 date-modified: ""
 date-format: iso

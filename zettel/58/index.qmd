@@ -1,6 +1,6 @@
 ---
 title: "Linux Output Redirection"
-subtitle: "[Zettel#58](/zettel/58)"
+subtitle: "Zettel#58"
 date: 2023-04-06
 date-modified: ""
 date-format: iso

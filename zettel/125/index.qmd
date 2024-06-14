@@ -1,6 +1,6 @@
 ---
 title: "Amending a Specific Past Git Commit Without Affecting Recent Ones"
-subtitle: "[Zettel#125](/zettel/125)"
+subtitle: "Zettel#125"
 date: 2023-09-28
 date-modified: ""
 date-format: iso

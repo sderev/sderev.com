@@ -1,6 +1,6 @@
 ---
 title: "What is the Chiaroscuro technique?"
-subtitle: "[Zettel#6](/zettel/6)"
+subtitle: "Zettel#6"
 date: 2022-08-15
 date-modified: ""
 date-format: iso

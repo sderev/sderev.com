@@ -1,6 +1,6 @@
 ---
 title: "Vim Buffers: Renaming, Switching and Opening Files"
-subtitle: "[Zettel#65](/zettel/65)"
+subtitle: "Zettel#65"
 date: 2023-04-08
 date-modified: ""
 date-format: iso

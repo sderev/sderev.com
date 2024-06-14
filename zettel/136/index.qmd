@@ -1,6 +1,6 @@
 ---
 title: "`yield from`: The Extend Method for Generators"
-subtitle: "[Zettel#136](/zettel/136)"
+subtitle: "Zettel#136"
 date: 2023-10-19
 date-modified: ""
 date-format: iso

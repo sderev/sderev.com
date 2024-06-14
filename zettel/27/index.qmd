@@ -1,6 +1,6 @@
 ---
 title: "How to increase the max upload file size for a PHP web server"
-subtitle: "[Zettel#27](/zettel/27)"
+subtitle: "Zettel#27"
 date: 2022-11-28
 date-modified: ""
 date-format: iso

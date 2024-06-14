@@ -1,6 +1,6 @@
 ---
 title: "Handling Long Strings in Python"
-subtitle: "[Zettel#71](/zettel/71)"
+subtitle: "Zettel#71"
 date: 2023-04-16
 date-modified: ""
 date-format: iso

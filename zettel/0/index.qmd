@@ -1,6 +1,6 @@
 ---
 title: "Citation de Louis Blanc"
-subtitle: "[Zettel#0](/zettel/0)"
+subtitle: "Zettel#0"
 date: 2022-07-12
 date-modified: ""
 date-format: iso

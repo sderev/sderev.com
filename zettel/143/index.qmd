@@ -1,6 +1,6 @@
 ---
 title: "Use `git maintenance start`"
-subtitle: "[Zettel#143](/zettel/143)"
+subtitle: "Zettel#143"
 date: 2024-02-15
 date-modified: ""
 date-format: iso

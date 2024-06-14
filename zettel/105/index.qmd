@@ -1,6 +1,6 @@
 ---
 title: "Google Dorking Cheat Sheet"
-subtitle: "[Zettel#105](/zettel/105)"
+subtitle: "Zettel#105"
 date: 2023-07-04
 date-modified: ""
 date-format: iso

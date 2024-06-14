@@ -1,6 +1,6 @@
 ---
 title: "Cybersecurity questions preparation exams"
-subtitle: "[Zettel#4](/zettel/4)"
+subtitle: "Zettel#4"
 date: 2022-07-14
 date-modified: ""
 date-format: iso

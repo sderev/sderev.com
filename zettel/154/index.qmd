@@ -1,6 +1,6 @@
 ---
 title: "Reading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)"
-subtitle: "[Zettel#154](/zettel/154)"
+subtitle: "Zettel#154"
 date: 2024-05-16
 date-modified: ""
 date-format: iso

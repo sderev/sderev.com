@@ -1,6 +1,6 @@
 ---
 title: "Bash history Toolkit"
-subtitle: "[Zettel#22](/zettel/22)"
+subtitle: "Zettel#22"
 date: 2022-11-25
 date-modified: ""
 date-format: iso

@@ -1,6 +1,6 @@
 ---
 title: "How to remap keys in Linux"
-subtitle: "[Zettel#3](/zettel/3)"
+subtitle: "Zettel#3"
 date: 2022-07-13
 date-modified: ""
 date-format: iso

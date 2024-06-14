@@ -1,6 +1,6 @@
 ---
 title: "Understanding Keyword-Only Function Arguments in Python"
-subtitle: "[Zettel#116](/zettel/116)"
+subtitle: "Zettel#116"
 date: 2023-09-13
 date-modified: ""
 date-format: iso

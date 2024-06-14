@@ -1,6 +1,6 @@
 ---
 title: "Differences between Casting, Parsing and Converting"
-subtitle: "[Zettel#11](/zettel/11)"
+subtitle: "Zettel#11"
 date: 2022-09-08
 date-modified: ""
 date-format: iso

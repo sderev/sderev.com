@@ -1,6 +1,6 @@
 ---
 title: "Speedy Directory Switching with `CDPATH`"
-subtitle: "[Zettel#123](/zettel/123)"
+subtitle: "Zettel#123"
 date: 2023-09-24
 date-modified: ""
 date-format: iso

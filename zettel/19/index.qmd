@@ -1,6 +1,6 @@
 ---
 title: "Checking user passwords"
-subtitle: "[Zettel#19](/zettel/19)"
+subtitle: "Zettel#19"
 date: 2022-11-23
 date-modified: ""
 date-format: iso

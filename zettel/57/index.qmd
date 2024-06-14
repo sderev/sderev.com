@@ -1,6 +1,6 @@
 ---
 title: "How to create a virtual environment for a Python project"
-subtitle: "[Zettel#57](/zettel/57)"
+subtitle: "Zettel#57"
 date: 2023-04-05
 date-modified: ""
 date-format: iso

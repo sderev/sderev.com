@@ -1,6 +1,6 @@
 ---
 title: "Vim: Save a File You Forgot to Open with Sudo"
-subtitle: "[Zettel#152](/zettel/152)"
+subtitle: "Zettel#152"
 date: 2024-05-02
 date-modified: ""
 date-format: iso

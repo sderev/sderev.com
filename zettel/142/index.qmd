@@ -1,6 +1,6 @@
 ---
 title: "GPG Key Configuration for Signing Commits with Git and GitHub"
-subtitle: "[Zettel#142](/zettel/142)"
+subtitle: "Zettel#142"
 date: 2024-02-15
 date-modified: ""
 date-format: iso

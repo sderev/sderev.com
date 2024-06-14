@@ -1,6 +1,6 @@
 ---
 title: "ANSI Escape Sequences"
-subtitle: "[Zettel#56](/zettel/56)"
+subtitle: "Zettel#56"
 date: 2023-04-04
 date-modified: ""
 date-format: iso

@@ -1,6 +1,6 @@
 ---
 title: "How to Know if an Object is an Iterable in Python"
-subtitle: "[Zettel#135](/zettel/135)"
+subtitle: "Zettel#135"
 date: 2023-10-19
 date-modified: ""
 date-format: iso

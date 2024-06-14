@@ -1,6 +1,6 @@
 ---
 title: "Change Model Directory for Ollama"
-subtitle: "[Zettel#157](/zettel/157)"
+subtitle: "Zettel#157"
 date: 2024-06-12
 date-modified: ""
 date-format: iso

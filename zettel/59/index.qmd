@@ -1,6 +1,6 @@
 ---
 title: "`which` vs `command -v`"
-subtitle: "[Zettel#59](/zettel/59)"
+subtitle: "Zettel#59"
 date: 2023-04-06
 date-modified: ""
 date-format: iso

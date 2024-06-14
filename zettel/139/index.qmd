@@ -1,6 +1,6 @@
 ---
 title: "Vim Shortcuts in Insert Mode"
-subtitle: "[Zettel#139](/zettel/139)"
+subtitle: "Zettel#139"
 date: 2024-01-29
 date-modified: ""
 date-format: iso

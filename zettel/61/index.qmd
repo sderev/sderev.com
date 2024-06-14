@@ -1,6 +1,6 @@
 ---
 title: "Ignoring portions of code with the Python code formatter Black"
-subtitle: "[Zettel#61](/zettel/61)"
+subtitle: "Zettel#61"
 date: 2023-04-07
 date-modified: ""
 date-format: iso

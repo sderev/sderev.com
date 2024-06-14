@@ -1,6 +1,6 @@
 ---
 title: "How to change the default editor in Linux (when it's Nano instead of Vim)"
-subtitle: "[Zettel#2](/zettel/2)"
+subtitle: "Zettel#2"
 date: 2022-07-13
 date-modified: ""
 date-format: iso

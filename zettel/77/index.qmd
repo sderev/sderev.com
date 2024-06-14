@@ -1,6 +1,6 @@
 ---
 title: "How to Add a `title` and `alt` Attribute, and a caption to an Image Using Pandoc Markdown"
-subtitle: "[Zettel#77](/zettel/77)"
+subtitle: "Zettel#77"
 date: 2023-04-19
 date-modified: ""
 date-format: iso

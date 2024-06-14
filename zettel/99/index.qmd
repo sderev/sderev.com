@@ -1,6 +1,6 @@
 ---
 title: "Using `xclip` for Clipboard Operations in WSL and VMs Running on Windows"
-subtitle: "[Zettel#99](/zettel/99)"
+subtitle: "Zettel#99"
 date: 2023-06-15
 date-modified: ""
 date-format: iso

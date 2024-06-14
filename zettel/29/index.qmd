@@ -1,6 +1,6 @@
 ---
 title: "The problem of seeking informations and the limits of LLMs in that regard"
-subtitle: "[Zettel#29](/zettel/29)"
+subtitle: "Zettel#29"
 date: 2022-12-04
 date-modified: ""
 date-format: iso

@@ -1,6 +1,6 @@
 ---
 title: "Creating and managing cron jobs"
-subtitle: "[Zettel#63](/zettel/63)"
+subtitle: "Zettel#63"
 date: 2023-04-08
 date-modified: ""
 date-format: iso

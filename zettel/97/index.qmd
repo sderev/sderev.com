@@ -1,6 +1,6 @@
 ---
 title: "Seam Carving Algorithm"
-subtitle: "[Zettel#97](/zettel/97)"
+subtitle: "Zettel#97"
 date: 2023-06-11
 date-modified: ""
 date-format: iso

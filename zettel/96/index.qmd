@@ -1,6 +1,6 @@
 ---
 title: "Removing Vocals from Music: A Simple Hack"
-subtitle: "[Zettel#96](/zettel/96)"
+subtitle: "Zettel#96"
 date: 2023-06-11
 date-modified: ""
 date-format: iso

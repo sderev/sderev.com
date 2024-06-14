@@ -1,6 +1,6 @@
 ---
 title: "Python Packaging with `pyproject.toml`"
-subtitle: "[Zettel#131](/zettel/131)"
+subtitle: "Zettel#131"
 date: 2023-10-12
 date-modified: ""
 date-format: iso

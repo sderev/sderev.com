@@ -1,6 +1,6 @@
 ---
 title: "Experts and Novices don't learn the same way"
-subtitle: "[Zettel#14](/zettel/14)"
+subtitle: "Zettel#14"
 date: 2022-10-13
 date-modified: ""
 date-format: iso

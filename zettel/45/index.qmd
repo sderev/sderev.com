@@ -1,6 +1,6 @@
 ---
 title: "How to sort inside brackets (parentheses, etc.) in Vim"
-subtitle: "[Zettel#45](/zettel/45)"
+subtitle: "Zettel#45"
 date: 2023-03-11
 date-modified: ""
 date-format: iso

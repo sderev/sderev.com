@@ -1,6 +1,6 @@
 ---
 title: "Learn Git and GitHub"
-subtitle: "[Zettel#91](/zettel/91)"
+subtitle: "Zettel#91"
 date: 2023-05-27
 date-modified: ""
 date-format: iso

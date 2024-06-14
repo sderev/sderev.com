@@ -1,6 +1,6 @@
 ---
 title: "How to sort files and folders by size in Linux"
-subtitle: "[Zettel#12](/zettel/12)"
+subtitle: "Zettel#12"
 date: 2022-09-16
 date-modified: ""
 date-format: iso

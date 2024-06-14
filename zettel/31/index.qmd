@@ -1,6 +1,6 @@
 ---
 title: "How to disable cursor blinking in a Linux shell"
-subtitle: "[Zettel#31](/zettel/31)"
+subtitle: "Zettel#31"
 date: 2023-01-08
 date-modified: ""
 date-format: iso

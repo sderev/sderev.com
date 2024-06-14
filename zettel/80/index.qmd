@@ -1,6 +1,6 @@
 ---
 title: "Using `in` vs. `find()` in Python"
-subtitle: "[Zettel#80](/zettel/80)"
+subtitle: "Zettel#80"
 date: 2023-04-21
 date-modified: ""
 date-format: iso

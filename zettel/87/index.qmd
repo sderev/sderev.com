@@ -1,6 +1,6 @@
 ---
 title: "Remapping the `²` Key on an AZERTY Keyboard with AutoHotkey (Windows)"
-subtitle: "[Zettel#87](/zettel/87)"
+subtitle: "Zettel#87"
 date: 2023-05-19
 date-modified: ""
 date-format: iso
