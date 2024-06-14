@@ -1,6 +1,6 @@
 ---
 title: "Understanding Vim Regular Expressions: A Comparison with PCRE"
-subtitle: "[Zettel#92](/zettel/92)"
+subtitle: "Zettel#92"
 date: 2023-05-31
 date-modified: ""
 date-format: iso

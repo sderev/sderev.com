@@ -1,6 +1,6 @@
 ---
 title: "RGB vs HSL Color Models"
-subtitle: "[Zettel#95](/zettel/95)"
+subtitle: "Zettel#95"
 date: 2023-06-08
 date-modified: ""
 date-format: iso

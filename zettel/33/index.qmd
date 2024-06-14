@@ -1,6 +1,6 @@
 ---
 title: "Can Python functions get lonely?"
-subtitle: "[Zettel#33](/zettel/33)"
+subtitle: "Zettel#33"
 date: 2023-01-28
 date-modified: ""
 date-format: iso

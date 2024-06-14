@@ -1,6 +1,6 @@
 ---
 title: "Stop Writing Your Error Messages to `stdout`"
-subtitle: "[Zettel#107](/zettel/107)"
+subtitle: "Zettel#107"
 date: 2023-07-23
 date-modified: ""
 date-format: iso

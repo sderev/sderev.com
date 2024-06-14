@@ -1,6 +1,6 @@
 ---
 title: "`w3m` Cheatsheet"
-subtitle: "[Zettel#108](/zettel/108)"
+subtitle: "Zettel#108"
 date: 2023-07-28
 date-modified: ""
 date-format: iso

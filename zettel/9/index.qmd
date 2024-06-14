@@ -1,6 +1,6 @@
 ---
 title: "Moby Dick, extrait de la première page"
-subtitle: "[Zettel#9](/zettel/9)"
+subtitle: "Zettel#9"
 date: 2022-08-23
 date-modified: ""
 date-format: iso

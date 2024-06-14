@@ -1,6 +1,6 @@
 ---
 title: "How to Execute Parallel and Concurrent Commands in Bash"
-subtitle: "[Zettel#149](/zettel/149)"
+subtitle: "Zettel#149"
 date: 2024-04-19
 date-modified: ""
 date-format: iso

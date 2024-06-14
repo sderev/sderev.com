@@ -1,6 +1,6 @@
 ---
 title: "How to make .bashrc aliases available within a Vim shell command (:.!bash)"
-subtitle: "[Zettel#17](/zettel/17)"
+subtitle: "Zettel#17"
 date: 2022-11-19
 date-modified: ""
 date-format: iso

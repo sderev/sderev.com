@@ -1,6 +1,6 @@
 ---
 title: "How to disable the `^C` char printed in Bash when pressing `<CTRL-C>`"
-subtitle: "[Zettel#46](/zettel/46)"
+subtitle: "Zettel#46"
 date: 2023-03-12
 date-modified: ""
 date-format: iso

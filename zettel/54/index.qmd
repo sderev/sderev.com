@@ -1,6 +1,6 @@
 ---
 title: "How to add a user to the sudo group"
-subtitle: "[Zettel#54](/zettel/54)"
+subtitle: "Zettel#54"
 date: 2023-03-31
 date-modified: ""
 date-format: iso

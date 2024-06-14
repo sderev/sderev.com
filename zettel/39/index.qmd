@@ -1,6 +1,6 @@
 ---
 title: "Write a Zettel even if you think you don't need it"
-subtitle: "[Zettel#39](/zettel/39)"
+subtitle: "Zettel#39"
 date: 2023-03-07
 date-modified: ""
 date-format: iso

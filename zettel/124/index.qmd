@@ -1,6 +1,6 @@
 ---
 title: "The \"Safe Triangle\" Design Pattern for Better UI Context Menus"
-subtitle: "[Zettel#124](/zettel/124)"
+subtitle: "Zettel#124"
 date: 2023-09-26
 date-modified: ""
 date-format: iso

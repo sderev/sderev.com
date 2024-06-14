@@ -1,6 +1,6 @@
 ---
 title: "Don't use `time.time()`"
-subtitle: "[Zettel#75](/zettel/75)"
+subtitle: "Zettel#75"
 date: 2023-04-17
 date-modified: ""
 date-format: iso

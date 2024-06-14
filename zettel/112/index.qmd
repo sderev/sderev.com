@@ -1,6 +1,6 @@
 ---
 title: "Managing Upgrades of Bundled CLI Tools in a metapackage Installed via `pipx`"
-subtitle: "[Zettel#112](/zettel/112)"
+subtitle: "Zettel#112"
 date: 2023-08-22
 date-modified: ""
 date-format: iso

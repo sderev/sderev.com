@@ -1,6 +1,6 @@
 ---
 title: "Changer de langue (citation de Cioran)"
-subtitle: "[Zettel#36](/zettel/36)"
+subtitle: "Zettel#36"
 date: 2023-02-24
 date-modified: ""
 date-format: iso

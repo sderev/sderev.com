@@ -1,6 +1,6 @@
 ---
 title: "Utilizing Alternative Delimiters in Vim's Substitution Command"
-subtitle: "[Zettel#109](/zettel/109)"
+subtitle: "Zettel#109"
 date: 2023-07-30
 date-modified: ""
 date-format: iso

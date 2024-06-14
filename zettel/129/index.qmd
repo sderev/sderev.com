@@ -1,6 +1,6 @@
 ---
 title: "Optimizing Memory and Attribute Lookup in Python Classes with `__slots__`"
-subtitle: "[Zettel#129](/zettel/129)"
+subtitle: "Zettel#129"
 date: 2023-10-06
 date-modified: ""
 date-format: iso

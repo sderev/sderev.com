@@ -1,6 +1,6 @@
 ---
 title: "Containers, Docker, and Podman"
-subtitle: "[Zettel#90](/zettel/90)"
+subtitle: "Zettel#90"
 date: 2023-05-27
 date-modified: ""
 date-format: iso

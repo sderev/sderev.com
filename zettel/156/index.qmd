@@ -1,6 +1,6 @@
 ---
 title: "The `hosts` File as a Self-Care Hack to Block Distractions"
-subtitle: "[Zettel#156](/zettel/156)"
+subtitle: "Zettel#156"
 date: 2024-06-01
 date-modified: ""
 date-format: iso

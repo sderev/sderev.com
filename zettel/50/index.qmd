@@ -1,6 +1,6 @@
 ---
 title: "`pushd` and `popd` are on a boat..."
-subtitle: "[Zettel#50](/zettel/50)"
+subtitle: "Zettel#50"
 date: 2023-03-30
 date-modified: ""
 date-format: iso

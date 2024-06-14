@@ -1,6 +1,6 @@
 ---
 title: "Handling infinity in programming languages"
-subtitle: "[Zettel#49](/zettel/49)"
+subtitle: "Zettel#49"
 date: 2023-03-24
 date-modified: ""
 date-format: iso

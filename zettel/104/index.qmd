@@ -1,6 +1,6 @@
 ---
 title: "`ed` Is Pronounced \"ee-dee\""
-subtitle: "[Zettel#104](/zettel/104)"
+subtitle: "Zettel#104"
 date: 2023-07-04
 date-modified: ""
 date-format: iso

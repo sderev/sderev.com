@@ -1,6 +1,6 @@
 ---
 title: "General Strategy Whenever You Have a Bug"
-subtitle: "[Zettel#93](/zettel/93)"
+subtitle: "Zettel#93"
 date: 2023-06-05
 date-modified: ""
 date-format: iso

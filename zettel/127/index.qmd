@@ -1,6 +1,6 @@
 ---
 title: "Equality vs Identity in Python"
-subtitle: "[Zettel#127](/zettel/127)"
+subtitle: "Zettel#127"
 date: 2023-10-05
 date-modified: ""
 date-format: iso

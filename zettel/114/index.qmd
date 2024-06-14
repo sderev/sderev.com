@@ -1,6 +1,6 @@
 ---
 title: "Strong vs. Weak Typing"
-subtitle: "[Zettel#114](/zettel/114)"
+subtitle: "Zettel#114"
 date: 2023-09-12
 date-modified: ""
 date-format: iso

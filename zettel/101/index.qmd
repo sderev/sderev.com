@@ -1,6 +1,6 @@
 ---
 title: "Understanding `xclip` File Commands and Their Use Cases"
-subtitle: "[Zettel#101](/zettel/101)"
+subtitle: "Zettel#101"
 date: 2023-06-16
 date-modified: ""
 date-format: iso

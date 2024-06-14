@@ -1,6 +1,6 @@
 ---
 title: "Pathlib vs. os.path Performance"
-subtitle: "[Zettel#76](/zettel/76)"
+subtitle: "Zettel#76"
 date: 2023-04-17
 date-modified: ""
 date-format: iso

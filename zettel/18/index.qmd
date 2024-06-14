@@ -1,6 +1,6 @@
 ---
 title: "Generating Secure Passwords with Linux Tools"
-subtitle: "[Zettel#18](/zettel/18)"
+subtitle: "Zettel#18"
 date: 2022-11-23
 date-modified: ""
 date-format: iso

@@ -1,6 +1,6 @@
 ---
 title: "If Your Code Uses `f-strings`, Your Dictionaries Are Already Ordered"
-subtitle: "[Zettel#67](/zettel/67)"
+subtitle: "Zettel#67"
 date: 2023-04-11
 date-modified: ""
 date-format: iso

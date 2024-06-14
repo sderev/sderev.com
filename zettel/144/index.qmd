@@ -1,6 +1,6 @@
 ---
 title: "Use `ddof=1` for Sample Dispersion Measures with NumPy"
-subtitle: "[Zettel#144](/zettel/144)"
+subtitle: "Zettel#144"
 date: 2024-03-01
 date-modified: ""
 date-format: iso

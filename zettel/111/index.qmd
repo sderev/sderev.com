@@ -1,6 +1,6 @@
 ---
 title: "UUID: An Introduction and Usage"
-subtitle: "[Zettel#111](/zettel/111)"
+subtitle: "Zettel#111"
 date: 2023-07-31
 date-modified: ""
 date-format: iso

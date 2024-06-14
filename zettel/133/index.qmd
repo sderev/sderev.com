@@ -1,6 +1,6 @@
 ---
 title: "A Better Library for Logging in Python: Eliot"
-subtitle: "[Zettel#133](/zettel/133)"
+subtitle: "Zettel#133"
 date: 2023-10-19
 date-modified: ""
 date-format: iso

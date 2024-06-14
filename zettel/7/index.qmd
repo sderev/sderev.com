@@ -1,6 +1,6 @@
 ---
 title: "How will machine learning impact the IT industry?"
-subtitle: "[Zettel#7](/zettel/7)"
+subtitle: "Zettel#7"
 date: 2022-08-19
 date-modified: ""
 date-format: iso

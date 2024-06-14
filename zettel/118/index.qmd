@@ -1,6 +1,6 @@
 ---
 title: "Cheat Sheet for Python `f-string`"
-subtitle: "[Zettel#118](/zettel/118)"
+subtitle: "Zettel#118"
 date: 2023-09-14
 date-modified: ""
 date-format: iso

@@ -1,6 +1,6 @@
 ---
 title: "Partial Functions in Python"
-subtitle: "[Zettel#82](/zettel/82)"
+subtitle: "Zettel#82"
 date: 2023-05-02
 date-modified: ""
 date-format: iso

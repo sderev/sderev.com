@@ -1,6 +1,6 @@
 ---
 title: "Difference between `set` and `setx` in a Windows shell"
-subtitle: "[Zettel#84](/zettel/84)"
+subtitle: "Zettel#84"
 date: 2023-05-09
 date-modified: ""
 date-format: iso

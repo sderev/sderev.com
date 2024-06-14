@@ -1,6 +1,6 @@
 ---
 title: "The rise of domain experts in deep learning"
-subtitle: "[Zettel#8](/zettel/8)"
+subtitle: "Zettel#8"
 date: 2022-08-21
 date-modified: ""
 date-format: iso

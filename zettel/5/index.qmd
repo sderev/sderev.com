@@ -1,6 +1,6 @@
 ---
 title: "C++ is not a superset of C"
-subtitle: "[Zettel#5](/zettel/5)"
+subtitle: "Zettel#5"
 date: 2022-08-01
 date-modified: ""
 date-format: iso

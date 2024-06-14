@@ -1,6 +1,6 @@
 ---
 title: "How to use the `undofile` of Vim"
-subtitle: "[Zettel#40](/zettel/40)"
+subtitle: "Zettel#40"
 date: 2023-03-08
 date-modified: ""
 date-format: iso

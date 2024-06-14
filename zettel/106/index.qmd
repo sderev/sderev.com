@@ -1,6 +1,6 @@
 ---
 title: "Working With Timezones in Python"
-subtitle: "[Zettel#106](/zettel/106)"
+subtitle: "Zettel#106"
 date: 2023-07-14
 date-modified: ""
 date-format: iso

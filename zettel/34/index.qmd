@@ -1,6 +1,6 @@
 ---
 title: "What are the five critera for good interface design?"
-subtitle: "[Zettel#34](/zettel/34)"
+subtitle: "Zettel#34"
 date: 2023-02-01
 date-modified: ""
 date-format: iso

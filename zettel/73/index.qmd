@@ -1,6 +1,6 @@
 ---
 title: "Use `sys.maxsize` instead of `float(\"inf\")` in Python"
-subtitle: "[Zettel#73](/zettel/73)"
+subtitle: "Zettel#73"
 date: 2023-04-16
 date-modified: ""
 date-format: iso

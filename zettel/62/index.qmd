@@ -1,6 +1,6 @@
 ---
 title: "Enhancing Variable Renaming in Vim"
-subtitle: "[Zettel#62](/zettel/62)"
+subtitle: "Zettel#62"
 date: 2023-04-07
 date-modified: ""
 date-format: iso
