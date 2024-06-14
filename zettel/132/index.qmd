@@ -9,7 +9,7 @@ categories: [zettelkasten]
 ---
 I really should read the documentation of the Rich library in detail... I just found another gem: the `rich.status` module, which provides a spinner and status message while a task is being processed. This visual feedback informs the user that the application is actively working on a task, contributing to a more engaging and informative user interaction.
 
-![animated_rich_status_spinner.gif](/zettel/assets/images/animated_rich_status_spinner.gif)
+![](/zettel/assets/images/animated_rich_status_spinner.gif)
 
 ## Code Example
 
