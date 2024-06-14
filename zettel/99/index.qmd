@@ -1,0 +1,46 @@
+---
+title: "Using `xclip` for Clipboard Operations in WSL and VMs Running on Windows"
+subtitle: "[Zettel#99](/zettel/99)"
+date: 2023-06-15
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+```bash
+xclip -selection clipboard
+```
+
+This works in Windows...!
+
+It feels a bit surprising, almost embarrassing, that I only found this solution now despite its apparent simplicity. I always thought this wasn't possible with the Windows Terminal, whether I run WSL or a VM.
+
+## Findings
+
+1. In a WSL environment, the native Windows command `clip.exe` can be used to copy to the Windows clipboard. For example: `cat file.txt | clip.exe`.
+1. Interestingly, I discovered that `xclip` can function within WSL without the need for an external X server. This is likely due to improvements in WSLg, which provides better support for graphical applications and features such as the clipboard.
+1. It also worked for a VM running with Hyper-V, to which I connected through SSH with X11 forwardig (`ssh -X`).
+
+## Using `xclip`
+
+The `-selection` option in `xclip` specifies which X selection to use: `primary`, `secondary`, or `clipboard`. The `clipboard` selection is used for explicit copy and paste operations, behaving similarly to the clipboard in non-X environments.
+
+Example of copying the content of a file to the clipboard using `xclip`:
+
+```bash
+cat file.txt | xclip -selection clipboard
+```
+
+Executing the above command copies the content of `file.txt` to the Windows clipboard when run in WSL, allowing the text to be pasted in other Windows applications.
+
+### An Alias for Less Typing
+
+This seems like a reasonable idea.
+
+```bash
+alias xclip='xclip -selection clipboard'
+```
+
+## Related Zettel
+
+* [Zettel#101](/zettel/101)
+* [Zettel#47](/zettel/47)

@@ -1,0 +1,24 @@
+---
+title: "How to disable ligatures for the Fira Code font in Windows Terminal"
+subtitle: "[Zettel#10](/zettel/10)"
+date: 2022-09-08
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+**Add these parameters in the JSON settings file:**
+
+```json
+"font": 
+{
+  "face": "Fira Code",
+  "size": 16,
+  "weight": "medium",
+  "features": {
+    "liga": 0,
+    "calt": 0
+  } 
+},
+```
+
+  #windows-terminal #font #firacode #ligatures

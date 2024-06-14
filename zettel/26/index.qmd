@@ -1,0 +1,20 @@
+---
+title: "How to securely wipe and erase a disk in Linux"
+subtitle: "[Zettel#26](/zettel/26)"
+date: 2022-11-28
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+`shred` overwrites a target by generating random sequences of 0 and 1.
+
+### This command will follow 5 passes in the background
+
+```bash
+shred -fz -n 5 --random-source=/dev/urandom /dev/sda &
+```
+
+This will take a long, long time. However, I read that one pass is sufficient (Wright, Kleiman, & Sundhar, 2008), so **maybe don't do multiple passes** after all.
+
+* <https://wiki.archlinux.org/title/Securely_wipe_disk> (I swear I don't run Arch, by the way 🥲.)
+* [Overwriting Hard Drive Data: The Great Wiping Controversy (Wright, Kleiman, & Sundhar, 2008)](https://doi.org/10.1007/978-3-540-89862-7_21)

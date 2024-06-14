@@ -1,0 +1,24 @@
+---
+title: "Experts and Novices don't learn the same way"
+subtitle: "[Zettel#14](/zettel/14)"
+date: 2022-10-13
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+| Novice   | Expert   |
+|---|---|
+| Possesses little relevant background knowledge and skills (simple, messy and superficial cognitive schemas)    | Has a lot of relevant background knowledge (complex, well-organised and deep cognitive schemas).  |
+| Working memory restriction   | Long-term memory support  |
+| Distracted by superficial details   | Focused on the underlying (deeper) structures and/or patterns.   |
+| Learns best through explicit instruction and worked examples  | Learns best through discovery and/or investigative approach  |
+| Has difficulty in transferring certain principles to new contexts (transfer)   | Can transfer principles to related domains    |
+
+*Differences between novice and expert (adapted from Didau, 2019)*
+
+___
+> Quality education starts with a good teacher, not with a facilitator, guide, or coach. Apart from the learner her- or himself, the teacher is the most important factor when it comes to academic success (Hattie, 2003). In education, we should therefore continue to focus on and rely on the craftsmanship of teachers, rather than organising education in a way that bypasses them.
+
+#education #memory #learning #study
+
+<https://learningspy.co.uk/literacy/constructivism-is-not-a-pedagogy/>
