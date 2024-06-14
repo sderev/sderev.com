@@ -44,7 +44,7 @@ These findings highlight GPT-4's advanced conversational abilities, though it st
 
 The figure below shows all the strategies used by participants to identify the AI:
 
-![screenshot_2024-05-16T20:31:28_0.png](/zettel/assets/images/screenshot_2024-05-16T20:31:28_0.png)
+![](/zettel/assets/images/screenshot_2024-05-16T20:31:28_0.png)
 
 ### Personal Notes
 
