@@ -10,4 +10,4 @@ Some references about how to prepare for technical interviews for a cybersecurit
 
 #cybersecurity #interviews #infosec
 
-https://danielmiessler.com/study/infosec_interview_questions/
+<https://danielmiessler.com/study/infosec_interview_questions/>
