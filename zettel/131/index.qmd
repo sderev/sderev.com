@@ -1,0 +1,170 @@
+---
+title: "Python Packaging with `pyproject.toml`"
+subtitle: "Zettel#131"
+id: "131"
+date: 2023-10-12
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+"&nbsp;": "⭐"
+---
+Though I may still be in the early stages of my programming journey, I had not learned the most modern way of packaging a Python project six months ago when I started doing it. Initially, I used `setuptools` and a `setup.py` file.
+
+However, the `pyproject.toml` file has emerged as a modern way to specify build dependencies and configurations for Python projects. Below is a practical workflow for creating, building, and distributing a Python package using solely `pyproject.toml`.
+
+## Creating a Package
+
+1. **Setup Your Project Directory**
+
+    ```plaintext
+    /path/to/your/project/
+    ├── new_project/          # Python package directory.
+    │   ├── __init__.py       # Makes the directory a package.
+    │   └── cli.py            # An example module for CLI.
+    ├── tests/                # Directory for tests.
+    │   └── cli_test.py       # Test module for CLI.
+    ├── pyproject.toml        # Definition of build process of the package.
+    └── README.md             # README with info about the project.
+    ```
+
+2. **Define Your Package Configuration**
+
+    ```toml
+    [project]
+    name = "new_project"
+    version = "0.0.0"
+
+    [project.scripts]
+    new_project = "new_project.cli:cli"
+    ```
+
+## Building and Distributing Your Package
+
+1. **Build Your Package**
+    ```bash
+    python -m build
+    ```
+
+   This command creates a `dist/` folder in your project directory, containing the built package files.
+
+2. **Install Your Package Locally (For Testing)**
+
+    ```bash
+    pip install -e .
+    ```
+
+3. **Upload Your Package to PyPi**
+
+    ```bash
+    pip install twine  # If you haven't installed twine already
+    twine upload dist/*
+    ```
+
+## Managing Dependencies
+
+```toml
+[project]
+dependencies = [
+    "rich",
+    "click",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+```
+
+## Configuring Entry Points
+
+If you're creating a CLI tool, specify the entry point in the `pyproject.toml` like so:
+
+```toml
+[project.scripts]
+new_project = "new_project.cli:cli"
+```
+
+## Tool Configuration
+
+Configure tools such as `black` for code formatting and `ruff` for linting in the `pyproject.toml`:
+
+```toml
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+```
+
+## Starter `pyproject.toml` Example
+
+Below is a starter `pyproject.toml` file for quick project setup:
+
+```toml
+[project]
+name = "new_project"
+version = "0.0.0"
+authors = [{name = "Sébastien De Revière"},]
+description = ""
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+lint = [
+    "black",
+    "ruff",
+]
+pypi = [
+    "twine",
+    "wheel",
+]
+ci = [
+    "pytest",
+    "black",
+    "ruff",
+]
+
+[projects.urls]
+Homepage = "https://github.com/sderev/new_project"
+Documentation = "https://github.com/sderev/new_project"
+Repository = "https://github.com/sderev/new_project"
+Changelog = "https://github.com/sderev/new_project/releases"
+Issues = "https://github.com/sderev/new_project/issues"
+
+[project.scripts]
+new_project = "new_project.cli:cli"
+
+[tool.ruff]
+line-length = 100
+
+[tool.black]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+```
+
+## References
+
+* [Python Enhancement Proposal (PEP) 518: Specifying Minimum Build System Requirements for Python Projects](https://peps.python.org/pep-0518/).
+* [Python Enhancement Proposal (PEP) 517: A build-system independent format for source trees](https://peps.python.org/pep-0517/).
+* [Declaring Project Metadata in `pyproject.toml` (Python Packaging User Guide)](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#declaring-project-metadata).
+* [Classifiers · PyPI](https://pypi.org/classifiers/).
+* [Entry Points Configuration for CLI (Click Documentation)](https://click.palletsprojects.com/en/latest/entry-points/).
+* [Packaging Python Projects Tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/#:~:text=pyproject,table%20for%20metadata.%20Note).
+
+## Related Zettel
+
+* [Zettel#70](/zettel/70)
+* [Zettel#112](/zettel/112)
+* [Zettel#126](/zettel/126)
