@@ -1,6 +1,7 @@
 ---
 title: "There's been the \"good Bing 😊\". But is there a good Edge?"
 subtitle: "Zettel#100"
+id: "100"
 date: 2023-06-16
 date-modified: ""
 date-format: iso

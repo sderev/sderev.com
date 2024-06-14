@@ -1,6 +1,7 @@
 ---
 title: "Instantly Paste Emojis Using a Windows Keybind"
 subtitle: "Zettel#81"
+id: "81"
 date: 2023-04-22
 date-modified: ""
 date-format: iso

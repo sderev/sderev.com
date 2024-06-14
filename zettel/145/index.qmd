@@ -1,6 +1,7 @@
 ---
 title: "Unnecessary `else` Statement Can Be Better for Readability"
 subtitle: "Zettel#145"
+id: "145"
 date: 2024-03-23
 date-modified: ""
 date-format: iso

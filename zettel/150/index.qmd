@@ -1,6 +1,7 @@
 ---
 title: "BFS vs DFS"
 subtitle: "Zettel#150"
+id: "150"
 date: 2024-04-24
 date-modified: ""
 date-format: iso

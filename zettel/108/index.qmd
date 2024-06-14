@@ -1,6 +1,7 @@
 ---
 title: "`w3m` Cheatsheet"
 subtitle: "Zettel#108"
+id: "108"
 date: 2023-07-28
 date-modified: ""
 date-format: iso

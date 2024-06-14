@@ -1,6 +1,7 @@
 ---
 title: "LICEcap: A Simple Tool for Recording GIFs"
 subtitle: "Zettel#98"
+id: "98"
 date: 2023-06-15
 date-modified: ""
 date-format: iso

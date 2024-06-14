@@ -1,6 +1,7 @@
 ---
 title: "Protect yourself from overwriting files with the `noclobber` option"
 subtitle: "Zettel#55"
+id: "55"
 date: 2023-04-02
 date-modified: ""
 date-format: iso

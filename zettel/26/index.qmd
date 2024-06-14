@@ -1,6 +1,7 @@
 ---
 title: "How to securely wipe and erase a disk in Linux"
 subtitle: "Zettel#26"
+id: "26"
 date: 2022-11-28
 date-modified: ""
 date-format: iso

@@ -1,6 +1,7 @@
 ---
 title: "Difference between `su` and `su -`"
 subtitle: "Zettel#53"
+id: "53"
 date: 2023-03-31
 date-modified: ""
 date-format: iso

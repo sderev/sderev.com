@@ -1,6 +1,7 @@
 ---
 title: "Vim `:g` Command: A Practical Guide"
 subtitle: "Zettel#128"
+id: "128"
 date: 2023-10-05
 date-modified: ""
 date-format: iso

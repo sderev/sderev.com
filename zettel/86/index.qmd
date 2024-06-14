@@ -1,6 +1,7 @@
 ---
 title: "Casting malloc and calloc in C and C++"
 subtitle: "Zettel#86"
+id: "86"
 date: 2023-05-19
 date-modified: ""
 date-format: iso

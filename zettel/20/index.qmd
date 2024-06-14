@@ -1,6 +1,7 @@
 ---
 title: "How to use ssh-agent to automatically enter your SSH key passphrase"
 subtitle: "Zettel#20"
+id: "20"
 date: 2022-11-24
 date-modified: ""
 date-format: iso

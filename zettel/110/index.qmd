@@ -1,6 +1,7 @@
 ---
 title: "Extracting Unique Patterns with `grep` or `ripgrep`"
 subtitle: "Zettel#110"
+id: "110"
 date: 2023-07-30
 date-modified: ""
 date-format: iso

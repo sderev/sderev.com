@@ -1,6 +1,7 @@
 ---
 title: "Automating a Reading Note Template Generation Using Zotero Metadata"
 subtitle: "Zettel#146"
+id: "146"
 date: 2024-03-27
 date-modified: ""
 date-format: iso

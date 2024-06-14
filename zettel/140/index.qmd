@@ -1,6 +1,7 @@
 ---
 title: "The Most Common Applications of Machine Learning"
 subtitle: "Zettel#140"
+id: "140"
 date: 2024-02-05
 date-modified: ""
 date-format: iso

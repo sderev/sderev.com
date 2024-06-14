@@ -1,6 +1,7 @@
 ---
 title: "How to Determine Character Frequencies in a Python String"
 subtitle: "Zettel#21"
+id: "21"
 date: 2022-11-24
 date-modified: ""
 date-format: iso

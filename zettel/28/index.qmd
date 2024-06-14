@@ -1,6 +1,7 @@
 ---
 title: "How to see network traffic in real time in Linux"
 subtitle: "Zettel#28"
+id: "28"
 date: 2022-11-29
 date-modified: ""
 date-format: iso

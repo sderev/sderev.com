@@ -1,6 +1,7 @@
 ---
 title: "The XOR Operator and Its Applications to Programming"
 subtitle: "Zettel#89"
+id: "89"
 date: 2023-05-24
 date-modified: ""
 date-format: iso

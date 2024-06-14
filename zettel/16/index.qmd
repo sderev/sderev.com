@@ -1,6 +1,7 @@
 ---
 title: "Upgrade Windows Applications With a CLI Package Manager"
 subtitle: "Zettel#16"
+id: "16"
 date: 2022-11-11
 date-modified: ""
 date-format: iso

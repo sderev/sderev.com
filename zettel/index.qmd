@@ -9,8 +9,11 @@ listing:
     type: table
     filter-ui: true
     categories: false
-    fields: [subtitle, title, "&nbsp;", date]
+    fields: [id, title, "&nbsp;", date]
+    field-display-names:
+        id: "Zettel#"
     date-format: iso
+    table-hover: true
 page-layout: full
 title-block-banner: true
 title-block-style: default

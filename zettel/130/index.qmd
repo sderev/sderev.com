@@ -1,6 +1,7 @@
 ---
 title: "Vim Command for Retrieving Syntax Highlighting Information"
 subtitle: "Zettel#130"
+id: "130"
 date: 2023-10-11
 date-modified: ""
 date-format: iso

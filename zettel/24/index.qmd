@@ -1,6 +1,7 @@
 ---
 title: "How to easily copy a public SSH key to another machine"
 subtitle: "Zettel#24"
+id: "24"
 date: 2022-11-27
 date-modified: ""
 date-format: iso

@@ -1,6 +1,7 @@
 ---
 title: "How To Detect a Hashable Object in Python"
 subtitle: "Zettel#115"
+id: "115"
 date: 2023-09-13
 date-modified: ""
 date-format: iso
