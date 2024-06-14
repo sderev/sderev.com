@@ -1,6 +1,7 @@
 ---
 title: "Jedi-Vim Plugin Cheat Sheet"
 subtitle: "Zettel#102"
+id: "102"
 date: 2023-06-23
 date-modified: ""
 date-format: iso

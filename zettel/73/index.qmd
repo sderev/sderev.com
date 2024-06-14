@@ -1,6 +1,7 @@
 ---
 title: "Use `sys.maxsize` instead of `float(\"inf\")` in Python"
 subtitle: "Zettel#73"
+id: "73"
 date: 2023-04-16
 date-modified: ""
 date-format: iso

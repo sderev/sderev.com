@@ -1,6 +1,7 @@
 ---
 title: "Set timezone in Linux"
 subtitle: "Zettel#23"
+id: "23"
 date: 2022-11-25
 date-modified: ""
 date-format: iso

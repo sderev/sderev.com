@@ -1,6 +1,7 @@
 ---
 title: "Guido van Rossum on dynamic vs static typing"
 subtitle: "Zettel#13"
+id: "13"
 date: 2022-09-18
 date-modified: ""
 date-format: iso

@@ -1,6 +1,7 @@
 ---
 title: "Managing Pinned Dependencies for Python Packages with `uv`"
 subtitle: "Zettel#126"
+id: "126"
 date: 2023-10-04
 date-modified: ""
 date-format: iso

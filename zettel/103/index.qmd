@@ -1,6 +1,7 @@
 ---
 title: "Understanding YAML Block Scalars - Folded and Literal Styles"
 subtitle: "Zettel#103"
+id: "103"
 date: 2023-07-03
 date-modified: ""
 date-format: iso

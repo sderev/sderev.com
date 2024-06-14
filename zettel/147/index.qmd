@@ -1,6 +1,7 @@
 ---
 title: "Resolving Vim Sluggishness Caused by ALE Linters with `LaTeX` Files"
 subtitle: "Zettel#147"
+id: "147"
 date: 2024-03-31
 date-modified: ""
 date-format: iso

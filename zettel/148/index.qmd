@@ -1,6 +1,7 @@
 ---
 title: "Vim `ga` Command Shows ASCII Information"
 subtitle: "Zettel#148"
+id: "148"
 date: 2024-04-13
 date-modified: ""
 date-format: iso

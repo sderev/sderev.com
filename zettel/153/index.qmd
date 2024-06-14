@@ -1,6 +1,7 @@
 ---
 title: "A Short Course on OSS Licensing for Research and Education"
 subtitle: "Zettel#153"
+id: "153"
 date: 2024-05-14
 date-modified: ""
 date-format: iso

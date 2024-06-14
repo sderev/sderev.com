@@ -1,6 +1,7 @@
 ---
 title: "Extracting Largest and Smallest Items from a Collection in Python"
 subtitle: "Zettel#119"
+id: "119"
 date: 2023-09-14
 date-modified: ""
 date-format: iso

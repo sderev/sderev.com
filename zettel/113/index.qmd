@@ -1,6 +1,7 @@
 ---
 title: "Command History Search (Shell with Vi Mode)"
 subtitle: "Zettel#113"
+id: "113"
 date: 2023-08-22
 date-modified: ""
 date-format: iso

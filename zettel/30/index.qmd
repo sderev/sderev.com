@@ -1,6 +1,7 @@
 ---
 title: "How to know the number of selected lines in Vim"
 subtitle: "Zettel#30"
+id: "30"
 date: 2022-12-07
 date-modified: ""
 date-format: iso

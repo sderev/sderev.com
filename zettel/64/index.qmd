@@ -1,6 +1,7 @@
 ---
 title: "How to Determine the Operating System Programmatically"
 subtitle: "Zettel#64"
+id: "64"
 date: 2023-04-08
 date-modified: ""
 date-format: iso

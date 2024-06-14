@@ -1,6 +1,7 @@
 ---
 title: "Create a \"Featured\" Column in Quarto Listings"
 subtitle: "Zettel#158"
+id: "158"
 date: 2024-06-14
 date-modified: ""
 date-format: iso
@@ -15,6 +16,7 @@ For the listing of [my Zettelkasten](https://sderev.com/zettel), I wanted a way 
 ---
 title: "The `hosts` File as a Self-Care Hack to Block Distractions"
 subtitle: "Zettel#156"
+id: "156"
 date: 2024-06-01
 date-modified: ""
 date-format: iso

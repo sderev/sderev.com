@@ -1,6 +1,7 @@
 ---
 title: "Delete Lines Not Matching a Specific Pattern in Vim or with Sed"
 subtitle: "Zettel#79"
+id: "79"
 date: 2023-04-21
 date-modified: ""
 date-format: iso

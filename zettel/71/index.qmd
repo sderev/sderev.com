@@ -1,6 +1,7 @@
 ---
 title: "Handling Long Strings in Python"
 subtitle: "Zettel#71"
+id: "71"
 date: 2023-04-16
 date-modified: ""
 date-format: iso

@@ -1,6 +1,7 @@
 ---
 title: "Setting Up Two-Factor Authentication (2FA) on a Server with Google Authenticator for SSH Logins"
 subtitle: "Zettel#88"
+id: "88"
 date: 2023-05-22
 date-modified: ""
 date-format: iso

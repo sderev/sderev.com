@@ -1,6 +1,7 @@
 ---
 title: "The rise of domain experts in deep learning"
 subtitle: "Zettel#8"
+id: "8"
 date: 2022-08-21
 date-modified: ""
 date-format: iso

@@ -1,6 +1,7 @@
 ---
 title: "Vim: Moving to Next Search Pattern in Incremental Search"
 subtitle: "Zettel#151"
+id: "151"
 date: 2024-04-24
 date-modified: ""
 date-format: iso
