@@ -5,14 +5,14 @@ listing:
     sort: 
       - "date desc"
       - "subtitle desc"
-    sort-ui: [subtitle, reading-time]
+    sort-ui: [id, date]
     type: table
     filter-ui: true
     categories: false
     fields: [id, title, "&nbsp;", date]
     field-display-names:
         id: "Zettel#"
-    date-format: iso
+    date-format: "MMMM YYYY"
     table-hover: true
 page-layout: full
 title-block-banner: true
