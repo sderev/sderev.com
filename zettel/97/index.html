@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -127,62 +127,41 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Seam Carving Algorithm</h1>
+            <p class="subtitle lead"><a href="../../zettel/97">Zettel#97</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-06-11</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#historical-context" id="toc-historical-context" class="nav-link active" data-scroll-target="#historical-context">Historical Context</a></li>
-  <li><a href="#the-algorithm" id="toc-the-algorithm" class="nav-link" data-scroll-target="#the-algorithm">The Algorithm</a>
-  <ul class="collapse">
-  <li><a href="#greyscale-conversion" id="toc-greyscale-conversion" class="nav-link" data-scroll-target="#greyscale-conversion">Greyscale Conversion</a></li>
-  <li><a href="#energy-map-calculation" id="toc-energy-map-calculation" class="nav-link" data-scroll-target="#energy-map-calculation">Energy Map Calculation</a></li>
-  <li><a href="#cumulative-energy-map-computation" id="toc-cumulative-energy-map-computation" class="nav-link" data-scroll-target="#cumulative-energy-map-computation">Cumulative Energy Map Computation</a></li>
-  <li><a href="#minimum-energy-seam-identification" id="toc-minimum-energy-seam-identification" class="nav-link" data-scroll-target="#minimum-energy-seam-identification">Minimum-Energy Seam Identification</a></li>
-  <li><a href="#seam-removal" id="toc-seam-removal" class="nav-link" data-scroll-target="#seam-removal">Seam Removal</a></li>
-  </ul></li>
-  <li><a href="#advantages-and-disadvantages" id="toc-advantages-and-disadvantages" class="nav-link" data-scroll-target="#advantages-and-disadvantages">Advantages and Disadvantages</a>
-  <ul class="collapse">
-  <li><a href="#advantage" id="toc-advantage" class="nav-link" data-scroll-target="#advantage">Advantage</a></li>
-  <li><a href="#disadvantage" id="toc-disadvantage" class="nav-link" data-scroll-target="#disadvantage">Disadvantage</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Seam Carving Algorithm</h1>
-<p class="subtitle lead"><a href="../../zettel/97">Zettel#97</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-06-11</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>The <strong>Seam Carving algorithm</strong>, also known as <em>content-aware resizing</em> or <em>retargeting</em>, is an innovative image resizing technique that strives to maintain the perceptually important parts of an image, focusing on preserving the core visual content when resizing.</p>

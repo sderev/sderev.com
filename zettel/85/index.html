@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,78 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">File and Directory Listing in Python</h1>
+            <p class="subtitle lead"><a href="../../zettel/85">Zettel#85</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-05-09</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#os.listdir" id="toc-os.listdir" class="nav-link active" data-scroll-target="#os.listdir"><code>os.listdir()</code></a>
-  <ul class="collapse">
-  <li><a href="#example-using-os.listdir" id="toc-example-using-os.listdir" class="nav-link" data-scroll-target="#example-using-os.listdir">Example Using <code>os.listdir()</code></a></li>
-  </ul></li>
-  <li><a href="#os.scandir" id="toc-os.scandir" class="nav-link" data-scroll-target="#os.scandir"><code>os.scandir()</code></a>
-  <ul class="collapse">
-  <li><a href="#example-using-os.scandir" id="toc-example-using-os.scandir" class="nav-link" data-scroll-target="#example-using-os.scandir">Example Using <code>os.scandir()</code></a></li>
-  </ul></li>
-  <li><a href="#os.walk" id="toc-os.walk" class="nav-link" data-scroll-target="#os.walk"><code>os.walk()</code></a>
-  <ul class="collapse">
-  <li><a href="#example-using-os.walk" id="toc-example-using-os.walk" class="nav-link" data-scroll-target="#example-using-os.walk">Example Using <code>os.walk()</code></a></li>
-  </ul></li>
-  <li><a href="#pathlib" id="toc-pathlib" class="nav-link" data-scroll-target="#pathlib"><code>pathlib</code></a></li>
-  <li><a href="#pathlibs-iterdir" id="toc-pathlibs-iterdir" class="nav-link" data-scroll-target="#pathlibs-iterdir">pathlib’s <code>iterdir()</code></a>
-  <ul class="collapse">
-  <li><a href="#example-using-iterdir" id="toc-example-using-iterdir" class="nav-link" data-scroll-target="#example-using-iterdir">Example Using <code>iterdir()</code></a></li>
-  </ul></li>
-  <li><a href="#recursively-listing-files-with-pathlibs-rglob" id="toc-recursively-listing-files-with-pathlibs-rglob" class="nav-link" data-scroll-target="#recursively-listing-files-with-pathlibs-rglob">Recursively Listing Files with pathlib’s <code>rglob()</code></a>
-  <ul class="collapse">
-  <li><a href="#example-using-rglob" id="toc-example-using-rglob" class="nav-link" data-scroll-target="#example-using-rglob">Example Using <code>rglob()</code></a></li>
-  <li><a href="#understanding-rglob" id="toc-understanding-rglob" class="nav-link" data-scroll-target="#understanding-rglob">Understanding <code>rglob()</code></a></li>
-  <li><a href="#the-glob-shell-command" id="toc-the-glob-shell-command" class="nav-link" data-scroll-target="#the-glob-shell-command">The glob Shell Command</a></li>
-  </ul></li>
-  <li><a href="#pathlibs-walk-method-in-python-3.12" id="toc-pathlibs-walk-method-in-python-3.12" class="nav-link" data-scroll-target="#pathlibs-walk-method-in-python-3.12">pathlib’s <code>walk()</code> Method in Python 3.12</a>
-  <ul class="collapse">
-  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
-  <li><a href="#example-finding-.txt-files" id="toc-example-finding-.txt-files" class="nav-link" data-scroll-target="#example-finding-.txt-files">Example: Finding <code>.txt</code> Files</a></li>
-  <li><a href="#example-calculating-disk-usage-with-walk" id="toc-example-calculating-disk-usage-with-walk" class="nav-link" data-scroll-target="#example-calculating-disk-usage-with-walk">Example: Calculating Disk Usage with <code>walk()</code></a></li>
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">File and Directory Listing in Python</h1>
-<p class="subtitle lead"><a href="../../zettel/85">Zettel#85</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-05-09</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>Python provides multiple ways to interact with the file system. This includes listing files and directories, checking if a path is a file or directory, and performing more complex operations.</p>

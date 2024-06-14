@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,59 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">GPG Key Configuration for Signing Commits with Git and GitHub</h1>
+            <p class="subtitle lead"><a href="../../zettel/142">Zettel#142</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2024-02-15</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#generate-a-gpg-key" id="toc-generate-a-gpg-key" class="nav-link active" data-scroll-target="#generate-a-gpg-key">Generate a GPG Key</a></li>
-  <li><a href="#configure-git-to-sign-commits-with-gpg-key" id="toc-configure-git-to-sign-commits-with-gpg-key" class="nav-link" data-scroll-target="#configure-git-to-sign-commits-with-gpg-key">Configure Git to Sign Commits with GPG Key</a></li>
-  <li><a href="#add-your-gpg-key-to-github" id="toc-add-your-gpg-key-to-github" class="nav-link" data-scroll-target="#add-your-gpg-key-to-github">Add Your GPG Key to GitHub</a>
-  <ul class="collapse">
-  <li><a href="#via-github-web-interface" id="toc-via-github-web-interface" class="nav-link" data-scroll-target="#via-github-web-interface">Via GitHub Web Interface</a></li>
-  <li><a href="#via-gh-cli-utility" id="toc-via-gh-cli-utility" class="nav-link" data-scroll-target="#via-gh-cli-utility">Via <code>gh</code> CLI Utility</a></li>
-  </ul></li>
-  <li><a href="#verify-commit-signature" id="toc-verify-commit-signature" class="nav-link" data-scroll-target="#verify-commit-signature">Verify Commit Signature</a></li>
-  <li><a href="#configure-gpg-agent-for-passphrase-caching" id="toc-configure-gpg-agent-for-passphrase-caching" class="nav-link" data-scroll-target="#configure-gpg-agent-for-passphrase-caching">Configure GPG Agent for Passphrase Caching</a>
-  <ul class="collapse">
-  <li><a href="#stay-in-your-terminal-when-prompted-for-passphrase" id="toc-stay-in-your-terminal-when-prompted-for-passphrase" class="nav-link" data-scroll-target="#stay-in-your-terminal-when-prompted-for-passphrase">Stay in Your Terminal when Prompted for Passphrase</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">GPG Key Configuration for Signing Commits with Git and GitHub</h1>
-<p class="subtitle lead"><a href="../../zettel/142">Zettel#142</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2024-02-15</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>A step-by-step guide to generating a GPG key, configuring Git to use it for signing commits, adding the key to GitHub, verifying commit signatures, and setting up GPG agent for passphrase caching.</p>

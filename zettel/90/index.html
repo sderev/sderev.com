@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -127,84 +127,41 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Containers, Docker, and Podman</h1>
+            <p class="subtitle lead"><a href="../../zettel/90">Zettel#90</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-05-27</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#what-is-a-container" id="toc-what-is-a-container" class="nav-link active" data-scroll-target="#what-is-a-container">What is a Container?</a>
-  <ul class="collapse">
-  <li><a href="#consistency-across-environments" id="toc-consistency-across-environments" class="nav-link" data-scroll-target="#consistency-across-environments">Consistency across environments</a></li>
-  <li><a href="#isolation" id="toc-isolation" class="nav-link" data-scroll-target="#isolation">Isolation</a></li>
-  <li><a href="#portability" id="toc-portability" class="nav-link" data-scroll-target="#portability">Portability</a></li>
-  </ul></li>
-  <li><a href="#docker-vs-podman-a-detailed-comparison" id="toc-docker-vs-podman-a-detailed-comparison" class="nav-link" data-scroll-target="#docker-vs-podman-a-detailed-comparison">Docker vs Podman: A Detailed Comparison</a>
-  <ul class="collapse">
-  <li><a href="#daemonless" id="toc-daemonless" class="nav-link" data-scroll-target="#daemonless">Daemonless</a></li>
-  <li><a href="#rootless-containers" id="toc-rootless-containers" class="nav-link" data-scroll-target="#rootless-containers">Rootless Containers</a></li>
-  <li><a href="#open-container-initiative-oci-compliance" id="toc-open-container-initiative-oci-compliance" class="nav-link" data-scroll-target="#open-container-initiative-oci-compliance">Open Container Initiative (OCI) Compliance</a></li>
-  <li><a href="#command-compatibility" id="toc-command-compatibility" class="nav-link" data-scroll-target="#command-compatibility">Command Compatibility</a></li>
-  </ul></li>
-  <li><a href="#leveraging-containers-for-efficient-workflow" id="toc-leveraging-containers-for-efficient-workflow" class="nav-link" data-scroll-target="#leveraging-containers-for-efficient-workflow">Leveraging Containers for Efficient Workflow</a>
-  <ul class="collapse">
-  <li><a href="#development-efficiency" id="toc-development-efficiency" class="nav-link" data-scroll-target="#development-efficiency">Development Efficiency</a></li>
-  <li><a href="#simplified-testing" id="toc-simplified-testing" class="nav-link" data-scroll-target="#simplified-testing">Simplified Testing</a></li>
-  <li><a href="#smoothened-deployment" id="toc-smoothened-deployment" class="nav-link" data-scroll-target="#smoothened-deployment">Smoothened Deployment</a></li>
-  </ul></li>
-  <li><a href="#podman-commands-compatible-with-docker" id="toc-podman-commands-compatible-with-docker" class="nav-link" data-scroll-target="#podman-commands-compatible-with-docker">Podman Commands (compatible with Docker)</a>
-  <ul class="collapse">
-  <li><a href="#pull-an-image" id="toc-pull-an-image" class="nav-link" data-scroll-target="#pull-an-image">Pull an Image</a></li>
-  <li><a href="#build-an-image" id="toc-build-an-image" class="nav-link" data-scroll-target="#build-an-image">Build an Image</a></li>
-  <li><a href="#run-a-container" id="toc-run-a-container" class="nav-link" data-scroll-target="#run-a-container">Run a Container</a></li>
-  <li><a href="#run-a-container-interactively-with-a-custom-hostname-and-name-and-remove-it-after-exit" id="toc-run-a-container-interactively-with-a-custom-hostname-and-name-and-remove-it-after-exit" class="nav-link" data-scroll-target="#run-a-container-interactively-with-a-custom-hostname-and-name-and-remove-it-after-exit">Run a Container Interactively with a Custom Hostname and Name, and Remove it after Exit</a></li>
-  <li><a href="#list-running-containers" id="toc-list-running-containers" class="nav-link" data-scroll-target="#list-running-containers">List Running Containers</a></li>
-  <li><a href="#list-all-containers-including-stopped-ones" id="toc-list-all-containers-including-stopped-ones" class="nav-link" data-scroll-target="#list-all-containers-including-stopped-ones">List all Containers, Including Stopped Ones</a></li>
-  <li><a href="#start-a-container-and-attach-its-output" id="toc-start-a-container-and-attach-its-output" class="nav-link" data-scroll-target="#start-a-container-and-attach-its-output">Start a Container and Attach its Output</a></li>
-  <li><a href="#view-logs-for-a-container" id="toc-view-logs-for-a-container" class="nav-link" data-scroll-target="#view-logs-for-a-container">View Logs for a Container</a></li>
-  <li><a href="#execute-a-command-inside-a-running-container" id="toc-execute-a-command-inside-a-running-container" class="nav-link" data-scroll-target="#execute-a-command-inside-a-running-container">Execute a Command Inside a Running Container</a></li>
-  <li><a href="#create-a-new-image-from-a-containers-changes" id="toc-create-a-new-image-from-a-containers-changes" class="nav-link" data-scroll-target="#create-a-new-image-from-a-containers-changes">Create a new image from a container’s changes</a></li>
-  <li><a href="#initialize-a-container" id="toc-initialize-a-container" class="nav-link" data-scroll-target="#initialize-a-container">Initialize a Container</a></li>
-  <li><a href="#stop-a-container" id="toc-stop-a-container" class="nav-link" data-scroll-target="#stop-a-container">Stop a Container</a></li>
-  <li><a href="#remove-a-container" id="toc-remove-a-container" class="nav-link" data-scroll-target="#remove-a-container">Remove a Container</a></li>
-  <li><a href="#list-images" id="toc-list-images" class="nav-link" data-scroll-target="#list-images">List Images</a></li>
-  <li><a href="#remove-an-image" id="toc-remove-an-image" class="nav-link" data-scroll-target="#remove-an-image">Remove an Image</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Containers, Docker, and Podman</h1>
-<p class="subtitle lead"><a href="../../zettel/90">Zettel#90</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-05-27</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <section id="what-is-a-container" class="level2">

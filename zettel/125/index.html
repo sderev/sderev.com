@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,59 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Amending a Specific Past Git Commit Without Affecting Recent Ones</h1>
+            <p class="subtitle lead"><a href="../../zettel/125">Zettel#125</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-09-28</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#step-by-step-guide" id="toc-step-by-step-guide" class="nav-link" data-scroll-target="#step-by-step-guide">Step-by-Step Guide</a>
-  <ul class="collapse">
-  <li><a href="#create-a-temporary-branch" id="toc-create-a-temporary-branch" class="nav-link" data-scroll-target="#create-a-temporary-branch">1. Create a Temporary Branch</a></li>
-  <li><a href="#switch-to-the-commit-before-the-mistake" id="toc-switch-to-the-commit-before-the-mistake" class="nav-link" data-scroll-target="#switch-to-the-commit-before-the-mistake">2. Switch to the Commit Before the Mistake</a></li>
-  <li><a href="#amend-the-commit" id="toc-amend-the-commit" class="nav-link" data-scroll-target="#amend-the-commit">3. Amend the Commit</a></li>
-  <li><a href="#reapply-subsequent-commits" id="toc-reapply-subsequent-commits" class="nav-link" data-scroll-target="#reapply-subsequent-commits">4. Reapply Subsequent Commits</a></li>
-  <li><a href="#switch-back-to-main-and-force-push" id="toc-switch-back-to-main-and-force-push" class="nav-link" data-scroll-target="#switch-back-to-main-and-force-push">5. Switch Back to Main and Force Push</a></li>
-  <li><a href="#clean-up" id="toc-clean-up" class="nav-link" data-scroll-target="#clean-up">6. Clean Up</a></li>
-  </ul></li>
-  <li><a href="#important-notes" id="toc-important-notes" class="nav-link" data-scroll-target="#important-notes">Important Notes</a></li>
-  <li><a href="#related-zettel" id="toc-related-zettel" class="nav-link" data-scroll-target="#related-zettel">Related Zettel</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Amending a Specific Past Git Commit Without Affecting Recent Ones</h1>
-<p class="subtitle lead"><a href="../../zettel/125">Zettel#125</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-09-28</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <section id="introduction" class="level2">

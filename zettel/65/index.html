@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -127,61 +127,41 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Vim Buffers: Renaming, Switching and Opening Files</h1>
+            <p class="subtitle lead"><a href="../../zettel/65">Zettel#65</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-04-08</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#renaming-the-current-buffer-in-vim" id="toc-renaming-the-current-buffer-in-vim" class="nav-link active" data-scroll-target="#renaming-the-current-buffer-in-vim">Renaming the Current Buffer in Vim</a>
-  <ul class="collapse">
-  <li><a href="#saveas-command" id="toc-saveas-command" class="nav-link" data-scroll-target="#saveas-command"><code>:saveas</code> Command</a></li>
-  <li><a href="#w-command" id="toc-w-command" class="nav-link" data-scroll-target="#w-command"><code>:w</code> Command</a></li>
-  </ul></li>
-  <li><a href="#switch-between-files-in-vim-with-the-e-command" id="toc-switch-between-files-in-vim-with-the-e-command" class="nav-link" data-scroll-target="#switch-between-files-in-vim-with-the-e-command">Switch Between Files in Vim with the <code>:e#</code> Command</a></li>
-  <li><a href="#differences-between-b-and-e-commands-in-vim" id="toc-differences-between-b-and-e-commands-in-vim" class="nav-link" data-scroll-target="#differences-between-b-and-e-commands-in-vim">Differences Between <code>:b</code> and <code>:e</code> Commands in Vim</a></li>
-  <li><a href="#additional-tips-and-commands" id="toc-additional-tips-and-commands" class="nav-link" data-scroll-target="#additional-tips-and-commands">Additional Tips and Commands</a>
-  <ul class="collapse">
-  <li><a href="#switch-between-buffers-with-bn-and-bp-commands" id="toc-switch-between-buffers-with-bn-and-bp-commands" class="nav-link" data-scroll-target="#switch-between-buffers-with-bn-and-bp-commands">Switch Between Buffers with <code>:bn</code> and <code>:bp</code> Commands</a></li>
-  <li><a href="#list-open-buffers-with-ls-command" id="toc-list-open-buffers-with-ls-command" class="nav-link" data-scroll-target="#list-open-buffers-with-ls-command">List Open Buffers with <code>:ls</code> Command</a></li>
-  <li><a href="#jump-to-a-specific-buffer-with-b-command" id="toc-jump-to-a-specific-buffer-with-b-command" class="nav-link" data-scroll-target="#jump-to-a-specific-buffer-with-b-command">Jump to a Specific Buffer with <code>:b</code> Command</a></li>
-  </ul></li>
-  <li><a href="#related-zettel" id="toc-related-zettel" class="nav-link" data-scroll-target="#related-zettel">Related Zettel</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Vim Buffers: Renaming, Switching and Opening Files</h1>
-<p class="subtitle lead"><a href="../../zettel/65">Zettel#65</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-04-08</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <section id="renaming-the-current-buffer-in-vim" class="level2">

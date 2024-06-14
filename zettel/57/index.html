@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,59 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">How to create a virtual environment for a Python project</h1>
+            <p class="subtitle lead"><a href="../../zettel/57">Zettel#57</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-04-05</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#create-the-virtual-environment" id="toc-create-the-virtual-environment" class="nav-link active" data-scroll-target="#create-the-virtual-environment">Create the virtual environment</a>
-  <ul class="collapse">
-  <li><a href="#with-the-venv-module" id="toc-with-the-venv-module" class="nav-link" data-scroll-target="#with-the-venv-module">With the <code>venv</code> module:</a></li>
-  <li><a href="#with-virtualenv" id="toc-with-virtualenv" class="nav-link" data-scroll-target="#with-virtualenv">With <code>virtualenv</code>:</a></li>
-  </ul></li>
-  <li><a href="#activate-the-virtual-environment" id="toc-activate-the-virtual-environment" class="nav-link" data-scroll-target="#activate-the-virtual-environment">Activate the virtual environment</a>
-  <ul class="collapse">
-  <li><a href="#on-unix-based-systems" id="toc-on-unix-based-systems" class="nav-link" data-scroll-target="#on-unix-based-systems">On Unix-based systems:</a></li>
-  <li><a href="#on-windows" id="toc-on-windows" class="nav-link" data-scroll-target="#on-windows">On Windows:</a></li>
-  </ul></li>
-  <li><a href="#deactivate-the-virtual-environment" id="toc-deactivate-the-virtual-environment" class="nav-link" data-scroll-target="#deactivate-the-virtual-environment">Deactivate the virtual environment</a></li>
-  <li><a href="#naming-the-virtual-environment" id="toc-naming-the-virtual-environment" class="nav-link" data-scroll-target="#naming-the-virtual-environment">Naming the virtual environment</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">How to create a virtual environment for a Python project</h1>
-<p class="subtitle lead"><a href="../../zettel/57">Zettel#57</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-04-05</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>A brief guide on creating and managing a virtual environment for your Python projects using either the built-in <code>venv</code> module or the popular third-party tool <code>virtualenv</code>. Both methods allow for project-specific dependencies and settings, enabling you to work on multiple projects with different requirements on the same machine without conflicts.</p>

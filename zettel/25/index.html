@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,61 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">How to import/export a database in MySQL/MariaDB</h1>
+            <p class="subtitle lead"><a href="../../zettel/25">Zettel#25</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2022-11-28</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#cli" id="toc-cli" class="nav-link active" data-scroll-target="#cli">CLI</a>
-  <ul class="collapse">
-  <li><a href="#exporting-a-database" id="toc-exporting-a-database" class="nav-link" data-scroll-target="#exporting-a-database">Exporting a database</a></li>
-  <li><a href="#exporting-specific-tables" id="toc-exporting-specific-tables" class="nav-link" data-scroll-target="#exporting-specific-tables">Exporting specific tables</a></li>
-  <li><a href="#importing-a-database" id="toc-importing-a-database" class="nav-link" data-scroll-target="#importing-a-database">Importing a database</a></li>
-  </ul></li>
-  <li><a href="#scripting" id="toc-scripting" class="nav-link" data-scroll-target="#scripting">Scripting</a>
-  <ul class="collapse">
-  <li><a href="#for-example-to-exclude-a-database-from-the-backup" id="toc-for-example-to-exclude-a-database-from-the-backup" class="nav-link" data-scroll-target="#for-example-to-exclude-a-database-from-the-backup">For example, to exclude a database from the backup:</a></li>
-  <li><a href="#to-exclude-specific-tables" id="toc-to-exclude-specific-tables" class="nav-link" data-scroll-target="#to-exclude-specific-tables">To exclude specific tables:</a></li>
-  <li><a href="#some-features-of-mysqlpump" id="toc-some-features-of-mysqlpump" class="nav-link" data-scroll-target="#some-features-of-mysqlpump">Some features of <code>mysqlpump</code></a></li>
-  <li><a href="#manage-large-databases" id="toc-manage-large-databases" class="nav-link" data-scroll-target="#manage-large-databases">Manage large databases</a></li>
-  </ul></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">How to import/export a database in MySQL/MariaDB</h1>
-<p class="subtitle lead"><a href="../../zettel/25">Zettel#25</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2022-11-28</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>Databases are an essential part of modern applications, and there are times when you might need to move or backup your database. MySQL and MariaDB provide several ways to export and import databases.</p>

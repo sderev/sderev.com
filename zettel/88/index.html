@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,70 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Setting Up Two-Factor Authentication (2FA) on a Server with Google Authenticator for SSH Logins</h1>
+            <p class="subtitle lead"><a href="../../zettel/88">Zettel#88</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-05-22</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#install-google-authenticator-on-the-server" id="toc-install-google-authenticator-on-the-server" class="nav-link active" data-scroll-target="#install-google-authenticator-on-the-server">Install Google Authenticator on the server</a></li>
-  <li><a href="#generate-the-secret-key-and-qr-code" id="toc-generate-the-secret-key-and-qr-code" class="nav-link" data-scroll-target="#generate-the-secret-key-and-qr-code">Generate the secret key and QR code</a>
-  <ul class="collapse">
-  <li><a href="#run-the-google-authenticator-pam-module" id="toc-run-the-google-authenticator-pam-module" class="nav-link" data-scroll-target="#run-the-google-authenticator-pam-module">Run the Google Authenticator PAM module</a></li>
-  <li><a href="#for-scripting-purposes-use-the-following-command-with-the-specified-options" id="toc-for-scripting-purposes-use-the-following-command-with-the-specified-options" class="nav-link" data-scroll-target="#for-scripting-purposes-use-the-following-command-with-the-specified-options">For scripting purposes, use the following command with the specified options</a></li>
-  </ul></li>
-  <li><a href="#edit-the-pam-configuration-for-ssh-on-the-server" id="toc-edit-the-pam-configuration-for-ssh-on-the-server" class="nav-link" data-scroll-target="#edit-the-pam-configuration-for-ssh-on-the-server">Edit the PAM configuration for SSH on the server</a>
-  <ul class="collapse">
-  <li><a href="#open-the-pam-configuration-for-ssh" id="toc-open-the-pam-configuration-for-ssh" class="nav-link" data-scroll-target="#open-the-pam-configuration-for-ssh">Open the PAM configuration for SSH</a></li>
-  <li><a href="#at-the-bottom-of-the-file-add-the-following-lines" id="toc-at-the-bottom-of-the-file-add-the-following-lines" class="nav-link" data-scroll-target="#at-the-bottom-of-the-file-add-the-following-lines">At the bottom of the file, add the following lines</a></li>
-  <li><a href="#control-flags-in-pam" id="toc-control-flags-in-pam" class="nav-link" data-scroll-target="#control-flags-in-pam">Control Flags in PAM</a></li>
-  <li><a href="#at-the-beginning-of-the-file-you-should-comment-out-the-following-line" id="toc-at-the-beginning-of-the-file-you-should-comment-out-the-following-line" class="nav-link" data-scroll-target="#at-the-beginning-of-the-file-you-should-comment-out-the-following-line">At the beginning of the file, you should comment out the following line</a></li>
-  </ul></li>
-  <li><a href="#update-sshd-configuration" id="toc-update-sshd-configuration" class="nav-link" data-scroll-target="#update-sshd-configuration">Update SSHD configuration</a>
-  <ul class="collapse">
-  <li><a href="#edit-the-sshd-configuration-file" id="toc-edit-the-sshd-configuration-file" class="nav-link" data-scroll-target="#edit-the-sshd-configuration-file">Edit the SSHD configuration file</a></li>
-  <li><a href="#ensure-that-the-following-lines-are-present-and-not-commented-out" id="toc-ensure-that-the-following-lines-are-present-and-not-commented-out" class="nav-link" data-scroll-target="#ensure-that-the-following-lines-are-present-and-not-commented-out">Ensure that the following lines are present and not commented out</a></li>
-  <li><a href="#at-the-bottom-of-the-file-add-one-of-the-following-lines-based-on-the-desired-behavior" id="toc-at-the-bottom-of-the-file-add-one-of-the-following-lines-based-on-the-desired-behavior" class="nav-link" data-scroll-target="#at-the-bottom-of-the-file-add-one-of-the-following-lines-based-on-the-desired-behavior">At the bottom of the file, add one of the following lines based on the desired behavior</a></li>
-  </ul></li>
-  <li><a href="#restart-the-sshd-service" id="toc-restart-the-sshd-service" class="nav-link" data-scroll-target="#restart-the-sshd-service">Restart the SSHD service</a></li>
-  <li><a href="#disabling-2fa" id="toc-disabling-2fa" class="nav-link" data-scroll-target="#disabling-2fa">Disabling 2FA</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#related-zettel" id="toc-related-zettel" class="nav-link" data-scroll-target="#related-zettel">Related Zettel</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Setting Up Two-Factor Authentication (2FA) on a Server with Google Authenticator for SSH Logins</h1>
-<p class="subtitle lead"><a href="../../zettel/88">Zettel#88</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-05-22</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>Google Authenticator provides 2-factor authentication (2FA), which can enhance the security of SSH logins.</p>

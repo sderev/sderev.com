@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,59 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Enabling autocompletion for a custom script in <code>zsh</code> or <code>bash</code></h1>
+            <p class="subtitle lead"><a href="../../zettel/52">Zettel#52</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-03-30</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#zsh" id="toc-zsh" class="nav-link active" data-scroll-target="#zsh">Zsh</a>
-  <ul class="collapse">
-  <li><a href="#create-a-completion-function-for-your-script" id="toc-create-a-completion-function-for-your-script" class="nav-link" data-scroll-target="#create-a-completion-function-for-your-script">Create a completion function for your script</a></li>
-  <li><a href="#save-the-completion-function-file-in-a-directory-in-the-fpath-variable" id="toc-save-the-completion-function-file-in-a-directory-in-the-fpath-variable" class="nav-link" data-scroll-target="#save-the-completion-function-file-in-a-directory-in-the-fpath-variable">Save the completion function file in a directory in the <code>FPATH</code> variable</a></li>
-  <li><a href="#source-the-completion-function-file" id="toc-source-the-completion-function-file" class="nav-link" data-scroll-target="#source-the-completion-function-file">Source the completion function file</a></li>
-  </ul></li>
-  <li><a href="#bash" id="toc-bash" class="nav-link" data-scroll-target="#bash">Bash</a>
-  <ul class="collapse">
-  <li><a href="#create-a-completion-script-for-your-script" id="toc-create-a-completion-script-for-your-script" class="nav-link" data-scroll-target="#create-a-completion-script-for-your-script">Create a completion script for your script</a></li>
-  <li><a href="#save-the-completion-script-file-in-a-directory-in-the-path-variable" id="toc-save-the-completion-script-file-in-a-directory-in-the-path-variable" class="nav-link" data-scroll-target="#save-the-completion-script-file-in-a-directory-in-the-path-variable">Save the completion script file in a directory in the <code>PATH</code> variable</a></li>
-  <li><a href="#source-the-bash-completion-scripts" id="toc-source-the-bash-completion-scripts" class="nav-link" data-scroll-target="#source-the-bash-completion-scripts">Source the Bash completion scripts</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Enabling autocompletion for a custom script in <code>zsh</code> or <code>bash</code></h1>
-<p class="subtitle lead"><a href="../../zettel/52">Zettel#52</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-03-30</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>Autocompletion is a convenient feature in both Zsh and Bash shells that can save time and reduce typing errors. If you have a custom script that you frequently use, you may want to enable autocompletion for it. Here’s how to do it in both shells.</p>

@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,57 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Utilizing Alternative Delimiters in Vim’s Substitution Command</h1>
+            <p class="subtitle lead"><a href="../../zettel/109">Zettel#109</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-07-30</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#examples" id="toc-examples" class="nav-link active" data-scroll-target="#examples">Examples</a>
-  <ul class="collapse">
-  <li><a href="#standard-substitution" id="toc-standard-substitution" class="nav-link" data-scroll-target="#standard-substitution">Standard Substitution</a></li>
-  <li><a href="#same-substitution-with-as-delimiter" id="toc-same-substitution-with-as-delimiter" class="nav-link" data-scroll-target="#same-substitution-with-as-delimiter">Same substitution with <code>#</code> as delimiter</a></li>
-  </ul></li>
-  <li><a href="#simplifying-file-path-substitution" id="toc-simplifying-file-path-substitution" class="nav-link" data-scroll-target="#simplifying-file-path-substitution">Simplifying File Path Substitution</a>
-  <ul class="collapse">
-  <li><a href="#with-escaping-slashes" id="toc-with-escaping-slashes" class="nav-link" data-scroll-target="#with-escaping-slashes">With Escaping Slashes</a></li>
-  <li><a href="#using-as-delimiter" id="toc-using-as-delimiter" class="nav-link" data-scroll-target="#using-as-delimiter">Using <code>#</code> as Delimiter</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Utilizing Alternative Delimiters in Vim’s Substitution Command</h1>
-<p class="subtitle lead"><a href="../../zettel/109">Zettel#109</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-07-30</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>Vim’s <code>:s</code> command lets you use substitution with regular expressions. While <code>/</code> is the common delimiter, you can use other characters (except for <code>\</code>, <code>"</code>, <code>|</code>).</p>

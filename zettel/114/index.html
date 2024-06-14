@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,59 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Strong vs.&nbsp;Weak Typing</h1>
+            <p class="subtitle lead"><a href="../../zettel/114">Zettel#114</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-09-12</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#strongly-typed-languages" id="toc-strongly-typed-languages" class="nav-link active" data-scroll-target="#strongly-typed-languages">Strongly Typed Languages</a>
-  <ul class="collapse">
-  <li><a href="#example-in-python" id="toc-example-in-python" class="nav-link" data-scroll-target="#example-in-python">Example in Python</a></li>
-  <li><a href="#example-in-go" id="toc-example-in-go" class="nav-link" data-scroll-target="#example-in-go">Example in Go</a></li>
-  </ul></li>
-  <li><a href="#weakly-typed-languages" id="toc-weakly-typed-languages" class="nav-link" data-scroll-target="#weakly-typed-languages">Weakly Typed Languages</a>
-  <ul class="collapse">
-  <li><a href="#example-in-c" id="toc-example-in-c" class="nav-link" data-scroll-target="#example-in-c">Example in C</a></li>
-  <li><a href="#example-in-javascript" id="toc-example-in-javascript" class="nav-link" data-scroll-target="#example-in-javascript">Example in JavaScript</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#related-zettel" id="toc-related-zettel" class="nav-link" data-scroll-target="#related-zettel">Related Zettel</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Strong vs.&nbsp;Weak Typing</h1>
-<p class="subtitle lead"><a href="../../zettel/114">Zettel#114</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-09-12</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>The concepts of <em>strong</em> and <em>weak</em> typing lack universally accepted definitions, leading to diverse interpretations. A common misunderstanding is to associate the type declarations with strong typing. This is despite the fact that compilers in languages like Go or Rust can infer types, thus not requiring explicity declarations by the programmer, which contradicts the initial association. And optional type annotations are often mistakenly linked with weak typing. Moreover, type declarations are sometimes incorrectly associated with static typing, and type annotations with dynamic typing.</p>

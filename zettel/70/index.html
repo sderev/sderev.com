@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,64 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Distributing a Python CLI Application with Autocompletion</h1>
+            <p class="subtitle lead"><a href="../../zettel/70">Zettel#70</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-04-16</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#packaging-and-publishing-to-pypi" id="toc-packaging-and-publishing-to-pypi" class="nav-link active" data-scroll-target="#packaging-and-publishing-to-pypi">Packaging and Publishing to PyPI</a>
-  <ul class="collapse">
-  <li><a href="#use-setuptools-in-your-setup.py-file" id="toc-use-setuptools-in-your-setup.py-file" class="nav-link" data-scroll-target="#use-setuptools-in-your-setup.py-file">Use <code>setuptools</code> in your <code>setup.py</code> file</a></li>
-  <li><a href="#testing-your-package" id="toc-testing-your-package" class="nav-link" data-scroll-target="#testing-your-package">Testing your package</a></li>
-  <li><a href="#publish-your-package-to-pypi" id="toc-publish-your-package-to-pypi" class="nav-link" data-scroll-target="#publish-your-package-to-pypi">Publish your package to PyPI</a></li>
-  </ul></li>
-  <li><a href="#storing-pypi-api-tokens" id="toc-storing-pypi-api-tokens" class="nav-link" data-scroll-target="#storing-pypi-api-tokens">Storing PyPi API Tokens</a>
-  <ul class="collapse">
-  <li><a href="#the-.pypirc-file" id="toc-the-.pypirc-file" class="nav-link" data-scroll-target="#the-.pypirc-file">The .pypirc file</a></li>
-  <li><a href="#using-keyring" id="toc-using-keyring" class="nav-link" data-scroll-target="#using-keyring">Using Keyring</a></li>
-  </ul></li>
-  <li><a href="#shell-autocompletion" id="toc-shell-autocompletion" class="nav-link" data-scroll-target="#shell-autocompletion">Shell Autocompletion</a>
-  <ul class="collapse">
-  <li><a href="#generate-completion-files-for-click" id="toc-generate-completion-files-for-click" class="nav-link" data-scroll-target="#generate-completion-files-for-click">Generate Completion Files for <code>click</code></a></li>
-  </ul></li>
-  <li><a href="#distributing-with-pipx" id="toc-distributing-with-pipx" class="nav-link" data-scroll-target="#distributing-with-pipx">Distributing with pipx</a></li>
-  <li><a href="#related-zettel" id="toc-related-zettel" class="nav-link" data-scroll-target="#related-zettel">Related Zettel</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Distributing a Python CLI Application with Autocompletion</h1>
-<p class="subtitle lead"><a href="../../zettel/70">Zettel#70</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-04-16</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>A guide on how to distribute a Python CLI application, ensuring easy installation and shell autocompletion for users.</p>

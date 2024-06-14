@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,55 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Python Packaging with <code>pyproject.toml</code></h1>
+            <p class="subtitle lead"><a href="../../zettel/131">Zettel#131</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-10-12</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#creating-a-package" id="toc-creating-a-package" class="nav-link active" data-scroll-target="#creating-a-package">Creating a Package</a></li>
-  <li><a href="#building-and-distributing-your-package" id="toc-building-and-distributing-your-package" class="nav-link" data-scroll-target="#building-and-distributing-your-package">Building and Distributing Your Package</a></li>
-  <li><a href="#managing-dependencies" id="toc-managing-dependencies" class="nav-link" data-scroll-target="#managing-dependencies">Managing Dependencies</a></li>
-  <li><a href="#configuring-entry-points" id="toc-configuring-entry-points" class="nav-link" data-scroll-target="#configuring-entry-points">Configuring Entry Points</a></li>
-  <li><a href="#tool-configuration" id="toc-tool-configuration" class="nav-link" data-scroll-target="#tool-configuration">Tool Configuration</a></li>
-  <li><a href="#starter-pyproject.toml-example" id="toc-starter-pyproject.toml-example" class="nav-link" data-scroll-target="#starter-pyproject.toml-example">Starter <code>pyproject.toml</code> Example</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#related-zettel" id="toc-related-zettel" class="nav-link" data-scroll-target="#related-zettel">Related Zettel</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Python Packaging with <code>pyproject.toml</code></h1>
-<p class="subtitle lead"><a href="../../zettel/131">Zettel#131</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-10-12</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>Though I may still be in the early stages of my programming journey, I had not learned the most modern way of packaging a Python project six months ago when I started doing it. Initially, I used <code>setuptools</code> and a <code>setup.py</code> file.</p>

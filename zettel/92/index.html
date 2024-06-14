@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,58 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Understanding Vim Regular Expressions: A Comparison with PCRE</h1>
+            <p class="subtitle lead"><a href="../../zettel/92">Zettel#92</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-05-31</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#differences-between-vim-and-pcre-syntax" id="toc-differences-between-vim-and-pcre-syntax" class="nav-link active" data-scroll-target="#differences-between-vim-and-pcre-syntax">Differences Between Vim and PCRE Syntax</a>
-  <ul class="collapse">
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  <li><a href="#vims-built-in-documentation" id="toc-vims-built-in-documentation" class="nav-link" data-scroll-target="#vims-built-in-documentation">Vim’s Built-in Documentation</a></li>
-  </ul></li>
-  <li><a href="#vim-magic-regex-mode" id="toc-vim-magic-regex-mode" class="nav-link" data-scroll-target="#vim-magic-regex-mode">Vim Magic Regex Mode</a>
-  <ul class="collapse">
-  <li><a href="#examples-of-magic-somewhat-magic-and-nomagic-modes" id="toc-examples-of-magic-somewhat-magic-and-nomagic-modes" class="nav-link" data-scroll-target="#examples-of-magic-somewhat-magic-and-nomagic-modes">Examples of Magic, Somewhat Magic, and Nomagic Modes</a></li>
-  <li><a href="#vims-built-in-documentation-1" id="toc-vims-built-in-documentation-1" class="nav-link" data-scroll-target="#vims-built-in-documentation-1">Vim’s Built-in Documentation</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Understanding Vim Regular Expressions: A Comparison with PCRE</h1>
-<p class="subtitle lead"><a href="../../zettel/92">Zettel#92</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-05-31</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p><strong>If you’re reading this in raw Markdown, be careful with the escaped <code>|</code> characters. I had to escape them in the raw text so that they would render in HTML correctly.</strong></p>

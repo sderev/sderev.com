@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -161,67 +161,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">How to Use the Native Spell Checker of Vim</h1>
+            <p class="subtitle lead"><a href="../../zettel/44">Zettel#44</a></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">zettelkasten</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2023-03-10</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#add-the-languages-you-want-to-spell-check" id="toc-add-the-languages-you-want-to-spell-check" class="nav-link active" data-scroll-target="#add-the-languages-you-want-to-spell-check">Add the Languages You Want to Spell Check</a></li>
-  <li><a href="#toggle-the-spell-checker-in-a-file" id="toc-toggle-the-spell-checker-in-a-file" class="nav-link" data-scroll-target="#toggle-the-spell-checker-in-a-file">Toggle the Spell Checker in a File</a></li>
-  <li><a href="#navigate-to-misspelled-words" id="toc-navigate-to-misspelled-words" class="nav-link" data-scroll-target="#navigate-to-misspelled-words">Navigate to Misspelled Words</a>
-  <ul class="collapse">
-  <li><a href="#next-misspelled-words" id="toc-next-misspelled-words" class="nav-link" data-scroll-target="#next-misspelled-words">Next Misspelled Words</a></li>
-  <li><a href="#previous-misspelled-words" id="toc-previous-misspelled-words" class="nav-link" data-scroll-target="#previous-misspelled-words">Previous Misspelled Words</a></li>
-  </ul></li>
-  <li><a href="#view-spell-checker-recommendations" id="toc-view-spell-checker-recommendations" class="nav-link" data-scroll-target="#view-spell-checker-recommendations">View Spell Checker Recommendations</a></li>
-  <li><a href="#accept-the-first-recommendation" id="toc-accept-the-first-recommendation" class="nav-link" data-scroll-target="#accept-the-first-recommendation">Accept the First Recommendation</a></li>
-  <li><a href="#create-a-custom-dictionary" id="toc-create-a-custom-dictionary" class="nav-link" data-scroll-target="#create-a-custom-dictionary">Create a Custom Dictionary</a>
-  <ul class="collapse">
-  <li><a href="#using-multiple-custom-dictionaries" id="toc-using-multiple-custom-dictionaries" class="nav-link" data-scroll-target="#using-multiple-custom-dictionaries">Using Multiple Custom Dictionaries</a></li>
-  </ul></li>
-  <li><a href="#add-new-words-to-the-dictionary" id="toc-add-new-words-to-the-dictionary" class="nav-link" data-scroll-target="#add-new-words-to-the-dictionary">Add New Words to the Dictionary</a>
-  <ul class="collapse">
-  <li><a href="#add-words-to-a-different-dictionary" id="toc-add-words-to-a-different-dictionary" class="nav-link" data-scroll-target="#add-words-to-a-different-dictionary">Add Words to a Different Dictionary</a></li>
-  </ul></li>
-  <li><a href="#add-words-to-a-specific-dictionary" id="toc-add-words-to-a-specific-dictionary" class="nav-link" data-scroll-target="#add-words-to-a-specific-dictionary">Add Words to a Specific Dictionary</a></li>
-  <li><a href="#remove-words-from-the-dictionary" id="toc-remove-words-from-the-dictionary" class="nav-link" data-scroll-target="#remove-words-from-the-dictionary">Remove Words from the Dictionary</a></li>
-  <li><a href="#customize-spell-checker-appearance" id="toc-customize-spell-checker-appearance" class="nav-link" data-scroll-target="#customize-spell-checker-appearance">Customize Spell Checker Appearance</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">How to Use the Native Spell Checker of Vim</h1>
-<p class="subtitle lead"><a href="../../zettel/44">Zettel#44</a></p>
-  <div class="quarto-categories">
-    <div class="quarto-category">zettelkasten</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page-left">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-03-10</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <section id="add-the-languages-you-want-to-spell-check" class="level2">
