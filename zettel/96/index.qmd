@@ -1,0 +1,46 @@
+---
+title: "Removing Vocals from Music: A Simple Hack"
+subtitle: "[Zettel#96](/zettel/96)"
+date: 2023-06-11
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+The process of removing vocals from a song can sometimes be accomplished by leveraging the way stereo tracks are typically recorded. This method, which involves subtracting one stereo channel from the other, is more of a hack than a professional technique, as the general sound quality will be severely deteriorated.
+
+## The General Process 
+
+* Many instruments in a song are often recorded so that they favor one side of the stereo track over the other. 
+* By contrast, vocals are usually recorded in mono and played equally in both channels. 
+* Subtracting the right channel from the left (or vice versa) removes everything that is the same in both channels, which often includes the main vocal track.
+
+The general steps are as follows:
+
+1. For each sample in the stereo input sound, compute the difference between the left and right channels at that point in time.
+2. Use this result as the corresponding sample in the mono output sound.
+
+## Caveat: This is a Hack, Not a Professional Technique
+
+* This technique isn't always effective and can sometimes remove parts of the music other than the vocals.
+* It's more of a simple hack than a technique used by professional audio engineers.
+* Professionals use more complex and reliable techniques for this purpose, often involving spectral editing, phase cancellation, and other methods.
+
+## Pseudocode
+
+A pseudocode representation of this process could look like this:
+
+```pseudocode
+function remove_vocals(input_sound):
+    output_sound = create_empty_mono_sound(input_sound.length)
+
+    for each sample in input_sound:
+        output_sound[sample.index] = input_sound.left_channel[sample.index] - input_sound.right_channel[sample.index]
+    
+    return output_sound
+```
+
+This pseudocode assumes that `input_sound` is a stereo sound object that has separate left and right channel arrays, and that `create_empty_mono_sound` is a function that creates a new mono sound object of a given length.
+
+## References
+
+* [Audio Processing | 6.101 Spring 2023 (py.mit.edu)](https://py.mit.edu/spring23/labs/audio_processing)

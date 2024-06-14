@@ -1,0 +1,21 @@
+---
+title: "The \"Safe Triangle\" Design Pattern for Better UI Context Menus"
+subtitle: "[Zettel#124](/zettel/124)"
+date: 2023-09-26
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+## Problem
+
+Navigating hierarchical or nested context menus in UIs can be a challenging task. Users often encounter issues where the submenu disappears if the cursor slightly deviates from the intended path, leading to a frustrating user experience.
+
+## Solution: The "Safe Triangle"
+
+The "Safe Triangle" is a UI design pattern that effectively addresses this issue. It enhances the usability of hierarchical or nested context menus by creating an SVG triangle that serves as a "safe zone" around the submenu. Cursor tracking is implemented to ensure that the submenu remains open as long as the cursor is within this triangular area.
+
+![screenshot_2023-09-27T00:56:29_0.png](/zettel/assets/images/screenshot_2023-09-27T00:56:29_0.png)
+
+## References
+
+* [Smashing Magazine – Better Context Menus With Safe Triangles](https://www.smashingmagazine.com/2023/08/better-context-menus-safe-triangles/)

@@ -1,0 +1,49 @@
+---
+title: "The `hosts` File as a Self-Care Hack to Block Distractions"
+subtitle: "[Zettel#156](/zettel/156)"
+date: 2024-06-01
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+"&nbsp;": "⭐"
+---
+I was squandering too much time on chess.com (no link for your own sanity), even though I really wanted to stop playing. That's one way to define an addiction. I struggled to find an easy method to add parental controls or something like that, with the only option seeming to be the installation of a web browser extension. However, I couldn't find one that would work as I wanted (no ads, no registration, *etc.*). Also, it's too easy to turn off.
+
+So here comes the `hosts` file solution. It's somewhat easy to disable as well, but it requires more steps than just clicking a button. And it works for all web browsers at once—no need to install an extension for each one.
+
+You might be tempted to write a script to toggle the blocking on and off, but that would defeat the purpose. While it may not add much friction—since it's easy to disable—, doing it manually helps prevent you from falling back into the cycle you're trying to escape. You'll be more conscious of your actions, and that's what we want: to stop being the puppet of our impulses.
+
+## Editing the `hosts` File
+
+The `hosts` file is a simple text file that maps hostnames to IP addresses.
+
+First, you need to open it with administrator privileges to edit it.
+
+### Unix-like Systems
+
+```
+sudo vim /etc/hosts
+```
+
+### Windows
+
+```
+C:\Windows\System32\drivers\etc\hosts
+```
+
+**Or via WSL**:
+
+Open your terminal with administrator privileges.
+
+```
+sudo vim /mnt/c/Windows/System32/drivers/etc/hosts
+```
+
+## Blocking Websites
+
+And now, you just redirect whatever website you want to block to `127.0.0.1`.
+
+```bash
+127.0.0.1    chess.com
+127.0.0.1    www.chess.com
+```
