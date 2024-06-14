@@ -1,0 +1,52 @@
+---
+title: "Extracting Largest and Smallest Items from a Collection in Python"
+subtitle: "[Zettel#119](/zettel/119)"
+date: 2023-09-14
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+This Python snippet presents methods to retrieve the largest and smallest items from an iterable using built-in functions and the `heapq` module.
+
+## Example
+
+```python
+"""Getting the largest and smallest items in an iterable."""
+from heapq import nsmallest, nlargest
+
+numbers = [50, 34, 48, 26, 37, 20, 72, 31, 71, 88]
+
+print("Largest item:", f"{max(numbers) = }", "", sep="\n")
+print("Largest N items:", f"{nlargest(3, numbers) = }", "", sep="\n")
+print("All items, largest to smallest:", f"{sorted(numbers, reverse=True) = }", "", sep="\n")
+
+print("Smallest item:", f"{min(numbers) = }", "", sep="\n")
+print("Smallest N items:", f"{nsmallest(3, numbers) = }", "", sep="\n")
+print("All items, smallest to largest:", f"{sorted(numbers) = }", "", sep="\n")
+```
+
+### Output
+
+```
+Largest item:
+max(numbers) = 88
+
+Largest N items:
+nlargest(3, numbers) = [88, 72, 71]
+
+All items, largest to smallest:
+sorted(numbers, reverse=True) = [88, 72, 71, 50, 48, 37, 34, 31, 26, 20]
+
+Smallest item:
+min(numbers) = 20
+
+Smallest N items:
+nsmallest(3, numbers) = [20, 26, 31]
+
+All items, smallest to largest:
+sorted(numbers) = [20, 26, 31, 34, 37, 48, 50, 71, 72, 88]
+```
+
+## References
+
+* [Python Morsels](https://www.pythonmorsels.com/p/39jsj/?__s=sn2t46fee5zxx3xfagz3)

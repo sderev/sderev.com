@@ -1,0 +1,27 @@
+---
+title: "There's been the \"good Bing 😊\". But is there a good Edge?"
+subtitle: "[Zettel#100](/zettel/100)"
+date: 2023-06-16
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+In a spontaneous moment of curiosity today, I found myself looking into Microsoft Edge, with its neat new tricks and features.
+
+## Microsoft Edge Split Screen and Vertical Tab Bar
+
+One cool thing I discovered is Edge's split screen feature. By activating it via `edge://flags#edge-split-screen`, you can manage tabs as panels within the same window by pressing `ctrl + shift + 2`. The shortcut feels a bit clunky and strains the wrist, but it's a neat feature. Pair this with the vertical tab bar, and you've got a pretty clean browsing session.
+
+However, this split screen isn't as handy when you're bouncing between tasks on other applications, since the panes—thus the text—will be squeezed.
+
+For instance, when multitasking between applications like Brave and my terminal, which I lock to the left and right of my screen respectively, the split screen feature loses its charm. I regularly switch between these two using `win + 2` for Brave and `win + 3` for my terminal and then revert to full screen with Windows Snap (`win + arrow`). But once in full screen mode, it might be a good addition.
+
+## Integrated AI Tools in Edge
+
+One of the features that may appeal to a lot of people is the integration of several AI tools.
+
+There is the "new Bing", the integration of ChatGPT, of course, which you can easily access via `ctrl + shift + .`. But that's not all. Edge also has text-to-speech, a handy math problem solver, and you can even access DALL-E 2 via the Image Creator.
+
+## Related Zettel
+
+* [Zettel#47](/zettel/47)

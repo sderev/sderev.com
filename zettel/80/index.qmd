@@ -1,0 +1,31 @@
+---
+title: "Using `in` vs. `find()` in Python"
+subtitle: "[Zettel#80](/zettel/80)"
+date: 2023-04-21
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+## Overview
+
+If you don't need the index, but just want to test for inclusion, always use the `in` keyword instead of the `find()` method in Python.
+
+## Reasons for Different Functionality
+
+### Implementation and Short-circuiting
+
+* The `in` keyword is a built-in operator in Python that works in conjunction with the `__contains__` magic method of an object, while the `find()` method is a Python-level method implemented by certain types like strings.
+* Both `in` and `find()` can stop the search as soon as they find the element or substring, which is a form of short-circuiting. This behavior can optimize the speed of these operations for specific use cases.
+* The `in` operator only needs to return a boolean value indicating presence or absence, while the `find()` method returns the index of the first occurrence of the substring.
+* For built-in types like sets and dictionaries, Python's `in` operator can use a hash-based lookup, which can be faster than a linear search for certain cases.
+
+### Purpose
+
+* The `in` operator is designed specifically to check for the presence of an element in a sequence, while the `find()` method is designed to search for a substring and return its index.
+* Since the `in` operator only needs to return a boolean value, its implementation is focused on presence checking, while `find()` also provides the index of the found substring.
+
+## Conclusion
+
+The choice between `in` and `find()` depends on the specific use case. The `in` operator is ideal for simple presence checks, while the `find()` method is suitable when you need to know the index of the substring.
+
+In terms of performance, the `in` keyword will always be faster than the `find()` method.
