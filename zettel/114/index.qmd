@@ -44,7 +44,7 @@ var letter string = "A"
 ```c
 int number = 17;
 char letter = 'A';  // ASCII value of 'A' is 65.
-int combinedValue = number + letter;  // combinedValue will be 82.
+int combined = number + letter;  // combined will be 82.
 ```
 
 ### Example in JavaScript
