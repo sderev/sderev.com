@@ -1684,7 +1684,7 @@
     "href": "zettel/114/index.html#weakly-typed-languages",
     "title": "Strong vs. Weak Typing",
     "section": "Weakly Typed Languages",
-    "text": "Weakly Typed Languages\n\nWeakly typed languages allow variables to be used as though they were of different types with no explicit conversion.\nThe language tries to deduce the operation contextually, which can lead to unpredictable results.\n\n\nExample in C\nint number = 17;\nchar letter = 'A';  // ASCII value of 'A' is 65.\nint combinedValue = number + letter;  // combinedValue will be 82.\n\n\nExample in JavaScript\nlet number = 17\nlet letter = \"A\"\nlet combined = number + letter  // combined will be the string \"17A\"."
+    "text": "Weakly Typed Languages\n\nWeakly typed languages allow variables to be used as though they were of different types with no explicit conversion.\nThe language tries to deduce the operation contextually, which can lead to unpredictable results.\n\n\nExample in C\nint number = 17;\nchar letter = 'A';  // ASCII value of 'A' is 65.\nint combined = number + letter;  // combined will be 82.\n\n\nExample in JavaScript\nlet number = 17\nlet letter = \"A\"\nlet combined = number + letter  // combined will be the string \"17A\"."
   },
   {
     "objectID": "zettel/114/index.html#references",
