@@ -1,0 +1,27 @@
+---
+title: "`which` vs `command -v`"
+subtitle: "Zettel#59"
+id: "59"
+date: 2023-04-06
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+## `which`
+
+* External command, typically found at `/usr/bin/which`
+* Searches for executables in directories listed in `PATH`
+* Returns the absolute path of the first match found in `PATH`
+* Returns an error message if the command is not found
+* Not POSIX-compliant: behavior might vary across Unix-like systems
+* Less reliable for use in shell scripts
+
+## `command -v`
+
+* Shell built-in command (e.g., bash, zsh)
+* Searches for executables, shell built-ins, shell functions, and aliases
+* Returns the absolute path if the command is an executable
+* Returns the command definition if it's a shell built-in, function, or alias
+* Returns nothing if the command is not found
+* POSIX-compliant: more consistent behavior across Unix-like systems
+* More reliable for use in shell scripts
