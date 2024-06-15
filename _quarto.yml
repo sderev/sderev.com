@@ -32,6 +32,11 @@ website:
       - icon: twitter
         href: https://twitter.com/sdereviere
 
+  search:
+    limit: 1000
+    copy-button: true
+
+
 format:
   html:
     theme: [cosmo, styles.css]
