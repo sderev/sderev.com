@@ -15,8 +15,17 @@ listing:
     date-format: "MMMM YYYY"
     table-hover: true
 page-layout: full
-title-block-banner: true
+title-block-banner: false
 title-block-style: default
 toc: false
 ---
-Some Zettel are more elaborately written than others, but they remain informal notes—and not necessarily up-to-date.
+::: {.callout-tip}
+## Tip: Full-Text Search
+
+You can access a full-text search of the entire website, including the Zettelkasten, in the following ways:
+
+* Click on the search icon in the right corner of the navigation bar.
+* Press `s`, `f`, or `/` on your keyboard.
+:::
+
+Please keep in mind that those Zettel are essentially notes and should be regarded as such.
