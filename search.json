@@ -1404,7 +1404,7 @@
     "href": "zettel/157/index.html",
     "title": "Change Model Directory for Ollama",
     "section": "",
-    "text": "To avoid any conflict with future updates that might delete your custom configuration, the best solution is to use a symbolic link.\nsudo ln -s /path/to/custom/ollama/model_dir/ /usr/share/ollama/.ollama"
+    "text": "You can set an environment variable OLLAMA_MODELS according to the documentation. However, it seems like it doesn’t always work for unknown reasons.\nInstead, you can create a symbolic link to a custom model directory:\nsudo ln -s /path/to/custom/ollama/model_dir/ /usr/share/ollama/.ollama"
   },
   {
     "objectID": "zettel/137/index.html",

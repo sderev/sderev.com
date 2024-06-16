@@ -182,6 +182,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">2024-06-16</p>
+      </div>
+    </div>
       
     </div>
     
@@ -197,7 +203,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>To avoid any conflict with future updates that might delete your custom configuration, the best solution is to use a symbolic link.</p>
+<p>You can set an environment variable <code>OLLAMA_MODELS</code> according to <a href="https://github.com/ollama/ollama/blob/main/docs/faq.md#where-are-models-stored">the documentation</a>. However, it seems like it doesn’t always work for unknown reasons.</p>
+<p>Instead, you can create a symbolic link to a custom model directory:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sudo</span> ln <span class="at">-s</span> /path/to/custom/ollama/model_dir/ /usr/share/ollama/.ollama</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
