@@ -3,7 +3,7 @@ title: "Learn Git and GitHub"
 subtitle: "Zettel#91"
 id: "91"
 date: 2023-05-27
-date-modified: ""
+date-modified: 2024-06-17
 date-format: iso
 categories: [zettelkasten]
 "&nbsp;": "⭐"
@@ -24,13 +24,14 @@ categories: [zettelkasten]
   * [Git 1: Version Control](https://web.mit.edu/6.102/www/sp23/tools/git-1-version-control/)
   * [Git 2: Disaster Recovery](https://web.mit.edu/6.102/www/sp23/tools/git-2-disaster-recovery/)
   * [Git 3: Team Version Control](https://web.mit.edu/6.102/www/sp23/tools/git-3-team-version-control/)
+* [Learn Git Branching](https://learngitbranching.js.org/): An interactive tutorial to learn about Git branching.
 
 ### Not Free Resources
 
 * [Boost your Git DX, by Adam Johnson](https://adamchainz.gumroad.com/l/bygdx): This book is definitely worth reading if you're seeking to learn about Git from a workflow-oriented perspective.
 * [How Git Works, by Julia Evans](https://wizardzines.com/zines/git/): A short and easy read about the fundamentals of Git.
 * [Everything You'll Need to Know About Git](https://frontendmasters.com/courses/everything-git/): ThePrimeagen teaching Git on Frontend Masters.
-* [Learn Git](https://www.boot.dev/learn/learn-git): Again, ThePrimeagen teaching Git but on <boot.dev>.
+* [Learn Git](https://www.boot.dev/learn/learn-git): Again, ThePrimeagen teaching Git but on [boot.dev](https://boot.dev).
 
 ## GitHub
 
