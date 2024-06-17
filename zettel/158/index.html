@@ -198,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>I use <a href="https://quarto.org">Quarto</a> to generate my website, which includes my Zettelkasten.</p>
-<p>For the listing of <a href="https://sderev.com/zettel">my Zettelkasten</a>, I wanted a way to feature certain Zettel. To do that, I created a custom key-value pair in the YAML header of the Zettel that I named <code>"&amp;nbsp;"</code> so that it will be invisible in the listing, and I set the value to a star emoji <code>⭐</code>:</p>
+<p>For the listing of <a href="https://sderev.com/zettel">my Zettelkasten</a>, I wanted a way to feature certain Zettel. To do that, I created a custom key-value pair in the YAML header of the Zettel that I named <code>spotlight</code> so that it will be invisible in the listing, and I set the value to a star emoji <code>⭐</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">---</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"The `hosts` File as a Self-Care Hack to Block Distractions"</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"Zettel#156"</span></span>
@@ -207,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6"></a><span class="fu">date-modified</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> iso</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a><span class="fu">categories</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">zettelkasten</span><span class="kw">]</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">"&amp;nbsp;"</span><span class="kw">:</span><span class="at"> </span><span class="st">"⭐"</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">spotlight</span><span class="kw">:</span><span class="at"> </span><span class="st">"⭐"</span></span>
 <span id="cb1-10"><a href="#cb1-10"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, in the YAML header of the listing page, I set the <code>fields</code> key to include the custom key-value pair:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">---</span></span>
@@ -221,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-9"><a href="#cb2-9"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> table</span></span>
 <span id="cb2-10"><a href="#cb2-10"></a><span class="at">    </span><span class="fu">filter-ui</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb2-11"><a href="#cb2-11"></a><span class="at">    </span><span class="fu">categories</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="at">    </span><span class="fu">fields</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">subtitle</span><span class="kw">,</span><span class="at"> title</span><span class="kw">,</span><span class="at"> </span><span class="st">"&amp;nbsp;"</span><span class="kw">,</span><span class="at"> date</span><span class="kw">]</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="at">    </span><span class="fu">fields</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">subtitle</span><span class="kw">,</span><span class="at"> title</span><span class="kw">,</span><span class="at"> spotlight</span><span class="kw">,</span><span class="at"> date</span><span class="kw">]</span></span>
 <span id="cb2-13"><a href="#cb2-13"></a><span class="at">    </span><span class="fu">date-format</span><span class="kw">:</span><span class="at"> iso</span></span>
 <span id="cb2-14"><a href="#cb2-14"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>See how it renders:</p>
