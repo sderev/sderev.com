@@ -6,7 +6,7 @@ date: 2024-06-01
 date-modified: ""
 date-format: iso
 categories: [zettelkasten]
-"&nbsp;": "⭐"
+spotlight: "⭐"
 ---
 I was squandering too much time on chess.com (no link for your own sanity), even though I really wanted to stop playing. That's one way to define an addiction. I struggled to find an easy method to add parental controls or something like that, with the only option seeming to be the installation of a web browser extension. However, I couldn't find one that would work as I wanted (no ads, no registration, *etc.*). Also, it's too easy to turn off.
 

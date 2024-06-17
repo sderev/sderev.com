@@ -6,7 +6,7 @@ date: 2023-04-16
 date-modified: ""
 date-format: iso
 categories: [zettelkasten]
-"&nbsp;": "⭐"
+spotlight: "⭐"
 ---
 A guide on how to distribute a Python CLI application, ensuring easy installation and shell autocompletion for users.
 

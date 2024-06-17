@@ -6,11 +6,11 @@ date: 2024-06-14
 date-modified: ""
 date-format: iso
 categories: [zettelkasten]
-"&nbsp;": ""
+spotlight: ""
 ---
 I use [Quarto](https://quarto.org) to generate my website, which includes my Zettelkasten.
 
-For the listing of [my Zettelkasten](https://sderev.com/zettel), I wanted a way to feature certain Zettel. To do that, I created a custom key-value pair in the YAML header of the Zettel that I named `"&nbsp;"` so that it will be invisible in the listing, and I set the value to a star emoji `⭐`:
+For the listing of [my Zettelkasten](https://sderev.com/zettel), I wanted a way to feature certain Zettel. To do that, I created a custom key-value pair in the YAML header of the Zettel that I named `spotlight` so that it will be invisible in the listing, and I set the value to a star emoji `⭐`:
 
 ```yaml
 ---
@@ -21,7 +21,7 @@ date: 2024-06-01
 date-modified: ""
 date-format: iso
 categories: [zettelkasten]
-"&nbsp;": "⭐"
+spotlight: "⭐"
 ---
 ```
 
@@ -39,7 +39,7 @@ listing:
     type: table
     filter-ui: true
     categories: false
-    fields: [subtitle, title, "&nbsp;", date]
+    fields: [subtitle, title, spotlight, date]
     date-format: iso
 ---
 ```
