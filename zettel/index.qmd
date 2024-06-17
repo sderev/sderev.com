@@ -9,9 +9,10 @@ listing:
     type: table
     filter-ui: true
     categories: false
-    fields: [id, title, "&nbsp;", date]
+    fields: [id, title, spotlight, date]
     field-display-names:
         id: "Zettel#"
+        spotlight: "&nbsp;"
     date-format: "MMMM YYYY"
     table-hover: true
 page-layout: full

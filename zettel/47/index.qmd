@@ -6,7 +6,7 @@ date: 2023-03-14
 date-modified: ""
 date-format: iso
 categories: [zettelkasten]
-"&nbsp;": "⭐"
+spotlight: "⭐"
 ---
 Having efficient keybinds can be a significant factor in performing actions quickly. Compared to having to click on an icon, being able to display a specific application / window with a keybind makes for a smooth workflow. You don't have to search for the icon on your screen, move your mouse, and finally click on it. Here, you just press a keybind, and you're done.
 

@@ -6,7 +6,7 @@ date: 2024-06-12
 date-modified: 2024-06-16
 date-format: iso
 categories: [zettelkasten]
-"&nbsp;": ""
+spotlight: ""
 ---
 You can set an environment variable `OLLAMA_MODELS` according to [the documentation](https://github.com/ollama/ollama/blob/main/docs/faq.md#where-are-models-stored). However, it seems like it doesn't always work for unknown reasons.
 
