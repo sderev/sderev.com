@@ -64,3 +64,4 @@ Almost everything you can do on the GitHub website, you can do it in a CLI with 
 
 * [Zettel#72](/zettel/72)
 * [Zettel#125](/zettel/125)
+* [Zettel#159](/zettel/159)
