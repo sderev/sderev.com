@@ -1,0 +1,33 @@
+---
+title: "Using Canonical Form via String Sorting for Anagram Grouping"
+subtitle: "Zettel#138"
+id: "138"
+date: 2023-10-25
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+When solving problems related to anagrams, one efficient technique to group them is by converting each string to its Canonical Form.
+
+## The Concept
+
+Canonical Form refers to normalizing data into a uniform representation. In the context of anagrams, sorting the string's letters provides a standardized or canonical form of that string. All anagrams will map to this same sorted string, making it easier to group them together.
+
+## Python Implementation
+
+```python
+from typing import List, Dict
+
+def group_anagrams(strs: List[str]) -> List[List[str]]:
+    anagrams: Dict[str, List[str]] = {}
+    for word in strs:
+        sorted_word = "".join(sorted(word))
+        if sorted_word not in anagrams:
+            anagrams[sorted_word] = []
+        anagrams[sorted_word].append(word)
+    return list(anagrams.values())
+```
+
+## Computational Complexity
+
+The time complexity is $`O(n \cdot k \log k)`$, where $`n`$ is the number of strings and $`k`$ is the maximum length of a string. This is primarily because sorting each string takes $`O(k \log k)`$ time.
