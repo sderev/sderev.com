@@ -1,0 +1,83 @@
+---
+title: "How to Use the Native Spell Checker of Vim"
+subtitle: "Zettel#44"
+id: "44"
+date: 2023-03-10
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+## Add the Languages You Want to Spell Check
+
+```vim
+set spelllang=en_us,fr
+```
+
+Yes, with three times the character `l`.
+
+## Toggle the Spell Checker in a File
+
+```vim
+set spell!
+```
+
+## Navigate to Misspelled Words
+
+### Next Misspelled Words
+
+```vim
+]s
+```
+
+### Previous Misspelled Words
+
+```vim
+[s
+```
+
+## View Spell Checker Recommendations
+
+Press `z=` with the cursor on the misspelled word.
+
+## Accept the First Recommendation
+
+Press `1z=` with the cursor on the misspelled word.
+
+## Create a Custom Dictionary
+
+1. Create a new text file that contains the words you want to add to the custom dictionary. Each word should be on a separate line.
+1. Save the file with a `.dic` extension. For example, you could save the file as `programming.dic`.
+1. Type `:set spellfile=path/to/custom.dic` and press `<Enter>` (or add it to your `.vimrc`).
+
+### Using Multiple Custom Dictionaries
+
+```vim
+:set spellfile=~/.vim/spell/en.utf-8.add,~/.vim/spell/my_custom.dic
+```
+
+## Add New Words to the Dictionary
+
+Press `zg` with the cursor on the misspelled word.
+
+### Add Words to a Different Dictionary
+
+1. Switch to the dictionary you want to add the word to: `:set spelllang=fr`
+1. Add the word using `zg`.
+1. Switch back to your original dictionary: `:set spelllang=en_us,fr`
+
+## Add Words to a Specific Dictionary
+
+Use `:spell {word} {lang}` to add a word to a specific dictionary without changing `spelllang`.
+
+For example, `:spell bonjour fr` adds "bonjour" to the French dictionary.
+
+## Remove Words from the Dictionary
+
+Press `zw` with the cursor on the misspelled word.
+
+## Customize Spell Checker Appearance
+
+* `SpellBad`: the color for incorrectly spelled words;
+* `SpellCap`: the color for capitalized words that might be incorrect;
+* `SpellRare`: the color for rarely used words;
+* `SpellLocal`: the color for words that are not recognized in the current language but are defined in a custom dictionary.

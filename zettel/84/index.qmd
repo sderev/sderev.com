@@ -1,0 +1,36 @@
+---
+title: "Difference between `set` and `setx` in a Windows shell"
+subtitle: "Zettel#84"
+id: "84"
+date: 2023-05-09
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+Environment variables in Windows can be managed using two commands, `set` and `setx`. However, they differ in behavior and scope of effect.
+
+## `set`
+  
+This command sets the environment variable for the current command prompt session only. The changes are temporary and get lost when you close the command prompt. This command is useful when you need to temporarily set an environment variable for the duration of your command prompt session.
+  
+### Usage
+
+```powershell
+set VariableName=Value
+```
+
+## `setx`
+
+This command sets the environment variable permanently. The changes are saved and affect future command prompt sessions. However, it does not affect the current session. This command is useful when you need to permanently set an environment variable.
+  
+### Usage
+
+```powershell
+setx VariableName "Value"
+```
+
+An important distinction is that `setx` does not affect the current command prompt session, but it affects all future sessions. In contrast, `set` affects the current session but does not affect future sessions.
+
+Furthermore, `setx` stores values in the Windows Registry, making the change permanent and global, meaning the variable will be accessible to all users and all processes. In contrast, `set` only changes the environment of the current command process.
+
+Also note that `setx` has a limitation of 1024 characters for the maximum variable length. `set` has no such limitation.
