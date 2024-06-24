@@ -24,11 +24,11 @@ Conditional includes are typically part of the global configuration but are acti
 Use the following syntax in the global `.gitconfig` to set up conditional includes:
 
 ```gitconfig
-[includeIf "gitdir:~/projects/work/"]
-    path = ~/projects/work/.gitconfig
+[includeIf "gitdir:~/Repos/work/"]
+    path = ~/Repos/work/.gitconfig
 
-[includeIf "gitdir:~/projects/personal/"]
-    path = ~/projects/personal/.gitconfig
+[includeIf "gitdir:~/Repos/personal/"]
+    path = ~/Repos/personal/.gitconfig
 ```
 
 ## Troubleshooting
