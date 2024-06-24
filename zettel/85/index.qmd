@@ -1,0 +1,181 @@
+---
+title: "File and Directory Listing in Python"
+subtitle: "Zettel#85"
+id: "85"
+date: 2023-05-09
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+Python provides multiple ways to interact with the file system. This includes listing files and directories, checking if a path is a file or directory, and performing more complex operations.
+
+## `os.listdir()`
+
+* `os.listdir()` returns a list of filenames in a specified directory without including the special entries (`.` and `..`).
+* It doesn't provide additional information about the files and directories.
+* It's suitable for basic directory listing tasks.
+
+### Example Using `os.listdir()`
+
+```python
+import os
+
+directory_path = 'path/to/directory'
+filenames = os.listdir(directory_path)
+
+for filename in filenames:
+    print(filename)
+```
+
+## `os.scandir()`
+
+* `os.scandir()` yields an iterator of `os.DirEntry` objects for entries in a specified directory.
+* Each `os.DirEntry` object allows access to the entry's name, full path, and methods to fetch file attributes (e.g., `is_file()`, `is_dir()`, `stat()`), without additional system calls.
+* It's more efficient and suitable for tasks requiring detailed information about directory contents.
+
+### Example Using `os.scandir()`
+
+```python
+import os
+
+directory_path = 'path/to/directory'
+
+with os.scandir(directory_path) as entries:
+    for entry in entries:
+        print(f"Name: {entry.name}")
+        print(f"Full Path: {entry.path}")
+        print(f"Is File: {entry.is_file()}")
+        print(f"Is Directory: {entry.is_dir()}")
+        print(f"Size: {entry.stat().st_size} bytes")
+        print("---")
+```
+
+## `os.walk()`
+
+* os.walk() generates a tuple for each directory in the tree rooted at a specified directory, including the directory path, a list of subdirectories, and a list of filenames within that directory.
+* It traverses the directory tree either in a top-down (default) or bottom-up fashion. The traversal order is controlled by the `topdown` parameter:
+    * Top-down: Directories are scanned from the root down to the leaves. This is the default behavior (`topdown=True`).
+    * Bottom-up: Directories are scanned from the leaves up to the root, which is useful for operations needing to process subdirectories first. Activate this approach by setting `topdown=False`.
+* This function is suitable for tasks requiring recursion through subdirectories, such as searching for files with specific extensions, aggregating file sizes, or modifying directory structures.
+
+### Example Using `os.walk()`
+
+```python
+import os
+
+root_directory = 'path/to/directory'
+
+# Bottom-up traversal
+for dirpath, dirnames, filenames in os.walk(root_directory, topdown=False):
+    print(f"Directory Path: {dirpath}")
+    for dirname in dirnames:
+        print(f"Subdirectory: {dirname}")
+    for filename in filenames:
+        print(f"File: {filename}")
+    print("---")
+```
+
+## `pathlib`
+
+* The `pathlib` library offers a more object-oriented approach for file system manipulation.
+* It has methods and properties to interact with file paths, directories, and files.
+* It's more intuitive, easier to use, and more powerful than `os.listdir()`.
+
+## pathlib's `iterdir()`
+
+* The equivalent of `os.listdir()` in `pathlib` is `Path.iterdir()`.
+* It returns an iterator yielding `Path` objects for all items in the specified directory.
+* Unlike `os.listdir()`, it provides more functionality and information about each item.
+
+### Example Using `iterdir()`
+
+```python
+from pathlib import Path
+
+directory = Path('path/to/your/directory')
+
+for item in directory.iterdir():
+    print(item)
+```
+
+## Recursively Listing Files with pathlib's `rglob()`
+
+* The `Path.rglob()` method can be used to list files and directories recursively.
+* It returns an iterator yielding `Path` objects for all items in the specified directory and its subdirectories.
+
+### Example Using `rglob()`
+
+```python
+from pathlib import Path
+
+directory = Path('path/to/your/directory')
+
+for item in directory.rglob('*'):  # Use '*' as the pattern to match all items
+    print(item)
+```
+
+### Understanding `rglob()`
+
+* `rglob()` stands for "recursive glob".
+* It combines the functionality of "globbing" (pattern matching) and recursion.
+
+### The glob Shell Command
+
+* The `glob` command is a shell operation in Unix-based systems used for filename pattern matching.
+* It allows users to search for files and directories based on wildcard patterns.
+
+## pathlib's `walk()` Method in Python 3.12
+
+* Introduced in Python 3.12, the `Path.walk()` method offers a way to traverse a directory tree, providing a 3-tuple `(dirpath, dirnames, filenames)` for each directory it visits.
+* It's a more flexible and powerful alternative to `rglob()` for certain use-cases, allowing in-place modifications and error handling.
+
+### Parameters
+
+* `top_down`: Controls the order of traversal. `True` by default, meaning it goes from the top directory down to subdirectories.
+* `on_error`: A callable function for error handling. By default, errors are ignored.
+* `follow_symlinks`: Determines whether to follow symbolic links. Default is `False`.
+
+### Example: Finding `.txt` Files
+
+```python
+from pathlib import Path
+
+for root, dirs, files in Path("some_directory").walk():
+    txt_files = [f for f in files if f.endswith('.txt')]
+    print(f"In {root}, found text files: {txt_files}")
+```
+
+### Example: Calculating Disk Usage with `walk()`
+
+```python
+from pathlib import Path
+
+# Initialize a dictionary to store disk usage for each directory
+disk_usage = {}
+
+# Walk through the directory tree
+for root, dirs, files in Path("some_directory").walk():
+    total_size = 0  # Initialize total size for the current directory
+
+    # Calculate the size of each file in the current directory
+    for file in files:
+        file_path = root / Path(file)
+        total_size += file_path.stat().st_size
+
+    # Store the total size in the dictionary
+    disk_usage[root] = total_size
+
+# Display the disk usage for each directory
+for dir_path, size in disk_usage.items():
+    print(f"The directory {dir_path} consumes {size} bytes.")
+```
+
+### Notes
+
+* Be cautious when setting `follow_symlinks` to `True` to avoid infinite loops.
+* The method assumes the directory structure is not modified during its execution.
+
+## References
+
+* [Real Python: How to Get All Files in a Directory](https://realpython.com/get-all-files-in-directory-python/)
+* [Python Official Documentation: `pathlib.Path.walk()`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.walk)

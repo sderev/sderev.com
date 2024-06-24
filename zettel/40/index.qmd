@@ -1,0 +1,44 @@
+---
+title: "How to use the `undofile` of Vim"
+subtitle: "Zettel#40"
+id: "40"
+date: 2023-03-08
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+> The simplest version is: create `~/.vim/undo-dir/` directory and add the following to the `.vimrc`: 
+> 
+> ```vim
+> set undodir=~/.vim/undo-dir
+> set undofile
+> ```
+> 
+> However, it's not flawless, and it's better to read on. From my own .vimrc:
+> 
+> ```vim
+> " Let's save undo info!
+> if !isdirectory($HOME."/.vim")
+>     call mkdir($HOME."/.vim", "", 0770)
+> endif
+> if !isdirectory($HOME."/.vim/undo-dir")
+>     call mkdir($HOME."/.vim/undo-dir", "", 0700)
+> endif
+> set undodir=~/.vim/undo-dir
+> set undofile
+> ```
+> 
+> I prefer not to clutter random directories with undo files. So I set the `undodir` option, which puts all of them in one undo directory. That leaves one problem—I'm lazy, and don't feel like creating that directory on all my machines (I use a version control system to sync my `.vimrc` across a bunch of machines). Thankfully, it's easy enough to have Vim check for and create the directories if they don't exist.
+> 
+> Note also the `0700` mode on the undo directory (that's full permissions for the owner, no permissions for anyone else). Which files I've edited, when, etc. should stay private. And since this is a directory only I can access, I don't have to worry about someone else putting a symlink in there, or their own undo file, or whatever as you'd have to worry about using a system temporary directory.
+> 
+> Finally, not being a system temporary directory, it's not subject to the system tempfile cleanup policy. Often, that's fairly short—a week or so. But to keep it from growing forever, I put the following in my `crontab`: 
+> 
+> ```bash
+> # m h  dom mon dow   command
+>  43 00 *   *   3     find /home/anthony/.vim/undo-dir -type f -mtime +90 -delete
+> ```
+> 
+> So after 90 days of not being modified, they're deleted. (Honestly, they're not really that big, and you could easily leave them forever with how cheap disk is. But consider also your own privacy if your machine is ever compromised.)
+
+<https://vi.stackexchange.com/a/53>
