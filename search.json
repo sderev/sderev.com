@@ -1964,7 +1964,7 @@
     "href": "zettel/141/index.html#example-use-case",
     "title": "Managing Git Configurations Conditionally",
     "section": "Example Use Case",
-    "text": "Example Use Case\nUse the following syntax in the global .gitconfig to set up conditional includes:\n[includeIf \"gitdir:~/projects/work/\"]\n    path = ~/projects/work/.gitconfig\n\n[includeIf \"gitdir:~/projects/personal/\"]\n    path = ~/projects/personal/.gitconfig"
+    "text": "Example Use Case\nUse the following syntax in the global .gitconfig to set up conditional includes:\n[includeIf \"gitdir:~/Repos/work/\"]\n    path = ~/Repos/work/.gitconfig\n\n[includeIf \"gitdir:~/Repos/personal/\"]\n    path = ~/Repos/personal/.gitconfig"
   },
   {
     "objectID": "zettel/141/index.html#troubleshooting",
