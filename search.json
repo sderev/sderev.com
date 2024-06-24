@@ -956,7 +956,7 @@
     "href": "zettel/index.html",
     "title": "Zettelkasten",
     "section": "",
-    "text": "Tip: Full-Text Search\n\n\n\nYou can access a full-text search of the entire website, including the Zettelkasten, in the following ways:\n\nClick on the search icon in the right corner of the navigation bar.\nPress s, f, or / on your keyboard.\n\n\n\nPlease keep in mind that those Zettel are essentially notes and should be regarded as such.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Zettel#\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nZettel#\n\n\nTitle\n\n\n \n\n\nDate\n\n\n\n\n\n\n160\n\n\nHow to Rename a WSL Distribution\n\n\n \n\n\nJune 2024\n\n\n\n\n159\n\n\nUse git reset --keep, not git reset --hard\n\n\n \n\n\nJune 2024\n\n\n\n\n158\n\n\nCreate a “Featured” Column in Quarto Listings\n\n\n \n\n\nJune 2024\n\n\n\n\n157\n\n\nChange Model Directory for Ollama\n\n\n \n\n\nJune 2024\n\n\n\n\n156\n\n\nThe hosts File as a Self-Care Hack to Block Distractions\n\n\n⭐\n\n\nJune 2024\n\n\n\n\n155\n\n\nSolving X-Server (WSLg) Issues in WSL: Error: Can't open display: :0\n\n\n \n\n\nMay 2024\n\n\n\n\n154\n\n\nReading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)\n\n\n \n\n\nMay 2024\n\n\n\n\n153\n\n\nA Short Course on OSS Licensing for Research and Education\n\n\n \n\n\nMay 2024\n\n\n\n\n152\n\n\nVim: Save a File You Forgot to Open with Sudo\n\n\n \n\n\nMay 2024\n\n\n\n\n151\n\n\nVim: Moving to Next Search Pattern in Incremental Search\n\n\n \n\n\nApril 2024\n\n\n\n\n150\n\n\nBFS vs DFS\n\n\n \n\n\nApril 2024\n\n\n\n\n149\n\n\nHow to Execute Parallel and Concurrent Commands in Bash\n\n\n \n\n\nApril 2024\n\n\n\n\n148\n\n\nVim ga Command Shows ASCII Information\n\n\n \n\n\nApril 2024\n\n\n\n\n147\n\n\nResolving Vim Sluggishness Caused by ALE Linters with LaTeX Files\n\n\n \n\n\nMarch 2024\n\n\n\n\n146\n\n\nAutomating a Reading Note Template Generation Using Zotero Metadata\n\n\n \n\n\nMarch 2024\n\n\n\n\n145\n\n\nUnnecessary else Statement Can Be Better for Readability\n\n\n \n\n\nMarch 2024\n\n\n\n\n144\n\n\nUse ddof=1 for Sample Dispersion Measures with NumPy\n\n\n \n\n\nMarch 2024\n\n\n\n\n143\n\n\nUse git maintenance start\n\n\n \n\n\nFebruary 2024\n\n\n\n\n142\n\n\nGPG Key Configuration for Signing Commits with Git and GitHub\n\n\n \n\n\nFebruary 2024\n\n\n\n\n141\n\n\nManaging Git Configurations Conditionally\n\n\n \n\n\nFebruary 2024\n\n\n\n\n140\n\n\nThe Most Common Applications of Machine Learning\n\n\n \n\n\nFebruary 2024\n\n\n\n\n139\n\n\nVim Shortcuts in Insert Mode\n\n\n \n\n\nJanuary 2024\n\n\n\n\n138\n\n\nUsing Canonical Form via String Sorting for Anagram Grouping\n\n\n \n\n\nOctober 2023\n\n\n\n\n137\n\n\nBasic Time Frames of Emotion\n\n\n \n\n\nOctober 2023\n\n\n\n\n136\n\n\nyield from: The Extend Method for Generators\n\n\n \n\n\nOctober 2023\n\n\n\n\n135\n\n\nHow to Know if an Object is an Iterable in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n134\n\n\nMoving a Tmux Pane to Another Existing Window\n\n\n \n\n\nOctober 2023\n\n\n\n\n133\n\n\nA Better Library for Logging in Python: Eliot\n\n\n \n\n\nOctober 2023\n\n\n\n\n132\n\n\nrich.status: a Spinner for Better CLI UX\n\n\n \n\n\nOctober 2023\n\n\n\n\n131\n\n\nPython Packaging with pyproject.toml\n\n\n⭐\n\n\nOctober 2023\n\n\n\n\n130\n\n\nVim Command for Retrieving Syntax Highlighting Information\n\n\n \n\n\nOctober 2023\n\n\n\n\n129\n\n\nOptimizing Memory and Attribute Lookup in Python Classes with __slots__\n\n\n \n\n\nOctober 2023\n\n\n\n\n128\n\n\nVim :g Command: A Practical Guide\n\n\n \n\n\nOctober 2023\n\n\n\n\n127\n\n\nEquality vs Identity in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n126\n\n\nManaging Pinned Dependencies for Python Packages with uv\n\n\n \n\n\nOctober 2023\n\n\n\n\n125\n\n\nAmending a Specific Past Git Commit Without Affecting Recent Ones\n\n\n \n\n\nSeptember 2023\n\n\n\n\n124\n\n\nThe “Safe Triangle” Design Pattern for Better UI Context Menus\n\n\n \n\n\nSeptember 2023\n\n\n\n\n123\n\n\nSpeedy Directory Switching with CDPATH\n\n\n \n\n\nSeptember 2023\n\n\n\n\n122\n\n\nChatGPT Integration for Code Analysis in Vim\n\n\n \n\n\nSeptember 2023\n\n\n\n\n121\n\n\n!! Substitution in Bash and Zsh\n\n\n \n\n\nSeptember 2023\n\n\n\n\n120\n\n\nA Quick Guide to mktemp in Bash\n\n\n \n\n\nSeptember 2023\n\n\n\n\n119\n\n\nExtracting Largest and Smallest Items from a Collection in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n118\n\n\nCheat Sheet for Python f-string\n\n\n \n\n\nSeptember 2023\n\n\n\n\n117\n\n\nrandom.choices(list, k=n) vs random.sample(list, k=n) in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n116\n\n\nUnderstanding Keyword-Only Function Arguments in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n115\n\n\nHow To Detect a Hashable Object in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n114\n\n\nStrong vs. Weak Typing\n\n\n \n\n\nSeptember 2023\n\n\n\n\n113\n\n\nCommand History Search (Shell with Vi Mode)\n\n\n \n\n\nAugust 2023\n\n\n\n\n112\n\n\nManaging Upgrades of Bundled CLI Tools in a metapackage Installed via pipx\n\n\n \n\n\nAugust 2023\n\n\n\n\n111\n\n\nUUID: An Introduction and Usage\n\n\n \n\n\nJuly 2023\n\n\n\n\n110\n\n\nExtracting Unique Patterns with grep or ripgrep\n\n\n \n\n\nJuly 2023\n\n\n\n\n109\n\n\nUtilizing Alternative Delimiters in Vim’s Substitution Command\n\n\n \n\n\nJuly 2023\n\n\n\n\n108\n\n\nw3m Cheatsheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n107\n\n\nStop Writing Your Error Messages to stdout\n\n\n \n\n\nJuly 2023\n\n\n\n\n106\n\n\nWorking With Timezones in Python\n\n\n \n\n\nJuly 2023\n\n\n\n\n105\n\n\nGoogle Dorking Cheat Sheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n104\n\n\ned Is Pronounced “ee-dee”\n\n\n \n\n\nJuly 2023\n\n\n\n\n103\n\n\nUnderstanding YAML Block Scalars - Folded and Literal Styles\n\n\n \n\n\nJuly 2023\n\n\n\n\n102\n\n\nJedi-Vim Plugin Cheat Sheet\n\n\n \n\n\nJune 2023\n\n\n\n\n101\n\n\nUnderstanding xclip File Commands and Their Use Cases\n\n\n \n\n\nJune 2023\n\n\n\n\n100\n\n\nThere’s been the “good Bing 😊”. But is there a good Edge?\n\n\n \n\n\nJune 2023\n\n\n\n\n99\n\n\nUsing xclip for Clipboard Operations in WSL and VMs Running on Windows\n\n\n \n\n\nJune 2023\n\n\n\n\n98\n\n\nLICEcap: A Simple Tool for Recording GIFs\n\n\n \n\n\nJune 2023\n\n\n\n\n97\n\n\nSeam Carving Algorithm\n\n\n \n\n\nJune 2023\n\n\n\n\n96\n\n\nRemoving Vocals from Music: A Simple Hack\n\n\n \n\n\nJune 2023\n\n\n\n\n95\n\n\nRGB vs HSL Color Models\n\n\n \n\n\nJune 2023\n\n\n\n\n94\n\n\nA Quote Diary\n\n\n \n\n\nJune 2023\n\n\n\n\n93\n\n\nGeneral Strategy Whenever You Have a Bug\n\n\n \n\n\nJune 2023\n\n\n\n\n92\n\n\nUnderstanding Vim Regular Expressions: A Comparison with PCRE\n\n\n \n\n\nMay 2023\n\n\n\n\n91\n\n\nLearn Git and GitHub\n\n\n⭐\n\n\nMay 2023\n\n\n\n\n90\n\n\nContainers, Docker, and Podman\n\n\n \n\n\nMay 2023\n\n\n\n\n89\n\n\nThe XOR Operator and Its Applications to Programming\n\n\n \n\n\nMay 2023\n\n\n\n\n88\n\n\nSetting Up Two-Factor Authentication (2FA) on a Server with Google Authenticator for SSH Logins\n\n\n \n\n\nMay 2023\n\n\n\n\n87\n\n\nRemapping the ² Key on an AZERTY Keyboard with AutoHotkey (Windows)\n\n\n \n\n\nMay 2023\n\n\n\n\n86\n\n\nCasting malloc and calloc in C and C++\n\n\n \n\n\nMay 2023\n\n\n\n\n85\n\n\nFile and Directory Listing in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n84\n\n\nDifference between set and setx in a Windows shell\n\n\n \n\n\nMay 2023\n\n\n\n\n83\n\n\nPartial Functions vs Closures in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n82\n\n\nPartial Functions in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n81\n\n\nInstantly Paste Emojis Using a Windows Keybind\n\n\n \n\n\nApril 2023\n\n\n\n\n80\n\n\nUsing in vs. find() in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n79\n\n\nDelete Lines Not Matching a Specific Pattern in Vim or with Sed\n\n\n \n\n\nApril 2023\n\n\n\n\n78\n\n\nQuick Workflow for Making a Screencast on Windows\n\n\n \n\n\nApril 2023\n\n\n\n\n77\n\n\nHow to Add a title and alt Attribute, and a caption to an Image Using Pandoc Markdown\n\n\n \n\n\nApril 2023\n\n\n\n\n76\n\n\nPathlib vs. os.path Performance\n\n\n \n\n\nApril 2023\n\n\n\n\n75\n\n\nDon’t use time.time()\n\n\n \n\n\nApril 2023\n\n\n\n\n74\n\n\nThe Python Code Formatter Black Can Format Long Strings\n\n\n \n\n\nApril 2023\n\n\n\n\n73\n\n\nUse sys.maxsize instead of float(\"inf\") in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n72\n\n\nCombining Multiple GitHub Repositories into a Single Repository\n\n\n \n\n\nApril 2023\n\n\n\n\n71\n\n\nHandling Long Strings in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n70\n\n\nDistributing a Python CLI Application with Autocompletion\n\n\n⭐\n\n\nApril 2023\n\n\n\n\n69\n\n\nRenaming Variables and Functions Across Multiple Files in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n68\n\n\nPerformance of Set-Based Word Existence Check\n\n\n \n\n\nApril 2023\n\n\n\n\n67\n\n\nIf Your Code Uses f-strings, Your Dictionaries Are Already Ordered\n\n\n \n\n\nApril 2023\n\n\n\n\n66\n\n\nTitles in English Should Be Capitalized\n\n\n \n\n\nApril 2023\n\n\n\n\n65\n\n\nVim Buffers: Renaming, Switching and Opening Files\n\n\n \n\n\nApril 2023\n\n\n\n\n64\n\n\nHow to Determine the Operating System Programmatically\n\n\n \n\n\nApril 2023\n\n\n\n\n63\n\n\nCreating and managing cron jobs\n\n\n \n\n\nApril 2023\n\n\n\n\n62\n\n\nEnhancing Variable Renaming in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n61\n\n\nIgnoring portions of code with the Python code formatter Black\n\n\n \n\n\nApril 2023\n\n\n\n\n60\n\n\nHow to use macros in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n59\n\n\nwhich vs command -v\n\n\n \n\n\nApril 2023\n\n\n\n\n58\n\n\nLinux Output Redirection\n\n\n \n\n\nApril 2023\n\n\n\n\n57\n\n\nHow to create a virtual environment for a Python project\n\n\n \n\n\nApril 2023\n\n\n\n\n56\n\n\nANSI Escape Sequences\n\n\n \n\n\nApril 2023\n\n\n\n\n55\n\n\nProtect yourself from overwriting files with the noclobber option\n\n\n \n\n\nApril 2023\n\n\n\n\n54\n\n\nHow to add a user to the sudo group\n\n\n \n\n\nMarch 2023\n\n\n\n\n53\n\n\nDifference between su and su -\n\n\n \n\n\nMarch 2023\n\n\n\n\n52\n\n\nEnabling autocompletion for a custom script in zsh or bash\n\n\n \n\n\nMarch 2023\n\n\n\n\n51\n\n\nOpen a file from a path in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n50\n\n\npushd and popd are on a boat…\n\n\n \n\n\nMarch 2023\n\n\n\n\n49\n\n\nHandling infinity in programming languages\n\n\n \n\n\nMarch 2023\n\n\n\n\n48\n\n\nEvaluating variables in f-strings in Python\n\n\n \n\n\nMarch 2023\n\n\n\n\n47\n\n\nA Very Simple Windows Management Workflow for Windows\n\n\n⭐\n\n\nMarch 2023\n\n\n\n\n46\n\n\nHow to disable the ^C char printed in Bash when pressing &lt;CTRL-C&gt;\n\n\n \n\n\nMarch 2023\n\n\n\n\n45\n\n\nHow to sort inside brackets (parentheses, etc.) in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n44\n\n\nHow to Use the Native Spell Checker of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n43\n\n\nNo more delay when pasting before the cursor in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n42\n\n\nApply a (useless) rot13 to an entire file in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n41\n\n\nHow to add quotes, parenthesis, etc., around text in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n40\n\n\nHow to use the undofile of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n39\n\n\nWrite a Zettel even if you think you don’t need it\n\n\n \n\n\nMarch 2023\n\n\n\n\n38\n\n\nHow to switch the case of characters in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n37\n\n\nHow to run the Python code formatter Black in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n36\n\n\nChanger de langue (citation de Cioran)\n\n\n \n\n\nFebruary 2023\n\n\n\n\n35\n\n\nHow to automatically create ordered lists in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n34\n\n\nWhat are the five critera for good interface design?\n\n\n \n\n\nFebruary 2023\n\n\n\n\n33\n\n\nCan Python functions get lonely?\n\n\n \n\n\nJanuary 2023\n\n\n\n\n32\n\n\nUse the casefold() method in Python when doing case-insensitive stuff\n\n\n \n\n\nJanuary 2023\n\n\n\n\n31\n\n\nHow to disable cursor blinking in a Linux shell\n\n\n \n\n\nJanuary 2023\n\n\n\n\n30\n\n\nHow to know the number of selected lines in Vim\n\n\n \n\n\nDecember 2022\n\n\n\n\n29\n\n\nThe problem of seeking informations and the limits of LLMs in that regard\n\n\n \n\n\nDecember 2022\n\n\n\n\n28\n\n\nHow to see network traffic in real time in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n27\n\n\nHow to increase the max upload file size for a PHP web server\n\n\n \n\n\nNovember 2022\n\n\n\n\n26\n\n\nHow to securely wipe and erase a disk in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n25\n\n\nHow to import/export a database in MySQL/MariaDB\n\n\n \n\n\nNovember 2022\n\n\n\n\n24\n\n\nHow to easily copy a public SSH key to another machine\n\n\n \n\n\nNovember 2022\n\n\n\n\n23\n\n\nSet timezone in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n22\n\n\nBash history Toolkit\n\n\n \n\n\nNovember 2022\n\n\n\n\n21\n\n\nHow to Determine Character Frequencies in a Python String\n\n\n \n\n\nNovember 2022\n\n\n\n\n20\n\n\nHow to use ssh-agent to automatically enter your SSH key passphrase\n\n\n \n\n\nNovember 2022\n\n\n\n\n19\n\n\nChecking user passwords\n\n\n \n\n\nNovember 2022\n\n\n\n\n18\n\n\nGenerating Secure Passwords with Linux Tools\n\n\n \n\n\nNovember 2022\n\n\n\n\n17\n\n\nHow to make .bashrc aliases available within a Vim shell command (:.!bash)\n\n\n \n\n\nNovember 2022\n\n\n\n\n16\n\n\nUpgrade Windows Applications With a CLI Package Manager\n\n\n \n\n\nNovember 2022\n\n\n\n\n15\n\n\nSome of my favorite fonts\n\n\n \n\n\nNovember 2022\n\n\n\n\n14\n\n\nExperts and Novices don’t learn the same way\n\n\n \n\n\nOctober 2022\n\n\n\n\n13\n\n\nGuido van Rossum on dynamic vs static typing\n\n\n \n\n\nSeptember 2022\n\n\n\n\n12\n\n\nHow to sort files and folders by size in Linux\n\n\n \n\n\nSeptember 2022\n\n\n\n\n11\n\n\nDifferences between Casting, Parsing and Converting\n\n\n \n\n\nSeptember 2022\n\n\n\n\n10\n\n\nHow to disable ligatures for the Fira Code font in Windows Terminal\n\n\n \n\n\nSeptember 2022\n\n\n\n\n9\n\n\nMoby Dick, extrait de la première page\n\n\n \n\n\nAugust 2022\n\n\n\n\n8\n\n\nThe rise of domain experts in deep learning\n\n\n \n\n\nAugust 2022\n\n\n\n\n7\n\n\nHow will machine learning impact the IT industry?\n\n\n \n\n\nAugust 2022\n\n\n\n\n6\n\n\nWhat is the Chiaroscuro technique?\n\n\n \n\n\nAugust 2022\n\n\n\n\n5\n\n\nC++ is not a superset of C\n\n\n \n\n\nAugust 2022\n\n\n\n\n4\n\n\nCybersecurity questions preparation exams\n\n\n \n\n\nJuly 2022\n\n\n\n\n3\n\n\nHow to remap keys in Linux\n\n\n \n\n\nJuly 2022\n\n\n\n\n2\n\n\nHow to change the default editor in Linux (when it’s Nano instead of Vim)\n\n\n \n\n\nJuly 2022\n\n\n\n\n1\n\n\nWhat is the difference between 127.0.0.1 and 0.0.0.0?\n\n\n \n\n\nJuly 2022\n\n\n\n\n0\n\n\nCitation de Louis Blanc\n\n\n \n\n\nJuly 2022\n\n\n\n\n\nNo matching items"
+    "text": "Tip: Full-Text Search\n\n\n\nYou can access a full-text search of the entire website, including the Zettelkasten, in the following ways:\n\nClick on the search icon in the right corner of the navigation bar.\nPress s, f, or / on your keyboard.\n\n\n\nPlease keep in mind that those Zettel are essentially notes and should be regarded as such.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Zettel#\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nZettel#\n\n\nTitle\n\n\n \n\n\nDate\n\n\n\n\n\n\n161\n\n\nUse Multiple GitHub Accounts with the gh CLI\n\n\n \n\n\nJune 2024\n\n\n\n\n160\n\n\nHow to Rename a WSL Distribution\n\n\n \n\n\nJune 2024\n\n\n\n\n159\n\n\nUse git reset --keep, not git reset --hard\n\n\n \n\n\nJune 2024\n\n\n\n\n158\n\n\nCreate a “Featured” Column in Quarto Listings\n\n\n \n\n\nJune 2024\n\n\n\n\n157\n\n\nChange Model Directory for Ollama\n\n\n \n\n\nJune 2024\n\n\n\n\n156\n\n\nThe hosts File as a Self-Care Hack to Block Distractions\n\n\n⭐\n\n\nJune 2024\n\n\n\n\n155\n\n\nSolving X-Server (WSLg) Issues in WSL: Error: Can't open display: :0\n\n\n \n\n\nMay 2024\n\n\n\n\n154\n\n\nReading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)\n\n\n \n\n\nMay 2024\n\n\n\n\n153\n\n\nA Short Course on OSS Licensing for Research and Education\n\n\n \n\n\nMay 2024\n\n\n\n\n152\n\n\nVim: Save a File You Forgot to Open with Sudo\n\n\n \n\n\nMay 2024\n\n\n\n\n151\n\n\nVim: Moving to Next Search Pattern in Incremental Search\n\n\n \n\n\nApril 2024\n\n\n\n\n150\n\n\nBFS vs DFS\n\n\n \n\n\nApril 2024\n\n\n\n\n149\n\n\nHow to Execute Parallel and Concurrent Commands in Bash\n\n\n \n\n\nApril 2024\n\n\n\n\n148\n\n\nVim ga Command Shows ASCII Information\n\n\n \n\n\nApril 2024\n\n\n\n\n147\n\n\nResolving Vim Sluggishness Caused by ALE Linters with LaTeX Files\n\n\n \n\n\nMarch 2024\n\n\n\n\n146\n\n\nAutomating a Reading Note Template Generation Using Zotero Metadata\n\n\n \n\n\nMarch 2024\n\n\n\n\n145\n\n\nUnnecessary else Statement Can Be Better for Readability\n\n\n \n\n\nMarch 2024\n\n\n\n\n144\n\n\nUse ddof=1 for Sample Dispersion Measures with NumPy\n\n\n \n\n\nMarch 2024\n\n\n\n\n143\n\n\nUse git maintenance start\n\n\n \n\n\nFebruary 2024\n\n\n\n\n142\n\n\nGPG Key Configuration for Signing Commits with Git and GitHub\n\n\n \n\n\nFebruary 2024\n\n\n\n\n141\n\n\nManaging Git Configurations Conditionally\n\n\n \n\n\nFebruary 2024\n\n\n\n\n140\n\n\nThe Most Common Applications of Machine Learning\n\n\n \n\n\nFebruary 2024\n\n\n\n\n139\n\n\nVim Shortcuts in Insert Mode\n\n\n \n\n\nJanuary 2024\n\n\n\n\n138\n\n\nUsing Canonical Form via String Sorting for Anagram Grouping\n\n\n \n\n\nOctober 2023\n\n\n\n\n137\n\n\nBasic Time Frames of Emotion\n\n\n \n\n\nOctober 2023\n\n\n\n\n136\n\n\nyield from: The Extend Method for Generators\n\n\n \n\n\nOctober 2023\n\n\n\n\n135\n\n\nHow to Know if an Object is an Iterable in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n134\n\n\nMoving a Tmux Pane to Another Existing Window\n\n\n \n\n\nOctober 2023\n\n\n\n\n133\n\n\nA Better Library for Logging in Python: Eliot\n\n\n \n\n\nOctober 2023\n\n\n\n\n132\n\n\nrich.status: a Spinner for Better CLI UX\n\n\n \n\n\nOctober 2023\n\n\n\n\n131\n\n\nPython Packaging with pyproject.toml\n\n\n⭐\n\n\nOctober 2023\n\n\n\n\n130\n\n\nVim Command for Retrieving Syntax Highlighting Information\n\n\n \n\n\nOctober 2023\n\n\n\n\n129\n\n\nOptimizing Memory and Attribute Lookup in Python Classes with __slots__\n\n\n \n\n\nOctober 2023\n\n\n\n\n128\n\n\nVim :g Command: A Practical Guide\n\n\n \n\n\nOctober 2023\n\n\n\n\n127\n\n\nEquality vs Identity in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n126\n\n\nManaging Pinned Dependencies for Python Packages with uv\n\n\n \n\n\nOctober 2023\n\n\n\n\n125\n\n\nAmending a Specific Past Git Commit Without Affecting Recent Ones\n\n\n \n\n\nSeptember 2023\n\n\n\n\n124\n\n\nThe “Safe Triangle” Design Pattern for Better UI Context Menus\n\n\n \n\n\nSeptember 2023\n\n\n\n\n123\n\n\nSpeedy Directory Switching with CDPATH\n\n\n \n\n\nSeptember 2023\n\n\n\n\n122\n\n\nChatGPT Integration for Code Analysis in Vim\n\n\n \n\n\nSeptember 2023\n\n\n\n\n121\n\n\n!! Substitution in Bash and Zsh\n\n\n \n\n\nSeptember 2023\n\n\n\n\n120\n\n\nA Quick Guide to mktemp in Bash\n\n\n \n\n\nSeptember 2023\n\n\n\n\n119\n\n\nExtracting Largest and Smallest Items from a Collection in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n118\n\n\nCheat Sheet for Python f-string\n\n\n \n\n\nSeptember 2023\n\n\n\n\n117\n\n\nrandom.choices(list, k=n) vs random.sample(list, k=n) in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n116\n\n\nUnderstanding Keyword-Only Function Arguments in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n115\n\n\nHow To Detect a Hashable Object in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n114\n\n\nStrong vs. Weak Typing\n\n\n \n\n\nSeptember 2023\n\n\n\n\n113\n\n\nCommand History Search (Shell with Vi Mode)\n\n\n \n\n\nAugust 2023\n\n\n\n\n112\n\n\nManaging Upgrades of Bundled CLI Tools in a metapackage Installed via pipx\n\n\n \n\n\nAugust 2023\n\n\n\n\n111\n\n\nUUID: An Introduction and Usage\n\n\n \n\n\nJuly 2023\n\n\n\n\n110\n\n\nExtracting Unique Patterns with grep or ripgrep\n\n\n \n\n\nJuly 2023\n\n\n\n\n109\n\n\nUtilizing Alternative Delimiters in Vim’s Substitution Command\n\n\n \n\n\nJuly 2023\n\n\n\n\n108\n\n\nw3m Cheatsheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n107\n\n\nStop Writing Your Error Messages to stdout\n\n\n \n\n\nJuly 2023\n\n\n\n\n106\n\n\nWorking With Timezones in Python\n\n\n \n\n\nJuly 2023\n\n\n\n\n105\n\n\nGoogle Dorking Cheat Sheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n104\n\n\ned Is Pronounced “ee-dee”\n\n\n \n\n\nJuly 2023\n\n\n\n\n103\n\n\nUnderstanding YAML Block Scalars - Folded and Literal Styles\n\n\n \n\n\nJuly 2023\n\n\n\n\n102\n\n\nJedi-Vim Plugin Cheat Sheet\n\n\n \n\n\nJune 2023\n\n\n\n\n101\n\n\nUnderstanding xclip File Commands and Their Use Cases\n\n\n \n\n\nJune 2023\n\n\n\n\n100\n\n\nThere’s been the “good Bing 😊”. But is there a good Edge?\n\n\n \n\n\nJune 2023\n\n\n\n\n99\n\n\nUsing xclip for Clipboard Operations in WSL and VMs Running on Windows\n\n\n \n\n\nJune 2023\n\n\n\n\n98\n\n\nLICEcap: A Simple Tool for Recording GIFs\n\n\n \n\n\nJune 2023\n\n\n\n\n97\n\n\nSeam Carving Algorithm\n\n\n \n\n\nJune 2023\n\n\n\n\n96\n\n\nRemoving Vocals from Music: A Simple Hack\n\n\n \n\n\nJune 2023\n\n\n\n\n95\n\n\nRGB vs HSL Color Models\n\n\n \n\n\nJune 2023\n\n\n\n\n94\n\n\nA Quote Diary\n\n\n \n\n\nJune 2023\n\n\n\n\n93\n\n\nGeneral Strategy Whenever You Have a Bug\n\n\n \n\n\nJune 2023\n\n\n\n\n92\n\n\nUnderstanding Vim Regular Expressions: A Comparison with PCRE\n\n\n \n\n\nMay 2023\n\n\n\n\n91\n\n\nLearn Git and GitHub\n\n\n⭐\n\n\nMay 2023\n\n\n\n\n90\n\n\nContainers, Docker, and Podman\n\n\n \n\n\nMay 2023\n\n\n\n\n89\n\n\nThe XOR Operator and Its Applications to Programming\n\n\n \n\n\nMay 2023\n\n\n\n\n88\n\n\nSetting Up Two-Factor Authentication (2FA) on a Server with Google Authenticator for SSH Logins\n\n\n \n\n\nMay 2023\n\n\n\n\n87\n\n\nRemapping the ² Key on an AZERTY Keyboard with AutoHotkey (Windows)\n\n\n \n\n\nMay 2023\n\n\n\n\n86\n\n\nCasting malloc and calloc in C and C++\n\n\n \n\n\nMay 2023\n\n\n\n\n85\n\n\nFile and Directory Listing in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n84\n\n\nDifference between set and setx in a Windows shell\n\n\n \n\n\nMay 2023\n\n\n\n\n83\n\n\nPartial Functions vs Closures in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n82\n\n\nPartial Functions in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n81\n\n\nInstantly Paste Emojis Using a Windows Keybind\n\n\n \n\n\nApril 2023\n\n\n\n\n80\n\n\nUsing in vs. find() in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n79\n\n\nDelete Lines Not Matching a Specific Pattern in Vim or with Sed\n\n\n \n\n\nApril 2023\n\n\n\n\n78\n\n\nQuick Workflow for Making a Screencast on Windows\n\n\n \n\n\nApril 2023\n\n\n\n\n77\n\n\nHow to Add a title and alt Attribute, and a caption to an Image Using Pandoc Markdown\n\n\n \n\n\nApril 2023\n\n\n\n\n76\n\n\nPathlib vs. os.path Performance\n\n\n \n\n\nApril 2023\n\n\n\n\n75\n\n\nDon’t use time.time()\n\n\n \n\n\nApril 2023\n\n\n\n\n74\n\n\nThe Python Code Formatter Black Can Format Long Strings\n\n\n \n\n\nApril 2023\n\n\n\n\n73\n\n\nUse sys.maxsize instead of float(\"inf\") in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n72\n\n\nCombining Multiple GitHub Repositories into a Single Repository\n\n\n \n\n\nApril 2023\n\n\n\n\n71\n\n\nHandling Long Strings in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n70\n\n\nDistributing a Python CLI Application with Autocompletion\n\n\n⭐\n\n\nApril 2023\n\n\n\n\n69\n\n\nRenaming Variables and Functions Across Multiple Files in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n68\n\n\nPerformance of Set-Based Word Existence Check\n\n\n \n\n\nApril 2023\n\n\n\n\n67\n\n\nIf Your Code Uses f-strings, Your Dictionaries Are Already Ordered\n\n\n \n\n\nApril 2023\n\n\n\n\n66\n\n\nTitles in English Should Be Capitalized\n\n\n \n\n\nApril 2023\n\n\n\n\n65\n\n\nVim Buffers: Renaming, Switching and Opening Files\n\n\n \n\n\nApril 2023\n\n\n\n\n64\n\n\nHow to Determine the Operating System Programmatically\n\n\n \n\n\nApril 2023\n\n\n\n\n63\n\n\nCreating and managing cron jobs\n\n\n \n\n\nApril 2023\n\n\n\n\n62\n\n\nEnhancing Variable Renaming in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n61\n\n\nIgnoring portions of code with the Python code formatter Black\n\n\n \n\n\nApril 2023\n\n\n\n\n60\n\n\nHow to use macros in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n59\n\n\nwhich vs command -v\n\n\n \n\n\nApril 2023\n\n\n\n\n58\n\n\nLinux Output Redirection\n\n\n \n\n\nApril 2023\n\n\n\n\n57\n\n\nHow to create a virtual environment for a Python project\n\n\n \n\n\nApril 2023\n\n\n\n\n56\n\n\nANSI Escape Sequences\n\n\n \n\n\nApril 2023\n\n\n\n\n55\n\n\nProtect yourself from overwriting files with the noclobber option\n\n\n \n\n\nApril 2023\n\n\n\n\n54\n\n\nHow to add a user to the sudo group\n\n\n \n\n\nMarch 2023\n\n\n\n\n53\n\n\nDifference between su and su -\n\n\n \n\n\nMarch 2023\n\n\n\n\n52\n\n\nEnabling autocompletion for a custom script in zsh or bash\n\n\n \n\n\nMarch 2023\n\n\n\n\n51\n\n\nOpen a file from a path in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n50\n\n\npushd and popd are on a boat…\n\n\n \n\n\nMarch 2023\n\n\n\n\n49\n\n\nHandling infinity in programming languages\n\n\n \n\n\nMarch 2023\n\n\n\n\n48\n\n\nEvaluating variables in f-strings in Python\n\n\n \n\n\nMarch 2023\n\n\n\n\n47\n\n\nA Very Simple Windows Management Workflow for Windows\n\n\n⭐\n\n\nMarch 2023\n\n\n\n\n46\n\n\nHow to disable the ^C char printed in Bash when pressing &lt;CTRL-C&gt;\n\n\n \n\n\nMarch 2023\n\n\n\n\n45\n\n\nHow to sort inside brackets (parentheses, etc.) in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n44\n\n\nHow to Use the Native Spell Checker of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n43\n\n\nNo more delay when pasting before the cursor in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n42\n\n\nApply a (useless) rot13 to an entire file in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n41\n\n\nHow to add quotes, parenthesis, etc., around text in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n40\n\n\nHow to use the undofile of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n39\n\n\nWrite a Zettel even if you think you don’t need it\n\n\n \n\n\nMarch 2023\n\n\n\n\n38\n\n\nHow to switch the case of characters in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n37\n\n\nHow to run the Python code formatter Black in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n36\n\n\nChanger de langue (citation de Cioran)\n\n\n \n\n\nFebruary 2023\n\n\n\n\n35\n\n\nHow to automatically create ordered lists in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n34\n\n\nWhat are the five critera for good interface design?\n\n\n \n\n\nFebruary 2023\n\n\n\n\n33\n\n\nCan Python functions get lonely?\n\n\n \n\n\nJanuary 2023\n\n\n\n\n32\n\n\nUse the casefold() method in Python when doing case-insensitive stuff\n\n\n \n\n\nJanuary 2023\n\n\n\n\n31\n\n\nHow to disable cursor blinking in a Linux shell\n\n\n \n\n\nJanuary 2023\n\n\n\n\n30\n\n\nHow to know the number of selected lines in Vim\n\n\n \n\n\nDecember 2022\n\n\n\n\n29\n\n\nThe problem of seeking informations and the limits of LLMs in that regard\n\n\n \n\n\nDecember 2022\n\n\n\n\n28\n\n\nHow to see network traffic in real time in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n27\n\n\nHow to increase the max upload file size for a PHP web server\n\n\n \n\n\nNovember 2022\n\n\n\n\n26\n\n\nHow to securely wipe and erase a disk in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n25\n\n\nHow to import/export a database in MySQL/MariaDB\n\n\n \n\n\nNovember 2022\n\n\n\n\n24\n\n\nHow to easily copy a public SSH key to another machine\n\n\n \n\n\nNovember 2022\n\n\n\n\n23\n\n\nSet timezone in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n22\n\n\nBash history Toolkit\n\n\n \n\n\nNovember 2022\n\n\n\n\n21\n\n\nHow to Determine Character Frequencies in a Python String\n\n\n \n\n\nNovember 2022\n\n\n\n\n20\n\n\nHow to use ssh-agent to automatically enter your SSH key passphrase\n\n\n \n\n\nNovember 2022\n\n\n\n\n19\n\n\nChecking user passwords\n\n\n \n\n\nNovember 2022\n\n\n\n\n18\n\n\nGenerating Secure Passwords with Linux Tools\n\n\n \n\n\nNovember 2022\n\n\n\n\n17\n\n\nHow to make .bashrc aliases available within a Vim shell command (:.!bash)\n\n\n \n\n\nNovember 2022\n\n\n\n\n16\n\n\nUpgrade Windows Applications With a CLI Package Manager\n\n\n \n\n\nNovember 2022\n\n\n\n\n15\n\n\nSome of my favorite fonts\n\n\n \n\n\nNovember 2022\n\n\n\n\n14\n\n\nExperts and Novices don’t learn the same way\n\n\n \n\n\nOctober 2022\n\n\n\n\n13\n\n\nGuido van Rossum on dynamic vs static typing\n\n\n \n\n\nSeptember 2022\n\n\n\n\n12\n\n\nHow to sort files and folders by size in Linux\n\n\n \n\n\nSeptember 2022\n\n\n\n\n11\n\n\nDifferences between Casting, Parsing and Converting\n\n\n \n\n\nSeptember 2022\n\n\n\n\n10\n\n\nHow to disable ligatures for the Fira Code font in Windows Terminal\n\n\n \n\n\nSeptember 2022\n\n\n\n\n9\n\n\nMoby Dick, extrait de la première page\n\n\n \n\n\nAugust 2022\n\n\n\n\n8\n\n\nThe rise of domain experts in deep learning\n\n\n \n\n\nAugust 2022\n\n\n\n\n7\n\n\nHow will machine learning impact the IT industry?\n\n\n \n\n\nAugust 2022\n\n\n\n\n6\n\n\nWhat is the Chiaroscuro technique?\n\n\n \n\n\nAugust 2022\n\n\n\n\n5\n\n\nC++ is not a superset of C\n\n\n \n\n\nAugust 2022\n\n\n\n\n4\n\n\nCybersecurity questions preparation exams\n\n\n \n\n\nJuly 2022\n\n\n\n\n3\n\n\nHow to remap keys in Linux\n\n\n \n\n\nJuly 2022\n\n\n\n\n2\n\n\nHow to change the default editor in Linux (when it’s Nano instead of Vim)\n\n\n \n\n\nJuly 2022\n\n\n\n\n1\n\n\nWhat is the difference between 127.0.0.1 and 0.0.0.0?\n\n\n \n\n\nJuly 2022\n\n\n\n\n0\n\n\nCitation de Louis Blanc\n\n\n \n\n\nJuly 2022\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "zettel/140/index.html",
@@ -1351,634 +1351,207 @@
     "text": "De chacun selon ses moyens, à chacun selon ses besoins.\n\nReprise et popularisée par Karl Marx.\nhttps://fr.wikipedia.org/wiki/De_chacun_selon_ses_moyens,_%C3%A0_chacun_selon_ses_besoins"
   },
   {
-    "objectID": "zettel/83/index.html",
-    "href": "zettel/83/index.html",
-    "title": "Partial Functions vs Closures in Python",
+    "objectID": "zettel/161/index.html",
+    "href": "zettel/161/index.html",
+    "title": "Use Multiple GitHub Accounts with the gh CLI",
     "section": "",
-    "text": "Derived from another function by fixing some of its arguments\nReduces the number of required arguments to call the new function\nCreated using the partial function from the functools module\nMainly used for creating specialized versions of more general functions or preconfiguring a function with some arguments for later use\n\n\n\nimport functools\n\ndef add(x, y):\n    return x + y\n\nadd_five = functools.partial(add, 5)\n\nresult = add_five(3)\nprint(result)"
+    "text": "There is no configuration needed other than authenticating another account with gh auth login. After that, the new account will be added to ~/.config/gh/hosts.yaml.\nYou can see which accounts are associated with your configuration by running gh auth status. You’ll also see which account is currently active.\nAs of now, you have to manually switch the active account, which you can do with gh auth switch.\nsource: https://github.com/cli/cli/releases/tag/v2.40.0"
   },
   {
-    "objectID": "zettel/83/index.html#partial-functions",
-    "href": "zettel/83/index.html#partial-functions",
-    "title": "Partial Functions vs Closures in Python",
+    "objectID": "zettel/93/index.html",
+    "href": "zettel/93/index.html",
+    "title": "General Strategy Whenever You Have a Bug",
     "section": "",
-    "text": "Derived from another function by fixing some of its arguments\nReduces the number of required arguments to call the new function\nCreated using the partial function from the functools module\nMainly used for creating specialized versions of more general functions or preconfiguring a function with some arguments for later use\n\n\n\nimport functools\n\ndef add(x, y):\n    return x + y\n\nadd_five = functools.partial(add, 5)\n\nresult = add_five(3)\nprint(result)"
+    "text": "Locate where the bug is happening.\nUnderstand the cause of the bug.\nFix the bug.\nVerify that the fix worked.\nLearn the bug’s lesson. Every bug is a learning opportunity in disguise! What can we learn from this one, and how can we avoid making similar mistakes in the future?"
   },
   {
-    "objectID": "zettel/83/index.html#closures",
-    "href": "zettel/83/index.html#closures",
-    "title": "Partial Functions vs Closures in Python",
-    "section": "Closures",
-    "text": "Closures\n\nNested functions that capture and remember values of variables from the enclosing function’s scope\nCreated using nested functions and the nonlocal keyword\nProvide more flexibility by capturing multiple variables from the enclosing scope and having access to the entire scope, not just the fixed arguments\nUsed to create functions with behavior that depends on data not passed as arguments and to define stateful functions\n\n\nExample\ndef make_adder(x):\n    def add(y):\n        return x + y\n    return add\n\nadd_five = make_adder(5)\n\nresult = add_five(3)\nprint(result)"
-  },
-  {
-    "objectID": "zettel/83/index.html#key-differences",
-    "href": "zettel/83/index.html#key-differences",
-    "title": "Partial Functions vs Closures in Python",
-    "section": "Key Differences",
-    "text": "Key Differences\n\nCreation: Partial functions use the functools.partial function, while closures use nested functions and captured variables\nFlexibility: Closures offer more flexibility due to access to the entire enclosing scope, while partial functions focus on fixing arguments\nIntent: Partial functions specialize or preconfigure functions, while closures create functions with behavior dependent on non-argument data and can define stateful functions"
-  },
-  {
-    "objectID": "zettel/83/index.html#related-zettel",
-    "href": "zettel/83/index.html#related-zettel",
-    "title": "Partial Functions vs Closures in Python",
-    "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#82"
-  },
-  {
-    "objectID": "zettel/106/index.html",
-    "href": "zettel/106/index.html",
-    "title": "Working With Timezones in Python",
-    "section": "",
-    "text": "Need to work with timezones in #Python?\nDon’t use pytz! Use zoneinfo.\nIt’s included in the standard library from Python 3.9 onward and pip install-able if you’re on 3.8.\nBig NOTE: If your code needs to run on Windows, you’ll also need to pip install tzdata too!\nWhat’s wrong with pytz? Silent bugs due to datetime arithmetic issues.\n&gt;&gt;&gt; pt = pytz.timezone(\"America/Los_Angeles\")\n&gt;&gt;&gt; mar1 = pt.localize(datetime(2023, 3, 1, 10, 0))\n&gt;&gt;&gt; apr1 = pt.localize(datetime(2023, 4, 1, 10, 0))\n&gt;&gt;&gt; apr1 &lt; mar1 + timedelta(days=31)\nTrue\nThese two times should be equal, but instead one is an hour before the other due to their timezone offsets.\n&gt;&gt;&gt; print(apr1_10am)\n2023-04-01 10:00:00-07:00\n&gt;&gt;&gt; print(march1_10am + timedelta(days=31))\n2023-04-01 10:00:00-08:00\nThat second one is in PST time during PDT!\nYou might say “well you’re supposed to do datetime arithmetic only on UTC times”.\nTrue… but it doesn’t have to be that way!\nThat’s a limitation with the way pytz works and it can cause all sorts of silent bugs.\nzoneinfo will do the right thing here instead.\nTweet from Trey Hunner"
-  },
-  {
-    "objectID": "zettel/106/index.html#references",
-    "href": "zettel/106/index.html#references",
-    "title": "Working With Timezones in Python",
+    "objectID": "zettel/93/index.html#references",
+    "href": "zettel/93/index.html#references",
+    "title": "General Strategy Whenever You Have a Bug",
     "section": "References",
-    "text": "References\nhttps://twitter.com/treyhunner/status/1677166047634370561"
+    "text": "References\n\nhttps://py.mit.edu/spring23/readings/flood_fill#_debugging"
   },
   {
-    "objectID": "zettel/71/index.html",
-    "href": "zettel/71/index.html",
-    "title": "Handling Long Strings in Python",
+    "objectID": "zettel/107/index.html",
+    "href": "zettel/107/index.html",
+    "title": "Stop Writing Your Error Messages to stdout",
     "section": "",
-    "text": "long_string = (\"This is a very long string that should be \"\n               \"broken into multiple lines for better \"\n               \"readability and without having to scroll \"\n               \"horizontally.\")\nThis method maintains the original string without introducing extra whitespace or newline characters, making it ideal for long strings that should be treated as a single line.\n\n\n\nlong_string = \"\"\"This is a very long string that should be\nbroken into multiple lines for better\nreadability and without having to scroll\nhorizontally.\"\"\"\nThis method preserves newline characters and leading spaces, making it suitable for cases where the string’s original formatting, including line breaks and indentation, needs to be retained."
+    "text": "Using print() is easy and convenient, but it prints everything to stdout. It can be the right tool for quick and dirty debugging—everyone does it. However, it’s not without its problems. For instance, what if we want the output to go to a file instead of the screen (for logging purposes)? Also, do we really want to print our error messages to stdout in production?"
   },
   {
-    "objectID": "zettel/71/index.html#breaking-long-strings-into-multiple-lines",
-    "href": "zettel/71/index.html#breaking-long-strings-into-multiple-lines",
-    "title": "Handling Long Strings in Python",
-    "section": "",
-    "text": "long_string = (\"This is a very long string that should be \"\n               \"broken into multiple lines for better \"\n               \"readability and without having to scroll \"\n               \"horizontally.\")\nThis method maintains the original string without introducing extra whitespace or newline characters, making it ideal for long strings that should be treated as a single line.\n\n\n\nlong_string = \"\"\"This is a very long string that should be\nbroken into multiple lines for better\nreadability and without having to scroll\nhorizontally.\"\"\"\nThis method preserves newline characters and leading spaces, making it suitable for cases where the string’s original formatting, including line breaks and indentation, needs to be retained."
+    "objectID": "zettel/107/index.html#using-print-with-the-file-parameter",
+    "href": "zettel/107/index.html#using-print-with-the-file-parameter",
+    "title": "Stop Writing Your Error Messages to stdout",
+    "section": "Using print() with the file parameter",
+    "text": "Using print() with the file parameter\nimport sys\n\nprint(\"This is an error message.\", file=sys.stderr)"
   },
   {
-    "objectID": "zettel/71/index.html#automating-long-string-reformatting-with-black",
-    "href": "zettel/71/index.html#automating-long-string-reformatting-with-black",
-    "title": "Handling Long Strings in Python",
-    "section": "Automating Long String Reformatting with Black",
-    "text": "Automating Long String Reformatting with Black\nBlack can automatically break long strings according to the configured line length limit. By default, Black uses a line length of 88 characters but can be adjusted using the --line-length option.\n\nTo adjust the line length:\nblack --line-length 100 your_file.py"
+    "objectID": "zettel/107/index.html#using-the-sys.stderr-object",
+    "href": "zettel/107/index.html#using-the-sys.stderr-object",
+    "title": "Stop Writing Your Error Messages to stdout",
+    "section": "Using the sys.stderr object",
+    "text": "Using the sys.stderr object\nimport sys\n\nsys.stderr.write(\"This is an error message.\\n\")\nNote that it’s important to include the newline character \\n at the end of the message to ensure proper formatting."
   },
   {
-    "objectID": "zettel/71/index.html#maximum-line-lengths",
-    "href": "zettel/71/index.html#maximum-line-lengths",
-    "title": "Handling Long Strings in Python",
-    "section": "Maximum Line Lengths",
-    "text": "Maximum Line Lengths\n\nPEP 8 recommends a maximum line length of 79 characters for Python code.\nBlack uses a default line length of 88 characters.\n\nThese limits can be customized, but sticking to the recommended limits ensures consistent code style and readability across different projects and teams."
+    "objectID": "zettel/107/index.html#using-click.echo",
+    "href": "zettel/107/index.html#using-click.echo",
+    "title": "Stop Writing Your Error Messages to stdout",
+    "section": "Using click.echo()",
+    "text": "Using click.echo()\nThe Click library allows printing to stderr by passing err=True to click.echo().\nimport click\n\nclick.echo(\"This is an error message.\", err=True)"
   },
   {
-    "objectID": "zettel/71/index.html#related-zettel",
-    "href": "zettel/71/index.html#related-zettel",
-    "title": "Handling Long Strings in Python",
-    "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#74"
+    "objectID": "zettel/107/index.html#logging-error-messages",
+    "href": "zettel/107/index.html#logging-error-messages",
+    "title": "Stop Writing Your Error Messages to stdout",
+    "section": "Logging Error Messages",
+    "text": "Logging Error Messages\nThe logging module from the standard library should be preferred for complex and serious production code.\nIt solves the problems mentioned above and even more. It also allows for five levels of logging (from critical to debug).\n\nExample\nHere’s an example of how to configure a logging handler to write error messages to a file:\nimport logging\n\n# Create a logger\nlogger = logging.getLogger('error_logger')\nlogger.setLevel(logging.ERROR)\n\n# Create a file handler\nfile_handler = logging.FileHandler('error.log')\n\n# Set the formatter\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nfile_handler.setFormatter(formatter)\n\n# Add the handler to the logger\nlogger.addHandler(file_handler)\n\n# Write an error message to the log file\nlogger.error(\"This is an error message.\")\nThis example sets the logging level to ERROR to ensure that only error messages are written to the file. The log format is specified using a formatter, which includes the timestamp, log level, and log message. The logger.error() method is used to write the error message to the log file.\nBy logging error messages to a file, you can easily track and analyze them, helping to identify and troubleshoot issues more effectively."
   },
   {
-    "objectID": "zettel/136/index.html",
-    "href": "zettel/136/index.html",
-    "title": "yield from: The Extend Method for Generators",
-    "section": "",
-    "text": "As Trey Hunner said: “The yield from statement is to a list.extend() the way a yield statement is to a list.append().”"
-  },
-  {
-    "objectID": "zettel/136/index.html#basic-usage",
-    "href": "zettel/136/index.html#basic-usage",
-    "title": "yield from: The Extend Method for Generators",
-    "section": "Basic Usage",
-    "text": "Basic Usage\ndef my_generator():\n    yield 1\n    yield 2\n    yield from [3, 4, 5]\n    yield 6\n\ngen = my_generator()\nprint(list(gen))  # Output: [1, 2, 3, 4, 5, 6]\nIn this example, yield from [3, 4, 5] is equivalent to:\nfor item in [3, 4, 5]:\n    yield item"
-  },
-  {
-    "objectID": "zettel/136/index.html#example-deep-flattening-nested-iterables",
-    "href": "zettel/136/index.html#example-deep-flattening-nested-iterables",
-    "title": "yield from: The Extend Method for Generators",
-    "section": "Example: Deep-Flattening Nested Iterables",
-    "text": "Example: Deep-Flattening Nested Iterables\nfrom collections.abc import Iterable\nfrom typing import Any, Iterator\n\n\ndef deep_flatten(iterable: Iterable) -&gt; Iterator[Any]:\n    \"\"\"Flatten an iterable of iterables.\"\"\"\n    for element in iterable:\n        # Handle strings as special case, since they are iterable\n        if isinstance(element, str):\n            yield element\n        # Recursively flatten nested iterables\n        elif isinstance(element, Iterable):\n            yield from deep_flatten(element)\n        # Base case: yield non-iterable elements\n        else:\n            yield element"
-  },
-  {
-    "objectID": "zettel/136/index.html#references",
-    "href": "zettel/136/index.html#references",
-    "title": "yield from: The Extend Method for Generators",
-    "section": "References:",
-    "text": "References:\n\nPython Morsels by Trey Hunner"
-  },
-  {
-    "objectID": "zettel/154/index.html",
-    "href": "zettel/154/index.html",
-    "title": "Reading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)",
-    "section": "",
-    "text": "Published: 2024-05-09\nKeywords: Computer Science - Artificial Intelligence,Computer Science - Human-Computer Interaction\nURL: http://arxiv.org/abs/2405.08007\nBibTeX: @jonesPeopleCannotDistinguish2024"
-  },
-  {
-    "objectID": "zettel/154/index.html#reading-status",
-    "href": "zettel/154/index.html#reading-status",
-    "title": "Reading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)",
-    "section": "Reading Status",
-    "text": "Reading Status\n\nOnly read the abstract\nSkimmed\nEngaged"
-  },
-  {
-    "objectID": "zettel/154/index.html#abstract",
-    "href": "zettel/154/index.html#abstract",
-    "title": "Reading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)",
-    "section": "Abstract",
-    "text": "Abstract\nWe evaluated 3 systems (ELIZA, GPT-3.5 and GPT-4) in a randomized, controlled, and preregistered Turing test. Human participants had a 5 minute conversation with either a human or an AI, and judged whether or not they thought their interlocutor was human. GPT-4 was judged to be a human 54% of the time, outperforming ELIZA (22%) but lagging behind actual humans (67%). The results provide the first robust empirical demonstration that any artificial system passes an interactive 2-player Turing test. The results have implications for debates around machine intelligence and, more urgently, suggest that deception by current AI systems may go undetected. Analysis of participants’ strategies and reasoning suggests that stylistic and socio-emotional factors play a larger role in passing the Turing test than traditional notions of intelligence."
-  },
-  {
-    "objectID": "zettel/154/index.html#twitter-thread",
-    "href": "zettel/154/index.html#twitter-thread",
-    "title": "Reading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)",
-    "section": "Twitter Thread",
-    "text": "Twitter Thread\nBy one of the authors: https://twitter.com/camrobjones/status/1790766472458903926?t=JC3LXH3WnFXNX79DrVisGQ"
-  },
-  {
-    "objectID": "zettel/154/index.html#notes",
-    "href": "zettel/154/index.html#notes",
-    "title": "Reading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)",
-    "section": "Notes",
-    "text": "Notes\n\nStudy Overview\nThe research assesses ELIZA, GPT-3.5, and GPT-4 in a randomized, controlled Turing test. Participants engaged in 5-minute conversations and identified their interlocutors as either human or AI.\n\n\nResults\n\nGPT-4 was identified as human 54% of the time.\nELIZA was identified as human 22% of the time.\nActual humans were correctly identified 67% of the time.\n\n\n\nImplications\nThese findings highlight GPT-4’s advanced conversational abilities, though it still lags behind actual humans. The study suggests that stylistic and socio-emotional factors are crucial in passing the Turing test.\nThe figure below shows all the strategies used by participants to identify the AI:\n\n\n\nPersonal Notes\n\nI find the method used in the study somewhat unusual and have doubts about the results. It’s relatively easy to distinguish an AI from a human by applying jailbreak techniques or focusing on knowledge areas.\nA language model typically possesses extensive knowledge across various fields, allowing it to respond in multiple languages or provide code, bypassing prompt restrictions easily.\nQuerying the model on diverse subjects can reveal its vast knowledge base, which an average human wouldn’t have.\nI have trouble believing these results. The percentages could still be explained by random guessing.\nIf these findings are more robust than I think, it indicates a lack of education and practical use of these language models in the general population.\nIt always has been easy to bamboozle with “intelligence” stuff: the mechanical turk, Clever Hans, etc."
-  },
-  {
-    "objectID": "zettel/23/index.html",
-    "href": "zettel/23/index.html",
-    "title": "Set timezone in Linux",
-    "section": "",
-    "text": "sudo timedatectl set-timezone Europe/Paris"
-  },
-  {
-    "objectID": "zettel/134/index.html",
-    "href": "zettel/134/index.html",
-    "title": "Moving a Tmux Pane to Another Existing Window",
-    "section": "",
-    "text": "These instructions are adapted for my own customized meta key, set to ctrl-q. You will obviously need to adapt it to your own meta key if different."
-  },
-  {
-    "objectID": "zettel/134/index.html#detach-the-pane",
-    "href": "zettel/134/index.html#detach-the-pane",
-    "title": "Moving a Tmux Pane to Another Existing Window",
-    "section": "Detach the Pane",
-    "text": "Detach the Pane\n\nPress ctrl-q ! to detach the pane you want to move.\nThis will create a new window containing only the pane you want to move."
-  },
-  {
-    "objectID": "zettel/134/index.html#navigate-to-target-window",
-    "href": "zettel/134/index.html#navigate-to-target-window",
-    "title": "Moving a Tmux Pane to Another Existing Window",
-    "section": "Navigate to Target Window",
-    "text": "Navigate to Target Window\n\nSwitch to the window where you want to move the pane.\nUse ctrl-q 1 to switch to window 1, for example."
-  },
-  {
-    "objectID": "zettel/134/index.html#join-the-pane",
-    "href": "zettel/134/index.html#join-the-pane",
-    "title": "Moving a Tmux Pane to Another Existing Window",
-    "section": "Join the Pane",
-    "text": "Join the Pane\n\nPress ctrl-q : and then type join-pane -s [source-window].\nReplace [source-window] with the ID or name of the window created in the previous step.\nIf needed, list all windows with ctrl-q s to find this ID."
-  },
-  {
-    "objectID": "zettel/134/index.html#related-zettel",
-    "href": "zettel/134/index.html#related-zettel",
-    "title": "Moving a Tmux Pane to Another Existing Window",
-    "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#122"
-  },
-  {
-    "objectID": "zettel/113/index.html",
-    "href": "zettel/113/index.html",
-    "title": "Command History Search (Shell with Vi Mode)",
-    "section": "",
-    "text": "When using zsh or bash with vi mode enabled, you can efficiently navigate and search through your command history."
-  },
-  {
-    "objectID": "zettel/113/index.html#entering-command-mode",
-    "href": "zettel/113/index.html#entering-command-mode",
-    "title": "Command History Search (Shell with Vi Mode)",
-    "section": "Entering Command Mode",
-    "text": "Entering Command Mode\nEnsure you’re in command mode (normal mode) by pressing ESC."
-  },
-  {
-    "objectID": "zettel/113/index.html#searching-in-history",
-    "href": "zettel/113/index.html#searching-in-history",
-    "title": "Command History Search (Shell with Vi Mode)",
-    "section": "Searching in History",
-    "text": "Searching in History\nTo search backward through previous commands:\n\nPress / followed by your search term.\nPress Enter."
-  },
-  {
-    "objectID": "zettel/113/index.html#navigating-search-results-and-history",
-    "href": "zettel/113/index.html#navigating-search-results-and-history",
-    "title": "Command History Search (Shell with Vi Mode)",
-    "section": "Navigating Search Results and History",
-    "text": "Navigating Search Results and History\nAfter initiating a search, navigate through matches and history using:\n\nn - for the next match in the direction of your initial search.\nN - for the previous match, opposite to your initial search.\nj - to move to the next command in history (downwards).\nk - to move to the previous command in history (upwards)."
-  },
-  {
-    "objectID": "zettel/113/index.html#configuring-zsh-for-shared-history-useful-with-tmux",
-    "href": "zettel/113/index.html#configuring-zsh-for-shared-history-useful-with-tmux",
-    "title": "Command History Search (Shell with Vi Mode)",
-    "section": "Configuring zsh for Shared History (useful with tmux)",
-    "text": "Configuring zsh for Shared History (useful with tmux)\nTo ensure that all zsh sessions (e.g., across different tmux panes or windows) share the same command history, add the following option to your zshrc:\n# Enables sharing of command history between different zsh sessions.\nsetopt share_history"
-  },
-  {
-    "objectID": "zettel/124/index.html",
-    "href": "zettel/124/index.html",
-    "title": "The “Safe Triangle” Design Pattern for Better UI Context Menus",
-    "section": "",
-    "text": "Navigating hierarchical or nested context menus in UIs can be a challenging task. Users often encounter issues where the submenu disappears if the cursor slightly deviates from the intended path, leading to a frustrating user experience."
-  },
-  {
-    "objectID": "zettel/124/index.html#problem",
-    "href": "zettel/124/index.html#problem",
-    "title": "The “Safe Triangle” Design Pattern for Better UI Context Menus",
-    "section": "",
-    "text": "Navigating hierarchical or nested context menus in UIs can be a challenging task. Users often encounter issues where the submenu disappears if the cursor slightly deviates from the intended path, leading to a frustrating user experience."
-  },
-  {
-    "objectID": "zettel/124/index.html#solution-the-safe-triangle",
-    "href": "zettel/124/index.html#solution-the-safe-triangle",
-    "title": "The “Safe Triangle” Design Pattern for Better UI Context Menus",
-    "section": "Solution: The “Safe Triangle”",
-    "text": "Solution: The “Safe Triangle”\nThe “Safe Triangle” is a UI design pattern that effectively addresses this issue. It enhances the usability of hierarchical or nested context menus by creating an SVG triangle that serves as a “safe zone” around the submenu. Cursor tracking is implemented to ensure that the submenu remains open as long as the cursor is within this triangular area."
-  },
-  {
-    "objectID": "zettel/124/index.html#references",
-    "href": "zettel/124/index.html#references",
-    "title": "The “Safe Triangle” Design Pattern for Better UI Context Menus",
+    "objectID": "zettel/107/index.html#references",
+    "href": "zettel/107/index.html#references",
+    "title": "Stop Writing Your Error Messages to stdout",
     "section": "References",
-    "text": "References\n\nSmashing Magazine – Better Context Menus With Safe Triangles"
+    "text": "References\n\nLogging documentation\nLogging Cookbook (python.org)\nSlides on the logging module by Reuven M. Lerner"
   },
   {
-    "objectID": "zettel/36/index.html",
-    "href": "zettel/36/index.html",
-    "title": "Changer de langue (citation de Cioran)",
-    "section": "",
-    "text": "Si on en croit Simone Weil, changer de religion est aussi dangereux pour un croyant que changer de langue pour un écrivain. Je ne suis pas tout à fait de cet avis. Écrire dans une langue étrangère est une émancipation. C’est se libérer de son propre passé. Je dois avouer cependant qu’au commencement le français me faisait l’effet d’une camisole de force. Rien ne saurait moins convenir à un Balkanique que la rigueur de cette langue. […] Lorsque plus tard je me suis mis à écrire en français, j’ai fini par me rendre compte qu’adopter une langue étrangère était peut-être une libération mais aussi une épreuve, voire un supplice, un supplice fascinant néanmoins.\nAvec Gerd Bergfleth, 1984.\nCioran"
-  },
-  {
-    "objectID": "zettel/36/index.html#related-zettel",
-    "href": "zettel/36/index.html#related-zettel",
-    "title": "Changer de langue (citation de Cioran)",
+    "objectID": "zettel/107/index.html#related-zettel",
+    "href": "zettel/107/index.html#related-zettel",
+    "title": "Stop Writing Your Error Messages to stdout",
     "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#9\nZettel#94"
+    "text": "Related Zettel\n\nZettel#133"
   },
   {
-    "objectID": "zettel/111/index.html",
-    "href": "zettel/111/index.html",
-    "title": "UUID: An Introduction and Usage",
+    "objectID": "zettel/90/index.html",
+    "href": "zettel/90/index.html",
+    "title": "Containers, Docker, and Podman",
     "section": "",
-    "text": "UUID stands for Universally Unique Identifier.\nA UUID is a 128-bit number used to uniquely identify some object or entity on the Internet.\nIn its canonical form, a UUID is represented by 32 lowercase hexadecimal digits, displayed in five groups separated by hyphens. The pattern is 8-4-4-4-12, resulting in a 36 character string (including hyphens).\nExample: 550e8400-e29b-41d4-a716-446655440000.\nIt is designed to be sufficiently random such that the probability of collision (two different inputs producing the same output) is extremely low."
+    "text": "A container is an instance of an image, which is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.\n\n\nRegardless of where you’re running your application - locally, in a testing environment, or in production - it will work the same way inside a container.\n\n\n\nEach container runs in isolation from other containers, ensuring that they don’t interfere with each other. This is similar to virtual machines (VMs), but with an important difference. While VMs virtualize the hardware, providing a full operating system stack for each VM, containers share the same host system kernel and isolate the application processes. This makes containers much lighter and faster than VMs.\n\n\n\nYou can run your containerized application on any system that supports containerization technology, without worrying about system-specific dependencies."
   },
   {
-    "objectID": "zettel/111/index.html#what-are-uuids",
-    "href": "zettel/111/index.html#what-are-uuids",
-    "title": "UUID: An Introduction and Usage",
+    "objectID": "zettel/90/index.html#what-is-a-container",
+    "href": "zettel/90/index.html#what-is-a-container",
+    "title": "Containers, Docker, and Podman",
     "section": "",
-    "text": "UUID stands for Universally Unique Identifier.\nA UUID is a 128-bit number used to uniquely identify some object or entity on the Internet.\nIn its canonical form, a UUID is represented by 32 lowercase hexadecimal digits, displayed in five groups separated by hyphens. The pattern is 8-4-4-4-12, resulting in a 36 character string (including hyphens).\nExample: 550e8400-e29b-41d4-a716-446655440000.\nIt is designed to be sufficiently random such that the probability of collision (two different inputs producing the same output) is extremely low."
+    "text": "A container is an instance of an image, which is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.\n\n\nRegardless of where you’re running your application - locally, in a testing environment, or in production - it will work the same way inside a container.\n\n\n\nEach container runs in isolation from other containers, ensuring that they don’t interfere with each other. This is similar to virtual machines (VMs), but with an important difference. While VMs virtualize the hardware, providing a full operating system stack for each VM, containers share the same host system kernel and isolate the application processes. This makes containers much lighter and faster than VMs.\n\n\n\nYou can run your containerized application on any system that supports containerization technology, without worrying about system-specific dependencies."
   },
   {
-    "objectID": "zettel/111/index.html#benefits-of-uuids",
-    "href": "zettel/111/index.html#benefits-of-uuids",
-    "title": "UUID: An Introduction and Usage",
-    "section": "Benefits of UUIDs",
-    "text": "Benefits of UUIDs\n\nThe primary advantage of UUIDs is that they can be generated in any location by any system without requiring central coordination while still being able to assert uniqueness across the entire universe.\nIt can be used to assign unique identifiers in a system without the need for a central authority to avoid collisions.\nUUIDs are preferable over traditional sequential IDs in a multi-server setup where coordination can be complex and time-consuming."
+    "objectID": "zettel/90/index.html#docker-vs-podman-a-detailed-comparison",
+    "href": "zettel/90/index.html#docker-vs-podman-a-detailed-comparison",
+    "title": "Containers, Docker, and Podman",
+    "section": "Docker vs Podman: A Detailed Comparison",
+    "text": "Docker vs Podman: A Detailed Comparison\nWhile Docker has been the go-to container platform for a long time, Podman offers some unique advantages.\n\nDaemonless\nUnlike Docker, which relies on a daemon, Podman doesn’t require a daemon to function, leading to improved security and less overhead.\n\n\nRootless Containers\nPodman allows you to run containers without root privileges, providing additional security.\n\n\nOpen Container Initiative (OCI) Compliance\nBoth Docker and Podman are compliant with the OCI specifications. However, Podman’s implementation is stricter and does not include Docker’s non-standard features.\n\n\nCommand Compatibility\nPodman is completely command-compatible with Docker, meaning you can use the same commands and Dockerfiles as you would with Docker."
   },
   {
-    "objectID": "zettel/111/index.html#how-to-install-uuidgen",
-    "href": "zettel/111/index.html#how-to-install-uuidgen",
-    "title": "UUID: An Introduction and Usage",
-    "section": "How to Install uuidgen",
-    "text": "How to Install uuidgen\nuuidgen is typically included in the uuid-runtime package in Debian and most other Linux distributions. You can install it using the package manager apt.\nRun the following command to install uuidgen:\n$ sudo apt-get update\n$ sudo apt-get install uuid-runtime\nAfter the installation, you should be able to generate UUIDs by typing uuidgen in your terminal. Each call will produce a new, random UUID.\n$ uuidgen\nExample output:\n$ uuidgen\n1b4e28ba-2fa1-11d2-883f-0016d3cca427\nRemember, UUIDs generated are pseudo-random and there are different versions of UUIDs, based on the method of generation. uuidgen typically generates UUIDs using either random numbers (Version 4) or the current time and the machine’s MAC address (Version 1)."
+    "objectID": "zettel/90/index.html#leveraging-containers-for-efficient-workflow",
+    "href": "zettel/90/index.html#leveraging-containers-for-efficient-workflow",
+    "title": "Containers, Docker, and Podman",
+    "section": "Leveraging Containers for Efficient Workflow",
+    "text": "Leveraging Containers for Efficient Workflow\n\nDevelopment Efficiency\nFor developers, containers guarantee that the environment remains consistent across development, testing, and production stages. This means no more “It works on my machine” issues.\n\n\nSimplified Testing\nIf your role involves software testing, you can quickly spin up an isolated environment with containers to test different versions of your application under varying conditions.\n\n\nSmoothened Deployment\nDeploying software with containers ensures that the software behaves exactly as intended, regardless of the deployment environment."
   },
   {
-    "objectID": "zettel/111/index.html#generating-uuids-in-python",
-    "href": "zettel/111/index.html#generating-uuids-in-python",
-    "title": "UUID: An Introduction and Usage",
-    "section": "Generating UUIDs in Python",
-    "text": "Generating UUIDs in Python\nIn Python, you can use the uuid library to generate UUIDs. The uuid4() function generates a random UUID. The randomness is based on random numbers from the random number generator in your system, which makes the probability of collision negligible.\nimport uuid\n\nprint(uuid.uuid4())"
+    "objectID": "zettel/90/index.html#podman-commands-compatible-with-docker",
+    "href": "zettel/90/index.html#podman-commands-compatible-with-docker",
+    "title": "Containers, Docker, and Podman",
+    "section": "Podman Commands (compatible with Docker)",
+    "text": "Podman Commands (compatible with Docker)\nPodman commands are identical to Docker commands, ensuring a smooth transition between the two. Here are some of the key Podman commands you’ll use:\n\nPull an Image\npodman pull registry_name/repository_name:image_tag\nThe :image_tag is optional and defaults to :latest if not provided.\n\n\nBuild an Image\npodman build -t my_image .\n\n\nRun a Container\npodman run -d --name my_container my_image\n\n\nRun a Container Interactively with a Custom Hostname and Name, and Remove it after Exit\npodman run -it --rm --hostname=my_hostname --name=my_container my_image\n\n\nList Running Containers\npodman ps\n\n\nList all Containers, Including Stopped Ones\npodman ps -a\n\n\nStart a Container and Attach its Output\npodman start -a my_container\n\n\nView Logs for a Container\npodman logs my_container\n\n\nExecute a Command Inside a Running Container\npodman exec -it my_container command\n\n\nCreate a new image from a container’s changes\npodman commit -c 'USER your_username' -c 'WORKDIR /path/to/workdir' my_container my_new_image\nThe -c or (--change) option allows to apply Dockerfile instructions to the image we are creating.\n\n\nInitialize a Container\npodman init my_container\n\n\nStop a Container\npodman stop my_container\n\n\nRemove a Container\npodman rm my_container\n\n\nList Images\npodman images\n\n\nRemove an Image\npodman rmi my_image"
   },
   {
-    "objectID": "zettel/31/index.html",
-    "href": "zettel/31/index.html",
-    "title": "How to disable cursor blinking in a Linux shell",
+    "objectID": "zettel/37/index.html",
+    "href": "zettel/37/index.html",
+    "title": "How to run the Python code formatter Black in Vim",
     "section": "",
-    "text": "echo \"\\e[2 q\"\n#bash"
+    "text": "Run Black\n:!black %\n:e!\n\n\nCreate a keybind to run Black and save file by adding this to your .vimrc\nautocmd FileType python nnoremap &lt;buffer&gt; &lt;leader&gt;b :w&lt;cr&gt;:!black %&lt;cr&gt;:e!&lt;cr&gt;\nBy default, the &lt;leader&gt; key is the backslash \\ character. Mine is the spacebar key. You can remap it by adding the following line in your .vimrc:\nlet mapleader=\" \"\nIf it fails to reformat the code, put Vim in the background by pressing Ctrl + z so that you can read the error message, and then just come back to Vim with the fg command."
   },
   {
-    "objectID": "zettel/85/index.html",
-    "href": "zettel/85/index.html",
-    "title": "File and Directory Listing in Python",
+    "objectID": "zettel/82/index.html",
+    "href": "zettel/82/index.html",
+    "title": "Partial Functions in Python",
     "section": "",
-    "text": "Python provides multiple ways to interact with the file system. This includes listing files and directories, checking if a path is a file or directory, and performing more complex operations."
+    "text": "A partial function is a function derived from another function by fixing some of its arguments, effectively reducing the number of required arguments to call the new function. This can be useful for creating specialized versions of more general functions or preconfiguring a function with some arguments for later use. Python’s functools module provides the partial function to create partial functions."
   },
   {
-    "objectID": "zettel/85/index.html#os.listdir",
-    "href": "zettel/85/index.html#os.listdir",
-    "title": "File and Directory Listing in Python",
-    "section": "os.listdir()",
-    "text": "os.listdir()\n\nos.listdir() returns a list of filenames in a specified directory without including the special entries (. and ..).\nIt doesn’t provide additional information about the files and directories.\nIt’s suitable for basic directory listing tasks.\n\n\nExample Using os.listdir()\nimport os\n\ndirectory_path = 'path/to/directory'\nfilenames = os.listdir(directory_path)\n\nfor filename in filenames:\n    print(filename)"
+    "objectID": "zettel/82/index.html#introduction",
+    "href": "zettel/82/index.html#introduction",
+    "title": "Partial Functions in Python",
+    "section": "",
+    "text": "A partial function is a function derived from another function by fixing some of its arguments, effectively reducing the number of required arguments to call the new function. This can be useful for creating specialized versions of more general functions or preconfiguring a function with some arguments for later use. Python’s functools module provides the partial function to create partial functions."
   },
   {
-    "objectID": "zettel/85/index.html#os.scandir",
-    "href": "zettel/85/index.html#os.scandir",
-    "title": "File and Directory Listing in Python",
-    "section": "os.scandir()",
-    "text": "os.scandir()\n\nos.scandir() yields an iterator of os.DirEntry objects for entries in a specified directory.\nEach os.DirEntry object allows access to the entry’s name, full path, and methods to fetch file attributes (e.g., is_file(), is_dir(), stat()), without additional system calls.\nIt’s more efficient and suitable for tasks requiring detailed information about directory contents.\n\n\nExample Using os.scandir()\nimport os\n\ndirectory_path = 'path/to/directory'\n\nwith os.scandir(directory_path) as entries:\n    for entry in entries:\n        print(f\"Name: {entry.name}\")\n        print(f\"Full Path: {entry.path}\")\n        print(f\"Is File: {entry.is_file()}\")\n        print(f\"Is Directory: {entry.is_dir()}\")\n        print(f\"Size: {entry.stat().st_size} bytes\")\n        print(\"---\")"
+    "objectID": "zettel/82/index.html#use-cases",
+    "href": "zettel/82/index.html#use-cases",
+    "title": "Partial Functions in Python",
+    "section": "Use Cases",
+    "text": "Use Cases\n\nCode reusability\nFunctional programming\nCustomizing callbacks"
   },
   {
-    "objectID": "zettel/85/index.html#os.walk",
-    "href": "zettel/85/index.html#os.walk",
-    "title": "File and Directory Listing in Python",
-    "section": "os.walk()",
-    "text": "os.walk()\n\nos.walk() generates a tuple for each directory in the tree rooted at a specified directory, including the directory path, a list of subdirectories, and a list of filenames within that directory.\nIt traverses the directory tree either in a top-down (default) or bottom-up fashion. The traversal order is controlled by the topdown parameter:\n\nTop-down: Directories are scanned from the root down to the leaves. This is the default behavior (topdown=True).\nBottom-up: Directories are scanned from the leaves up to the root, which is useful for operations needing to process subdirectories first. Activate this approach by setting topdown=False.\n\nThis function is suitable for tasks requiring recursion through subdirectories, such as searching for files with specific extensions, aggregating file sizes, or modifying directory structures.\n\n\nExample Using os.walk()\nimport os\n\nroot_directory = 'path/to/directory'\n\n# Bottom-up traversal\nfor dirpath, dirnames, filenames in os.walk(root_directory, topdown=False):\n    print(f\"Directory Path: {dirpath}\")\n    for dirname in dirnames:\n        print(f\"Subdirectory: {dirname}\")\n    for filename in filenames:\n        print(f\"File: {filename}\")\n    print(\"---\")"
+    "objectID": "zettel/82/index.html#examples",
+    "href": "zettel/82/index.html#examples",
+    "title": "Partial Functions in Python",
+    "section": "Examples",
+    "text": "Examples\n\nBasic Example\nimport functools\n\ndef add(x, y):\n    return x + y\n\nadd_three = functools.partial(add, 3)\n\nresult = add_three(5)\nprint(result)\n&gt;&gt;&gt;\n8\n\n\nUsing with Higher-Order Functions\nimport functools\n\ndef power(base, exponent):\n    return base ** exponent\n\nsquare = functools.partial(power, exponent=2)\n\nnumbers = [1, 2, 3, 4, 5]\nsquared_numbers = list(map(square, numbers))\nprint(squared_numbers)\n&gt;&gt;&gt;\n[1, 4, 9, 16, 25]"
   },
   {
-    "objectID": "zettel/85/index.html#pathlib",
-    "href": "zettel/85/index.html#pathlib",
-    "title": "File and Directory Listing in Python",
-    "section": "pathlib",
-    "text": "pathlib\n\nThe pathlib library offers a more object-oriented approach for file system manipulation.\nIt has methods and properties to interact with file paths, directories, and files.\nIt’s more intuitive, easier to use, and more powerful than os.listdir()."
+    "objectID": "zettel/82/index.html#advantages",
+    "href": "zettel/82/index.html#advantages",
+    "title": "Partial Functions in Python",
+    "section": "Advantages",
+    "text": "Advantages\n\nReadability\nPartial functions can improve the readability of your code, especially when dealing with higher-order functions like map, filter, and reduce. By creating a partially-applied function, you can give it a meaningful name that makes the intent of your code clearer to readers. This can be particularly helpful when the function’s arguments are not immediately obvious or when the function is used multiple times with the same fixed arguments.\n\n\nCode reusability\nCreating partial functions allows you to reuse the same base function with different fixed arguments, which can lead to more modular and maintainable code. Instead of writing separate functions for each specialized case, you can have one general function and create partial functions for the specific cases. This can help prevent code duplication and make it easier to update or extend the base function.\n\n\nEasier refactoring\nIn some cases, the original function may be part of a library or third-party code that you don’t have control over. By using partial functions, you can adapt the original function to your specific needs without modifying the original code. This can make it easier to refactor your code or switch to a different library or implementation in the future.\n\n\nCustomizing callbacks\nWhen working with libraries or frameworks that expect you to provide a callback function, sometimes you need to supply additional arguments to the callback that aren’t provided by the library or framework itself. Partial functions allow you to preconfigure the callback with the necessary arguments while still satisfying the expected function signature.\n\n\nExample\nHere’s an example to illustrate how using partial functions can improve readability:\nimport functools\n\ndef multiply(a, b):\n    return a * b\n\n# Without using partial functions\ndoubled_numbers = list(map(lambda x: multiply(2, x), [1, 2, 3, 4, 5]))\n\n# With partial functions\ndouble = functools.partial(multiply, 2)\ndoubled_numbers = list(map(double, [1, 2, 3, 4, 5]))\n\n# The output is the same: [2, 4, 6, 8, 10]\nIn this example, we have a multiply function that takes two arguments. Without using partial functions, we use a lambda expression to create an anonymous function that calls multiply with the first argument fixed as 2. This can be less readable, especially for more complex functions or when multiple arguments need to be fixed.\nBy using a partial function, we can create a new function called double that has a meaningful name and fixes the first argument of multiply to 2. This makes the code more readable and easier to understand."
   },
   {
-    "objectID": "zettel/85/index.html#pathlibs-iterdir",
-    "href": "zettel/85/index.html#pathlibs-iterdir",
-    "title": "File and Directory Listing in Python",
-    "section": "pathlib’s iterdir()",
-    "text": "pathlib’s iterdir()\n\nThe equivalent of os.listdir() in pathlib is Path.iterdir().\nIt returns an iterator yielding Path objects for all items in the specified directory.\nUnlike os.listdir(), it provides more functionality and information about each item.\n\n\nExample Using iterdir()\nfrom pathlib import Path\n\ndirectory = Path('path/to/your/directory')\n\nfor item in directory.iterdir():\n    print(item)"
+    "objectID": "zettel/82/index.html#related-zettel",
+    "href": "zettel/82/index.html#related-zettel",
+    "title": "Partial Functions in Python",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#83"
   },
   {
-    "objectID": "zettel/85/index.html#recursively-listing-files-with-pathlibs-rglob",
-    "href": "zettel/85/index.html#recursively-listing-files-with-pathlibs-rglob",
-    "title": "File and Directory Listing in Python",
-    "section": "Recursively Listing Files with pathlib’s rglob()",
-    "text": "Recursively Listing Files with pathlib’s rglob()\n\nThe Path.rglob() method can be used to list files and directories recursively.\nIt returns an iterator yielding Path objects for all items in the specified directory and its subdirectories.\n\n\nExample Using rglob()\nfrom pathlib import Path\n\ndirectory = Path('path/to/your/directory')\n\nfor item in directory.rglob('*'):  # Use '*' as the pattern to match all items\n    print(item)\n\n\nUnderstanding rglob()\n\nrglob() stands for “recursive glob”.\nIt combines the functionality of “globbing” (pattern matching) and recursion.\n\n\n\nThe glob Shell Command\n\nThe glob command is a shell operation in Unix-based systems used for filename pattern matching.\nIt allows users to search for files and directories based on wildcard patterns."
+    "objectID": "zettel/94/index.html",
+    "href": "zettel/94/index.html",
+    "title": "A Quote Diary",
+    "section": "",
+    "text": "I used to archive numerous quotes in my very old notes. If I happen to rediscover them while rummaging through those archives, I will try to add some of them here. I will also try to add new ones.\n=&gt; Il faut des auteurs médiocres pour les gens médiocres. ___\nI don’t remember the original quote, but I always remembered my interpretation of it:"
   },
   {
-    "objectID": "zettel/85/index.html#pathlibs-walk-method-in-python-3.12",
-    "href": "zettel/85/index.html#pathlibs-walk-method-in-python-3.12",
-    "title": "File and Directory Listing in Python",
-    "section": "pathlib’s walk() Method in Python 3.12",
-    "text": "pathlib’s walk() Method in Python 3.12\n\nIntroduced in Python 3.12, the Path.walk() method offers a way to traverse a directory tree, providing a 3-tuple (dirpath, dirnames, filenames) for each directory it visits.\nIt’s a more flexible and powerful alternative to rglob() for certain use-cases, allowing in-place modifications and error handling.\n\n\nParameters\n\ntop_down: Controls the order of traversal. True by default, meaning it goes from the top directory down to subdirectories.\non_error: A callable function for error handling. By default, errors are ignored.\nfollow_symlinks: Determines whether to follow symbolic links. Default is False.\n\n\n\nExample: Finding .txt Files\nfrom pathlib import Path\n\nfor root, dirs, files in Path(\"some_directory\").walk():\n    txt_files = [f for f in files if f.endswith('.txt')]\n    print(f\"In {root}, found text files: {txt_files}\")\n\n\nExample: Calculating Disk Usage with walk()\nfrom pathlib import Path\n\n# Initialize a dictionary to store disk usage for each directory\ndisk_usage = {}\n\n# Walk through the directory tree\nfor root, dirs, files in Path(\"some_directory\").walk():\n    total_size = 0  # Initialize total size for the current directory\n\n    # Calculate the size of each file in the current directory\n    for file in files:\n        file_path = root / Path(file)\n        total_size += file_path.stat().st_size\n\n    # Store the total size in the dictionary\n    disk_usage[root] = total_size\n\n# Display the disk usage for each directory\nfor dir_path, size in disk_usage.items():\n    print(f\"The directory {dir_path} consumes {size} bytes.\")\n\n\nNotes\n\nBe cautious when setting follow_symlinks to True to avoid infinite loops.\nThe method assumes the directory structure is not modified during its execution."
+    "objectID": "zettel/94/index.html#related-zettel",
+    "href": "zettel/94/index.html#related-zettel",
+    "title": "A Quote Diary",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#9\nZettel#36"
   },
   {
-    "objectID": "zettel/85/index.html#references",
-    "href": "zettel/85/index.html#references",
-    "title": "File and Directory Listing in Python",
+    "objectID": "zettel/132/index.html",
+    "href": "zettel/132/index.html",
+    "title": "rich.status: a Spinner for Better CLI UX",
+    "section": "",
+    "text": "I really should read the documentation of the Rich library in detail… I just found another gem: the rich.status module, which provides a spinner and status message while a task is being processed. This visual feedback informs the user that the application is actively working on a task, contributing to a more engaging and informative user interaction."
+  },
+  {
+    "objectID": "zettel/132/index.html#code-example",
+    "href": "zettel/132/index.html#code-example",
+    "title": "rich.status: a Spinner for Better CLI UX",
+    "section": "Code Example",
+    "text": "Code Example\nimport asyncio\nimport random\nfrom rich.console import Console\nfrom rich.status import Status\n\nasync def simulated_task():\n    # Simulate a task that may raise an error\n    await asyncio.sleep(2)\n    if random.random() &lt; 0.5:  # 50% chance of error\n        raise ValueError(\"An error occurred\")\n    await asyncio.sleep(2)\n\nasync def main():\n    encountered_error = False\n    console = Console()\n    with console.status(\"[bold cyan]Processing...\") as status:\n        try:\n            await simulated_task()\n            status.update(\"[bold green]Success!\")\n        except ValueError as error:\n            status.update(f\"[bold red]{error}\")\n            encountered_error = True\n        await asyncio.sleep(2)  # Simulate additional processing\n        console.print(\n            \"Task complete\" if not encountered_error else \"Task encountered an error\"\n        )\n\nif __name__ == \"__main__\":\n    asyncio.run(main())"
+  },
+  {
+    "objectID": "zettel/132/index.html#spinner-styles",
+    "href": "zettel/132/index.html#spinner-styles",
+    "title": "rich.status: a Spinner for Better CLI UX",
+    "section": "Spinner Styles",
+    "text": "Spinner Styles\nTo view all the predefined spinner style names along with their visual representation, run the following command in your terminal:\npython -m rich.spinner\nMake sure you have the Rich library installed in your virtual environment (python -m pip install rich)."
+  },
+  {
+    "objectID": "zettel/132/index.html#references",
+    "href": "zettel/132/index.html#references",
+    "title": "rich.status: a Spinner for Better CLI UX",
     "section": "References",
-    "text": "References\n\nReal Python: How to Get All Files in a Directory\nPython Official Documentation: pathlib.Path.walk()"
+    "text": "References\n\nRich rich.status Documentation\nRich GitHub Repository"
   },
   {
-    "objectID": "zettel/105/index.html",
-    "href": "zettel/105/index.html",
-    "title": "Google Dorking Cheat Sheet",
-    "section": "",
-    "text": "site:: Restricts search results to a specific website or domain.\n\nExample: site:example.com\n\nlink:: Shows pages that link to a certain page.\n\nExample: link:example.com\n\ncache:: Shows the version of the web page as it appeared when Google last indexed it.\n\nExample: cache:example.com\n\ninfo:: Shows information Google has about a webpage.\n\nExample: info:example.com\n\nrelated:: Shows sites related to a specified site.\n\nExample: related:example.com"
-  },
-  {
-    "objectID": "zettel/105/index.html#basic-operators",
-    "href": "zettel/105/index.html#basic-operators",
-    "title": "Google Dorking Cheat Sheet",
-    "section": "",
-    "text": "site:: Restricts search results to a specific website or domain.\n\nExample: site:example.com\n\nlink:: Shows pages that link to a certain page.\n\nExample: link:example.com\n\ncache:: Shows the version of the web page as it appeared when Google last indexed it.\n\nExample: cache:example.com\n\ninfo:: Shows information Google has about a webpage.\n\nExample: info:example.com\n\nrelated:: Shows sites related to a specified site.\n\nExample: related:example.com"
-  },
-  {
-    "objectID": "zettel/105/index.html#searching-within-parts-of-a-page",
-    "href": "zettel/105/index.html#searching-within-parts-of-a-page",
-    "title": "Google Dorking Cheat Sheet",
-    "section": "Searching Within Parts of a Page",
-    "text": "Searching Within Parts of a Page\n\nintitle:: Searches within the title tags.\n\nExample: intitle:\"login page\"\n\nallintitle:: Searches for documents containing all the specified words in the title.\n\nExample: allintitle:apple banana\n\nintext:: Searches within the body text.\n\nExample: intext:\"important announcement\"\n\nallintext:: Searches for documents containing all the specified words in the body text.\n\nExample: allintext:apple banana\n\ninurl:: Searches within the URL.\n\nExample: inurl:login\n\nallinurl:: Searches for a URL containing all the specified words.\n\nExample: allinurl:apple banana"
-  },
-  {
-    "objectID": "zettel/105/index.html#filetype-search",
-    "href": "zettel/105/index.html#filetype-search",
-    "title": "Google Dorking Cheat Sheet",
-    "section": "Filetype Search",
-    "text": "Filetype Search\n\nfiletype:: Searches for specific file types.\n\nExample: filetype:pdf\n\next:: Alternative to filetype.\n\nExample: ext:pdf"
-  },
-  {
-    "objectID": "zettel/105/index.html#time-based-search",
-    "href": "zettel/105/index.html#time-based-search",
-    "title": "Google Dorking Cheat Sheet",
-    "section": "Time-Based Search",
-    "text": "Time-Based Search\n\nafter:: Shows results that are newer than the specified date. You can use year, month, and day formats (YYYY, YYYY-MM, YYYY-MM-DD).\n\nExample: nasa news after:2023-01-01\n\nbefore:: Shows results that are older than the specified date. Same date formats apply as in after:.\n\nExample: nasa news before:2023-01-01"
-  },
-  {
-    "objectID": "zettel/105/index.html#proximity-search",
-    "href": "zettel/105/index.html#proximity-search",
-    "title": "Google Dorking Cheat Sheet",
-    "section": "Proximity Search",
-    "text": "Proximity Search\n\nAROUND(X): Can be used between two words, with X representing the maximum amount of words that you want to allow between the two.\n\nExample: Apple AROUND(3) iPhone"
-  },
-  {
-    "objectID": "zettel/105/index.html#specialized-search",
-    "href": "zettel/105/index.html#specialized-search",
-    "title": "Google Dorking Cheat Sheet",
-    "section": "Specialized Search",
-    "text": "Specialized Search\n\ndefine:: Looks up the definition of a word.\n\nExample: define:computer\n\nstocks:: Gives information about stocks when followed by a ticker symbol.\n\nExample: stocks:AAPL\n\nbook:: Can be followed by a book title to get information about the book.\n\nExample: book:\"The World as Will and Representation\"\n\nmovie:: Can be followed by a movie title to get reviews and showtimes.\n\nExample: movie:Matrix\n\nmusic:: Searches for music-related information.\n\nExample: music:public memory\n\nweather:: Gives the current weather for a specified location.\n\nExample: weather:Paris\n\nphonebook:: Finds phone numbers and addresses listed in US phone books.\n\nExample: phonebook:John Doe\n\narea code:: Shows the location for a particular area code.\n\nExample: area code:415"
-  },
-  {
-    "objectID": "zettel/105/index.html#numerical-range-search",
-    "href": "zettel/105/index.html#numerical-range-search",
-    "title": "Google Dorking Cheat Sheet",
-    "section": "Numerical Range Search",
-    "text": "Numerical Range Search\n\nnumrange:: Used to locate specific numbers in your search. Use two periods without spaces (..) to represent an inclusive range of numbers.\n\nExample: camera $50..$100"
-  },
-  {
-    "objectID": "zettel/105/index.html#logical-operators",
-    "href": "zettel/105/index.html#logical-operators",
-    "title": "Google Dorking Cheat Sheet",
-    "section": "Logical Operators",
-    "text": "Logical Operators\n\nAND: Shows results where both terms on either side of the AND operator are present. AND must be in upper case. Google search defaults to using AND between terms if no other operator is specified.\n\nExample: apple AND banana\n\nOR: Shows results where either term (or both terms) is present. OR must be in upper case.\n\nExample: apple OR banana\n\n- (minus sign): Excludes results containing the term that follows the - operator.\n\nExample: apple -banana\n\n\" \" (quotes): Searches for an exact phrase match.\n\nExample: \"apple banana\""
-  },
-  {
-    "objectID": "zettel/24/index.html",
-    "href": "zettel/24/index.html",
-    "title": "How to easily copy a public SSH key to another machine",
-    "section": "",
-    "text": "ssh-copy-id user@server\nUse the -i flag to specify a particular key\nFrom the documentation:\nSo, you don’t copy your private key, it’s alright. But add it nonetheless if you want to feel extra secured.\nTo disable root ssh login, add this to /etc/sshd_config:\nTo force ssh key login only, add this to /etc/sshd_config:\nFinally, restart ssh:"
-  },
-  {
-    "objectID": "zettel/24/index.html#related-zettel",
-    "href": "zettel/24/index.html#related-zettel",
-    "title": "How to easily copy a public SSH key to another machine",
+    "objectID": "zettel/132/index.html#related-zettel",
+    "href": "zettel/132/index.html#related-zettel",
+    "title": "rich.status: a Spinner for Better CLI UX",
     "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#20\nZettel#88"
-  },
-  {
-    "objectID": "zettel/135/index.html",
-    "href": "zettel/135/index.html",
-    "title": "How to Know if an Object is an Iterable in Python",
-    "section": "",
-    "text": "This is a straightforward way but can be a bit hard to read.\nhasattr(item, \"__iter__\") # True / False"
-  },
-  {
-    "objectID": "zettel/135/index.html#using-hasattr",
-    "href": "zettel/135/index.html#using-hasattr",
-    "title": "How to Know if an Object is an Iterable in Python",
-    "section": "",
-    "text": "This is a straightforward way but can be a bit hard to read.\nhasattr(item, \"__iter__\") # True / False"
-  },
-  {
-    "objectID": "zettel/135/index.html#using-isinstance",
-    "href": "zettel/135/index.html#using-isinstance",
-    "title": "How to Know if an Object is an Iterable in Python",
-    "section": "Using isinstance",
-    "text": "Using isinstance\nI prefer this method as it’s more readable.\nfrom collections.abc import Iterable\n\nisinstance(item, Iterable) # True / False"
-  },
-  {
-    "objectID": "zettel/135/index.html#using-try-except",
-    "href": "zettel/135/index.html#using-try-except",
-    "title": "How to Know if an Object is an Iterable in Python",
-    "section": "Using try-except",
-    "text": "Using try-except\nThis is another way, but it relies on exception handling. Unless there is a specific reason to use it, I wouldn’t choose it.\ndef is_iterable(item):\n    try:\n        iter(item)\n        return True\n    except TypeError:\n        return False"
-  },
-  {
-    "objectID": "zettel/135/index.html#references",
-    "href": "zettel/135/index.html#references",
-    "title": "How to Know if an Object is an Iterable in Python",
-    "section": "References",
-    "text": "References\n\nPython official documentation on Abstract Base Classes for Collections"
-  },
-  {
-    "objectID": "zettel/101/index.html",
-    "href": "zettel/101/index.html",
-    "title": "Understanding xclip File Commands and Their Use Cases",
-    "section": "",
-    "text": "In addition to working with plain text, the xclip command line tool has some less-known commands: xclip-copyfile, xclip-cutfile, and xclip-pastefile. These commands provide a bridge between terminal-based operations and clipboard functionality involving files."
-  },
-  {
-    "objectID": "zettel/101/index.html#what-do-these-commands-do",
-    "href": "zettel/101/index.html#what-do-these-commands-do",
-    "title": "Understanding xclip File Commands and Their Use Cases",
-    "section": "What Do These Commands Do?",
-    "text": "What Do These Commands Do?\n\nxclip-copyfile copies one or more files, along with their metadata, to the clipboard, which mimics the “Copy” operation in a graphical file manager.\nxclip-cutfile operates like xclip-copyfile, but also removes the original files after copying them to the clipboard, simulating the “Cut” operation.\nxclip-pastefile retrieves the contents of the clipboard and writes them into one or more new files, equivalent to the “Paste” command in a file manager."
-  },
-  {
-    "objectID": "zettel/101/index.html#potential-use-cases",
-    "href": "zettel/101/index.html#potential-use-cases",
-    "title": "Understanding xclip File Commands and Their Use Cases",
-    "section": "Potential Use Cases",
-    "text": "Potential Use Cases\nA unique advantage of these commands might be when you want to copy files to paste them into another application, like a web browser or a specific GUI application that accepts file paste operations. This could be a use case where these xclip file commands might come handy."
-  },
-  {
-    "objectID": "zettel/101/index.html#personal-observations",
-    "href": "zettel/101/index.html#personal-observations",
-    "title": "Understanding xclip File Commands and Their Use Cases",
-    "section": "Personal Observations",
-    "text": "Personal Observations\nDespite the possible use mentioned above, I find that the usefulness of these commands might be limited. Traditional commands like cp, mv, and rm are what any terminal-centric person will really use.\nIn the end, whether or not these commands are useful to you will largely depend on your specific needs, workflow, and the systems you’re working with."
-  },
-  {
-    "objectID": "zettel/101/index.html#related-zettel",
-    "href": "zettel/101/index.html#related-zettel",
-    "title": "Understanding xclip File Commands and Their Use Cases",
-    "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#99\nZettel#47"
-  },
-  {
-    "objectID": "zettel/122/index.html",
-    "href": "zettel/122/index.html",
-    "title": "ChatGPT Integration for Code Analysis in Vim",
-    "section": "",
-    "text": "Integrate OpenAI’s ChatGPT models into your Vim environment for real-time code analysis.\nThis guide will walk you through setting up a workflow that combines Vim, Tmux, and my CLI tool called lmt—that allows for interaction with ChatGPT from the terminal. You’ll be able to select lines of code in Vim, send them to lmt via a Bash script, and view the analysis in a new Tmux pane."
-  },
-  {
-    "objectID": "zettel/122/index.html#requirements",
-    "href": "zettel/122/index.html#requirements",
-    "title": "ChatGPT Integration for Code Analysis in Vim",
-    "section": "Requirements",
-    "text": "Requirements\n\nVim\nTmux\nlmt"
-  },
-  {
-    "objectID": "zettel/122/index.html#installation",
-    "href": "zettel/122/index.html#installation",
-    "title": "ChatGPT Integration for Code Analysis in Vim",
-    "section": "Installation",
-    "text": "Installation\nFirst, ensure that Vim and Tmux are installed on your system. You can install lmt from its GitHub repository, or you can use pip or pipx:\npipx install lmterminal\n\nCreate a Bash Script\nCreate a Bash script that accomplishes the following:\n\nReads selected lines from Vim’s standard input.\nWrites these lines to a temporary file.\nEchoes the original lines back to Vim to preserve them.\nOpens a new Tmux pane and runs lmt with the contents of the temporary file.\nRemoves the temporary file.\n\nHere’s the script:\n#!/bin/bash\n\ncleanup() {\n    rm -f \"$temp_file\"\n}\n\n# Create a temporary file.\ntemp_file=$(mktemp) || {\n    echo \"Failed to create temporary file.\" &gt;&2\n    exit 1\n}\ntrap cleanup EXIT INT TERM\n\nif [ -t 0 ]; then\n    echo \"No input to read. Skipping stdin reading.\" &gt;&2\nelse\n    # Read selected lines piped from Vim and write them to the temporary file.\n    cat &gt; \"$temp_file\"\n    # Output the selected lines back to Vim to preserve the original file.\n    cat \"$temp_file\"\nfi\n\n# Reconstruct the arguments string, adding quotes back where necessary\nargs=\"\"\nfor arg in \"$@\"; do\n    if [[ $arg == *\" \"* ]]; then\n        args+=\"\\\"$arg\\\" \"\n    else\n        args+=\"$arg \"\n    fi\ndone\nargs=${args%?}\n\n# Get the user's preferred shell with a fallback on `sh`\nuser_shell=\"${SHELL:-/bin/sh}\"\n\n# Open a new Tmux pane and run the `lmt` command with the temporary file as input.\n# Opening a new shell session to keep the pane open for reading the output.\ntmux_cmd=\"cat $temp_file | lmt $args --rich; $user_shell\"\ntmux split-window -v \"$tmux_cmd\"\nDon’t forget to change zsh in the last line by bash if that’s the shell you use.\n\n\nVim Configuration\nIn Vim, after selecting lines in visual mode, press ! to filter the selected lines through the Bash script.\n:'&lt;,'&gt;!path/to/your_script\nPlace your script in your system’s PATH for easier access.\n\n\n3. Tmux Configuration\nMake sure Tmux is running so that the script can open a new pane."
-  },
-  {
-    "objectID": "zettel/122/index.html#usage",
-    "href": "zettel/122/index.html#usage",
-    "title": "ChatGPT Integration for Code Analysis in Vim",
-    "section": "Usage",
-    "text": "Usage\n\nSelect lines in Vim.\nPress ! and enter path/to/your_script.\nA new Tmux pane will open, running lmt to analyze the selected lines.\nThe Tmux pane will remain open, allowing you to read the output at your leisure."
-  },
-  {
-    "objectID": "zettel/122/index.html#advanced-customization-with-lmt",
-    "href": "zettel/122/index.html#advanced-customization-with-lmt",
-    "title": "ChatGPT Integration for Code Analysis in Vim",
-    "section": "Advanced Customization with LMT",
-    "text": "Advanced Customization with LMT\nThe lmt tool allows for advanced customization through the -t/--template option. This enables you to design and use your own templates for the system prompt, broadening the potential applications of this workflow."
-  },
-  {
-    "objectID": "zettel/122/index.html#thats-it",
-    "href": "zettel/122/index.html#thats-it",
-    "title": "ChatGPT Integration for Code Analysis in Vim",
-    "section": "That’s it!",
-    "text": "That’s it!\n\nThis workflow is particularly useful for quickly analyzing code without leaving your Vim/Tmux environment.\nThe lmt tool can be configured with different system behaviors or templates for various types of code analysis."
-  },
-  {
-    "objectID": "zettel/122/index.html#related-zettel",
-    "href": "zettel/122/index.html#related-zettel",
-    "title": "ChatGPT Integration for Code Analysis in Vim",
-    "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#134"
-  },
-  {
-    "objectID": "zettel/26/index.html",
-    "href": "zettel/26/index.html",
-    "title": "How to securely wipe and erase a disk in Linux",
-    "section": "",
-    "text": "shred overwrites a target by generating random sequences of 0 and 1.\n\nThis command will follow 5 passes in the background\nshred -fz -n 5 --random-source=/dev/urandom /dev/sda &\nThis will take a long, long time. However, I read that one pass is sufficient (Wright, Kleiman, & Sundhar, 2008), so maybe don’t do multiple passes after all.\n\nhttps://wiki.archlinux.org/title/Securely_wipe_disk (I swear I don’t run Arch, by the way 🥲.)\nOverwriting Hard Drive Data: The Great Wiping Controversy (Wright, Kleiman, & Sundhar, 2008)"
-  },
-  {
-    "objectID": "zettel/158/index.html",
-    "href": "zettel/158/index.html",
-    "title": "Create a “Featured” Column in Quarto Listings",
-    "section": "",
-    "text": "I use Quarto to generate my website, which includes my Zettelkasten.\nFor the listing of my Zettelkasten, I wanted a way to feature certain Zettel. To do that, I created a custom key-value pair in the YAML header of the Zettel that I named spotlight so that it will be invisible in the listing, and I set the value to a star emoji ⭐:\n---\ntitle: \"The `hosts` File as a Self-Care Hack to Block Distractions\"\nsubtitle: \"Zettel#156\"\nid: \"156\"\ndate: 2024-06-01\ndate-modified: \"\"\ndate-format: iso\ncategories: [zettelkasten]\nspotlight: \"⭐\"\n---\nThen, in the YAML header of the listing page, I set the fields key to include the custom key-value pair:\n---\ntitle: \"Zettelkasten\"\nlisting:\n    page-size: 1000\n    sort: \n      - \"date desc\"\n      - \"subtitle desc\"\n    sort-ui: [subtitle, reading-time]\n    type: table\n    filter-ui: true\n    categories: false\n    fields: [subtitle, title, spotlight, date]\n    date-format: iso\n---\nSee how it renders:"
-  },
-  {
-    "objectID": "zettel/17/index.html",
-    "href": "zettel/17/index.html",
-    "title": "How to make .bashrc aliases available within a Vim shell command (:.!bash)",
-    "section": "",
-    "text": "If you want non-interactive shell (as default) but expansion of bash aliases, put your alias definitions in a file, e.g. .bash_aliases and explicitly enable alias expansion in this file:\nshopt -s expand_aliases  \nalias la='ls -la'\nThen add this to your .vimrc so the aliases file is actually read each time you run a shell command from within Vim:\nlet $BASH_ENV = \"~/.bash_aliases\"\nsource: https://stackoverflow.com/a/18901595"
-  },
-  {
-    "objectID": "zettel/17/index.html#my-opinion",
-    "href": "zettel/17/index.html#my-opinion",
-    "title": "How to make .bashrc aliases available within a Vim shell command (:.!bash)",
-    "section": "My opinion",
-    "text": "My opinion\nUsing scripts should be the preferred method though, as they are reliable and shareable. It’s generally a good idea to follow the principles of the Unix philosophy."
-  },
-  {
-    "objectID": "zettel/141/index.html",
-    "href": "zettel/141/index.html",
-    "title": "Managing Git Configurations Conditionally",
-    "section": "",
-    "text": "Git’s includeIf directive allows for conditional inclusion of configuration files based on the repository path, enabling different configurations for projects in distinct directories."
-  },
-  {
-    "objectID": "zettel/141/index.html#configuration-levels-in-context",
-    "href": "zettel/141/index.html#configuration-levels-in-context",
-    "title": "Managing Git Configurations Conditionally",
-    "section": "Configuration Levels in Context",
-    "text": "Configuration Levels in Context\nIt’s important to understand Git’s configuration hierarchy:\n\nSystem: Applies to all users and their repositories on the computer.\nGlobal: User-wide settings that apply to all of the user’s repositories.\nLocal: Specific to a single repository, these settings take precedence over system and global settings.\n\nConditional includes are typically part of the global configuration but are activated based on the current repository’s path."
-  },
-  {
-    "objectID": "zettel/141/index.html#example-use-case",
-    "href": "zettel/141/index.html#example-use-case",
-    "title": "Managing Git Configurations Conditionally",
-    "section": "Example Use Case",
-    "text": "Example Use Case\nUse the following syntax in the global .gitconfig to set up conditional includes:\n[includeIf \"gitdir:~/Repos/work/\"]\n    path = ~/Repos/work/.gitconfig\n\n[includeIf \"gitdir:~/Repos/personal/\"]\n    path = ~/Repos/personal/.gitconfig"
-  },
-  {
-    "objectID": "zettel/141/index.html#troubleshooting",
-    "href": "zettel/141/index.html#troubleshooting",
-    "title": "Managing Git Configurations Conditionally",
-    "section": "Troubleshooting",
-    "text": "Troubleshooting\n\nLocal .gitconfig files can override global settings when within the specified directory.\nDebug configurations with git config --list --show-origin."
-  },
-  {
-    "objectID": "zettel/118/index.html",
-    "href": "zettel/118/index.html",
-    "title": "Cheat Sheet for Python f-string",
-    "section": "",
-    "text": "Python Morsels – Python f-string tips & cheat sheets\nPython f-string cheat sheets"
+    "text": "Related Zettel\n\nZettel#70\nZettel#112\nZettel#131"
   },
   {
     "objectID": "zettel/108/index.html",
@@ -2051,200 +1624,634 @@
     "text": "References\n\nhttps://w3m.sourceforge.net/MANUAL#Key:orig"
   },
   {
-    "objectID": "zettel/132/index.html",
-    "href": "zettel/132/index.html",
-    "title": "rich.status: a Spinner for Better CLI UX",
+    "objectID": "zettel/118/index.html",
+    "href": "zettel/118/index.html",
+    "title": "Cheat Sheet for Python f-string",
     "section": "",
-    "text": "I really should read the documentation of the Rich library in detail… I just found another gem: the rich.status module, which provides a spinner and status message while a task is being processed. This visual feedback informs the user that the application is actively working on a task, contributing to a more engaging and informative user interaction."
+    "text": "Python Morsels – Python f-string tips & cheat sheets\nPython f-string cheat sheets"
   },
   {
-    "objectID": "zettel/132/index.html#code-example",
-    "href": "zettel/132/index.html#code-example",
-    "title": "rich.status: a Spinner for Better CLI UX",
-    "section": "Code Example",
-    "text": "Code Example\nimport asyncio\nimport random\nfrom rich.console import Console\nfrom rich.status import Status\n\nasync def simulated_task():\n    # Simulate a task that may raise an error\n    await asyncio.sleep(2)\n    if random.random() &lt; 0.5:  # 50% chance of error\n        raise ValueError(\"An error occurred\")\n    await asyncio.sleep(2)\n\nasync def main():\n    encountered_error = False\n    console = Console()\n    with console.status(\"[bold cyan]Processing...\") as status:\n        try:\n            await simulated_task()\n            status.update(\"[bold green]Success!\")\n        except ValueError as error:\n            status.update(f\"[bold red]{error}\")\n            encountered_error = True\n        await asyncio.sleep(2)  # Simulate additional processing\n        console.print(\n            \"Task complete\" if not encountered_error else \"Task encountered an error\"\n        )\n\nif __name__ == \"__main__\":\n    asyncio.run(main())"
+    "objectID": "zettel/141/index.html",
+    "href": "zettel/141/index.html",
+    "title": "Managing Git Configurations Conditionally",
+    "section": "",
+    "text": "Git’s includeIf directive allows for conditional inclusion of configuration files based on the repository path, enabling different configurations for projects in distinct directories."
   },
   {
-    "objectID": "zettel/132/index.html#spinner-styles",
-    "href": "zettel/132/index.html#spinner-styles",
-    "title": "rich.status: a Spinner for Better CLI UX",
-    "section": "Spinner Styles",
-    "text": "Spinner Styles\nTo view all the predefined spinner style names along with their visual representation, run the following command in your terminal:\npython -m rich.spinner\nMake sure you have the Rich library installed in your virtual environment (python -m pip install rich)."
+    "objectID": "zettel/141/index.html#configuration-levels-in-context",
+    "href": "zettel/141/index.html#configuration-levels-in-context",
+    "title": "Managing Git Configurations Conditionally",
+    "section": "Configuration Levels in Context",
+    "text": "Configuration Levels in Context\nIt’s important to understand Git’s configuration hierarchy:\n\nSystem: Applies to all users and their repositories on the computer.\nGlobal: User-wide settings that apply to all of the user’s repositories.\nLocal: Specific to a single repository, these settings take precedence over system and global settings.\n\nConditional includes are typically part of the global configuration but are activated based on the current repository’s path."
   },
   {
-    "objectID": "zettel/132/index.html#references",
-    "href": "zettel/132/index.html#references",
-    "title": "rich.status: a Spinner for Better CLI UX",
+    "objectID": "zettel/141/index.html#example-use-case",
+    "href": "zettel/141/index.html#example-use-case",
+    "title": "Managing Git Configurations Conditionally",
+    "section": "Example Use Case",
+    "text": "Example Use Case\nUse the following syntax in the global .gitconfig to set up conditional includes:\n[includeIf \"gitdir:~/Repos/work/\"]\n    path = ~/Repos/work/.gitconfig\n\n[includeIf \"gitdir:~/Repos/personal/\"]\n    path = ~/Repos/personal/.gitconfig"
+  },
+  {
+    "objectID": "zettel/141/index.html#troubleshooting",
+    "href": "zettel/141/index.html#troubleshooting",
+    "title": "Managing Git Configurations Conditionally",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\n\nLocal .gitconfig files can override global settings when within the specified directory.\nDebug configurations with git config --list --show-origin."
+  },
+  {
+    "objectID": "zettel/17/index.html",
+    "href": "zettel/17/index.html",
+    "title": "How to make .bashrc aliases available within a Vim shell command (:.!bash)",
+    "section": "",
+    "text": "If you want non-interactive shell (as default) but expansion of bash aliases, put your alias definitions in a file, e.g. .bash_aliases and explicitly enable alias expansion in this file:\nshopt -s expand_aliases  \nalias la='ls -la'\nThen add this to your .vimrc so the aliases file is actually read each time you run a shell command from within Vim:\nlet $BASH_ENV = \"~/.bash_aliases\"\nsource: https://stackoverflow.com/a/18901595"
+  },
+  {
+    "objectID": "zettel/17/index.html#my-opinion",
+    "href": "zettel/17/index.html#my-opinion",
+    "title": "How to make .bashrc aliases available within a Vim shell command (:.!bash)",
+    "section": "My opinion",
+    "text": "My opinion\nUsing scripts should be the preferred method though, as they are reliable and shareable. It’s generally a good idea to follow the principles of the Unix philosophy."
+  },
+  {
+    "objectID": "zettel/158/index.html",
+    "href": "zettel/158/index.html",
+    "title": "Create a “Featured” Column in Quarto Listings",
+    "section": "",
+    "text": "I use Quarto to generate my website, which includes my Zettelkasten.\nFor the listing of my Zettelkasten, I wanted a way to feature certain Zettel. To do that, I created a custom key-value pair in the YAML header of the Zettel that I named spotlight so that it will be invisible in the listing, and I set the value to a star emoji ⭐:\n---\ntitle: \"The `hosts` File as a Self-Care Hack to Block Distractions\"\nsubtitle: \"Zettel#156\"\nid: \"156\"\ndate: 2024-06-01\ndate-modified: \"\"\ndate-format: iso\ncategories: [zettelkasten]\nspotlight: \"⭐\"\n---\nThen, in the YAML header of the listing page, I set the fields key to include the custom key-value pair:\n---\ntitle: \"Zettelkasten\"\nlisting:\n    page-size: 1000\n    sort: \n      - \"date desc\"\n      - \"subtitle desc\"\n    sort-ui: [subtitle, reading-time]\n    type: table\n    filter-ui: true\n    categories: false\n    fields: [subtitle, title, spotlight, date]\n    date-format: iso\n---\nSee how it renders:"
+  },
+  {
+    "objectID": "zettel/26/index.html",
+    "href": "zettel/26/index.html",
+    "title": "How to securely wipe and erase a disk in Linux",
+    "section": "",
+    "text": "shred overwrites a target by generating random sequences of 0 and 1.\n\nThis command will follow 5 passes in the background\nshred -fz -n 5 --random-source=/dev/urandom /dev/sda &\nThis will take a long, long time. However, I read that one pass is sufficient (Wright, Kleiman, & Sundhar, 2008), so maybe don’t do multiple passes after all.\n\nhttps://wiki.archlinux.org/title/Securely_wipe_disk (I swear I don’t run Arch, by the way 🥲.)\nOverwriting Hard Drive Data: The Great Wiping Controversy (Wright, Kleiman, & Sundhar, 2008)"
+  },
+  {
+    "objectID": "zettel/122/index.html",
+    "href": "zettel/122/index.html",
+    "title": "ChatGPT Integration for Code Analysis in Vim",
+    "section": "",
+    "text": "Integrate OpenAI’s ChatGPT models into your Vim environment for real-time code analysis.\nThis guide will walk you through setting up a workflow that combines Vim, Tmux, and my CLI tool called lmt—that allows for interaction with ChatGPT from the terminal. You’ll be able to select lines of code in Vim, send them to lmt via a Bash script, and view the analysis in a new Tmux pane."
+  },
+  {
+    "objectID": "zettel/122/index.html#requirements",
+    "href": "zettel/122/index.html#requirements",
+    "title": "ChatGPT Integration for Code Analysis in Vim",
+    "section": "Requirements",
+    "text": "Requirements\n\nVim\nTmux\nlmt"
+  },
+  {
+    "objectID": "zettel/122/index.html#installation",
+    "href": "zettel/122/index.html#installation",
+    "title": "ChatGPT Integration for Code Analysis in Vim",
+    "section": "Installation",
+    "text": "Installation\nFirst, ensure that Vim and Tmux are installed on your system. You can install lmt from its GitHub repository, or you can use pip or pipx:\npipx install lmterminal\n\nCreate a Bash Script\nCreate a Bash script that accomplishes the following:\n\nReads selected lines from Vim’s standard input.\nWrites these lines to a temporary file.\nEchoes the original lines back to Vim to preserve them.\nOpens a new Tmux pane and runs lmt with the contents of the temporary file.\nRemoves the temporary file.\n\nHere’s the script:\n#!/bin/bash\n\ncleanup() {\n    rm -f \"$temp_file\"\n}\n\n# Create a temporary file.\ntemp_file=$(mktemp) || {\n    echo \"Failed to create temporary file.\" &gt;&2\n    exit 1\n}\ntrap cleanup EXIT INT TERM\n\nif [ -t 0 ]; then\n    echo \"No input to read. Skipping stdin reading.\" &gt;&2\nelse\n    # Read selected lines piped from Vim and write them to the temporary file.\n    cat &gt; \"$temp_file\"\n    # Output the selected lines back to Vim to preserve the original file.\n    cat \"$temp_file\"\nfi\n\n# Reconstruct the arguments string, adding quotes back where necessary\nargs=\"\"\nfor arg in \"$@\"; do\n    if [[ $arg == *\" \"* ]]; then\n        args+=\"\\\"$arg\\\" \"\n    else\n        args+=\"$arg \"\n    fi\ndone\nargs=${args%?}\n\n# Get the user's preferred shell with a fallback on `sh`\nuser_shell=\"${SHELL:-/bin/sh}\"\n\n# Open a new Tmux pane and run the `lmt` command with the temporary file as input.\n# Opening a new shell session to keep the pane open for reading the output.\ntmux_cmd=\"cat $temp_file | lmt $args --rich; $user_shell\"\ntmux split-window -v \"$tmux_cmd\"\nDon’t forget to change zsh in the last line by bash if that’s the shell you use.\n\n\nVim Configuration\nIn Vim, after selecting lines in visual mode, press ! to filter the selected lines through the Bash script.\n:'&lt;,'&gt;!path/to/your_script\nPlace your script in your system’s PATH for easier access.\n\n\n3. Tmux Configuration\nMake sure Tmux is running so that the script can open a new pane."
+  },
+  {
+    "objectID": "zettel/122/index.html#usage",
+    "href": "zettel/122/index.html#usage",
+    "title": "ChatGPT Integration for Code Analysis in Vim",
+    "section": "Usage",
+    "text": "Usage\n\nSelect lines in Vim.\nPress ! and enter path/to/your_script.\nA new Tmux pane will open, running lmt to analyze the selected lines.\nThe Tmux pane will remain open, allowing you to read the output at your leisure."
+  },
+  {
+    "objectID": "zettel/122/index.html#advanced-customization-with-lmt",
+    "href": "zettel/122/index.html#advanced-customization-with-lmt",
+    "title": "ChatGPT Integration for Code Analysis in Vim",
+    "section": "Advanced Customization with LMT",
+    "text": "Advanced Customization with LMT\nThe lmt tool allows for advanced customization through the -t/--template option. This enables you to design and use your own templates for the system prompt, broadening the potential applications of this workflow."
+  },
+  {
+    "objectID": "zettel/122/index.html#thats-it",
+    "href": "zettel/122/index.html#thats-it",
+    "title": "ChatGPT Integration for Code Analysis in Vim",
+    "section": "That’s it!",
+    "text": "That’s it!\n\nThis workflow is particularly useful for quickly analyzing code without leaving your Vim/Tmux environment.\nThe lmt tool can be configured with different system behaviors or templates for various types of code analysis."
+  },
+  {
+    "objectID": "zettel/122/index.html#related-zettel",
+    "href": "zettel/122/index.html#related-zettel",
+    "title": "ChatGPT Integration for Code Analysis in Vim",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#134"
+  },
+  {
+    "objectID": "zettel/101/index.html",
+    "href": "zettel/101/index.html",
+    "title": "Understanding xclip File Commands and Their Use Cases",
+    "section": "",
+    "text": "In addition to working with plain text, the xclip command line tool has some less-known commands: xclip-copyfile, xclip-cutfile, and xclip-pastefile. These commands provide a bridge between terminal-based operations and clipboard functionality involving files."
+  },
+  {
+    "objectID": "zettel/101/index.html#what-do-these-commands-do",
+    "href": "zettel/101/index.html#what-do-these-commands-do",
+    "title": "Understanding xclip File Commands and Their Use Cases",
+    "section": "What Do These Commands Do?",
+    "text": "What Do These Commands Do?\n\nxclip-copyfile copies one or more files, along with their metadata, to the clipboard, which mimics the “Copy” operation in a graphical file manager.\nxclip-cutfile operates like xclip-copyfile, but also removes the original files after copying them to the clipboard, simulating the “Cut” operation.\nxclip-pastefile retrieves the contents of the clipboard and writes them into one or more new files, equivalent to the “Paste” command in a file manager."
+  },
+  {
+    "objectID": "zettel/101/index.html#potential-use-cases",
+    "href": "zettel/101/index.html#potential-use-cases",
+    "title": "Understanding xclip File Commands and Their Use Cases",
+    "section": "Potential Use Cases",
+    "text": "Potential Use Cases\nA unique advantage of these commands might be when you want to copy files to paste them into another application, like a web browser or a specific GUI application that accepts file paste operations. This could be a use case where these xclip file commands might come handy."
+  },
+  {
+    "objectID": "zettel/101/index.html#personal-observations",
+    "href": "zettel/101/index.html#personal-observations",
+    "title": "Understanding xclip File Commands and Their Use Cases",
+    "section": "Personal Observations",
+    "text": "Personal Observations\nDespite the possible use mentioned above, I find that the usefulness of these commands might be limited. Traditional commands like cp, mv, and rm are what any terminal-centric person will really use.\nIn the end, whether or not these commands are useful to you will largely depend on your specific needs, workflow, and the systems you’re working with."
+  },
+  {
+    "objectID": "zettel/101/index.html#related-zettel",
+    "href": "zettel/101/index.html#related-zettel",
+    "title": "Understanding xclip File Commands and Their Use Cases",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#99\nZettel#47"
+  },
+  {
+    "objectID": "zettel/135/index.html",
+    "href": "zettel/135/index.html",
+    "title": "How to Know if an Object is an Iterable in Python",
+    "section": "",
+    "text": "This is a straightforward way but can be a bit hard to read.\nhasattr(item, \"__iter__\") # True / False"
+  },
+  {
+    "objectID": "zettel/135/index.html#using-hasattr",
+    "href": "zettel/135/index.html#using-hasattr",
+    "title": "How to Know if an Object is an Iterable in Python",
+    "section": "",
+    "text": "This is a straightforward way but can be a bit hard to read.\nhasattr(item, \"__iter__\") # True / False"
+  },
+  {
+    "objectID": "zettel/135/index.html#using-isinstance",
+    "href": "zettel/135/index.html#using-isinstance",
+    "title": "How to Know if an Object is an Iterable in Python",
+    "section": "Using isinstance",
+    "text": "Using isinstance\nI prefer this method as it’s more readable.\nfrom collections.abc import Iterable\n\nisinstance(item, Iterable) # True / False"
+  },
+  {
+    "objectID": "zettel/135/index.html#using-try-except",
+    "href": "zettel/135/index.html#using-try-except",
+    "title": "How to Know if an Object is an Iterable in Python",
+    "section": "Using try-except",
+    "text": "Using try-except\nThis is another way, but it relies on exception handling. Unless there is a specific reason to use it, I wouldn’t choose it.\ndef is_iterable(item):\n    try:\n        iter(item)\n        return True\n    except TypeError:\n        return False"
+  },
+  {
+    "objectID": "zettel/135/index.html#references",
+    "href": "zettel/135/index.html#references",
+    "title": "How to Know if an Object is an Iterable in Python",
     "section": "References",
-    "text": "References\n\nRich rich.status Documentation\nRich GitHub Repository"
+    "text": "References\n\nPython official documentation on Abstract Base Classes for Collections"
   },
   {
-    "objectID": "zettel/132/index.html#related-zettel",
-    "href": "zettel/132/index.html#related-zettel",
-    "title": "rich.status: a Spinner for Better CLI UX",
+    "objectID": "zettel/24/index.html",
+    "href": "zettel/24/index.html",
+    "title": "How to easily copy a public SSH key to another machine",
+    "section": "",
+    "text": "ssh-copy-id user@server\nUse the -i flag to specify a particular key\nFrom the documentation:\nSo, you don’t copy your private key, it’s alright. But add it nonetheless if you want to feel extra secured.\nTo disable root ssh login, add this to /etc/sshd_config:\nTo force ssh key login only, add this to /etc/sshd_config:\nFinally, restart ssh:"
+  },
+  {
+    "objectID": "zettel/24/index.html#related-zettel",
+    "href": "zettel/24/index.html#related-zettel",
+    "title": "How to easily copy a public SSH key to another machine",
     "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#70\nZettel#112\nZettel#131"
+    "text": "Related Zettel\n\nZettel#20\nZettel#88"
   },
   {
-    "objectID": "zettel/94/index.html",
-    "href": "zettel/94/index.html",
-    "title": "A Quote Diary",
+    "objectID": "zettel/105/index.html",
+    "href": "zettel/105/index.html",
+    "title": "Google Dorking Cheat Sheet",
     "section": "",
-    "text": "I used to archive numerous quotes in my very old notes. If I happen to rediscover them while rummaging through those archives, I will try to add some of them here. I will also try to add new ones.\n=&gt; Il faut des auteurs médiocres pour les gens médiocres. ___\nI don’t remember the original quote, but I always remembered my interpretation of it:"
+    "text": "site:: Restricts search results to a specific website or domain.\n\nExample: site:example.com\n\nlink:: Shows pages that link to a certain page.\n\nExample: link:example.com\n\ncache:: Shows the version of the web page as it appeared when Google last indexed it.\n\nExample: cache:example.com\n\ninfo:: Shows information Google has about a webpage.\n\nExample: info:example.com\n\nrelated:: Shows sites related to a specified site.\n\nExample: related:example.com"
   },
   {
-    "objectID": "zettel/94/index.html#related-zettel",
-    "href": "zettel/94/index.html#related-zettel",
-    "title": "A Quote Diary",
-    "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#9\nZettel#36"
-  },
-  {
-    "objectID": "zettel/82/index.html",
-    "href": "zettel/82/index.html",
-    "title": "Partial Functions in Python",
+    "objectID": "zettel/105/index.html#basic-operators",
+    "href": "zettel/105/index.html#basic-operators",
+    "title": "Google Dorking Cheat Sheet",
     "section": "",
-    "text": "A partial function is a function derived from another function by fixing some of its arguments, effectively reducing the number of required arguments to call the new function. This can be useful for creating specialized versions of more general functions or preconfiguring a function with some arguments for later use. Python’s functools module provides the partial function to create partial functions."
+    "text": "site:: Restricts search results to a specific website or domain.\n\nExample: site:example.com\n\nlink:: Shows pages that link to a certain page.\n\nExample: link:example.com\n\ncache:: Shows the version of the web page as it appeared when Google last indexed it.\n\nExample: cache:example.com\n\ninfo:: Shows information Google has about a webpage.\n\nExample: info:example.com\n\nrelated:: Shows sites related to a specified site.\n\nExample: related:example.com"
   },
   {
-    "objectID": "zettel/82/index.html#introduction",
-    "href": "zettel/82/index.html#introduction",
-    "title": "Partial Functions in Python",
+    "objectID": "zettel/105/index.html#searching-within-parts-of-a-page",
+    "href": "zettel/105/index.html#searching-within-parts-of-a-page",
+    "title": "Google Dorking Cheat Sheet",
+    "section": "Searching Within Parts of a Page",
+    "text": "Searching Within Parts of a Page\n\nintitle:: Searches within the title tags.\n\nExample: intitle:\"login page\"\n\nallintitle:: Searches for documents containing all the specified words in the title.\n\nExample: allintitle:apple banana\n\nintext:: Searches within the body text.\n\nExample: intext:\"important announcement\"\n\nallintext:: Searches for documents containing all the specified words in the body text.\n\nExample: allintext:apple banana\n\ninurl:: Searches within the URL.\n\nExample: inurl:login\n\nallinurl:: Searches for a URL containing all the specified words.\n\nExample: allinurl:apple banana"
+  },
+  {
+    "objectID": "zettel/105/index.html#filetype-search",
+    "href": "zettel/105/index.html#filetype-search",
+    "title": "Google Dorking Cheat Sheet",
+    "section": "Filetype Search",
+    "text": "Filetype Search\n\nfiletype:: Searches for specific file types.\n\nExample: filetype:pdf\n\next:: Alternative to filetype.\n\nExample: ext:pdf"
+  },
+  {
+    "objectID": "zettel/105/index.html#time-based-search",
+    "href": "zettel/105/index.html#time-based-search",
+    "title": "Google Dorking Cheat Sheet",
+    "section": "Time-Based Search",
+    "text": "Time-Based Search\n\nafter:: Shows results that are newer than the specified date. You can use year, month, and day formats (YYYY, YYYY-MM, YYYY-MM-DD).\n\nExample: nasa news after:2023-01-01\n\nbefore:: Shows results that are older than the specified date. Same date formats apply as in after:.\n\nExample: nasa news before:2023-01-01"
+  },
+  {
+    "objectID": "zettel/105/index.html#proximity-search",
+    "href": "zettel/105/index.html#proximity-search",
+    "title": "Google Dorking Cheat Sheet",
+    "section": "Proximity Search",
+    "text": "Proximity Search\n\nAROUND(X): Can be used between two words, with X representing the maximum amount of words that you want to allow between the two.\n\nExample: Apple AROUND(3) iPhone"
+  },
+  {
+    "objectID": "zettel/105/index.html#specialized-search",
+    "href": "zettel/105/index.html#specialized-search",
+    "title": "Google Dorking Cheat Sheet",
+    "section": "Specialized Search",
+    "text": "Specialized Search\n\ndefine:: Looks up the definition of a word.\n\nExample: define:computer\n\nstocks:: Gives information about stocks when followed by a ticker symbol.\n\nExample: stocks:AAPL\n\nbook:: Can be followed by a book title to get information about the book.\n\nExample: book:\"The World as Will and Representation\"\n\nmovie:: Can be followed by a movie title to get reviews and showtimes.\n\nExample: movie:Matrix\n\nmusic:: Searches for music-related information.\n\nExample: music:public memory\n\nweather:: Gives the current weather for a specified location.\n\nExample: weather:Paris\n\nphonebook:: Finds phone numbers and addresses listed in US phone books.\n\nExample: phonebook:John Doe\n\narea code:: Shows the location for a particular area code.\n\nExample: area code:415"
+  },
+  {
+    "objectID": "zettel/105/index.html#numerical-range-search",
+    "href": "zettel/105/index.html#numerical-range-search",
+    "title": "Google Dorking Cheat Sheet",
+    "section": "Numerical Range Search",
+    "text": "Numerical Range Search\n\nnumrange:: Used to locate specific numbers in your search. Use two periods without spaces (..) to represent an inclusive range of numbers.\n\nExample: camera $50..$100"
+  },
+  {
+    "objectID": "zettel/105/index.html#logical-operators",
+    "href": "zettel/105/index.html#logical-operators",
+    "title": "Google Dorking Cheat Sheet",
+    "section": "Logical Operators",
+    "text": "Logical Operators\n\nAND: Shows results where both terms on either side of the AND operator are present. AND must be in upper case. Google search defaults to using AND between terms if no other operator is specified.\n\nExample: apple AND banana\n\nOR: Shows results where either term (or both terms) is present. OR must be in upper case.\n\nExample: apple OR banana\n\n- (minus sign): Excludes results containing the term that follows the - operator.\n\nExample: apple -banana\n\n\" \" (quotes): Searches for an exact phrase match.\n\nExample: \"apple banana\""
+  },
+  {
+    "objectID": "zettel/85/index.html",
+    "href": "zettel/85/index.html",
+    "title": "File and Directory Listing in Python",
     "section": "",
-    "text": "A partial function is a function derived from another function by fixing some of its arguments, effectively reducing the number of required arguments to call the new function. This can be useful for creating specialized versions of more general functions or preconfiguring a function with some arguments for later use. Python’s functools module provides the partial function to create partial functions."
+    "text": "Python provides multiple ways to interact with the file system. This includes listing files and directories, checking if a path is a file or directory, and performing more complex operations."
   },
   {
-    "objectID": "zettel/82/index.html#use-cases",
-    "href": "zettel/82/index.html#use-cases",
-    "title": "Partial Functions in Python",
-    "section": "Use Cases",
-    "text": "Use Cases\n\nCode reusability\nFunctional programming\nCustomizing callbacks"
+    "objectID": "zettel/85/index.html#os.listdir",
+    "href": "zettel/85/index.html#os.listdir",
+    "title": "File and Directory Listing in Python",
+    "section": "os.listdir()",
+    "text": "os.listdir()\n\nos.listdir() returns a list of filenames in a specified directory without including the special entries (. and ..).\nIt doesn’t provide additional information about the files and directories.\nIt’s suitable for basic directory listing tasks.\n\n\nExample Using os.listdir()\nimport os\n\ndirectory_path = 'path/to/directory'\nfilenames = os.listdir(directory_path)\n\nfor filename in filenames:\n    print(filename)"
   },
   {
-    "objectID": "zettel/82/index.html#examples",
-    "href": "zettel/82/index.html#examples",
-    "title": "Partial Functions in Python",
-    "section": "Examples",
-    "text": "Examples\n\nBasic Example\nimport functools\n\ndef add(x, y):\n    return x + y\n\nadd_three = functools.partial(add, 3)\n\nresult = add_three(5)\nprint(result)\n&gt;&gt;&gt;\n8\n\n\nUsing with Higher-Order Functions\nimport functools\n\ndef power(base, exponent):\n    return base ** exponent\n\nsquare = functools.partial(power, exponent=2)\n\nnumbers = [1, 2, 3, 4, 5]\nsquared_numbers = list(map(square, numbers))\nprint(squared_numbers)\n&gt;&gt;&gt;\n[1, 4, 9, 16, 25]"
+    "objectID": "zettel/85/index.html#os.scandir",
+    "href": "zettel/85/index.html#os.scandir",
+    "title": "File and Directory Listing in Python",
+    "section": "os.scandir()",
+    "text": "os.scandir()\n\nos.scandir() yields an iterator of os.DirEntry objects for entries in a specified directory.\nEach os.DirEntry object allows access to the entry’s name, full path, and methods to fetch file attributes (e.g., is_file(), is_dir(), stat()), without additional system calls.\nIt’s more efficient and suitable for tasks requiring detailed information about directory contents.\n\n\nExample Using os.scandir()\nimport os\n\ndirectory_path = 'path/to/directory'\n\nwith os.scandir(directory_path) as entries:\n    for entry in entries:\n        print(f\"Name: {entry.name}\")\n        print(f\"Full Path: {entry.path}\")\n        print(f\"Is File: {entry.is_file()}\")\n        print(f\"Is Directory: {entry.is_dir()}\")\n        print(f\"Size: {entry.stat().st_size} bytes\")\n        print(\"---\")"
   },
   {
-    "objectID": "zettel/82/index.html#advantages",
-    "href": "zettel/82/index.html#advantages",
-    "title": "Partial Functions in Python",
-    "section": "Advantages",
-    "text": "Advantages\n\nReadability\nPartial functions can improve the readability of your code, especially when dealing with higher-order functions like map, filter, and reduce. By creating a partially-applied function, you can give it a meaningful name that makes the intent of your code clearer to readers. This can be particularly helpful when the function’s arguments are not immediately obvious or when the function is used multiple times with the same fixed arguments.\n\n\nCode reusability\nCreating partial functions allows you to reuse the same base function with different fixed arguments, which can lead to more modular and maintainable code. Instead of writing separate functions for each specialized case, you can have one general function and create partial functions for the specific cases. This can help prevent code duplication and make it easier to update or extend the base function.\n\n\nEasier refactoring\nIn some cases, the original function may be part of a library or third-party code that you don’t have control over. By using partial functions, you can adapt the original function to your specific needs without modifying the original code. This can make it easier to refactor your code or switch to a different library or implementation in the future.\n\n\nCustomizing callbacks\nWhen working with libraries or frameworks that expect you to provide a callback function, sometimes you need to supply additional arguments to the callback that aren’t provided by the library or framework itself. Partial functions allow you to preconfigure the callback with the necessary arguments while still satisfying the expected function signature.\n\n\nExample\nHere’s an example to illustrate how using partial functions can improve readability:\nimport functools\n\ndef multiply(a, b):\n    return a * b\n\n# Without using partial functions\ndoubled_numbers = list(map(lambda x: multiply(2, x), [1, 2, 3, 4, 5]))\n\n# With partial functions\ndouble = functools.partial(multiply, 2)\ndoubled_numbers = list(map(double, [1, 2, 3, 4, 5]))\n\n# The output is the same: [2, 4, 6, 8, 10]\nIn this example, we have a multiply function that takes two arguments. Without using partial functions, we use a lambda expression to create an anonymous function that calls multiply with the first argument fixed as 2. This can be less readable, especially for more complex functions or when multiple arguments need to be fixed.\nBy using a partial function, we can create a new function called double that has a meaningful name and fixes the first argument of multiply to 2. This makes the code more readable and easier to understand."
+    "objectID": "zettel/85/index.html#os.walk",
+    "href": "zettel/85/index.html#os.walk",
+    "title": "File and Directory Listing in Python",
+    "section": "os.walk()",
+    "text": "os.walk()\n\nos.walk() generates a tuple for each directory in the tree rooted at a specified directory, including the directory path, a list of subdirectories, and a list of filenames within that directory.\nIt traverses the directory tree either in a top-down (default) or bottom-up fashion. The traversal order is controlled by the topdown parameter:\n\nTop-down: Directories are scanned from the root down to the leaves. This is the default behavior (topdown=True).\nBottom-up: Directories are scanned from the leaves up to the root, which is useful for operations needing to process subdirectories first. Activate this approach by setting topdown=False.\n\nThis function is suitable for tasks requiring recursion through subdirectories, such as searching for files with specific extensions, aggregating file sizes, or modifying directory structures.\n\n\nExample Using os.walk()\nimport os\n\nroot_directory = 'path/to/directory'\n\n# Bottom-up traversal\nfor dirpath, dirnames, filenames in os.walk(root_directory, topdown=False):\n    print(f\"Directory Path: {dirpath}\")\n    for dirname in dirnames:\n        print(f\"Subdirectory: {dirname}\")\n    for filename in filenames:\n        print(f\"File: {filename}\")\n    print(\"---\")"
   },
   {
-    "objectID": "zettel/82/index.html#related-zettel",
-    "href": "zettel/82/index.html#related-zettel",
-    "title": "Partial Functions in Python",
-    "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#83"
+    "objectID": "zettel/85/index.html#pathlib",
+    "href": "zettel/85/index.html#pathlib",
+    "title": "File and Directory Listing in Python",
+    "section": "pathlib",
+    "text": "pathlib\n\nThe pathlib library offers a more object-oriented approach for file system manipulation.\nIt has methods and properties to interact with file paths, directories, and files.\nIt’s more intuitive, easier to use, and more powerful than os.listdir()."
   },
   {
-    "objectID": "zettel/37/index.html",
-    "href": "zettel/37/index.html",
-    "title": "How to run the Python code formatter Black in Vim",
-    "section": "",
-    "text": "Run Black\n:!black %\n:e!\n\n\nCreate a keybind to run Black and save file by adding this to your .vimrc\nautocmd FileType python nnoremap &lt;buffer&gt; &lt;leader&gt;b :w&lt;cr&gt;:!black %&lt;cr&gt;:e!&lt;cr&gt;\nBy default, the &lt;leader&gt; key is the backslash \\ character. Mine is the spacebar key. You can remap it by adding the following line in your .vimrc:\nlet mapleader=\" \"\nIf it fails to reformat the code, put Vim in the background by pressing Ctrl + z so that you can read the error message, and then just come back to Vim with the fg command."
+    "objectID": "zettel/85/index.html#pathlibs-iterdir",
+    "href": "zettel/85/index.html#pathlibs-iterdir",
+    "title": "File and Directory Listing in Python",
+    "section": "pathlib’s iterdir()",
+    "text": "pathlib’s iterdir()\n\nThe equivalent of os.listdir() in pathlib is Path.iterdir().\nIt returns an iterator yielding Path objects for all items in the specified directory.\nUnlike os.listdir(), it provides more functionality and information about each item.\n\n\nExample Using iterdir()\nfrom pathlib import Path\n\ndirectory = Path('path/to/your/directory')\n\nfor item in directory.iterdir():\n    print(item)"
   },
   {
-    "objectID": "zettel/90/index.html",
-    "href": "zettel/90/index.html",
-    "title": "Containers, Docker, and Podman",
-    "section": "",
-    "text": "A container is an instance of an image, which is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.\n\n\nRegardless of where you’re running your application - locally, in a testing environment, or in production - it will work the same way inside a container.\n\n\n\nEach container runs in isolation from other containers, ensuring that they don’t interfere with each other. This is similar to virtual machines (VMs), but with an important difference. While VMs virtualize the hardware, providing a full operating system stack for each VM, containers share the same host system kernel and isolate the application processes. This makes containers much lighter and faster than VMs.\n\n\n\nYou can run your containerized application on any system that supports containerization technology, without worrying about system-specific dependencies."
+    "objectID": "zettel/85/index.html#recursively-listing-files-with-pathlibs-rglob",
+    "href": "zettel/85/index.html#recursively-listing-files-with-pathlibs-rglob",
+    "title": "File and Directory Listing in Python",
+    "section": "Recursively Listing Files with pathlib’s rglob()",
+    "text": "Recursively Listing Files with pathlib’s rglob()\n\nThe Path.rglob() method can be used to list files and directories recursively.\nIt returns an iterator yielding Path objects for all items in the specified directory and its subdirectories.\n\n\nExample Using rglob()\nfrom pathlib import Path\n\ndirectory = Path('path/to/your/directory')\n\nfor item in directory.rglob('*'):  # Use '*' as the pattern to match all items\n    print(item)\n\n\nUnderstanding rglob()\n\nrglob() stands for “recursive glob”.\nIt combines the functionality of “globbing” (pattern matching) and recursion.\n\n\n\nThe glob Shell Command\n\nThe glob command is a shell operation in Unix-based systems used for filename pattern matching.\nIt allows users to search for files and directories based on wildcard patterns."
   },
   {
-    "objectID": "zettel/90/index.html#what-is-a-container",
-    "href": "zettel/90/index.html#what-is-a-container",
-    "title": "Containers, Docker, and Podman",
-    "section": "",
-    "text": "A container is an instance of an image, which is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.\n\n\nRegardless of where you’re running your application - locally, in a testing environment, or in production - it will work the same way inside a container.\n\n\n\nEach container runs in isolation from other containers, ensuring that they don’t interfere with each other. This is similar to virtual machines (VMs), but with an important difference. While VMs virtualize the hardware, providing a full operating system stack for each VM, containers share the same host system kernel and isolate the application processes. This makes containers much lighter and faster than VMs.\n\n\n\nYou can run your containerized application on any system that supports containerization technology, without worrying about system-specific dependencies."
+    "objectID": "zettel/85/index.html#pathlibs-walk-method-in-python-3.12",
+    "href": "zettel/85/index.html#pathlibs-walk-method-in-python-3.12",
+    "title": "File and Directory Listing in Python",
+    "section": "pathlib’s walk() Method in Python 3.12",
+    "text": "pathlib’s walk() Method in Python 3.12\n\nIntroduced in Python 3.12, the Path.walk() method offers a way to traverse a directory tree, providing a 3-tuple (dirpath, dirnames, filenames) for each directory it visits.\nIt’s a more flexible and powerful alternative to rglob() for certain use-cases, allowing in-place modifications and error handling.\n\n\nParameters\n\ntop_down: Controls the order of traversal. True by default, meaning it goes from the top directory down to subdirectories.\non_error: A callable function for error handling. By default, errors are ignored.\nfollow_symlinks: Determines whether to follow symbolic links. Default is False.\n\n\n\nExample: Finding .txt Files\nfrom pathlib import Path\n\nfor root, dirs, files in Path(\"some_directory\").walk():\n    txt_files = [f for f in files if f.endswith('.txt')]\n    print(f\"In {root}, found text files: {txt_files}\")\n\n\nExample: Calculating Disk Usage with walk()\nfrom pathlib import Path\n\n# Initialize a dictionary to store disk usage for each directory\ndisk_usage = {}\n\n# Walk through the directory tree\nfor root, dirs, files in Path(\"some_directory\").walk():\n    total_size = 0  # Initialize total size for the current directory\n\n    # Calculate the size of each file in the current directory\n    for file in files:\n        file_path = root / Path(file)\n        total_size += file_path.stat().st_size\n\n    # Store the total size in the dictionary\n    disk_usage[root] = total_size\n\n# Display the disk usage for each directory\nfor dir_path, size in disk_usage.items():\n    print(f\"The directory {dir_path} consumes {size} bytes.\")\n\n\nNotes\n\nBe cautious when setting follow_symlinks to True to avoid infinite loops.\nThe method assumes the directory structure is not modified during its execution."
   },
   {
-    "objectID": "zettel/90/index.html#docker-vs-podman-a-detailed-comparison",
-    "href": "zettel/90/index.html#docker-vs-podman-a-detailed-comparison",
-    "title": "Containers, Docker, and Podman",
-    "section": "Docker vs Podman: A Detailed Comparison",
-    "text": "Docker vs Podman: A Detailed Comparison\nWhile Docker has been the go-to container platform for a long time, Podman offers some unique advantages.\n\nDaemonless\nUnlike Docker, which relies on a daemon, Podman doesn’t require a daemon to function, leading to improved security and less overhead.\n\n\nRootless Containers\nPodman allows you to run containers without root privileges, providing additional security.\n\n\nOpen Container Initiative (OCI) Compliance\nBoth Docker and Podman are compliant with the OCI specifications. However, Podman’s implementation is stricter and does not include Docker’s non-standard features.\n\n\nCommand Compatibility\nPodman is completely command-compatible with Docker, meaning you can use the same commands and Dockerfiles as you would with Docker."
-  },
-  {
-    "objectID": "zettel/90/index.html#leveraging-containers-for-efficient-workflow",
-    "href": "zettel/90/index.html#leveraging-containers-for-efficient-workflow",
-    "title": "Containers, Docker, and Podman",
-    "section": "Leveraging Containers for Efficient Workflow",
-    "text": "Leveraging Containers for Efficient Workflow\n\nDevelopment Efficiency\nFor developers, containers guarantee that the environment remains consistent across development, testing, and production stages. This means no more “It works on my machine” issues.\n\n\nSimplified Testing\nIf your role involves software testing, you can quickly spin up an isolated environment with containers to test different versions of your application under varying conditions.\n\n\nSmoothened Deployment\nDeploying software with containers ensures that the software behaves exactly as intended, regardless of the deployment environment."
-  },
-  {
-    "objectID": "zettel/90/index.html#podman-commands-compatible-with-docker",
-    "href": "zettel/90/index.html#podman-commands-compatible-with-docker",
-    "title": "Containers, Docker, and Podman",
-    "section": "Podman Commands (compatible with Docker)",
-    "text": "Podman Commands (compatible with Docker)\nPodman commands are identical to Docker commands, ensuring a smooth transition between the two. Here are some of the key Podman commands you’ll use:\n\nPull an Image\npodman pull registry_name/repository_name:image_tag\nThe :image_tag is optional and defaults to :latest if not provided.\n\n\nBuild an Image\npodman build -t my_image .\n\n\nRun a Container\npodman run -d --name my_container my_image\n\n\nRun a Container Interactively with a Custom Hostname and Name, and Remove it after Exit\npodman run -it --rm --hostname=my_hostname --name=my_container my_image\n\n\nList Running Containers\npodman ps\n\n\nList all Containers, Including Stopped Ones\npodman ps -a\n\n\nStart a Container and Attach its Output\npodman start -a my_container\n\n\nView Logs for a Container\npodman logs my_container\n\n\nExecute a Command Inside a Running Container\npodman exec -it my_container command\n\n\nCreate a new image from a container’s changes\npodman commit -c 'USER your_username' -c 'WORKDIR /path/to/workdir' my_container my_new_image\nThe -c or (--change) option allows to apply Dockerfile instructions to the image we are creating.\n\n\nInitialize a Container\npodman init my_container\n\n\nStop a Container\npodman stop my_container\n\n\nRemove a Container\npodman rm my_container\n\n\nList Images\npodman images\n\n\nRemove an Image\npodman rmi my_image"
-  },
-  {
-    "objectID": "zettel/107/index.html",
-    "href": "zettel/107/index.html",
-    "title": "Stop Writing Your Error Messages to stdout",
-    "section": "",
-    "text": "Using print() is easy and convenient, but it prints everything to stdout. It can be the right tool for quick and dirty debugging—everyone does it. However, it’s not without its problems. For instance, what if we want the output to go to a file instead of the screen (for logging purposes)? Also, do we really want to print our error messages to stdout in production?"
-  },
-  {
-    "objectID": "zettel/107/index.html#using-print-with-the-file-parameter",
-    "href": "zettel/107/index.html#using-print-with-the-file-parameter",
-    "title": "Stop Writing Your Error Messages to stdout",
-    "section": "Using print() with the file parameter",
-    "text": "Using print() with the file parameter\nimport sys\n\nprint(\"This is an error message.\", file=sys.stderr)"
-  },
-  {
-    "objectID": "zettel/107/index.html#using-the-sys.stderr-object",
-    "href": "zettel/107/index.html#using-the-sys.stderr-object",
-    "title": "Stop Writing Your Error Messages to stdout",
-    "section": "Using the sys.stderr object",
-    "text": "Using the sys.stderr object\nimport sys\n\nsys.stderr.write(\"This is an error message.\\n\")\nNote that it’s important to include the newline character \\n at the end of the message to ensure proper formatting."
-  },
-  {
-    "objectID": "zettel/107/index.html#using-click.echo",
-    "href": "zettel/107/index.html#using-click.echo",
-    "title": "Stop Writing Your Error Messages to stdout",
-    "section": "Using click.echo()",
-    "text": "Using click.echo()\nThe Click library allows printing to stderr by passing err=True to click.echo().\nimport click\n\nclick.echo(\"This is an error message.\", err=True)"
-  },
-  {
-    "objectID": "zettel/107/index.html#logging-error-messages",
-    "href": "zettel/107/index.html#logging-error-messages",
-    "title": "Stop Writing Your Error Messages to stdout",
-    "section": "Logging Error Messages",
-    "text": "Logging Error Messages\nThe logging module from the standard library should be preferred for complex and serious production code.\nIt solves the problems mentioned above and even more. It also allows for five levels of logging (from critical to debug).\n\nExample\nHere’s an example of how to configure a logging handler to write error messages to a file:\nimport logging\n\n# Create a logger\nlogger = logging.getLogger('error_logger')\nlogger.setLevel(logging.ERROR)\n\n# Create a file handler\nfile_handler = logging.FileHandler('error.log')\n\n# Set the formatter\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nfile_handler.setFormatter(formatter)\n\n# Add the handler to the logger\nlogger.addHandler(file_handler)\n\n# Write an error message to the log file\nlogger.error(\"This is an error message.\")\nThis example sets the logging level to ERROR to ensure that only error messages are written to the file. The log format is specified using a formatter, which includes the timestamp, log level, and log message. The logger.error() method is used to write the error message to the log file.\nBy logging error messages to a file, you can easily track and analyze them, helping to identify and troubleshoot issues more effectively."
-  },
-  {
-    "objectID": "zettel/107/index.html#references",
-    "href": "zettel/107/index.html#references",
-    "title": "Stop Writing Your Error Messages to stdout",
+    "objectID": "zettel/85/index.html#references",
+    "href": "zettel/85/index.html#references",
+    "title": "File and Directory Listing in Python",
     "section": "References",
-    "text": "References\n\nLogging documentation\nLogging Cookbook (python.org)\nSlides on the logging module by Reuven M. Lerner"
+    "text": "References\n\nReal Python: How to Get All Files in a Directory\nPython Official Documentation: pathlib.Path.walk()"
   },
   {
-    "objectID": "zettel/107/index.html#related-zettel",
-    "href": "zettel/107/index.html#related-zettel",
-    "title": "Stop Writing Your Error Messages to stdout",
-    "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#133"
-  },
-  {
-    "objectID": "zettel/93/index.html",
-    "href": "zettel/93/index.html",
-    "title": "General Strategy Whenever You Have a Bug",
+    "objectID": "zettel/31/index.html",
+    "href": "zettel/31/index.html",
+    "title": "How to disable cursor blinking in a Linux shell",
     "section": "",
-    "text": "Locate where the bug is happening.\nUnderstand the cause of the bug.\nFix the bug.\nVerify that the fix worked.\nLearn the bug’s lesson. Every bug is a learning opportunity in disguise! What can we learn from this one, and how can we avoid making similar mistakes in the future?"
+    "text": "echo \"\\e[2 q\"\n#bash"
   },
   {
-    "objectID": "zettel/93/index.html#references",
-    "href": "zettel/93/index.html#references",
-    "title": "General Strategy Whenever You Have a Bug",
+    "objectID": "zettel/111/index.html",
+    "href": "zettel/111/index.html",
+    "title": "UUID: An Introduction and Usage",
+    "section": "",
+    "text": "UUID stands for Universally Unique Identifier.\nA UUID is a 128-bit number used to uniquely identify some object or entity on the Internet.\nIn its canonical form, a UUID is represented by 32 lowercase hexadecimal digits, displayed in five groups separated by hyphens. The pattern is 8-4-4-4-12, resulting in a 36 character string (including hyphens).\nExample: 550e8400-e29b-41d4-a716-446655440000.\nIt is designed to be sufficiently random such that the probability of collision (two different inputs producing the same output) is extremely low."
+  },
+  {
+    "objectID": "zettel/111/index.html#what-are-uuids",
+    "href": "zettel/111/index.html#what-are-uuids",
+    "title": "UUID: An Introduction and Usage",
+    "section": "",
+    "text": "UUID stands for Universally Unique Identifier.\nA UUID is a 128-bit number used to uniquely identify some object or entity on the Internet.\nIn its canonical form, a UUID is represented by 32 lowercase hexadecimal digits, displayed in five groups separated by hyphens. The pattern is 8-4-4-4-12, resulting in a 36 character string (including hyphens).\nExample: 550e8400-e29b-41d4-a716-446655440000.\nIt is designed to be sufficiently random such that the probability of collision (two different inputs producing the same output) is extremely low."
+  },
+  {
+    "objectID": "zettel/111/index.html#benefits-of-uuids",
+    "href": "zettel/111/index.html#benefits-of-uuids",
+    "title": "UUID: An Introduction and Usage",
+    "section": "Benefits of UUIDs",
+    "text": "Benefits of UUIDs\n\nThe primary advantage of UUIDs is that they can be generated in any location by any system without requiring central coordination while still being able to assert uniqueness across the entire universe.\nIt can be used to assign unique identifiers in a system without the need for a central authority to avoid collisions.\nUUIDs are preferable over traditional sequential IDs in a multi-server setup where coordination can be complex and time-consuming."
+  },
+  {
+    "objectID": "zettel/111/index.html#how-to-install-uuidgen",
+    "href": "zettel/111/index.html#how-to-install-uuidgen",
+    "title": "UUID: An Introduction and Usage",
+    "section": "How to Install uuidgen",
+    "text": "How to Install uuidgen\nuuidgen is typically included in the uuid-runtime package in Debian and most other Linux distributions. You can install it using the package manager apt.\nRun the following command to install uuidgen:\n$ sudo apt-get update\n$ sudo apt-get install uuid-runtime\nAfter the installation, you should be able to generate UUIDs by typing uuidgen in your terminal. Each call will produce a new, random UUID.\n$ uuidgen\nExample output:\n$ uuidgen\n1b4e28ba-2fa1-11d2-883f-0016d3cca427\nRemember, UUIDs generated are pseudo-random and there are different versions of UUIDs, based on the method of generation. uuidgen typically generates UUIDs using either random numbers (Version 4) or the current time and the machine’s MAC address (Version 1)."
+  },
+  {
+    "objectID": "zettel/111/index.html#generating-uuids-in-python",
+    "href": "zettel/111/index.html#generating-uuids-in-python",
+    "title": "UUID: An Introduction and Usage",
+    "section": "Generating UUIDs in Python",
+    "text": "Generating UUIDs in Python\nIn Python, you can use the uuid library to generate UUIDs. The uuid4() function generates a random UUID. The randomness is based on random numbers from the random number generator in your system, which makes the probability of collision negligible.\nimport uuid\n\nprint(uuid.uuid4())"
+  },
+  {
+    "objectID": "zettel/36/index.html",
+    "href": "zettel/36/index.html",
+    "title": "Changer de langue (citation de Cioran)",
+    "section": "",
+    "text": "Si on en croit Simone Weil, changer de religion est aussi dangereux pour un croyant que changer de langue pour un écrivain. Je ne suis pas tout à fait de cet avis. Écrire dans une langue étrangère est une émancipation. C’est se libérer de son propre passé. Je dois avouer cependant qu’au commencement le français me faisait l’effet d’une camisole de force. Rien ne saurait moins convenir à un Balkanique que la rigueur de cette langue. […] Lorsque plus tard je me suis mis à écrire en français, j’ai fini par me rendre compte qu’adopter une langue étrangère était peut-être une libération mais aussi une épreuve, voire un supplice, un supplice fascinant néanmoins.\nAvec Gerd Bergfleth, 1984.\nCioran"
+  },
+  {
+    "objectID": "zettel/36/index.html#related-zettel",
+    "href": "zettel/36/index.html#related-zettel",
+    "title": "Changer de langue (citation de Cioran)",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#9\nZettel#94"
+  },
+  {
+    "objectID": "zettel/124/index.html",
+    "href": "zettel/124/index.html",
+    "title": "The “Safe Triangle” Design Pattern for Better UI Context Menus",
+    "section": "",
+    "text": "Navigating hierarchical or nested context menus in UIs can be a challenging task. Users often encounter issues where the submenu disappears if the cursor slightly deviates from the intended path, leading to a frustrating user experience."
+  },
+  {
+    "objectID": "zettel/124/index.html#problem",
+    "href": "zettel/124/index.html#problem",
+    "title": "The “Safe Triangle” Design Pattern for Better UI Context Menus",
+    "section": "",
+    "text": "Navigating hierarchical or nested context menus in UIs can be a challenging task. Users often encounter issues where the submenu disappears if the cursor slightly deviates from the intended path, leading to a frustrating user experience."
+  },
+  {
+    "objectID": "zettel/124/index.html#solution-the-safe-triangle",
+    "href": "zettel/124/index.html#solution-the-safe-triangle",
+    "title": "The “Safe Triangle” Design Pattern for Better UI Context Menus",
+    "section": "Solution: The “Safe Triangle”",
+    "text": "Solution: The “Safe Triangle”\nThe “Safe Triangle” is a UI design pattern that effectively addresses this issue. It enhances the usability of hierarchical or nested context menus by creating an SVG triangle that serves as a “safe zone” around the submenu. Cursor tracking is implemented to ensure that the submenu remains open as long as the cursor is within this triangular area."
+  },
+  {
+    "objectID": "zettel/124/index.html#references",
+    "href": "zettel/124/index.html#references",
+    "title": "The “Safe Triangle” Design Pattern for Better UI Context Menus",
     "section": "References",
-    "text": "References\n\nhttps://py.mit.edu/spring23/readings/flood_fill#_debugging"
+    "text": "References\n\nSmashing Magazine – Better Context Menus With Safe Triangles"
+  },
+  {
+    "objectID": "zettel/113/index.html",
+    "href": "zettel/113/index.html",
+    "title": "Command History Search (Shell with Vi Mode)",
+    "section": "",
+    "text": "When using zsh or bash with vi mode enabled, you can efficiently navigate and search through your command history."
+  },
+  {
+    "objectID": "zettel/113/index.html#entering-command-mode",
+    "href": "zettel/113/index.html#entering-command-mode",
+    "title": "Command History Search (Shell with Vi Mode)",
+    "section": "Entering Command Mode",
+    "text": "Entering Command Mode\nEnsure you’re in command mode (normal mode) by pressing ESC."
+  },
+  {
+    "objectID": "zettel/113/index.html#searching-in-history",
+    "href": "zettel/113/index.html#searching-in-history",
+    "title": "Command History Search (Shell with Vi Mode)",
+    "section": "Searching in History",
+    "text": "Searching in History\nTo search backward through previous commands:\n\nPress / followed by your search term.\nPress Enter."
+  },
+  {
+    "objectID": "zettel/113/index.html#navigating-search-results-and-history",
+    "href": "zettel/113/index.html#navigating-search-results-and-history",
+    "title": "Command History Search (Shell with Vi Mode)",
+    "section": "Navigating Search Results and History",
+    "text": "Navigating Search Results and History\nAfter initiating a search, navigate through matches and history using:\n\nn - for the next match in the direction of your initial search.\nN - for the previous match, opposite to your initial search.\nj - to move to the next command in history (downwards).\nk - to move to the previous command in history (upwards)."
+  },
+  {
+    "objectID": "zettel/113/index.html#configuring-zsh-for-shared-history-useful-with-tmux",
+    "href": "zettel/113/index.html#configuring-zsh-for-shared-history-useful-with-tmux",
+    "title": "Command History Search (Shell with Vi Mode)",
+    "section": "Configuring zsh for Shared History (useful with tmux)",
+    "text": "Configuring zsh for Shared History (useful with tmux)\nTo ensure that all zsh sessions (e.g., across different tmux panes or windows) share the same command history, add the following option to your zshrc:\n# Enables sharing of command history between different zsh sessions.\nsetopt share_history"
+  },
+  {
+    "objectID": "zettel/134/index.html",
+    "href": "zettel/134/index.html",
+    "title": "Moving a Tmux Pane to Another Existing Window",
+    "section": "",
+    "text": "These instructions are adapted for my own customized meta key, set to ctrl-q. You will obviously need to adapt it to your own meta key if different."
+  },
+  {
+    "objectID": "zettel/134/index.html#detach-the-pane",
+    "href": "zettel/134/index.html#detach-the-pane",
+    "title": "Moving a Tmux Pane to Another Existing Window",
+    "section": "Detach the Pane",
+    "text": "Detach the Pane\n\nPress ctrl-q ! to detach the pane you want to move.\nThis will create a new window containing only the pane you want to move."
+  },
+  {
+    "objectID": "zettel/134/index.html#navigate-to-target-window",
+    "href": "zettel/134/index.html#navigate-to-target-window",
+    "title": "Moving a Tmux Pane to Another Existing Window",
+    "section": "Navigate to Target Window",
+    "text": "Navigate to Target Window\n\nSwitch to the window where you want to move the pane.\nUse ctrl-q 1 to switch to window 1, for example."
+  },
+  {
+    "objectID": "zettel/134/index.html#join-the-pane",
+    "href": "zettel/134/index.html#join-the-pane",
+    "title": "Moving a Tmux Pane to Another Existing Window",
+    "section": "Join the Pane",
+    "text": "Join the Pane\n\nPress ctrl-q : and then type join-pane -s [source-window].\nReplace [source-window] with the ID or name of the window created in the previous step.\nIf needed, list all windows with ctrl-q s to find this ID."
+  },
+  {
+    "objectID": "zettel/134/index.html#related-zettel",
+    "href": "zettel/134/index.html#related-zettel",
+    "title": "Moving a Tmux Pane to Another Existing Window",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#122"
+  },
+  {
+    "objectID": "zettel/23/index.html",
+    "href": "zettel/23/index.html",
+    "title": "Set timezone in Linux",
+    "section": "",
+    "text": "sudo timedatectl set-timezone Europe/Paris"
+  },
+  {
+    "objectID": "zettel/154/index.html",
+    "href": "zettel/154/index.html",
+    "title": "Reading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)",
+    "section": "",
+    "text": "Published: 2024-05-09\nKeywords: Computer Science - Artificial Intelligence,Computer Science - Human-Computer Interaction\nURL: http://arxiv.org/abs/2405.08007\nBibTeX: @jonesPeopleCannotDistinguish2024"
+  },
+  {
+    "objectID": "zettel/154/index.html#reading-status",
+    "href": "zettel/154/index.html#reading-status",
+    "title": "Reading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)",
+    "section": "Reading Status",
+    "text": "Reading Status\n\nOnly read the abstract\nSkimmed\nEngaged"
+  },
+  {
+    "objectID": "zettel/154/index.html#abstract",
+    "href": "zettel/154/index.html#abstract",
+    "title": "Reading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)",
+    "section": "Abstract",
+    "text": "Abstract\nWe evaluated 3 systems (ELIZA, GPT-3.5 and GPT-4) in a randomized, controlled, and preregistered Turing test. Human participants had a 5 minute conversation with either a human or an AI, and judged whether or not they thought their interlocutor was human. GPT-4 was judged to be a human 54% of the time, outperforming ELIZA (22%) but lagging behind actual humans (67%). The results provide the first robust empirical demonstration that any artificial system passes an interactive 2-player Turing test. The results have implications for debates around machine intelligence and, more urgently, suggest that deception by current AI systems may go undetected. Analysis of participants’ strategies and reasoning suggests that stylistic and socio-emotional factors play a larger role in passing the Turing test than traditional notions of intelligence."
+  },
+  {
+    "objectID": "zettel/154/index.html#twitter-thread",
+    "href": "zettel/154/index.html#twitter-thread",
+    "title": "Reading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)",
+    "section": "Twitter Thread",
+    "text": "Twitter Thread\nBy one of the authors: https://twitter.com/camrobjones/status/1790766472458903926?t=JC3LXH3WnFXNX79DrVisGQ"
+  },
+  {
+    "objectID": "zettel/154/index.html#notes",
+    "href": "zettel/154/index.html#notes",
+    "title": "Reading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)",
+    "section": "Notes",
+    "text": "Notes\n\nStudy Overview\nThe research assesses ELIZA, GPT-3.5, and GPT-4 in a randomized, controlled Turing test. Participants engaged in 5-minute conversations and identified their interlocutors as either human or AI.\n\n\nResults\n\nGPT-4 was identified as human 54% of the time.\nELIZA was identified as human 22% of the time.\nActual humans were correctly identified 67% of the time.\n\n\n\nImplications\nThese findings highlight GPT-4’s advanced conversational abilities, though it still lags behind actual humans. The study suggests that stylistic and socio-emotional factors are crucial in passing the Turing test.\nThe figure below shows all the strategies used by participants to identify the AI:\n\n\n\nPersonal Notes\n\nI find the method used in the study somewhat unusual and have doubts about the results. It’s relatively easy to distinguish an AI from a human by applying jailbreak techniques or focusing on knowledge areas.\nA language model typically possesses extensive knowledge across various fields, allowing it to respond in multiple languages or provide code, bypassing prompt restrictions easily.\nQuerying the model on diverse subjects can reveal its vast knowledge base, which an average human wouldn’t have.\nI have trouble believing these results. The percentages could still be explained by random guessing.\nIf these findings are more robust than I think, it indicates a lack of education and practical use of these language models in the general population.\nIt always has been easy to bamboozle with “intelligence” stuff: the mechanical turk, Clever Hans, etc."
+  },
+  {
+    "objectID": "zettel/136/index.html",
+    "href": "zettel/136/index.html",
+    "title": "yield from: The Extend Method for Generators",
+    "section": "",
+    "text": "As Trey Hunner said: “The yield from statement is to a list.extend() the way a yield statement is to a list.append().”"
+  },
+  {
+    "objectID": "zettel/136/index.html#basic-usage",
+    "href": "zettel/136/index.html#basic-usage",
+    "title": "yield from: The Extend Method for Generators",
+    "section": "Basic Usage",
+    "text": "Basic Usage\ndef my_generator():\n    yield 1\n    yield 2\n    yield from [3, 4, 5]\n    yield 6\n\ngen = my_generator()\nprint(list(gen))  # Output: [1, 2, 3, 4, 5, 6]\nIn this example, yield from [3, 4, 5] is equivalent to:\nfor item in [3, 4, 5]:\n    yield item"
+  },
+  {
+    "objectID": "zettel/136/index.html#example-deep-flattening-nested-iterables",
+    "href": "zettel/136/index.html#example-deep-flattening-nested-iterables",
+    "title": "yield from: The Extend Method for Generators",
+    "section": "Example: Deep-Flattening Nested Iterables",
+    "text": "Example: Deep-Flattening Nested Iterables\nfrom collections.abc import Iterable\nfrom typing import Any, Iterator\n\n\ndef deep_flatten(iterable: Iterable) -&gt; Iterator[Any]:\n    \"\"\"Flatten an iterable of iterables.\"\"\"\n    for element in iterable:\n        # Handle strings as special case, since they are iterable\n        if isinstance(element, str):\n            yield element\n        # Recursively flatten nested iterables\n        elif isinstance(element, Iterable):\n            yield from deep_flatten(element)\n        # Base case: yield non-iterable elements\n        else:\n            yield element"
+  },
+  {
+    "objectID": "zettel/136/index.html#references",
+    "href": "zettel/136/index.html#references",
+    "title": "yield from: The Extend Method for Generators",
+    "section": "References:",
+    "text": "References:\n\nPython Morsels by Trey Hunner"
+  },
+  {
+    "objectID": "zettel/71/index.html",
+    "href": "zettel/71/index.html",
+    "title": "Handling Long Strings in Python",
+    "section": "",
+    "text": "long_string = (\"This is a very long string that should be \"\n               \"broken into multiple lines for better \"\n               \"readability and without having to scroll \"\n               \"horizontally.\")\nThis method maintains the original string without introducing extra whitespace or newline characters, making it ideal for long strings that should be treated as a single line.\n\n\n\nlong_string = \"\"\"This is a very long string that should be\nbroken into multiple lines for better\nreadability and without having to scroll\nhorizontally.\"\"\"\nThis method preserves newline characters and leading spaces, making it suitable for cases where the string’s original formatting, including line breaks and indentation, needs to be retained."
+  },
+  {
+    "objectID": "zettel/71/index.html#breaking-long-strings-into-multiple-lines",
+    "href": "zettel/71/index.html#breaking-long-strings-into-multiple-lines",
+    "title": "Handling Long Strings in Python",
+    "section": "",
+    "text": "long_string = (\"This is a very long string that should be \"\n               \"broken into multiple lines for better \"\n               \"readability and without having to scroll \"\n               \"horizontally.\")\nThis method maintains the original string without introducing extra whitespace or newline characters, making it ideal for long strings that should be treated as a single line.\n\n\n\nlong_string = \"\"\"This is a very long string that should be\nbroken into multiple lines for better\nreadability and without having to scroll\nhorizontally.\"\"\"\nThis method preserves newline characters and leading spaces, making it suitable for cases where the string’s original formatting, including line breaks and indentation, needs to be retained."
+  },
+  {
+    "objectID": "zettel/71/index.html#automating-long-string-reformatting-with-black",
+    "href": "zettel/71/index.html#automating-long-string-reformatting-with-black",
+    "title": "Handling Long Strings in Python",
+    "section": "Automating Long String Reformatting with Black",
+    "text": "Automating Long String Reformatting with Black\nBlack can automatically break long strings according to the configured line length limit. By default, Black uses a line length of 88 characters but can be adjusted using the --line-length option.\n\nTo adjust the line length:\nblack --line-length 100 your_file.py"
+  },
+  {
+    "objectID": "zettel/71/index.html#maximum-line-lengths",
+    "href": "zettel/71/index.html#maximum-line-lengths",
+    "title": "Handling Long Strings in Python",
+    "section": "Maximum Line Lengths",
+    "text": "Maximum Line Lengths\n\nPEP 8 recommends a maximum line length of 79 characters for Python code.\nBlack uses a default line length of 88 characters.\n\nThese limits can be customized, but sticking to the recommended limits ensures consistent code style and readability across different projects and teams."
+  },
+  {
+    "objectID": "zettel/71/index.html#related-zettel",
+    "href": "zettel/71/index.html#related-zettel",
+    "title": "Handling Long Strings in Python",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#74"
+  },
+  {
+    "objectID": "zettel/106/index.html",
+    "href": "zettel/106/index.html",
+    "title": "Working With Timezones in Python",
+    "section": "",
+    "text": "Need to work with timezones in #Python?\nDon’t use pytz! Use zoneinfo.\nIt’s included in the standard library from Python 3.9 onward and pip install-able if you’re on 3.8.\nBig NOTE: If your code needs to run on Windows, you’ll also need to pip install tzdata too!\nWhat’s wrong with pytz? Silent bugs due to datetime arithmetic issues.\n&gt;&gt;&gt; pt = pytz.timezone(\"America/Los_Angeles\")\n&gt;&gt;&gt; mar1 = pt.localize(datetime(2023, 3, 1, 10, 0))\n&gt;&gt;&gt; apr1 = pt.localize(datetime(2023, 4, 1, 10, 0))\n&gt;&gt;&gt; apr1 &lt; mar1 + timedelta(days=31)\nTrue\nThese two times should be equal, but instead one is an hour before the other due to their timezone offsets.\n&gt;&gt;&gt; print(apr1_10am)\n2023-04-01 10:00:00-07:00\n&gt;&gt;&gt; print(march1_10am + timedelta(days=31))\n2023-04-01 10:00:00-08:00\nThat second one is in PST time during PDT!\nYou might say “well you’re supposed to do datetime arithmetic only on UTC times”.\nTrue… but it doesn’t have to be that way!\nThat’s a limitation with the way pytz works and it can cause all sorts of silent bugs.\nzoneinfo will do the right thing here instead.\nTweet from Trey Hunner"
+  },
+  {
+    "objectID": "zettel/106/index.html#references",
+    "href": "zettel/106/index.html#references",
+    "title": "Working With Timezones in Python",
+    "section": "References",
+    "text": "References\nhttps://twitter.com/treyhunner/status/1677166047634370561"
+  },
+  {
+    "objectID": "zettel/83/index.html",
+    "href": "zettel/83/index.html",
+    "title": "Partial Functions vs Closures in Python",
+    "section": "",
+    "text": "Derived from another function by fixing some of its arguments\nReduces the number of required arguments to call the new function\nCreated using the partial function from the functools module\nMainly used for creating specialized versions of more general functions or preconfiguring a function with some arguments for later use\n\n\n\nimport functools\n\ndef add(x, y):\n    return x + y\n\nadd_five = functools.partial(add, 5)\n\nresult = add_five(3)\nprint(result)"
+  },
+  {
+    "objectID": "zettel/83/index.html#partial-functions",
+    "href": "zettel/83/index.html#partial-functions",
+    "title": "Partial Functions vs Closures in Python",
+    "section": "",
+    "text": "Derived from another function by fixing some of its arguments\nReduces the number of required arguments to call the new function\nCreated using the partial function from the functools module\nMainly used for creating specialized versions of more general functions or preconfiguring a function with some arguments for later use\n\n\n\nimport functools\n\ndef add(x, y):\n    return x + y\n\nadd_five = functools.partial(add, 5)\n\nresult = add_five(3)\nprint(result)"
+  },
+  {
+    "objectID": "zettel/83/index.html#closures",
+    "href": "zettel/83/index.html#closures",
+    "title": "Partial Functions vs Closures in Python",
+    "section": "Closures",
+    "text": "Closures\n\nNested functions that capture and remember values of variables from the enclosing function’s scope\nCreated using nested functions and the nonlocal keyword\nProvide more flexibility by capturing multiple variables from the enclosing scope and having access to the entire scope, not just the fixed arguments\nUsed to create functions with behavior that depends on data not passed as arguments and to define stateful functions\n\n\nExample\ndef make_adder(x):\n    def add(y):\n        return x + y\n    return add\n\nadd_five = make_adder(5)\n\nresult = add_five(3)\nprint(result)"
+  },
+  {
+    "objectID": "zettel/83/index.html#key-differences",
+    "href": "zettel/83/index.html#key-differences",
+    "title": "Partial Functions vs Closures in Python",
+    "section": "Key Differences",
+    "text": "Key Differences\n\nCreation: Partial functions use the functools.partial function, while closures use nested functions and captured variables\nFlexibility: Closures offer more flexibility due to access to the entire enclosing scope, while partial functions focus on fixing arguments\nIntent: Partial functions specialize or preconfigure functions, while closures create functions with behavior dependent on non-argument data and can define stateful functions"
+  },
+  {
+    "objectID": "zettel/83/index.html#related-zettel",
+    "href": "zettel/83/index.html#related-zettel",
+    "title": "Partial Functions vs Closures in Python",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#82"
   },
   {
     "objectID": "zettel/45/index.html",
