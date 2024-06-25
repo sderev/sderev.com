@@ -1,0 +1,14 @@
+---
+title: "How to disable cursor blinking in a Linux shell"
+subtitle: "Zettel#31"
+id: "31"
+date: 2023-01-08
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+```bash
+echo "\e[2 q"
+```
+
+#bash
