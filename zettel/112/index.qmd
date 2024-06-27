@@ -1,0 +1,74 @@
+---
+title: "Managing Upgrades of Bundled CLI Tools in a metapackage Installed via `pipx`"
+subtitle: "Zettel#112"
+id: "112"
+date: 2023-08-22
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+## The Challenge
+
+Upon upgrading the metapackage through `pipx`, the versions of bundled tools might remain static unless they're explicitly updated.
+
+## Solutions & Their Implications
+
+### Explicitly Upgrade a Specific CLI Tool
+
+A direct method is using `pipx runpip <metapackage-name> install --upgrade <cli_tool_name>`, which allows for the upgrade of individual tools within the metapackage.
+
+**Drawback**: This method counteracts the desired smooth user experience of a metapackage.
+
+### Automated Dependency Versioning with a Script
+
+An effective solution is to implement an automated version management system. Below is a Python script that fetches the latest versions of specified packages from PyPI and updates them in the `requirements.txt`:
+
+```python
+import requests
+
+
+def get_latest_version(package_name):
+   """
+   Fetches the latest version of the package from PyPI.
+   """
+   url = f"https://pypi.org/pypi/{package_name}/json"
+   try:
+       response = requests.get(url, timeout=5)
+       response.raise_for_status()
+       return response.json()["info"]["version"]
+   except requests.RequestException as error:
+       print(f"Error fetching version for {package_name}: {error}")
+       return None
+
+
+def update_requirements(packages_to_update, requirements_path="requirements.txt"):
+   """
+   Updates the requirements.txt with the latest versions of the specified packages.
+   """
+   with open(requirements_path, "r", encoding="UTF-8") as file:
+       lines = file.readlines()
+
+   updated_lines = []
+   for line in lines:
+       pkg_name = line.split("==")[0].strip()
+       if pkg_name in packages_to_update and (version := get_latest_version(pkg_name)):
+           updated_lines.append(f"{pkg_name}=={version}\n")
+           continue
+       updated_lines.append(line)
+
+   with open(requirements_path, "w", encoding="UTF-8") as file:
+       file.writelines(updated_lines)
+
+
+if __name__ == "__main__":
+   packages_to_update = ["lmt-cli", "shellgenius", "vocabmaster"]
+   update_requirements(packages_to_update)
+```
+
+Before releasing a new version of the metapackage, make sure to execute this script. It will ensure that the latest versions of bundled tools are always included in the next release.
+
+## Related Zettel
+
+* [Zettel#70](/zettel/70)
+* [Zettel#126](/zettel/126)
+* [Zettel#131](/zettel/131)
