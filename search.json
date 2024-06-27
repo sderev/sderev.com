@@ -2937,7 +2937,7 @@
     "href": "zettel/142/index.html#add-your-gpg-key-to-github",
     "title": "GPG Key Configuration for Signing Commits with Git and GitHub",
     "section": "Add Your GPG Key to GitHub",
-    "text": "Add Your GPG Key to GitHub\n\nVia GitHub Web Interface\n\nExport your public GPG key:\ngpg --armor --export YOUR_GPG_KEY_ID\nCopy the exported key (including the -----BEGIN PGP PUBLIC KEY BLOCK----- and -----END PGP PUBLIC KEY BLOCK-----).\nGo to GitHub &gt; Settings &gt; SSH and GPG keys &gt; New GPG key, paste your key, and save.\n\n\n\nVia gh CLI Utility\nRun to add your GPG key to GitHub:\ngh api user/gpg_keys -F armored_public_key=\"$(gpg --armor --export YOUR_GPG_KEY_ID)\""
+    "text": "Add Your GPG Key to GitHub\n\nVia GitHub Web Interface\n\nExport your public GPG key:\ngpg --armor --export YOUR_GPG_KEY_ID\nCopy the exported key (including the -----BEGIN PGP PUBLIC KEY BLOCK----- and -----END PGP PUBLIC KEY BLOCK-----).\nGo to GitHub &gt; Settings &gt; SSH and GPG keys &gt; New GPG key, paste your key, and save.\n\n\n\nVia gh CLI\nRun to add your GPG key to GitHub:\ngh api user/gpg_keys -F armored_public_key=\"$(gpg --armor --export YOUR_GPG_KEY_ID)\""
   },
   {
     "objectID": "zettel/142/index.html#verify-commit-signature",

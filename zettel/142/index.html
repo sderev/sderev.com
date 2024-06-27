@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.4.556">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -211,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><p>List GPG keys to find your key ID:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">gpg</span> <span class="at">--list-secret-keys</span> <span class="at">--keyid-format</span> LONG</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Look for the sec line followed by the key type and size, and then the key ID in this format: <code>rsa4096/ABCDEFGH12345678 2021-01-01 [SC]</code>. The key ID in this example is <code>ABCDEFGH12345678</code>.</p></li>
+<p>Look for the <code>sec</code> line followed by the key type and size, and then the key ID in this format: <code>rsa4096/ABCDEFGH12345678 2021-01-01 [SC]</code>. The key ID in this example is <code>ABCDEFGH12345678</code>.</p></li>
 <li><p>Configure Git to use your GPG key:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.signingkey YOUR_GPG_KEY_ID</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You can now sign your commits using <code>git commit -S</code>.</p></li>
@@ -230,8 +230,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Go to GitHub &gt; Settings &gt; SSH and GPG keys &gt; New GPG key, paste your key, and save.</p></li>
 </ol>
 </section>
-<section id="via-gh-cli-utility" class="level3">
-<h3 class="anchored" data-anchor-id="via-gh-cli-utility">Via <code>gh</code> CLI Utility</h3>
+<section id="via-gh-cli" class="level3">
+<h3 class="anchored" data-anchor-id="via-gh-cli">Via <code>gh</code> CLI</h3>
 <p>Run to add your GPG key to GitHub:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">gh</span> api user/gpg_keys <span class="at">-F</span> armored_public_key=<span class="st">"</span><span class="va">$(</span><span class="ex">gpg</span> <span class="at">--armor</span> <span class="at">--export</span> YOUR_GPG_KEY_ID<span class="va">)</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
