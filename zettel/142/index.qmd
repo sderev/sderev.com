@@ -27,7 +27,7 @@ A step-by-step guide to generating a GPG key, configuring Git to use it for sign
    gpg --list-secret-keys --keyid-format LONG
    ```
 
-   Look for the sec line followed by the key type and size, and then the key ID in this format: `rsa4096/ABCDEFGH12345678 2021-01-01 [SC]`. The key ID in this example is `ABCDEFGH12345678`.
+   Look for the `sec` line followed by the key type and size, and then the key ID in this format: `rsa4096/ABCDEFGH12345678 2021-01-01 [SC]`. The key ID in this example is `ABCDEFGH12345678`.
    
 2. Configure Git to use your GPG key:
 
@@ -57,7 +57,7 @@ A step-by-step guide to generating a GPG key, configuring Git to use it for sign
 
 3. Go to GitHub > Settings > SSH and GPG keys > New GPG key, paste your key, and save.
 
-### Via `gh` CLI Utility
+### Via `gh` CLI
 
 Run to add your GPG key to GitHub:
 
