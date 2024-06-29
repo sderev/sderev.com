@@ -65,7 +65,7 @@ format:
     code-copy: true
     code-line-numbers: true
     highlight-style: alabaster.theme
-    monobackgroundcolor: "#fafafa"
+    monobackgroundcolor: "#f7f7f7"
     monofont: Fira Code
 
     link-external-icon: true
