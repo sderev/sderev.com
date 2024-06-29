@@ -61,11 +61,11 @@ format:
     toc-title: Contents
 
     code-block-background: true
-    code-block-bg: GhostWhite
+    code-block-bg: "#fafafa"
     code-copy: true
     code-line-numbers: true
-    highlight-style: arrow
-    monobackgroundcolor: GhostWhite
+    highlight-style: alabaster.theme
+    monobackgroundcolor: "#fafafa"
     monofont: Fira Code
 
     link-external-icon: true
