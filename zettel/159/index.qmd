@@ -16,7 +16,7 @@ It's too easy to lose work with `git reset --hard`. Fortunately, there is a safe
 
 ### Create, Commit, and Modify a File
 
-```bash
+```
 % touch file
 % git add file
 % git commit -m "Create a file"
@@ -40,7 +40,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 Now, let's try to reset one commit back.
 
-```bash
+```
 % git reset --keep @~
 error: Entry 'file' not uptodate. Cannot merge.
 fatal: Could not reset index file to revision '@~'.
@@ -50,7 +50,7 @@ As you can see, `git reset --keep` prevents us from losing our changes.
 
 If you use `git reset --hard`, you will lose your changes.
 
-```bash
+```
 % git reset --hard @~
 HEAD is now at <commit-hash> Create a file
 ```
