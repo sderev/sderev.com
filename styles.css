@@ -12,11 +12,6 @@ h2 code {
     font-size: 1.1rem;
 }
 
-.listing-subtitle a {
-    color: #333 !important;
-    pointer-events: none;
-    texst-decoration: none;
-    cursor: default;
 tbody tr:hover {
   --bs-table-hover-bg: #e5effd !important;
 }
