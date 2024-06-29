@@ -3,7 +3,7 @@
 
 h1 code {
   font-size: 1.3rem;
-  background-color: #f1f1f1;
+  background-color: #f0f0f0;
   padding: 0.2em;
   border-radius: 0.2em;
 }
@@ -12,11 +12,14 @@ h2 code {
     font-size: 1.1rem;
 }
 
-.listing-subtitle a {
-    color: #333 !important;
-    pointer-events: none;
-    texst-decoration: none;
-    cursor: default;
+tbody tr:hover {
+  --bs-table-hover-bg: #e5effd !important;
+}
+a {
+    color: #325cc0;
+}
+tbody tr:hover a {
+    color: #000;
 }
 
 /*-- scss:defaults --*/
@@ -26,6 +29,5 @@ $code-color: #333;
 $code-font-size: .8rem;
 $code-block-font-size: .80rem;
 
-$navbar-bg: GhostWhite;
+$navbar-bg: #fafafa;
 $navbar-fg: #222;
-

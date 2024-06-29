@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -203,34 +169,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="example">Example</h2>
 <section id="create-commit-and-modify-a-file" class="level3">
 <h3 class="anchored" data-anchor-id="create-commit-and-modify-a-file">Create, Commit, and Modify a File</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">%</span> touch file</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">%</span> git add file</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">%</span> git commit <span class="at">-m</span> <span class="st">"Create a file"</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="ex">%</span> echo <span class="st">"content"</span> <span class="op">&gt;&gt;</span> file</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="ex">%</span> git add <span class="at">-u</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="ex">%</span> git commit <span class="at">-m</span> <span class="st">"Add content to the file"</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="ex">%</span> echo <span class="st">"more content"</span> <span class="op">&gt;&gt;</span> file</span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="ex">%</span> git status</span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="ex">On</span> branch main</span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="ex">Changes</span> not staged for commit:</span>
-<span id="cb1-13"><a href="#cb1-13"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git add &lt;file&gt;..."</span> to update what will be committed<span class="kw">)</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git restore &lt;file&gt;..."</span> to discard changes in working directory<span class="kw">)</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>        <span class="ex">modified:</span>   file</span>
-<span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="ex">no</span> changes added to commit <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> and/or <span class="st">"git commit -a"</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>% touch file
+% git add file
+% git commit -m "Create a file"
+
+% echo "content" &gt;&gt; file
+% git add -u
+% git commit -m "Add content to the file"
+
+% echo "more content" &gt;&gt; file
+% git status
+On branch main
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+        modified:   file
+
+no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
 </section>
 <section id="reset-the-changes" class="level3">
 <h3 class="anchored" data-anchor-id="reset-the-changes">Reset the changes</h3>
 <p>Now, let’s try to reset one commit back.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">%</span> git reset <span class="at">--keep</span> @~</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">error:</span> Entry <span class="st">'file'</span> not uptodate. Cannot merge.</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">fatal:</span> Could not reset index file to revision <span class="st">'@~'</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>% git reset --keep @~
+error: Entry 'file' not uptodate. Cannot merge.
+fatal: Could not reset index file to revision '@~'.</code></pre>
 <p>As you can see, <code>git reset --keep</code> prevents us from losing our changes.</p>
 <p>If you use <code>git reset --hard</code>, you will lose your changes.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">%</span> git reset <span class="at">--hard</span> @~</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">HEAD</span> is now at <span class="op">&lt;</span>commit-hash<span class="op">&gt;</span> Create a file</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>% git reset --hard @~
+HEAD is now at &lt;commit-hash&gt; Create a file</code></pre>
 </section>
 </section>
 <section id="related-zettel" class="level2">
