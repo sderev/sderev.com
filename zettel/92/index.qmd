@@ -1,0 +1,96 @@
+---
+title: "Understanding Vim Regular Expressions: A Comparison with PCRE"
+subtitle: "Zettel#92"
+id: "92"
+date: 2023-05-31
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+**If you're reading this in raw Markdown, be careful with the escaped `|` characters. I had to escape them in the raw text so that they would render in HTML correctly.**
+
+## Differences Between Vim and PCRE Syntax
+
+| Description | PCRE Syntax | Vim Syntax |
+|-------------|-------------|------------|
+| Zero or more of previous item, as few as possible (non-greedy) | `*?` | `\{-}` |
+| One or more of previous item, as many as possible (greedy) | `+` | `\+` |
+| One or more of previous item, as few as possible (non-greedy) | `+?` | `\{-1,}` |
+| Zero or one of previous item | `?` | `\?` |
+| Word boundary | `\b` | `\<` or `\>` |
+| Group start | `(` | `\(` |
+| Group end | `)` | `\)` |
+| Or | `\|` | `\\|` |
+| Escaping special characters | `\` | `\\` |
+
+### Examples
+
+The following examples illustrate the differences between PCRE and Vim regex syntax through practical use cases:
+
+| Task | PCRE Example | Vim Example |
+|------|--------------|-------------|
+| Match "test" exactly | `test` | `test` |
+| Match "test" at the start of line | `^test` | `^test` |
+| Match "test" at the end of line | `test$` | `test$` |
+| Match "test" as a whole word | `\btest\b` | `\<test\>` |
+| Match one or more "a"s | `a+` | `a\+` |
+| Match zero or more "a"s | `a*` | `a*` |
+| Match "a" zero or one times | `a?` | `a\?` |
+| Non-greedy match for one or more "a"s | `a+?` | `a\{-1,}` |
+| Non-greedy match for zero or more "a"s | `a*?` | `a\{-}` |
+| Match "a" followed by "b" or "c" | `a(b\|c)` | `a\(b\\|c\)` |
+
+These examples should give you an idea of how to convert PCRE regular expressions to Vim's syntax. Remember that the behavior of some regex patterns can change based on Vim's `magic` mode setting, so be sure to specify the mode (`\v` for `very magic` and `\V` for `very nomagic`) to avoid confusion.
+
+### Vim's Built-in Documentation
+
+```vim
+:help perl-pattern
+``` 
+
+This command navigates to a section in Vim's help documentation that explicitly describes the differences between Vim's regex and Perl's regex (PCRE).
+
+## Vim Magic Regex Mode
+
+Vim's regular expressions offer two primary modes: `magic` and `nomagic`. These modes define how special characters, those with meanings beyond their literal representation, are treated. 
+
+The `magic` mode aligns Vim's regular expressions more closely with the behavior of regular expressions in other languages and tools, considering characters such as `.` , `*` , `^` , and `$` as special. This mode is activated by initiating the regular expression with `\v`.
+
+In contrast, `nomagic` mode necessitates escaping more characters with a backslash, as it considers fewer characters special. This mode can be activated by initiating the regular expression with `\V`.
+
+**Importantly, Vim operates in a `somewhat magic` mode by default**, a middle ground between the two extremes. To avoid confusion, it is recommended to explicitly specify the mode (`\v` for `very magic` and `\V` for `very nomagic`).
+
+### Examples of Magic, Somewhat Magic, and Nomagic Modes
+
+The following examples demonstrate the impact of `magic`, `somewhat magic` (default), and `nomagic` modes on Vim regular expressions:
+
+| Task | Magic Mode Example (`\v`) | Default (Somewhat Magic) Mode Example | Nomagic Mode Example (`\V`) |
+|------|--------------------------|---------------------------------------|-----------------------------|
+| Match "test" exactly | `\vtest` | `test` | `\Vtest` |
+| Match "test" at the start of line | `\v^test` | `^test` | `\V\^test` |
+| Match "test" at the end of line | `\vtest$` | `test$` | `\Vtest\$` |
+| Match "test" as a whole word | `\v<test>` | `\<test\>` | `\V\<test\>` |
+| Match one or more "a"s | `\va+` | `a\+` | `\Va\+` |
+| Match zero or more "a"s | `\va*` | `a*` | `\Va\*` |
+| Match "a" zero or one times | `\va?` | `a\?` | `\Va\?` |
+| Non-greedy match for one or more "a"s | `\va{-1,}` | `a\{-1,\}` | `\Va\{-1,\}` |
+| Non-greedy match for zero or more "a"s | `\va{-}` | `a\{-\}` | `\Va\{-\}` |
+| Match "a" followed by "b" or "c" | `\v(a\|b)` | `\(\a\|b\)` | `\V\(a\\|b\)` |
+
+In `magic` mode, Vim's regex behaves more like other languages' regular expressions, so you often need fewer backslashes. The default `somewhat magic` mode treats fewer characters as special, so more backslashes are required compared to `magic` mode. `nomagic` mode treats even fewer characters as special, so even more backslashes are typically required.
+
+
+### Vim's Built-in Documentation
+
+For more information about the `magic` mode in Vim's regular expressions, refer to the built-in documentation by typing:
+
+```vim
+:help /\v
+```
+
+## References
+
+* <https://learnbyexample.github.io/vim_reference/Regular-Expressions.html>
+* <http://vimregex.com>
+* Part V of *Practical Vim* by Neil Drew
+* General guides on regex: <https://www.regular-expressions.info/>
