@@ -746,7 +746,7 @@
     "href": "zettel/131/index.html#building-and-distributing-your-package",
     "title": "Python Packaging with pyproject.toml",
     "section": "Building and Distributing Your Package",
-    "text": "Building and Distributing Your Package\n\nBuild Your Package bash     python -m build\nThis command creates a dist/ folder in your project directory, containing the built package files.\nInstall Your Package Locally (For Testing)\npip install -e .\nUpload Your Package to PyPi\npip install twine  # If you haven't installed twine already\ntwine upload dist/*"
+    "text": "Building and Distributing Your Package\n\nBuild Your Package\npython -m build\nThis command creates a dist/ folder in your project directory, containing the built package files.\nInstall Your Package Locally (For Testing)\npip install -e .\nUpload Your Package to PyPi\npip install twine  # If you haven't installed twine already\ntwine upload dist/*"
   },
   {
     "objectID": "zettel/131/index.html#managing-dependencies",
