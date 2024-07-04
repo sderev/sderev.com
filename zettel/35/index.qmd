@@ -1,0 +1,56 @@
+---
+title: "How to automatically create ordered lists in Vim"
+subtitle: "Zettel#35"
+id: "35"
+date: 2023-02-23
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+### Your start with something like this
+
+```markdown
+one
+two
+three
+```
+
+### Use the `VISUAL BLOCK` mode and `Shift-i` to add numbers
+
+```markdown
+0. one
+0. two
+0. three
+```
+
+### Select in `VISUAL LINE` mode, then you can increment by 1 with `Ctrl-a`
+
+```markdown
+1. one
+1. two
+1. three
+```
+*Note that this would already be correctly rendered when converted from Markdown to HTML.*
+
+### Or you can press `g Ctrl-a` to order the lines in the text file
+
+```markdown
+1. one
+2. two
+3. three
+```
+
+### Instead of `Ctrl-a`, you can decrement by pressing `Ctrl-x`.
+
+```markdown
+# before 
+1. one
+2. two
+3. three
+
+# after
+0. one
+0. two
+0. three
+
+```
