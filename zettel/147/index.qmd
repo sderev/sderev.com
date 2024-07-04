@@ -1,0 +1,42 @@
+---
+title: "Resolving Vim Sluggishness Caused by ALE Linters with `LaTeX` Files"
+subtitle: "Zettel#147"
+id: "147"
+date: 2024-03-31
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+I experienced sluggishness in Vim when editing `LaTeX` files. Despite disabling plugins like `vimtex` and other settings, Vim remained very slow. Eventually, I found the issue was caused by ALE implicitly enabling several linters. 
+
+## ALE Enabled Linters for `LaTeX` Files by Default
+
+To identify the enabled linters by default, I ran the `:ALEInfo` command in Vim and found the following:
+
+```vim
+  Enabled Linters: ['alex', 'chktex', 'cspell', 'lacheck', 'proselint', 'redpen', 'texlab', 'textlint', 'vale', 'writegood']
+```
+
+## Solving the Problem
+
+I addressed this problem with a simple solution: by removing everything except `chktex` – so that I only keep a genuine `LaTeX` linter – and explicitly defining it:
+
+```vim
+let g:ale_linters = {
+\   'tex': ['chktex'],
+\}
+```
+
+## Preventing Automatic Linter Activation in the Future
+
+To prevent similar issues in the future, I added the following line to my `.vimrc`:
+
+```vim
+let g:ale_linters_explicit = 1
+```
+
+This ensures that ALE will only use the linters explicitly defined in the `g:ale_linters` dictionary.
+
+## Conclusion
+
+ALE enables several linters by default if none is explicitly defined. This can lead to sluggishness in Vim when editing `LaTeX` files. By explicitly defining the linters and activating the `g:ale_linters_explicit` option, you can prevent this issue.
