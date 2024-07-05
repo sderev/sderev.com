@@ -1,0 +1,81 @@
+---
+title: "How to Install Outdated Python Versions on Debian"
+subtitle: "Zettel#163"
+id: "163"
+date: 2024-07-05
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+spotlight: ""
+---
+I use `apt-get autoremove -y` in my `upgrade` script, which made me feel the discomfort of seeing `python3.10` uninstalled from my system without being able to install it again with `apt`, as it's no longer available in the Debian's package list.
+
+Fortunately, even if it's not as straightforward as `apt install python3.10`, it's still possible to reinstall it from source.
+
+## Installation Steps
+
+### Update the Package List
+
+```bash
+sudo apt update
+```
+
+### Install the Required Build Dependencies
+
+```bash
+sudo apt install curl build-essential libssl-dev zlib1g-dev libncurses5-dev \
+libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev \
+libbz2-dev libexpat1-dev liblzma-dev tk-dev
+```
+
+### Download Python 3.10 Sources
+
+```bash
+PYTHON_VERSION=3.10.14
+curl -LO https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
+```
+
+### Extract the Tarball
+
+```bash
+tar -xf Python-${PYTHON_VERSION}.tgz
+```
+
+### Change Directory
+
+```bash
+cd Python-${PYTHON_VERSION}
+```
+
+### Configure the Build Environment
+
+```bash
+./configure --enable-optimizations
+```
+
+### Compile the Source Code
+
+```bash
+make -j $(nproc)
+```
+
+### Install Python 3.10
+
+```bash
+make altinstall
+```
+
+### Check the Installation
+
+```bash
+python3.10 --version
+```
+
+This installation won't erase the `python3` or `python` symlink; you'll have to execute `python3.10`.
+
+### Clean Up
+
+```bash
+cd ..
+rm -rf Python-${PYTHON_VERSION} Python-${PYTHON_VERSION}.tgz
+```
