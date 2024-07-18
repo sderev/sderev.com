@@ -1103,7 +1103,7 @@
     "href": "zettel/31/index.html",
     "title": "How to disable cursor blinking in a Linux shell",
     "section": "",
-    "text": "echo \"\\e[2 q\"\n#bash"
+    "text": "echo \"\\e[2 q\""
   },
   {
     "objectID": "zettel/163/index.html",
