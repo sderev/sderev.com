@@ -10,5 +10,3 @@ categories: [zettelkasten]
 ```bash
 echo "\e[2 q"
 ```
-
-#bash
