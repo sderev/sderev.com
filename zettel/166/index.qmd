@@ -1,0 +1,30 @@
+---
+title: "Nuances Among Despondency, Dejection, and Gloom"
+subtitle: "Zettel#166"
+id: "166"
+date: 2024-07-19
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+spotlight: ""
+---
+1. **Despondency**: This refers to a state of low spirits caused by loss of hope or courage. It implies a deep discouragement and loss of confidence in the future.
+
+2. **Dejection**: This describes a sad and depressed state, often caused by disappointment. It's typically less severe and more temporary than despondency.
+
+3. **Gloom**: This term can refer to both a physical darkness and a mental state of melancholy or pessimism. As an emotional state, it's often less intense than despondency but more pervasive than dejection.
+
+## Using these words in writing:
+
+1. Use "despondency" when describing a character who has lost all hope, perhaps after a series of failures or setbacks.
+    * **Example**: "After months of fruitless job searching, John sank into despondency."
+
+2. "Dejection" is appropriate for temporary states of sadness or disappointment.
+    * **Example**: "Sarah's dejection was evident as she left the audition, convinced she hadn't performed well."
+
+3. "Gloom" works well to set a somber mood or atmosphere, or to describe a general state of pessimism.
+    * **Example**: "The constant rain cast a gloom over the entire town."
+
+## Related Zettel
+
+* [Zettel#165](/zettel/165/)
