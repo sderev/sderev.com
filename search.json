@@ -1684,14 +1684,7 @@
     "href": "zettel/69/index.html",
     "title": "Renaming Variables and Functions Across Multiple Files in Vim",
     "section": "",
-    "text": "This guide provides a step-by-step process for renaming variables (or anything) across multiple files with Vim."
-  },
-  {
-    "objectID": "zettel/69/index.html#overview",
-    "href": "zettel/69/index.html#overview",
-    "title": "Renaming Variables and Functions Across Multiple Files in Vim",
-    "section": "",
-    "text": "This guide provides a step-by-step process for renaming variables (or anything) across multiple files with Vim."
+    "text": "Even though Vim isn’t an IDE, it still allows for easy refactoring."
   },
   {
     "objectID": "zettel/69/index.html#select-the-files-you-want-to-modify-by-populating-the-argument-list",
