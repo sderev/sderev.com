@@ -7,9 +7,7 @@ date-modified: ""
 date-format: iso
 categories: [zettelkasten]
 ---
-## Overview
-
-This guide provides a step-by-step process for renaming variables (or anything) across multiple files with Vim.
+Even though Vim isn't an IDE, it still allows for easy refactoring.
 
 ## Select the Files You Want to Modify by Populating the Argument List
 
