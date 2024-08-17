@@ -511,11 +511,11 @@
     "text": "Inserting a New Line Below Markdown Headings\n:g/^#/normal o\nDescription: Useful in Markdown files to insert a new line below each heading, ensuring that headings and paragraphs are separated."
   },
   {
-    "objectID": "zettel/128/index.html#deleting-empty-lines",
-    "href": "zettel/128/index.html#deleting-empty-lines",
+    "objectID": "zettel/128/index.html#deleting-double-empty-lines",
+    "href": "zettel/128/index.html#deleting-double-empty-lines",
     "title": "Vim :g Command: A Practical Guide",
-    "section": "Deleting Empty Lines",
-    "text": "Deleting Empty Lines\n:g/^\\n\\n/normal dd\nDescription: Deletes one of each set of consecutive empty lines, reducing them to single empty lines."
+    "section": "Deleting Double Empty Lines",
+    "text": "Deleting Double Empty Lines\n:g/^\\n\\n/normal dd\nDescription: Deletes one of each set of double empty lines, reducing them to single empty lines."
   },
   {
     "objectID": "zettel/128/index.html#changing-bullet-point-style-in-unordered-lists",
