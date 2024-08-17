@@ -17,13 +17,13 @@ The `:g` command in Vim is a powerful tool for performing actions on lines that 
 
 **Description**: Useful in Markdown files to insert a new line below each heading, ensuring that headings and paragraphs are separated.
 
-## Deleting Empty Lines
+## Deleting Double Empty Lines
 
 ```vim
 :g/^\n\n/normal dd
 ```
 
-**Description**: Deletes one of each set of consecutive empty lines, reducing them to single empty lines.
+**Description**: Deletes one of each set of double empty lines, reducing them to single empty lines.
 
 ## Changing Bullet Point Style in Unordered Lists
 
