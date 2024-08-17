@@ -539,39 +539,88 @@
     "text": "Related Zettel\n\nZettel#30\nZettel#35\nZettel#40\nZettel#42\nZettel#44\nZettel#45\nZettel#51\nZettel#60\nZettel#79\nZettel#122"
   },
   {
-    "objectID": "zettel/135/index.html",
-    "href": "zettel/135/index.html",
-    "title": "How to Know if an Object is an Iterable in Python",
+    "objectID": "zettel/171/index.html",
+    "href": "zettel/171/index.html",
+    "title": "Nuances Between To Spur and To Foster",
     "section": "",
-    "text": "This is a straightforward way but can be a bit hard to read.\nhasattr(item, \"__iter__\") # True / False"
+    "text": "While both “spur” and “foster” involve encouragement or promotion of growth or development, they differ in their approach and connotations."
   },
   {
-    "objectID": "zettel/135/index.html#using-hasattr",
-    "href": "zettel/135/index.html#using-hasattr",
-    "title": "How to Know if an Object is an Iterable in Python",
+    "objectID": "zettel/171/index.html#to-spur",
+    "href": "zettel/171/index.html#to-spur",
+    "title": "Nuances Between To Spur and To Foster",
+    "section": "To Spur",
+    "text": "To Spur\n\nDefinition\nTo urge on or encourage to action; to stimulate or incite.\n\n\nConnotation and Usage\n\nImplies a more immediate or forceful encouragement\nOften used for short-term or quick actions\nCan suggest a sense of urgency or sudden motivation\nFrequently used in contexts of competition or achievement\n\n\n\nUsage Examples\n\nLiterature: “The general’s rousing speech spurred the troops to victory.”\nFormal writing: “The economic crisis spurred the government to implement radical reforms.”\nCasual conversation: “The looming deadline spurred me to finish the project overnight.”\n\n\n\nCommon Collocations\n\nspur into action\nspur growth\nspur innovation"
+  },
+  {
+    "objectID": "zettel/171/index.html#to-foster",
+    "href": "zettel/171/index.html#to-foster",
+    "title": "Nuances Between To Spur and To Foster",
+    "section": "To Foster",
+    "text": "To Foster\n\nDefinition\nTo promote the growth or development of something; to nurture or cultivate over time.\n\n\nConnotation and Usage\n\nImplies a more nurturing, long-term approach to encouragement\nOften used for gradual development or ongoing support\nSuggests a supportive and caring attitude\nFrequently used in contexts of education, relationships, or social development\n\n\n\nUsage Examples\n\nLiterature: “The mentor fostered a love of literature in her young protégé.”\nFormal writing: “The new policy aims to foster innovation in small businesses.”\nCasual conversation: “Parents should strive to foster independence in their children.”\n\n\n\nCommon Collocations\n\nfoster a relationship\nfoster understanding\nfoster creativity"
+  },
+  {
+    "objectID": "zettel/171/index.html#comparison",
+    "href": "zettel/171/index.html#comparison",
+    "title": "Nuances Between To Spur and To Foster",
+    "section": "Comparison",
+    "text": "Comparison\n\nTimeframe: “Spur” often implies immediate or short-term action, while “foster” suggests a longer-term, gradual process.\nIntensity: “Spur” tends to be more forceful or urgent, whereas “foster” is gentler and more nurturing.\nApproach: “Spur” is about stimulating or inciting action, while “foster” is about nurturing and supporting growth.\nContext: “Spur” is often used in contexts of achievement or competition, while “foster” is more common in educational, social, or developmental contexts.\nEmotional tone: “Spur” can sometimes have an aggressive or pressuring tone, while “foster” generally has a more positive, supportive connotation."
+  },
+  {
+    "objectID": "zettel/171/index.html#synonyms-and-related-words",
+    "href": "zettel/171/index.html#synonyms-and-related-words",
+    "title": "Nuances Between To Spur and To Foster",
+    "section": "Synonyms and Related Words",
+    "text": "Synonyms and Related Words\n\nSpur: urge, incite, prompt, galvanize\nFoster: nurture, cultivate, encourage, promote\nRelated words: stimulate, develop, support, facilitate"
+  },
+  {
+    "objectID": "zettel/171/index.html#related-zettel",
+    "href": "zettel/171/index.html#related-zettel",
+    "title": "Nuances Between To Spur and To Foster",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#165"
+  },
+  {
+    "objectID": "zettel/170/index.html",
+    "href": "zettel/170/index.html",
+    "title": "Nuances Between To Stifle and To Smother",
     "section": "",
-    "text": "This is a straightforward way but can be a bit hard to read.\nhasattr(item, \"__iter__\") # True / False"
+    "text": "While both “stifle” and “smother” involve suppression or restriction, they have distinct connotations and usage patterns."
   },
   {
-    "objectID": "zettel/135/index.html#using-isinstance",
-    "href": "zettel/135/index.html#using-isinstance",
-    "title": "How to Know if an Object is an Iterable in Python",
-    "section": "Using isinstance",
-    "text": "Using isinstance\nI prefer this method as it’s more readable.\nfrom collections.abc import Iterable\n\nisinstance(item, Iterable) # True / False"
+    "objectID": "zettel/170/index.html#to-stifle",
+    "href": "zettel/170/index.html#to-stifle",
+    "title": "Nuances Between To Stifle and To Smother",
+    "section": "To Stifle",
+    "text": "To Stifle\n\nDefinition\nTo suppress, restrain, or prevent something from occurring or developing; to stop or control a sound or expression.\n\n\nConnotation and Usage\n\nOften implies intentional suppression or restraint\nFrequently used for emotions, sounds, or actions\nCan suggest a more temporary or immediate act of suppression\nOften used in contexts of personal or social control\n\n\n\nUsage Examples\n\nLiterature: “She stifled a laugh as the clumsy waiter stumbled with the tray.”\nFormal writing: “The government’s attempts to stifle dissent only fueled further protests.”\nCasual conversation: “I had to stifle my yawn during the boring meeting.”\n\n\n\nCommon Collocations\n\nstifle a yawn\nstifle creativity\nstifle innovation"
   },
   {
-    "objectID": "zettel/135/index.html#using-try-except",
-    "href": "zettel/135/index.html#using-try-except",
-    "title": "How to Know if an Object is an Iterable in Python",
-    "section": "Using try-except",
-    "text": "Using try-except\nThis is another way, but it relies on exception handling. Unless there is a specific reason to use it, I wouldn’t choose it.\ndef is_iterable(item):\n    try:\n        iter(item)\n        return True\n    except TypeError:\n        return False"
+    "objectID": "zettel/170/index.html#to-smother",
+    "href": "zettel/170/index.html#to-smother",
+    "title": "Nuances Between To Stifle and To Smother",
+    "section": "To Smother",
+    "text": "To Smother\n\nDefinition\nTo overwhelm or suppress completely; to cover entirely, often to the point of suffocation.\n\n\nConnotation and Usage\n\nImplies a more complete or overwhelming suppression\nOften carries a sense of excessive control or oppression\nCan be used literally (to cover completely) or figuratively (to overwhelm emotionally)\nFrequently associated with affection when used positively\n\n\n\nUsage Examples\n\nLiterature: “The thick fog smothered the city, obscuring even the tallest buildings.”\nFormal writing: “The company’s bureaucracy threatened to smother any innovative ideas from employees.”\nCasual conversation: “My grandmother tends to smother us with affection whenever we visit.”\n\n\n\nCommon Collocations\n\nsmother with kisses\nsmother with attention\nsmother a fire"
   },
   {
-    "objectID": "zettel/135/index.html#references",
-    "href": "zettel/135/index.html#references",
-    "title": "How to Know if an Object is an Iterable in Python",
-    "section": "References",
-    "text": "References\n\nPython official documentation on Abstract Base Classes for Collections"
+    "objectID": "zettel/170/index.html#comparison",
+    "href": "zettel/170/index.html#comparison",
+    "title": "Nuances Between To Stifle and To Smother",
+    "section": "Comparison",
+    "text": "Comparison\n\nDegree of suppression: “Stifle” often implies partial or temporary suppression, while “smother” suggests a more complete or overwhelming suppression.\nIntentionality: “Stifle” frequently implies intentional restraint, whereas “smother” can be intentional or unintentional.\nPhysical vs. Emotional: Both can be used for physical or emotional contexts, but “smother” is more commonly used for physical covering or overwhelming affection.\nDuration: “Stifle” often refers to a more immediate or short-term action, while “smother” can imply a longer-lasting or more pervasive effect.\nPositive usage: “Smother” can sometimes be used positively in the context of affection, while “stifle” is rarely used positively."
+  },
+  {
+    "objectID": "zettel/170/index.html#synonyms-and-related-words",
+    "href": "zettel/170/index.html#synonyms-and-related-words",
+    "title": "Nuances Between To Stifle and To Smother",
+    "section": "Synonyms and Related Words",
+    "text": "Synonyms and Related Words\n\nStifle: suppress, restrain, repress, quell\nSmother: overwhelm, suffocate, stifle, extinguish\nRelated words: choke, quash, squelch, muffle"
+  },
+  {
+    "objectID": "zettel/170/index.html#related-zettel",
+    "href": "zettel/170/index.html#related-zettel",
+    "title": "Nuances Between To Stifle and To Smother",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#165"
   },
   {
     "objectID": "zettel/0/index.html",
@@ -1008,6 +1057,55 @@
     "text": "Related Zettel\n\nZettel#73"
   },
   {
+    "objectID": "zettel/172/index.html",
+    "href": "zettel/172/index.html",
+    "title": "Nuances Among To Libel, To Vilify, and To Defame",
+    "section": "",
+    "text": "While all three terms involve damaging someone’s reputation, they differ in their specific meanings, legal implications, and usage contexts."
+  },
+  {
+    "objectID": "zettel/172/index.html#to-libel",
+    "href": "zettel/172/index.html#to-libel",
+    "title": "Nuances Among To Libel, To Vilify, and To Defame",
+    "section": "To Libel",
+    "text": "To Libel\n\nDefinition\nTo publish a false statement that is damaging to a person’s reputation, usually in written or printed form.\n\n\nConnotation and Usage\n\nHas a specific legal definition and implications\nPrimarily refers to written or published false statements\nOften used in media and journalism contexts\nImplies a more formal or public act of defamation\n\n\n\nUsage Examples\n\nLiterature: “The newspaper was sued for libeling the celebrity with false accusations.”\nFormal writing: “The politician claimed he had been libeled by the magazine’s article.”\nCasual conversation: “Be careful what you post online; you could accidentally libel someone.”\n\n\n\nCommon Collocations\n\nlibel suit\nlibel laws\ncommit libel"
+  },
+  {
+    "objectID": "zettel/172/index.html#to-vilify",
+    "href": "zettel/172/index.html#to-vilify",
+    "title": "Nuances Among To Libel, To Vilify, and To Defame",
+    "section": "To Vilify",
+    "text": "To Vilify\n\nDefinition\nTo speak or write about in an abusively disparaging manner; to slander.\n\n\nConnotation and Usage\n\nSuggests a more emotional or intense form of criticism\nDoes not necessarily imply false statements, but extremely negative portrayal\nOften used in contexts of public opinion or rhetoric\nCan be applied to individuals, groups, or ideas\n\n\n\nUsage Examples\n\nLiterature: “The author vilified the corrupt regime in his scathing novel.”\nFormal writing: “The report accused the media of vilifying minority groups.”\nCasual conversation: “It’s unfair how they vilify anyone who disagrees with them.”\n\n\n\nCommon Collocations\n\nvilify opponents\nunjustly vilify\nvilify in the press"
+  },
+  {
+    "objectID": "zettel/172/index.html#to-defame",
+    "href": "zettel/172/index.html#to-defame",
+    "title": "Nuances Among To Libel, To Vilify, and To Defame",
+    "section": "To Defame",
+    "text": "To Defame\n\nDefinition\nTo damage the good reputation of someone; slander or libel.\n\n\nConnotation and Usage\n\nA broader term that can include both spoken (slander) and written (libel) false statements\nOften used in legal contexts, but also in general usage\nImplies causing harm to someone’s reputation through false statements\nCan be used in both formal and informal settings\n\n\n\nUsage Examples\n\nLiterature: “The character spent years trying to clear his name after being defamed by his rivals.”\nFormal writing: “The company sued for damages, claiming it had been defamed by false advertising.”\nCasual conversation: “Be careful not to defame anyone in your blog posts; it could lead to legal trouble.”\n\n\n\nCommon Collocations\n\ndefame character\ndefamation lawsuit\npublicly defame"
+  },
+  {
+    "objectID": "zettel/172/index.html#comparison",
+    "href": "zettel/172/index.html#comparison",
+    "title": "Nuances Among To Libel, To Vilify, and To Defame",
+    "section": "Comparison",
+    "text": "Comparison\n\nLegal specificity: “Libel” is the most legally specific, referring to written defamation. “Defame” is broader, covering both written and spoken false statements. “Vilify” is the least legally specific.\nTruth vs. Falsehood: “Libel” and “defame” imply false statements, while “vilify” can involve true but extremely negative portrayals.\nMedium: “Libel” typically involves written or published statements, “vilify” can be spoken or written, and “defame” covers both.\nIntensity: “Vilify” often implies the most intense or emotional negative portrayal, while “libel” and “defame” can vary in intensity.\nContext: “Libel” is often used in media contexts, “vilify” in rhetorical or public opinion contexts, and “defame” in both legal and general contexts."
+  },
+  {
+    "objectID": "zettel/172/index.html#synonyms-and-related-words",
+    "href": "zettel/172/index.html#synonyms-and-related-words",
+    "title": "Nuances Among To Libel, To Vilify, and To Defame",
+    "section": "Synonyms and Related Words",
+    "text": "Synonyms and Related Words\n\nLibel: slander (spoken), defame, smear, malign\nVilify: denigrate, disparage, denounce, condemn\nDefame: slander, libel, malign, traduce\nRelated words: besmirch, tarnish, discredit, smear"
+  },
+  {
+    "objectID": "zettel/172/index.html#related-zettel",
+    "href": "zettel/172/index.html#related-zettel",
+    "title": "Nuances Among To Libel, To Vilify, and To Defame",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#165"
+  },
+  {
     "objectID": "zettel/144/index.html",
     "href": "zettel/144/index.html",
     "title": "Use ddof=1 for Sample Dispersion Measures with NumPy",
@@ -1194,7 +1292,7 @@
     "href": "zettel/165/index.html",
     "title": "Vocabulary Nuances",
     "section": "",
-    "text": "Zettel#166\nZettel#167\nZettel#168"
+    "text": "Zettel#166\nZettel#167\nZettel#168\nZettel#169\nZettel#170\nZettel#171\nZettel#172\nZettel#173"
   },
   {
     "objectID": "zettel/71/index.html",
@@ -3143,6 +3241,48 @@
     "text": "Naming the virtual environment\nThere is no strict rule for naming a virtual environment, but some common conventions include using descriptive names or names that follow a standard pattern. Here are a few suggestions:\n\nvenv: This is a simple and common name used for virtual environments. It is clear and concise, making it easy to recognize.\n.venv: By adding a dot (.) at the beginning, the virtual environment is treated as a hidden folder in Unix-based systems. This is a common convention, especially when the virtual environment is located within the project folder.\nenv: Another short and clear name that indicates it’s a virtual environment.\nmyenv: Replace my with a more descriptive name related to the project or purpose of the environment.\nprojectname_env: Replace projectname with the name of the project. This helps to easily identify the virtual environment associated with a specific project.\n\nKeep in mind that it’s a good practice to choose a name that clearly indicates the purpose or project it’s associated with. This makes it easier for you and others to manage and understand the virtual environments when working on multiple projects."
   },
   {
+    "objectID": "zettel/173/index.html",
+    "href": "zettel/173/index.html",
+    "title": "Nuances Between Pervading and Pervasive",
+    "section": "",
+    "text": "While both “pervading” and “pervasive” relate to something spreading throughout or being present everywhere, they have subtle differences in usage and connotation."
+  },
+  {
+    "objectID": "zettel/173/index.html#pervading",
+    "href": "zettel/173/index.html#pervading",
+    "title": "Nuances Between Pervading and Pervasive",
+    "section": "Pervading",
+    "text": "Pervading\n\nDefinition\nSpreading through or penetrating every part of something.\n\n\nConnotation and Usage\n\nOften implies an active or ongoing process of spreading\nCan suggest a more dynamic or temporary state\nFrequently used as a verb (pervade) or present participle (pervading)\nOften used to describe sensory experiences or abstract concepts\n\n\n\nUsage Examples\n\nLiterature: “A sense of unease was pervading the town as news of the impending storm spread.”\nFormal writing: “The researcher noted the pervading influence of social media on modern communication patterns.”\nCasual conversation: “The aroma of freshly baked bread was pervading the entire house.”\n\n\n\nCommon Collocations\n\npervading sense\npervading atmosphere\npervading theme"
+  },
+  {
+    "objectID": "zettel/173/index.html#pervasive",
+    "href": "zettel/173/index.html#pervasive",
+    "title": "Nuances Between Pervading and Pervasive",
+    "section": "Pervasive",
+    "text": "Pervasive\n\nDefinition\nExisting in or spreading through every part of something; widespread.\n\n\nConnotation and Usage\n\nImplies a more established or complete presence\nSuggests a more permanent or entrenched state\nTypically used as an adjective\nOften used to describe systemic issues, cultural phenomena, or technological presence\n\n\n\nUsage Examples\n\nLiterature: “The author explored the pervasive impact of technology on human relationships.”\nFormal writing: “The study revealed a pervasive lack of trust in public institutions across all demographics.”\nCasual conversation: “Smartphones have become so pervasive that it’s rare to see anyone without one.”\n\n\n\nCommon Collocations\n\npervasive influence\npervasive problem\npervasive technology"
+  },
+  {
+    "objectID": "zettel/173/index.html#comparison",
+    "href": "zettel/173/index.html#comparison",
+    "title": "Nuances Between Pervading and Pervasive",
+    "section": "Comparison",
+    "text": "Comparison\n\nState vs. Process: “Pervasive” often describes a more established state, while “pervading” can imply an ongoing process or action.\nPermanence: “Pervasive” suggests a more permanent or entrenched presence, whereas “pervading” can indicate a more temporary or changing condition.\nPart of Speech: “Pervading” is often used as a verb or present participle, while “pervasive” is typically used as an adjective.\nScope: Both words indicate widespread presence, but “pervasive” often implies a more complete or systemic spread.\nContext: “Pervading” is more commonly used for sensory experiences or abstract concepts, while “pervasive” is often used for societal issues, cultural phenomena, or technological presence."
+  },
+  {
+    "objectID": "zettel/173/index.html#synonyms-and-related-words",
+    "href": "zettel/173/index.html#synonyms-and-related-words",
+    "title": "Nuances Between Pervading and Pervasive",
+    "section": "Synonyms and Related Words",
+    "text": "Synonyms and Related Words\n\nPervading: penetrating, suffusing, permeating, infusing\nPervasive: ubiquitous, omnipresent, all-encompassing, widespread\nRelated words: prevalent, rampant, extensive, far-reaching"
+  },
+  {
+    "objectID": "zettel/173/index.html#related-zettel",
+    "href": "zettel/173/index.html#related-zettel",
+    "title": "Nuances Between Pervading and Pervasive",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#165"
+  },
+  {
     "objectID": "zettel/68/index.html",
     "href": "zettel/68/index.html",
     "title": "Performance of Set-Based Word Existence Check",
@@ -3479,6 +3619,41 @@
     "text": "Using shell commands\nTo determine the operating system you’re on, try the following commands:\n\nUnix-based Systems (Linux, macOS, etc.)\nuname -a\nThis command provides information about the system, including the operating system name and version.\n\n\nLinux Systems\ncat /etc/os-release\nThis command displays detailed information about the distribution and version.\n\n\nWindows Systems\nver\nThis command displays the Windows version you’re running.\n\n\nDistinguishing Linux and macOS\nlsb_release -a 2&gt;/dev/null || sw_vers 2&gt;/dev/null\nThis command attempts to run lsb_release (common on Linux) and SW_vers (used on macOS) to display information about the OS."
   },
   {
+    "objectID": "zettel/135/index.html",
+    "href": "zettel/135/index.html",
+    "title": "How to Know if an Object is an Iterable in Python",
+    "section": "",
+    "text": "This is a straightforward way but can be a bit hard to read.\nhasattr(item, \"__iter__\") # True / False"
+  },
+  {
+    "objectID": "zettel/135/index.html#using-hasattr",
+    "href": "zettel/135/index.html#using-hasattr",
+    "title": "How to Know if an Object is an Iterable in Python",
+    "section": "",
+    "text": "This is a straightforward way but can be a bit hard to read.\nhasattr(item, \"__iter__\") # True / False"
+  },
+  {
+    "objectID": "zettel/135/index.html#using-isinstance",
+    "href": "zettel/135/index.html#using-isinstance",
+    "title": "How to Know if an Object is an Iterable in Python",
+    "section": "Using isinstance",
+    "text": "Using isinstance\nI prefer this method as it’s more readable.\nfrom collections.abc import Iterable\n\nisinstance(item, Iterable) # True / False"
+  },
+  {
+    "objectID": "zettel/135/index.html#using-try-except",
+    "href": "zettel/135/index.html#using-try-except",
+    "title": "How to Know if an Object is an Iterable in Python",
+    "section": "Using try-except",
+    "text": "Using try-except\nThis is another way, but it relies on exception handling. Unless there is a specific reason to use it, I wouldn’t choose it.\ndef is_iterable(item):\n    try:\n        iter(item)\n        return True\n    except TypeError:\n        return False"
+  },
+  {
+    "objectID": "zettel/135/index.html#references",
+    "href": "zettel/135/index.html#references",
+    "title": "How to Know if an Object is an Iterable in Python",
+    "section": "References",
+    "text": "References\n\nPython official documentation on Abstract Base Classes for Collections"
+  },
+  {
     "objectID": "zettel/66/index.html",
     "href": "zettel/66/index.html",
     "title": "Titles in English Should Be Capitalized",
@@ -3784,7 +3959,7 @@
     "href": "zettel/index.html",
     "title": "Zettelkasten",
     "section": "",
-    "text": "Tip: Full-Text Search\n\n\n\nYou can access a full-text search of the entire website, including the Zettelkasten, in the following ways:\n\nClick on the search icon in the right corner of the navigation bar.\nPress s, f, or / on your keyboard.\n\n\n\nPlease keep in mind that those Zettel are essentially notes and should be regarded as such.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Zettel#\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nZettel#\n\n\nTitle\n\n\n \n\n\nDate\n\n\n\n\n\n\n169\n\n\nNuances Between To Wail and To Bewail\n\n\n \n\n\nJuly 2024\n\n\n\n\n168\n\n\nNuances Between To Relinquish and To Forego\n\n\n \n\n\nJuly 2024\n\n\n\n\n167\n\n\nNuances Among Fussy, Finicky, and Particular\n\n\n \n\n\nJuly 2024\n\n\n\n\n166\n\n\nNuances Among Despondency, Dejection, and Gloom\n\n\n \n\n\nJuly 2024\n\n\n\n\n165\n\n\nVocabulary Nuances\n\n\n \n\n\nJuly 2024\n\n\n\n\n164\n\n\nWhat is Style?\n\n\n \n\n\nJuly 2024\n\n\n\n\n163\n\n\nHow to Install Outdated Python Versions on Debian\n\n\n \n\n\nJuly 2024\n\n\n\n\n162\n\n\nShow the Lines of Context Around a ripgrep or grep Search\n\n\n \n\n\nJuly 2024\n\n\n\n\n161\n\n\nUse Multiple GitHub Accounts with the gh CLI\n\n\n \n\n\nJune 2024\n\n\n\n\n160\n\n\nHow to Rename a WSL Distribution\n\n\n \n\n\nJune 2024\n\n\n\n\n159\n\n\nUse git reset --keep, not git reset --hard\n\n\n \n\n\nJune 2024\n\n\n\n\n158\n\n\nCreate a “Featured” Column in Quarto Listings\n\n\n \n\n\nJune 2024\n\n\n\n\n157\n\n\nChange Model Directory for Ollama\n\n\n \n\n\nJune 2024\n\n\n\n\n156\n\n\nThe hosts File as a Self-Care Hack to Block Distractions\n\n\n⭐\n\n\nJune 2024\n\n\n\n\n155\n\n\nSolving X-Server (WSLg) Issues in WSL: Error: Can't open display: :0\n\n\n \n\n\nMay 2024\n\n\n\n\n154\n\n\nReading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)\n\n\n \n\n\nMay 2024\n\n\n\n\n153\n\n\nA Short Course on OSS Licensing for Research and Education\n\n\n \n\n\nMay 2024\n\n\n\n\n152\n\n\nVim: Save a File You Forgot to Open with Sudo\n\n\n \n\n\nMay 2024\n\n\n\n\n151\n\n\nVim: Moving to Next Search Pattern in Incremental Search\n\n\n \n\n\nApril 2024\n\n\n\n\n150\n\n\nBFS vs DFS\n\n\n \n\n\nApril 2024\n\n\n\n\n149\n\n\nHow to Execute Parallel and Concurrent Commands in Bash\n\n\n \n\n\nApril 2024\n\n\n\n\n148\n\n\nVim ga Command Shows ASCII Information\n\n\n \n\n\nApril 2024\n\n\n\n\n147\n\n\nResolving Vim Sluggishness Caused by ALE Linters with LaTeX Files\n\n\n \n\n\nMarch 2024\n\n\n\n\n146\n\n\nAutomating a Reading Note Template Generation Using Zotero Metadata\n\n\n \n\n\nMarch 2024\n\n\n\n\n145\n\n\nUnnecessary else Statement Can Be Better for Readability\n\n\n \n\n\nMarch 2024\n\n\n\n\n144\n\n\nUse ddof=1 for Sample Dispersion Measures with NumPy\n\n\n \n\n\nMarch 2024\n\n\n\n\n143\n\n\nUse git maintenance start\n\n\n \n\n\nFebruary 2024\n\n\n\n\n142\n\n\nGPG Key Configuration for Signing Commits with Git and GitHub\n\n\n \n\n\nFebruary 2024\n\n\n\n\n141\n\n\nManaging Git Configurations Conditionally\n\n\n \n\n\nFebruary 2024\n\n\n\n\n140\n\n\nThe Most Common Applications of Machine Learning\n\n\n \n\n\nFebruary 2024\n\n\n\n\n139\n\n\nVim Shortcuts in Insert Mode\n\n\n \n\n\nJanuary 2024\n\n\n\n\n138\n\n\nUsing Canonical Form via String Sorting for Anagram Grouping\n\n\n \n\n\nOctober 2023\n\n\n\n\n137\n\n\nBasic Time Frames of Emotion\n\n\n \n\n\nOctober 2023\n\n\n\n\n136\n\n\nyield from: The Extend Method for Generators\n\n\n \n\n\nOctober 2023\n\n\n\n\n135\n\n\nHow to Know if an Object is an Iterable in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n134\n\n\nMoving a Tmux Pane to Another Existing Window\n\n\n \n\n\nOctober 2023\n\n\n\n\n133\n\n\nA Better Library for Logging in Python: Eliot\n\n\n \n\n\nOctober 2023\n\n\n\n\n132\n\n\nrich.status: a Spinner for Better CLI UX\n\n\n \n\n\nOctober 2023\n\n\n\n\n131\n\n\nPython Packaging with pyproject.toml\n\n\n⭐\n\n\nOctober 2023\n\n\n\n\n130\n\n\nVim Command for Retrieving Syntax Highlighting Information\n\n\n \n\n\nOctober 2023\n\n\n\n\n129\n\n\nOptimizing Memory and Attribute Lookup in Python Classes with __slots__\n\n\n \n\n\nOctober 2023\n\n\n\n\n128\n\n\nVim :g Command: A Practical Guide\n\n\n \n\n\nOctober 2023\n\n\n\n\n127\n\n\nEquality vs Identity in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n126\n\n\nManaging Pinned Dependencies for Python Packages with uv\n\n\n \n\n\nOctober 2023\n\n\n\n\n125\n\n\nAmending a Specific Past Git Commit Without Affecting Recent Ones\n\n\n \n\n\nSeptember 2023\n\n\n\n\n124\n\n\nThe “Safe Triangle” Design Pattern for Better UI Context Menus\n\n\n \n\n\nSeptember 2023\n\n\n\n\n123\n\n\nSpeedy Directory Switching with CDPATH\n\n\n \n\n\nSeptember 2023\n\n\n\n\n122\n\n\nChatGPT Integration for Code Analysis in Vim\n\n\n \n\n\nSeptember 2023\n\n\n\n\n121\n\n\n!! Substitution in Bash and Zsh\n\n\n \n\n\nSeptember 2023\n\n\n\n\n120\n\n\nA Quick Guide to mktemp in Bash\n\n\n \n\n\nSeptember 2023\n\n\n\n\n119\n\n\nExtracting Largest and Smallest Items from a Collection in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n118\n\n\nCheat Sheet for Python f-string\n\n\n \n\n\nSeptember 2023\n\n\n\n\n117\n\n\nrandom.choices(list, k=n) vs random.sample(list, k=n) in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n116\n\n\nUnderstanding Keyword-Only Function Arguments in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n115\n\n\nHow To Detect a Hashable Object in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n114\n\n\nStrong vs. Weak Typing\n\n\n \n\n\nSeptember 2023\n\n\n\n\n113\n\n\nCommand History Search (Shell with Vi Mode)\n\n\n \n\n\nAugust 2023\n\n\n\n\n112\n\n\nManaging Upgrades of Bundled CLI Tools in a metapackage Installed via pipx\n\n\n \n\n\nAugust 2023\n\n\n\n\n111\n\n\nUUID: An Introduction and Usage\n\n\n \n\n\nJuly 2023\n\n\n\n\n110\n\n\nExtracting Unique Patterns with grep or ripgrep\n\n\n \n\n\nJuly 2023\n\n\n\n\n109\n\n\nUtilizing Alternative Delimiters in Vim’s Substitution Command\n\n\n \n\n\nJuly 2023\n\n\n\n\n108\n\n\nw3m Cheatsheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n107\n\n\nStop Writing Your Error Messages to stdout\n\n\n \n\n\nJuly 2023\n\n\n\n\n106\n\n\nWorking With Timezones in Python\n\n\n \n\n\nJuly 2023\n\n\n\n\n105\n\n\nGoogle Dorking Cheat Sheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n104\n\n\ned Is Pronounced “ee-dee”\n\n\n \n\n\nJuly 2023\n\n\n\n\n103\n\n\nUnderstanding YAML Block Scalars - Folded and Literal Styles\n\n\n \n\n\nJuly 2023\n\n\n\n\n102\n\n\nJedi-Vim Plugin Cheat Sheet\n\n\n \n\n\nJune 2023\n\n\n\n\n101\n\n\nUnderstanding xclip File Commands and Their Use Cases\n\n\n \n\n\nJune 2023\n\n\n\n\n100\n\n\nThere’s been the “good Bing 😊”. But is there a good Edge?\n\n\n \n\n\nJune 2023\n\n\n\n\n99\n\n\nUsing xclip for Clipboard Operations in WSL and VMs Running on Windows\n\n\n \n\n\nJune 2023\n\n\n\n\n98\n\n\nLICEcap: A Simple Tool for Recording GIFs\n\n\n \n\n\nJune 2023\n\n\n\n\n97\n\n\nSeam Carving Algorithm\n\n\n \n\n\nJune 2023\n\n\n\n\n96\n\n\nRemoving Vocals from Music: A Simple Hack\n\n\n \n\n\nJune 2023\n\n\n\n\n95\n\n\nRGB vs HSL Color Models\n\n\n \n\n\nJune 2023\n\n\n\n\n94\n\n\nA Quote Diary\n\n\n \n\n\nJune 2023\n\n\n\n\n93\n\n\nGeneral Strategy Whenever You Have a Bug\n\n\n \n\n\nJune 2023\n\n\n\n\n92\n\n\nUnderstanding Vim Regular Expressions: A Comparison with PCRE\n\n\n \n\n\nMay 2023\n\n\n\n\n91\n\n\nLearn Git and GitHub\n\n\n⭐\n\n\nMay 2023\n\n\n\n\n90\n\n\nContainers, Docker, and Podman\n\n\n \n\n\nMay 2023\n\n\n\n\n89\n\n\nThe XOR Operator and Its Applications to Programming\n\n\n \n\n\nMay 2023\n\n\n\n\n88\n\n\nSetting Up Two-Factor Authentication (2FA) on a Server with Google Authenticator for SSH Logins\n\n\n \n\n\nMay 2023\n\n\n\n\n87\n\n\nRemapping the ² Key on an AZERTY Keyboard with AutoHotkey (Windows)\n\n\n \n\n\nMay 2023\n\n\n\n\n86\n\n\nCasting malloc and calloc in C and C++\n\n\n \n\n\nMay 2023\n\n\n\n\n85\n\n\nFile and Directory Listing in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n84\n\n\nDifference between set and setx in a Windows shell\n\n\n \n\n\nMay 2023\n\n\n\n\n83\n\n\nPartial Functions vs Closures in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n82\n\n\nPartial Functions in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n81\n\n\nInstantly Paste Emojis Using a Windows Keybind\n\n\n \n\n\nApril 2023\n\n\n\n\n80\n\n\nUsing in vs. find() in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n79\n\n\nDelete Lines Not Matching a Specific Pattern in Vim or with Sed\n\n\n \n\n\nApril 2023\n\n\n\n\n78\n\n\nQuick Workflow for Making a Screencast on Windows\n\n\n \n\n\nApril 2023\n\n\n\n\n77\n\n\nHow to Add a title and alt Attribute, and a caption to an Image Using Pandoc Markdown\n\n\n \n\n\nApril 2023\n\n\n\n\n76\n\n\nPathlib vs. os.path Performance\n\n\n \n\n\nApril 2023\n\n\n\n\n75\n\n\nDon’t use time.time()\n\n\n \n\n\nApril 2023\n\n\n\n\n74\n\n\nThe Python Code Formatter Black Can Format Long Strings\n\n\n \n\n\nApril 2023\n\n\n\n\n73\n\n\nUse sys.maxsize instead of float(\"inf\") in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n72\n\n\nCombining Multiple GitHub Repositories into a Single Repository\n\n\n \n\n\nApril 2023\n\n\n\n\n71\n\n\nHandling Long Strings in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n70\n\n\nDistributing a Python CLI Application with Autocompletion\n\n\n⭐\n\n\nApril 2023\n\n\n\n\n69\n\n\nRenaming Variables and Functions Across Multiple Files in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n68\n\n\nPerformance of Set-Based Word Existence Check\n\n\n \n\n\nApril 2023\n\n\n\n\n67\n\n\nIf Your Code Uses f-strings, Your Dictionaries Are Already Ordered\n\n\n \n\n\nApril 2023\n\n\n\n\n66\n\n\nTitles in English Should Be Capitalized\n\n\n \n\n\nApril 2023\n\n\n\n\n65\n\n\nVim Buffers: Renaming, Switching and Opening Files\n\n\n \n\n\nApril 2023\n\n\n\n\n64\n\n\nHow to Determine the Operating System Programmatically\n\n\n \n\n\nApril 2023\n\n\n\n\n63\n\n\nCreating and managing cron jobs\n\n\n \n\n\nApril 2023\n\n\n\n\n62\n\n\nEnhancing Variable Renaming in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n61\n\n\nIgnoring portions of code with the Python code formatter Black\n\n\n \n\n\nApril 2023\n\n\n\n\n60\n\n\nHow to use macros in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n59\n\n\nwhich vs command -v\n\n\n \n\n\nApril 2023\n\n\n\n\n58\n\n\nLinux Output Redirection\n\n\n \n\n\nApril 2023\n\n\n\n\n57\n\n\nHow to create a virtual environment for a Python project\n\n\n \n\n\nApril 2023\n\n\n\n\n56\n\n\nANSI Escape Sequences\n\n\n \n\n\nApril 2023\n\n\n\n\n55\n\n\nProtect yourself from overwriting files with the noclobber option\n\n\n \n\n\nApril 2023\n\n\n\n\n54\n\n\nHow to add a user to the sudo group\n\n\n \n\n\nMarch 2023\n\n\n\n\n53\n\n\nDifference between su and su -\n\n\n \n\n\nMarch 2023\n\n\n\n\n52\n\n\nEnabling autocompletion for a custom script in zsh or bash\n\n\n \n\n\nMarch 2023\n\n\n\n\n51\n\n\nOpen a file from a path in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n50\n\n\npushd and popd are on a boat…\n\n\n \n\n\nMarch 2023\n\n\n\n\n49\n\n\nHandling infinity in programming languages\n\n\n \n\n\nMarch 2023\n\n\n\n\n48\n\n\nEvaluating variables in f-strings in Python\n\n\n \n\n\nMarch 2023\n\n\n\n\n47\n\n\nA Very Simple Windows Management Workflow for Windows\n\n\n⭐\n\n\nMarch 2023\n\n\n\n\n46\n\n\nHow to disable the ^C char printed in Bash when pressing &lt;CTRL-C&gt;\n\n\n \n\n\nMarch 2023\n\n\n\n\n45\n\n\nHow to sort inside brackets (parentheses, etc.) in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n44\n\n\nHow to Use the Native Spell Checker of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n43\n\n\nNo more delay when pasting before the cursor in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n42\n\n\nApply a (useless) rot13 to an entire file in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n41\n\n\nHow to add quotes, parenthesis, etc., around text in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n40\n\n\nHow to use the undofile of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n39\n\n\nWrite a Zettel even if you think you don’t need it\n\n\n \n\n\nMarch 2023\n\n\n\n\n38\n\n\nHow to switch the case of characters in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n37\n\n\nHow to run the Python code formatter Black in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n36\n\n\nChanger de langue (citation de Cioran)\n\n\n \n\n\nFebruary 2023\n\n\n\n\n35\n\n\nHow to automatically create ordered lists in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n34\n\n\nWhat are the five critera for good interface design?\n\n\n \n\n\nFebruary 2023\n\n\n\n\n33\n\n\nCan Python functions get lonely?\n\n\n \n\n\nJanuary 2023\n\n\n\n\n32\n\n\nUse the casefold() method in Python when doing case-insensitive stuff\n\n\n \n\n\nJanuary 2023\n\n\n\n\n31\n\n\nHow to disable cursor blinking in a Linux shell\n\n\n \n\n\nJanuary 2023\n\n\n\n\n30\n\n\nHow to know the number of selected lines in Vim\n\n\n \n\n\nDecember 2022\n\n\n\n\n29\n\n\nThe problem of seeking informations and the limits of LLMs in that regard\n\n\n \n\n\nDecember 2022\n\n\n\n\n28\n\n\nHow to see network traffic in real time in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n27\n\n\nHow to increase the max upload file size for a PHP web server\n\n\n \n\n\nNovember 2022\n\n\n\n\n26\n\n\nHow to securely wipe and erase a disk in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n25\n\n\nHow to import/export a database in MySQL/MariaDB\n\n\n \n\n\nNovember 2022\n\n\n\n\n24\n\n\nHow to easily copy a public SSH key to another machine\n\n\n \n\n\nNovember 2022\n\n\n\n\n23\n\n\nSet timezone in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n22\n\n\nBash history Toolkit\n\n\n \n\n\nNovember 2022\n\n\n\n\n21\n\n\nHow to Determine Character Frequencies in a Python String\n\n\n \n\n\nNovember 2022\n\n\n\n\n20\n\n\nHow to use ssh-agent to automatically enter your SSH key passphrase\n\n\n \n\n\nNovember 2022\n\n\n\n\n19\n\n\nChecking user passwords\n\n\n \n\n\nNovember 2022\n\n\n\n\n18\n\n\nGenerating Secure Passwords with Linux Tools\n\n\n \n\n\nNovember 2022\n\n\n\n\n17\n\n\nHow to make .bashrc aliases available within a Vim shell command (:.!bash)\n\n\n \n\n\nNovember 2022\n\n\n\n\n16\n\n\nUpgrade Windows Applications With a CLI Package Manager\n\n\n \n\n\nNovember 2022\n\n\n\n\n15\n\n\nSome of my favorite fonts\n\n\n \n\n\nNovember 2022\n\n\n\n\n14\n\n\nExperts and Novices don’t learn the same way\n\n\n \n\n\nOctober 2022\n\n\n\n\n13\n\n\nGuido van Rossum on dynamic vs static typing\n\n\n \n\n\nSeptember 2022\n\n\n\n\n12\n\n\nHow to sort files and folders by size in Linux\n\n\n \n\n\nSeptember 2022\n\n\n\n\n11\n\n\nDifferences between Casting, Parsing and Converting\n\n\n \n\n\nSeptember 2022\n\n\n\n\n10\n\n\nHow to disable ligatures for the Fira Code font in Windows Terminal\n\n\n \n\n\nSeptember 2022\n\n\n\n\n9\n\n\nMoby Dick, extrait de la première page\n\n\n \n\n\nAugust 2022\n\n\n\n\n8\n\n\nThe rise of domain experts in deep learning\n\n\n \n\n\nAugust 2022\n\n\n\n\n7\n\n\nHow will machine learning impact the IT industry?\n\n\n \n\n\nAugust 2022\n\n\n\n\n6\n\n\nWhat is the Chiaroscuro technique?\n\n\n \n\n\nAugust 2022\n\n\n\n\n5\n\n\nC++ is not a superset of C\n\n\n \n\n\nAugust 2022\n\n\n\n\n4\n\n\nCybersecurity questions preparation exams\n\n\n \n\n\nJuly 2022\n\n\n\n\n3\n\n\nHow to remap keys in Linux\n\n\n \n\n\nJuly 2022\n\n\n\n\n2\n\n\nHow to change the default editor in Linux (when it’s Nano instead of Vim)\n\n\n \n\n\nJuly 2022\n\n\n\n\n1\n\n\nWhat is the difference between 127.0.0.1 and 0.0.0.0?\n\n\n \n\n\nJuly 2022\n\n\n\n\n0\n\n\nCitation de Louis Blanc\n\n\n \n\n\nJuly 2022\n\n\n\n\n\nNo matching items"
+    "text": "Tip: Full-Text Search\n\n\n\nYou can access a full-text search of the entire website, including the Zettelkasten, in the following ways:\n\nClick on the search icon in the right corner of the navigation bar.\nPress s, f, or / on your keyboard.\n\n\n\nPlease keep in mind that those Zettel are essentially notes and should be regarded as such.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Zettel#\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nZettel#\n\n\nTitle\n\n\n \n\n\nDate\n\n\n\n\n\n\n173\n\n\nNuances Between Pervading and Pervasive\n\n\n \n\n\nAugust 2024\n\n\n\n\n172\n\n\nNuances Among To Libel, To Vilify, and To Defame\n\n\n \n\n\nAugust 2024\n\n\n\n\n171\n\n\nNuances Between To Spur and To Foster\n\n\n \n\n\nAugust 2024\n\n\n\n\n170\n\n\nNuances Between To Stifle and To Smother\n\n\n \n\n\nAugust 2024\n\n\n\n\n169\n\n\nNuances Between To Wail and To Bewail\n\n\n \n\n\nJuly 2024\n\n\n\n\n168\n\n\nNuances Between To Relinquish and To Forego\n\n\n \n\n\nJuly 2024\n\n\n\n\n167\n\n\nNuances Among Fussy, Finicky, and Particular\n\n\n \n\n\nJuly 2024\n\n\n\n\n166\n\n\nNuances Among Despondency, Dejection, and Gloom\n\n\n \n\n\nJuly 2024\n\n\n\n\n165\n\n\nVocabulary Nuances\n\n\n \n\n\nJuly 2024\n\n\n\n\n164\n\n\nWhat is Style?\n\n\n \n\n\nJuly 2024\n\n\n\n\n163\n\n\nHow to Install Outdated Python Versions on Debian\n\n\n \n\n\nJuly 2024\n\n\n\n\n162\n\n\nShow the Lines of Context Around a ripgrep or grep Search\n\n\n \n\n\nJuly 2024\n\n\n\n\n161\n\n\nUse Multiple GitHub Accounts with the gh CLI\n\n\n \n\n\nJune 2024\n\n\n\n\n160\n\n\nHow to Rename a WSL Distribution\n\n\n \n\n\nJune 2024\n\n\n\n\n159\n\n\nUse git reset --keep, not git reset --hard\n\n\n \n\n\nJune 2024\n\n\n\n\n158\n\n\nCreate a “Featured” Column in Quarto Listings\n\n\n \n\n\nJune 2024\n\n\n\n\n157\n\n\nChange Model Directory for Ollama\n\n\n \n\n\nJune 2024\n\n\n\n\n156\n\n\nThe hosts File as a Self-Care Hack to Block Distractions\n\n\n⭐\n\n\nJune 2024\n\n\n\n\n155\n\n\nSolving X-Server (WSLg) Issues in WSL: Error: Can't open display: :0\n\n\n \n\n\nMay 2024\n\n\n\n\n154\n\n\nReading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)\n\n\n \n\n\nMay 2024\n\n\n\n\n153\n\n\nA Short Course on OSS Licensing for Research and Education\n\n\n \n\n\nMay 2024\n\n\n\n\n152\n\n\nVim: Save a File You Forgot to Open with Sudo\n\n\n \n\n\nMay 2024\n\n\n\n\n151\n\n\nVim: Moving to Next Search Pattern in Incremental Search\n\n\n \n\n\nApril 2024\n\n\n\n\n150\n\n\nBFS vs DFS\n\n\n \n\n\nApril 2024\n\n\n\n\n149\n\n\nHow to Execute Parallel and Concurrent Commands in Bash\n\n\n \n\n\nApril 2024\n\n\n\n\n148\n\n\nVim ga Command Shows ASCII Information\n\n\n \n\n\nApril 2024\n\n\n\n\n147\n\n\nResolving Vim Sluggishness Caused by ALE Linters with LaTeX Files\n\n\n \n\n\nMarch 2024\n\n\n\n\n146\n\n\nAutomating a Reading Note Template Generation Using Zotero Metadata\n\n\n \n\n\nMarch 2024\n\n\n\n\n145\n\n\nUnnecessary else Statement Can Be Better for Readability\n\n\n \n\n\nMarch 2024\n\n\n\n\n144\n\n\nUse ddof=1 for Sample Dispersion Measures with NumPy\n\n\n \n\n\nMarch 2024\n\n\n\n\n143\n\n\nUse git maintenance start\n\n\n \n\n\nFebruary 2024\n\n\n\n\n142\n\n\nGPG Key Configuration for Signing Commits with Git and GitHub\n\n\n \n\n\nFebruary 2024\n\n\n\n\n141\n\n\nManaging Git Configurations Conditionally\n\n\n \n\n\nFebruary 2024\n\n\n\n\n140\n\n\nThe Most Common Applications of Machine Learning\n\n\n \n\n\nFebruary 2024\n\n\n\n\n139\n\n\nVim Shortcuts in Insert Mode\n\n\n \n\n\nJanuary 2024\n\n\n\n\n138\n\n\nUsing Canonical Form via String Sorting for Anagram Grouping\n\n\n \n\n\nOctober 2023\n\n\n\n\n137\n\n\nBasic Time Frames of Emotion\n\n\n \n\n\nOctober 2023\n\n\n\n\n136\n\n\nyield from: The Extend Method for Generators\n\n\n \n\n\nOctober 2023\n\n\n\n\n135\n\n\nHow to Know if an Object is an Iterable in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n134\n\n\nMoving a Tmux Pane to Another Existing Window\n\n\n \n\n\nOctober 2023\n\n\n\n\n133\n\n\nA Better Library for Logging in Python: Eliot\n\n\n \n\n\nOctober 2023\n\n\n\n\n132\n\n\nrich.status: a Spinner for Better CLI UX\n\n\n \n\n\nOctober 2023\n\n\n\n\n131\n\n\nPython Packaging with pyproject.toml\n\n\n⭐\n\n\nOctober 2023\n\n\n\n\n130\n\n\nVim Command for Retrieving Syntax Highlighting Information\n\n\n \n\n\nOctober 2023\n\n\n\n\n129\n\n\nOptimizing Memory and Attribute Lookup in Python Classes with __slots__\n\n\n \n\n\nOctober 2023\n\n\n\n\n128\n\n\nVim :g Command: A Practical Guide\n\n\n \n\n\nOctober 2023\n\n\n\n\n127\n\n\nEquality vs Identity in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n126\n\n\nManaging Pinned Dependencies for Python Packages with uv\n\n\n \n\n\nOctober 2023\n\n\n\n\n125\n\n\nAmending a Specific Past Git Commit Without Affecting Recent Ones\n\n\n \n\n\nSeptember 2023\n\n\n\n\n124\n\n\nThe “Safe Triangle” Design Pattern for Better UI Context Menus\n\n\n \n\n\nSeptember 2023\n\n\n\n\n123\n\n\nSpeedy Directory Switching with CDPATH\n\n\n \n\n\nSeptember 2023\n\n\n\n\n122\n\n\nChatGPT Integration for Code Analysis in Vim\n\n\n \n\n\nSeptember 2023\n\n\n\n\n121\n\n\n!! Substitution in Bash and Zsh\n\n\n \n\n\nSeptember 2023\n\n\n\n\n120\n\n\nA Quick Guide to mktemp in Bash\n\n\n \n\n\nSeptember 2023\n\n\n\n\n119\n\n\nExtracting Largest and Smallest Items from a Collection in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n118\n\n\nCheat Sheet for Python f-string\n\n\n \n\n\nSeptember 2023\n\n\n\n\n117\n\n\nrandom.choices(list, k=n) vs random.sample(list, k=n) in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n116\n\n\nUnderstanding Keyword-Only Function Arguments in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n115\n\n\nHow To Detect a Hashable Object in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n114\n\n\nStrong vs. Weak Typing\n\n\n \n\n\nSeptember 2023\n\n\n\n\n113\n\n\nCommand History Search (Shell with Vi Mode)\n\n\n \n\n\nAugust 2023\n\n\n\n\n112\n\n\nManaging Upgrades of Bundled CLI Tools in a metapackage Installed via pipx\n\n\n \n\n\nAugust 2023\n\n\n\n\n111\n\n\nUUID: An Introduction and Usage\n\n\n \n\n\nJuly 2023\n\n\n\n\n110\n\n\nExtracting Unique Patterns with grep or ripgrep\n\n\n \n\n\nJuly 2023\n\n\n\n\n109\n\n\nUtilizing Alternative Delimiters in Vim’s Substitution Command\n\n\n \n\n\nJuly 2023\n\n\n\n\n108\n\n\nw3m Cheatsheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n107\n\n\nStop Writing Your Error Messages to stdout\n\n\n \n\n\nJuly 2023\n\n\n\n\n106\n\n\nWorking With Timezones in Python\n\n\n \n\n\nJuly 2023\n\n\n\n\n105\n\n\nGoogle Dorking Cheat Sheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n104\n\n\ned Is Pronounced “ee-dee”\n\n\n \n\n\nJuly 2023\n\n\n\n\n103\n\n\nUnderstanding YAML Block Scalars - Folded and Literal Styles\n\n\n \n\n\nJuly 2023\n\n\n\n\n102\n\n\nJedi-Vim Plugin Cheat Sheet\n\n\n \n\n\nJune 2023\n\n\n\n\n101\n\n\nUnderstanding xclip File Commands and Their Use Cases\n\n\n \n\n\nJune 2023\n\n\n\n\n100\n\n\nThere’s been the “good Bing 😊”. But is there a good Edge?\n\n\n \n\n\nJune 2023\n\n\n\n\n99\n\n\nUsing xclip for Clipboard Operations in WSL and VMs Running on Windows\n\n\n \n\n\nJune 2023\n\n\n\n\n98\n\n\nLICEcap: A Simple Tool for Recording GIFs\n\n\n \n\n\nJune 2023\n\n\n\n\n97\n\n\nSeam Carving Algorithm\n\n\n \n\n\nJune 2023\n\n\n\n\n96\n\n\nRemoving Vocals from Music: A Simple Hack\n\n\n \n\n\nJune 2023\n\n\n\n\n95\n\n\nRGB vs HSL Color Models\n\n\n \n\n\nJune 2023\n\n\n\n\n94\n\n\nA Quote Diary\n\n\n \n\n\nJune 2023\n\n\n\n\n93\n\n\nGeneral Strategy Whenever You Have a Bug\n\n\n \n\n\nJune 2023\n\n\n\n\n92\n\n\nUnderstanding Vim Regular Expressions: A Comparison with PCRE\n\n\n \n\n\nMay 2023\n\n\n\n\n91\n\n\nLearn Git and GitHub\n\n\n⭐\n\n\nMay 2023\n\n\n\n\n90\n\n\nContainers, Docker, and Podman\n\n\n \n\n\nMay 2023\n\n\n\n\n89\n\n\nThe XOR Operator and Its Applications to Programming\n\n\n \n\n\nMay 2023\n\n\n\n\n88\n\n\nSetting Up Two-Factor Authentication (2FA) on a Server with Google Authenticator for SSH Logins\n\n\n \n\n\nMay 2023\n\n\n\n\n87\n\n\nRemapping the ² Key on an AZERTY Keyboard with AutoHotkey (Windows)\n\n\n \n\n\nMay 2023\n\n\n\n\n86\n\n\nCasting malloc and calloc in C and C++\n\n\n \n\n\nMay 2023\n\n\n\n\n85\n\n\nFile and Directory Listing in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n84\n\n\nDifference between set and setx in a Windows shell\n\n\n \n\n\nMay 2023\n\n\n\n\n83\n\n\nPartial Functions vs Closures in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n82\n\n\nPartial Functions in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n81\n\n\nInstantly Paste Emojis Using a Windows Keybind\n\n\n \n\n\nApril 2023\n\n\n\n\n80\n\n\nUsing in vs. find() in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n79\n\n\nDelete Lines Not Matching a Specific Pattern in Vim or with Sed\n\n\n \n\n\nApril 2023\n\n\n\n\n78\n\n\nQuick Workflow for Making a Screencast on Windows\n\n\n \n\n\nApril 2023\n\n\n\n\n77\n\n\nHow to Add a title and alt Attribute, and a caption to an Image Using Pandoc Markdown\n\n\n \n\n\nApril 2023\n\n\n\n\n76\n\n\nPathlib vs. os.path Performance\n\n\n \n\n\nApril 2023\n\n\n\n\n75\n\n\nDon’t use time.time()\n\n\n \n\n\nApril 2023\n\n\n\n\n74\n\n\nThe Python Code Formatter Black Can Format Long Strings\n\n\n \n\n\nApril 2023\n\n\n\n\n73\n\n\nUse sys.maxsize instead of float(\"inf\") in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n72\n\n\nCombining Multiple GitHub Repositories into a Single Repository\n\n\n \n\n\nApril 2023\n\n\n\n\n71\n\n\nHandling Long Strings in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n70\n\n\nDistributing a Python CLI Application with Autocompletion\n\n\n⭐\n\n\nApril 2023\n\n\n\n\n69\n\n\nRenaming Variables and Functions Across Multiple Files in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n68\n\n\nPerformance of Set-Based Word Existence Check\n\n\n \n\n\nApril 2023\n\n\n\n\n67\n\n\nIf Your Code Uses f-strings, Your Dictionaries Are Already Ordered\n\n\n \n\n\nApril 2023\n\n\n\n\n66\n\n\nTitles in English Should Be Capitalized\n\n\n \n\n\nApril 2023\n\n\n\n\n65\n\n\nVim Buffers: Renaming, Switching and Opening Files\n\n\n \n\n\nApril 2023\n\n\n\n\n64\n\n\nHow to Determine the Operating System Programmatically\n\n\n \n\n\nApril 2023\n\n\n\n\n63\n\n\nCreating and managing cron jobs\n\n\n \n\n\nApril 2023\n\n\n\n\n62\n\n\nEnhancing Variable Renaming in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n61\n\n\nIgnoring portions of code with the Python code formatter Black\n\n\n \n\n\nApril 2023\n\n\n\n\n60\n\n\nHow to use macros in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n59\n\n\nwhich vs command -v\n\n\n \n\n\nApril 2023\n\n\n\n\n58\n\n\nLinux Output Redirection\n\n\n \n\n\nApril 2023\n\n\n\n\n57\n\n\nHow to create a virtual environment for a Python project\n\n\n \n\n\nApril 2023\n\n\n\n\n56\n\n\nANSI Escape Sequences\n\n\n \n\n\nApril 2023\n\n\n\n\n55\n\n\nProtect yourself from overwriting files with the noclobber option\n\n\n \n\n\nApril 2023\n\n\n\n\n54\n\n\nHow to add a user to the sudo group\n\n\n \n\n\nMarch 2023\n\n\n\n\n53\n\n\nDifference between su and su -\n\n\n \n\n\nMarch 2023\n\n\n\n\n52\n\n\nEnabling autocompletion for a custom script in zsh or bash\n\n\n \n\n\nMarch 2023\n\n\n\n\n51\n\n\nOpen a file from a path in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n50\n\n\npushd and popd are on a boat…\n\n\n \n\n\nMarch 2023\n\n\n\n\n49\n\n\nHandling infinity in programming languages\n\n\n \n\n\nMarch 2023\n\n\n\n\n48\n\n\nEvaluating variables in f-strings in Python\n\n\n \n\n\nMarch 2023\n\n\n\n\n47\n\n\nA Very Simple Windows Management Workflow for Windows\n\n\n⭐\n\n\nMarch 2023\n\n\n\n\n46\n\n\nHow to disable the ^C char printed in Bash when pressing &lt;CTRL-C&gt;\n\n\n \n\n\nMarch 2023\n\n\n\n\n45\n\n\nHow to sort inside brackets (parentheses, etc.) in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n44\n\n\nHow to Use the Native Spell Checker of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n43\n\n\nNo more delay when pasting before the cursor in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n42\n\n\nApply a (useless) rot13 to an entire file in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n41\n\n\nHow to add quotes, parenthesis, etc., around text in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n40\n\n\nHow to use the undofile of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n39\n\n\nWrite a Zettel even if you think you don’t need it\n\n\n \n\n\nMarch 2023\n\n\n\n\n38\n\n\nHow to switch the case of characters in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n37\n\n\nHow to run the Python code formatter Black in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n36\n\n\nChanger de langue (citation de Cioran)\n\n\n \n\n\nFebruary 2023\n\n\n\n\n35\n\n\nHow to automatically create ordered lists in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n34\n\n\nWhat are the five critera for good interface design?\n\n\n \n\n\nFebruary 2023\n\n\n\n\n33\n\n\nCan Python functions get lonely?\n\n\n \n\n\nJanuary 2023\n\n\n\n\n32\n\n\nUse the casefold() method in Python when doing case-insensitive stuff\n\n\n \n\n\nJanuary 2023\n\n\n\n\n31\n\n\nHow to disable cursor blinking in a Linux shell\n\n\n \n\n\nJanuary 2023\n\n\n\n\n30\n\n\nHow to know the number of selected lines in Vim\n\n\n \n\n\nDecember 2022\n\n\n\n\n29\n\n\nThe problem of seeking informations and the limits of LLMs in that regard\n\n\n \n\n\nDecember 2022\n\n\n\n\n28\n\n\nHow to see network traffic in real time in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n27\n\n\nHow to increase the max upload file size for a PHP web server\n\n\n \n\n\nNovember 2022\n\n\n\n\n26\n\n\nHow to securely wipe and erase a disk in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n25\n\n\nHow to import/export a database in MySQL/MariaDB\n\n\n \n\n\nNovember 2022\n\n\n\n\n24\n\n\nHow to easily copy a public SSH key to another machine\n\n\n \n\n\nNovember 2022\n\n\n\n\n23\n\n\nSet timezone in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n22\n\n\nBash history Toolkit\n\n\n \n\n\nNovember 2022\n\n\n\n\n21\n\n\nHow to Determine Character Frequencies in a Python String\n\n\n \n\n\nNovember 2022\n\n\n\n\n20\n\n\nHow to use ssh-agent to automatically enter your SSH key passphrase\n\n\n \n\n\nNovember 2022\n\n\n\n\n19\n\n\nChecking user passwords\n\n\n \n\n\nNovember 2022\n\n\n\n\n18\n\n\nGenerating Secure Passwords with Linux Tools\n\n\n \n\n\nNovember 2022\n\n\n\n\n17\n\n\nHow to make .bashrc aliases available within a Vim shell command (:.!bash)\n\n\n \n\n\nNovember 2022\n\n\n\n\n16\n\n\nUpgrade Windows Applications With a CLI Package Manager\n\n\n \n\n\nNovember 2022\n\n\n\n\n15\n\n\nSome of my favorite fonts\n\n\n \n\n\nNovember 2022\n\n\n\n\n14\n\n\nExperts and Novices don’t learn the same way\n\n\n \n\n\nOctober 2022\n\n\n\n\n13\n\n\nGuido van Rossum on dynamic vs static typing\n\n\n \n\n\nSeptember 2022\n\n\n\n\n12\n\n\nHow to sort files and folders by size in Linux\n\n\n \n\n\nSeptember 2022\n\n\n\n\n11\n\n\nDifferences between Casting, Parsing and Converting\n\n\n \n\n\nSeptember 2022\n\n\n\n\n10\n\n\nHow to disable ligatures for the Fira Code font in Windows Terminal\n\n\n \n\n\nSeptember 2022\n\n\n\n\n9\n\n\nMoby Dick, extrait de la première page\n\n\n \n\n\nAugust 2022\n\n\n\n\n8\n\n\nThe rise of domain experts in deep learning\n\n\n \n\n\nAugust 2022\n\n\n\n\n7\n\n\nHow will machine learning impact the IT industry?\n\n\n \n\n\nAugust 2022\n\n\n\n\n6\n\n\nWhat is the Chiaroscuro technique?\n\n\n \n\n\nAugust 2022\n\n\n\n\n5\n\n\nC++ is not a superset of C\n\n\n \n\n\nAugust 2022\n\n\n\n\n4\n\n\nCybersecurity questions preparation exams\n\n\n \n\n\nJuly 2022\n\n\n\n\n3\n\n\nHow to remap keys in Linux\n\n\n \n\n\nJuly 2022\n\n\n\n\n2\n\n\nHow to change the default editor in Linux (when it’s Nano instead of Vim)\n\n\n \n\n\nJuly 2022\n\n\n\n\n1\n\n\nWhat is the difference between 127.0.0.1 and 0.0.0.0?\n\n\n \n\n\nJuly 2022\n\n\n\n\n0\n\n\nCitation de Louis Blanc\n\n\n \n\n\nJuly 2022\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "zettel/105/index.html",
