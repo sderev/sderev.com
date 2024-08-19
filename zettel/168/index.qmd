@@ -74,3 +74,5 @@ To go without or do without something, often voluntarily; to abstain from or giv
 * **Related words**: abandon, renounce, forswear
 
 ## Related Zettel
+
+* [Zettel#165](/zettel/165/)
