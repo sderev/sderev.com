@@ -3910,7 +3910,7 @@
     "href": "zettel/174/index.html#references",
     "title": "Hiding Commands and Options in Click CLI Help Messages",
     "section": "References",
-    "text": "References\n\nhttps://click.palletsprojects.com/en/7.x/api/?highlight=hidden#click.Option"
+    "text": "References\n\nClick API Reference - Option"
   },
   {
     "objectID": "zettel/174/index.html#related-zettel",
