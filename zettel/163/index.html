@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -182,6 +182,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">2024-08-31</p>
+      </div>
+    </div>
       
     </div>
     
@@ -197,6 +203,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All of this is now made far more convenient with <code>uv</code> and <code>-p/--python &lt;PYTHON_VERSION&gt;</code>. Just run <code>uv &lt;cmd&gt; -p 3.10</code> and you’re done.</p>
+<p><a href="https://docs.astral.sh/uv/"><code>uv</code> documentation</a></p>
+</div>
+</div>
 <p>I use <code>apt-get autoremove -y</code> in my <code>upgrade</code> script, which made me feel the discomfort of seeing <code>python3.10</code> uninstalled from my system without being able to install it again with <code>apt</code>, as it’s no longer available in the Debian’s package list.</p>
 <p>Fortunately, even if it’s not as straightforward as <code>apt install python3.10</code>, it’s still possible to reinstall it from source.</p>
 <section id="installation-steps" class="level2">

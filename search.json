@@ -2300,7 +2300,7 @@
     "href": "zettel/163/index.html",
     "title": "How to Install Outdated Python Versions on Debian",
     "section": "",
-    "text": "I use apt-get autoremove -y in my upgrade script, which made me feel the discomfort of seeing python3.10 uninstalled from my system without being able to install it again with apt, as it’s no longer available in the Debian’s package list.\nFortunately, even if it’s not as straightforward as apt install python3.10, it’s still possible to reinstall it from source."
+    "text": "Note\n\n\n\nAll of this is now made far more convenient with uv and -p/--python &lt;PYTHON_VERSION&gt;. Just run uv &lt;cmd&gt; -p 3.10 and you’re done.\nuv documentation\nI use apt-get autoremove -y in my upgrade script, which made me feel the discomfort of seeing python3.10 uninstalled from my system without being able to install it again with apt, as it’s no longer available in the Debian’s package list.\nFortunately, even if it’s not as straightforward as apt install python3.10, it’s still possible to reinstall it from source."
   },
   {
     "objectID": "zettel/163/index.html#installation-steps",
