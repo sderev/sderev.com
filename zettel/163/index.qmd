@@ -3,11 +3,18 @@ title: "How to Install Outdated Python Versions on Debian"
 subtitle: "Zettel#163"
 id: "163"
 date: 2024-07-05
-date-modified: ""
+date-modified: 2024-08-31
 date-format: iso
 categories: [zettelkasten]
 spotlight: ""
 ---
+::: {.callout-note}
+All of this is now made far more convenient with `uv` and `-p/--python <PYTHON_VERSION>`.
+Just run `uv <cmd> -p 3.10` and you're done.
+
+[`uv` documentation](https://docs.astral.sh/uv/)
+:::
+
 I use `apt-get autoremove -y` in my `upgrade` script, which made me feel the discomfort of seeing `python3.10` uninstalled from my system without being able to install it again with `apt`, as it's no longer available in the Debian's package list.
 
 Fortunately, even if it's not as straightforward as `apt install python3.10`, it's still possible to reinstall it from source.
