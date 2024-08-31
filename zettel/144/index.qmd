@@ -1,0 +1,25 @@
+---
+title: "Use `ddof=1` for Sample Dispersion Measures with NumPy"
+subtitle: "Zettel#144"
+id: "144"
+date: 2024-03-01
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+By default, `np.var()` and `np.std()` calculate the **population** (biased) variance and standard deviation, whereas `statistics.variance()` and `statistics.stdev()` calculate the **sample** (unbiased) variance and standard deviation by default.
+
+However, you can calculate the unbiased variance and standard deviation with NumPy by setting the `ddof` parameter to `1`.
+
+```python
+import numpy as np
+import statistics
+
+# Using NumPy
+population_variance = np.var(data)
+sample_variance = np.var(data, ddof=1)
+
+# Using statistics
+sample_variance = statistics.variance(data)
+sample_standard_deviation = statistics.stdev(data)
+```
