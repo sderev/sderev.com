@@ -12,6 +12,7 @@ In Python, class attributes are usually stored in a dictionary called `__dict__`
 ## How it Works
 
 1. **Default Storage**: Normally, attributes are stored in a `__dict__` dictionary for each instance.
+
     ```python
     class Point:
         def __init__(self, x, y, z):
@@ -21,6 +22,7 @@ In Python, class attributes are usually stored in a dictionary called `__dict__`
     ```
 
 2. **Using `__slots__`**: To restrict attributes, define a `__slots__` tuple in the class.
+
     ```python
     class Point:
         __slots__ = ('x', 'y', 'z')
