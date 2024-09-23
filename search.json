@@ -2685,35 +2685,35 @@
     "href": "zettel/135/index.html",
     "title": "How to Know if an Object is an Iterable in Python",
     "section": "",
-    "text": "This is a straightforward way but can be a bit hard to read.\nhasattr(item, \"__iter__\") # True / False"
-  },
-  {
-    "objectID": "zettel/135/index.html#using-hasattr",
-    "href": "zettel/135/index.html#using-hasattr",
-    "title": "How to Know if an Object is an Iterable in Python",
-    "section": "",
-    "text": "This is a straightforward way but can be a bit hard to read.\nhasattr(item, \"__iter__\") # True / False"
-  },
-  {
-    "objectID": "zettel/135/index.html#using-isinstance",
-    "href": "zettel/135/index.html#using-isinstance",
-    "title": "How to Know if an Object is an Iterable in Python",
-    "section": "Using isinstance",
-    "text": "Using isinstance\nI prefer this method as it’s more readable.\nfrom collections.abc import Iterable\n\nisinstance(item, Iterable) # True / False"
+    "text": "According to the Python documentation:\nTherefore, always prefer using the try-except method to identify an object as an iterable."
   },
   {
     "objectID": "zettel/135/index.html#using-try-except",
     "href": "zettel/135/index.html#using-try-except",
     "title": "How to Know if an Object is an Iterable in Python",
     "section": "Using try-except",
-    "text": "Using try-except\nThis is another way, but it relies on exception handling. Unless there is a specific reason to use it, I wouldn’t choose it.\ndef is_iterable(item):\n    try:\n        iter(item)\n        return True\n    except TypeError:\n        return False"
+    "text": "Using try-except\ndef is_iterable(item):\n    try:\n        iter(item)\n        return True\n    except TypeError:\n        return False"
+  },
+  {
+    "objectID": "zettel/135/index.html#using-hasattr",
+    "href": "zettel/135/index.html#using-hasattr",
+    "title": "How to Know if an Object is an Iterable in Python",
+    "section": "Using hasattr",
+    "text": "Using hasattr\nThis is a straightforward way but can be a bit hard to read.\nhasattr(item, \"__iter__\") # True / False"
+  },
+  {
+    "objectID": "zettel/135/index.html#using-isinstance",
+    "href": "zettel/135/index.html#using-isinstance",
+    "title": "How to Know if an Object is an Iterable in Python",
+    "section": "Using isinstance",
+    "text": "Using isinstance\nThis method is more readable.\nfrom collections.abc import Iterable\n\nisinstance(item, Iterable) # True / False\nHowever, collections.abc.Iterable does not consider the legacy __getitem__ method – which is sufficient to create an iterable –, unlike an iter() call handling a TypeError exception."
   },
   {
     "objectID": "zettel/135/index.html#references",
     "href": "zettel/135/index.html#references",
     "title": "How to Know if an Object is an Iterable in Python",
     "section": "References",
-    "text": "References\n\nPython official documentation on Abstract Base Classes for Collections"
+    "text": "References\n\nPython official documentation on collections.abc.Iterable"
   },
   {
     "objectID": "zettel/131/index.html",
