@@ -2023,67 +2023,179 @@
     "text": "echo \"\\e[2 q\""
   },
   {
-    "objectID": "zettel/157/index.html",
-    "href": "zettel/157/index.html",
-    "title": "Change Model Directory for Ollama",
+    "objectID": "zettel/25/index.html",
+    "href": "zettel/25/index.html",
+    "title": "How to import/export a database in MySQL/MariaDB",
     "section": "",
-    "text": "You can set an environment variable OLLAMA_MODELS according to the documentation. However, it seems like it doesn’t always work for unknown reasons.\nInstead, you can create a symbolic link to a custom model directory:\nsudo ln -s /path/to/custom/ollama/model_dir/ /usr/share/ollama/.ollama"
+    "text": "Databases are an essential part of modern applications, and there are times when you might need to move or backup your database. MySQL and MariaDB provide several ways to export and import databases."
   },
   {
-    "objectID": "zettel/134/index.html",
-    "href": "zettel/134/index.html",
-    "title": "Moving a Tmux Pane to Another Existing Window",
+    "objectID": "zettel/25/index.html#cli",
+    "href": "zettel/25/index.html#cli",
+    "title": "How to import/export a database in MySQL/MariaDB",
+    "section": "CLI",
+    "text": "CLI\n\nExporting a database\nTo export a database, you can use the mysql client.\nmysql -u username -p db_name &gt; file.sql\nCaveat: You can only use mysql from the CLI, so you need to use a terminal or a command prompt to run this command.\n\n\nExporting specific tables\nmysql -u username -p db_name table1 table2 &gt; file.sql\n\n\nImporting a database\nNote that the DB has to exist before you import the sql file.\nmysql -u username -p db_name &lt; backup.sql\nIf the backup file is compressed with gzip, you can use the following command to import the data:\ngunzip &lt; backup.sql.gz | mysql -u username -p db_name"
+  },
+  {
+    "objectID": "zettel/25/index.html#scripting",
+    "href": "zettel/25/index.html#scripting",
+    "title": "How to import/export a database in MySQL/MariaDB",
+    "section": "Scripting",
+    "text": "Scripting\nIf you want to script the backup process, you can use mysqlpump. It was introduced in MySQL 5.7.8, so you don’t have to install anything else, but note that mysqlpump is not included in MariaDB. Instead, you can use mysqldump, which is included in both MySQL and MariaDB; however, mysqldump is not multithreaded like mysqlpump.\nmysqlpump -u username -p db_name &gt; file.sql\nmysqlpump offers several features, such as parallel compression, incremental backups, and the ability to exclude specific databases or tables.\n\nFor example, to exclude a database from the backup:\nmysqlpump -u username -p --exclude-databases=db_name1,db_name2 &gt; file.sql\n\n\nTo exclude specific tables:\nmysqlpump -u username -p --exclude-tables=db_name.table_name &gt; file.sql\n\n\nSome features of mysqlpump\n\nmysqlpump supports parallel compression, which allows it to compress backup data more efficiently.\nmysqlpump can be used to create incremental backups by using the --incremental option. This feature enables you to backup only the changes that have been made to the database since the last backup.\nmysqlpump provides better control over the backup process than mysqldump. For example, you can use the --exclude-databases and --exclude-tables options to exclude specific databases or tables from the backup.\nmysqlpump generates backup files that are compatible with mysqldump, which means that you can use mysqldump to restore a backup created with mysqlpump.\n\n\n\nManage large databases\nFor large databases (greater than 1TB), consider using the mydumper and myloader tools, which offer parallelism and other benefits for more efficient database management."
+  },
+  {
+    "objectID": "zettel/25/index.html#documentation",
+    "href": "zettel/25/index.html#documentation",
+    "title": "How to import/export a database in MySQL/MariaDB",
+    "section": "Documentation",
+    "text": "Documentation\n\nmydumper & myloader documentation: https://centminmod.com/mydumper.html\nMySQL documentation on backup and recovery: https://dev.mysql.com/doc/refman/8.0/en/backup-and-recovery.html\nMariaDB knowledge base on backup and restore: https://mariadb.com/kb/en/backup-and-restore-overview/"
+  },
+  {
+    "objectID": "zettel/29/index.html",
+    "href": "zettel/29/index.html",
+    "title": "The problem of seeking informations and the limits of LLMs in that regard",
     "section": "",
-    "text": "These instructions are adapted for my own customized meta key, set to ctrl-q. You will obviously need to adapt it to your own meta key if different."
+    "text": "With all the hype around ChatGPT, now is a good time to finally read this paper from March 2022 by Shah & Bender:\nSituating Search (Shah & Bender, 2022): https://dl.acm.org/doi/10.1145/3498366.3505816\nFor a lay introduction to those ideas, see these press articles (directly recommended by Emily Bender):\nAlso, see this Twitter thread by Delip Rao: https://twitter.com/deliprao/status/1599098378172104704\nMight be good to check too… an interview with Emily Bender on the problem with overestimating AI: https://pnw.ai/article/the-problem-with-overestimating-ai/121722775\nVideo series with Bender and Hanna talking about AI: https://videos.trom.tf/w/p/4gykGcMrmHHs7bG2Y6qK9W"
   },
   {
-    "objectID": "zettel/134/index.html#detach-the-pane",
-    "href": "zettel/134/index.html#detach-the-pane",
-    "title": "Moving a Tmux Pane to Another Existing Window",
-    "section": "Detach the Pane",
-    "text": "Detach the Pane\n\nPress ctrl-q ! to detach the pane you want to move.\nThis will create a new window containing only the pane you want to move."
+    "objectID": "zettel/29/index.html#chatgpt-is-not-the-new-google-we-want-for",
+    "href": "zettel/29/index.html#chatgpt-is-not-the-new-google-we-want-for",
+    "title": "The problem of seeking informations and the limits of LLMs in that regard",
+    "section": "ChatGPT is not the new Google we want for",
+    "text": "ChatGPT is not the new Google we want for\nDon’t forget that Google Search is not a search engine by design. It lives to display ads; its content recommendation system is the honeypot."
   },
   {
-    "objectID": "zettel/134/index.html#navigate-to-target-window",
-    "href": "zettel/134/index.html#navigate-to-target-window",
-    "title": "Moving a Tmux Pane to Another Existing Window",
-    "section": "Navigate to Target Window",
-    "text": "Navigate to Target Window\n\nSwitch to the window where you want to move the pane.\nUse ctrl-q 1 to switch to window 1, for example."
-  },
-  {
-    "objectID": "zettel/134/index.html#join-the-pane",
-    "href": "zettel/134/index.html#join-the-pane",
-    "title": "Moving a Tmux Pane to Another Existing Window",
-    "section": "Join the Pane",
-    "text": "Join the Pane\n\nPress ctrl-q : and then type join-pane -s [source-window].\nReplace [source-window] with the ID or name of the window created in the previous step.\nIf needed, list all windows with ctrl-q s to find this ID."
-  },
-  {
-    "objectID": "zettel/134/index.html#related-zettel",
-    "href": "zettel/134/index.html#related-zettel",
-    "title": "Moving a Tmux Pane to Another Existing Window",
-    "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#122"
-  },
-  {
-    "objectID": "zettel/94/index.html",
-    "href": "zettel/94/index.html",
-    "title": "A Quote Diary",
+    "objectID": "zettel/57/index.html",
+    "href": "zettel/57/index.html",
+    "title": "How to create a virtual environment for a Python project",
     "section": "",
-    "text": "I used to archive numerous quotes in my very old notes. If I happen to rediscover them while rummaging through those archives, I will try to add some of them here. I will also try to add new ones.\n=&gt; Il faut des auteurs médiocres pour les gens médiocres. ___\nI don’t remember the original quote, but I always remembered my interpretation of it:"
+    "text": "A brief guide on creating and managing a virtual environment for your Python projects using either the built-in venv module or the popular third-party tool virtualenv. Both methods allow for project-specific dependencies and settings, enabling you to work on multiple projects with different requirements on the same machine without conflicts.\nYou can install virtualenv using pip by running pip install virtualenv, or you can use your system’s package manager (for example, on Debian-based systems: sudo apt install python3-virtualenv)."
   },
   {
-    "objectID": "zettel/94/index.html#related-zettel",
-    "href": "zettel/94/index.html#related-zettel",
-    "title": "A Quote Diary",
-    "section": "Related Zettel",
-    "text": "Related Zettel\n\nZettel#9\nZettel#36"
+    "objectID": "zettel/57/index.html#create-the-virtual-environment",
+    "href": "zettel/57/index.html#create-the-virtual-environment",
+    "title": "How to create a virtual environment for a Python project",
+    "section": "Create the virtual environment",
+    "text": "Create the virtual environment\n\nWith the venv module:\npython -m venv .venv\n\n\nWith virtualenv:\nvirtualenv .venv\nReplace .venv with your desired environment name (see below for suggestions)."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "zettel/57/index.html#activate-the-virtual-environment",
+    "href": "zettel/57/index.html#activate-the-virtual-environment",
+    "title": "How to create a virtual environment for a Python project",
+    "section": "Activate the virtual environment",
+    "text": "Activate the virtual environment\n\nOn Unix-based systems:\n. .venv/bin/activate\n\n\nOn Windows:\n.venv\\Scripts\\activate\nThe terminal prompt should change to show the virtual environment’s name."
+  },
+  {
+    "objectID": "zettel/57/index.html#deactivate-the-virtual-environment",
+    "href": "zettel/57/index.html#deactivate-the-virtual-environment",
+    "title": "How to create a virtual environment for a Python project",
+    "section": "Deactivate the virtual environment",
+    "text": "Deactivate the virtual environment\ndeactivate"
+  },
+  {
+    "objectID": "zettel/57/index.html#naming-the-virtual-environment",
+    "href": "zettel/57/index.html#naming-the-virtual-environment",
+    "title": "How to create a virtual environment for a Python project",
+    "section": "Naming the virtual environment",
+    "text": "Naming the virtual environment\nThere is no strict rule for naming a virtual environment, but some common conventions include using descriptive names or names that follow a standard pattern. Here are a few suggestions:\n\nvenv: This is a simple and common name used for virtual environments. It is clear and concise, making it easy to recognize.\n.venv: By adding a dot (.) at the beginning, the virtual environment is treated as a hidden folder in Unix-based systems. This is a common convention, especially when the virtual environment is located within the project folder.\nenv: Another short and clear name that indicates it’s a virtual environment.\nmyenv: Replace my with a more descriptive name related to the project or purpose of the environment.\nprojectname_env: Replace projectname with the name of the project. This helps to easily identify the virtual environment associated with a specific project.\n\nKeep in mind that it’s a good practice to choose a name that clearly indicates the purpose or project it’s associated with. This makes it easier for you and others to manage and understand the virtual environments when working on multiple projects."
+  },
+  {
+    "objectID": "zettel/76/index.html",
+    "href": "zettel/76/index.html",
+    "title": "Pathlib vs. os.path Performance",
     "section": "",
-    "text": "The elegance in this picture has been playfully elevated with AI.\n\nThis website serves as a platform for publishing some of my notes."
+    "text": "Object creation overhead: Path objects store more information and provide additional methods compared to os.path functions, which can lead to a slight overhead when creating and manipulating Path objects.\nMethod calls vs. functions: Method calls on Path objects can be slower than direct function calls from the os.path module, since Python method calls generally have some extra overhead compared to function calls.\nAdditional functionality: Some pathlib methods may perform more work than their equivalent os.path functions to provide additional functionality or to handle corner cases, which can result in slower performance."
+  },
+  {
+    "objectID": "zettel/76/index.html#reasons-for-path-from-pathlib-being-slower-than-os.path",
+    "href": "zettel/76/index.html#reasons-for-path-from-pathlib-being-slower-than-os.path",
+    "title": "Pathlib vs. os.path Performance",
+    "section": "",
+    "text": "Object creation overhead: Path objects store more information and provide additional methods compared to os.path functions, which can lead to a slight overhead when creating and manipulating Path objects.\nMethod calls vs. functions: Method calls on Path objects can be slower than direct function calls from the os.path module, since Python method calls generally have some extra overhead compared to function calls.\nAdditional functionality: Some pathlib methods may perform more work than their equivalent os.path functions to provide additional functionality or to handle corner cases, which can result in slower performance."
+  },
+  {
+    "objectID": "zettel/76/index.html#tips-to-minimize-performance-difference",
+    "href": "zettel/76/index.html#tips-to-minimize-performance-difference",
+    "title": "Pathlib vs. os.path Performance",
+    "section": "Tips to minimize performance difference",
+    "text": "Tips to minimize performance difference\n\nUse the most appropriate method or function for your use case. Sometimes pathlib provides a more efficient way to perform a certain operation than os.path does, or vice versa.\nMinimize the creation of unnecessary Path objects. If you need to manipulate paths in a performance-critical loop, consider using os.path functions or caching Path objects where possible to avoid creating new objects repeatedly.\nProfile your code to identify performance bottlenecks. If you find that pathlib is causing a significant slowdown in your code, you can consider switching to os.path for those specific operations."
+  },
+  {
+    "objectID": "zettel/76/index.html#general-advice",
+    "href": "zettel/76/index.html#general-advice",
+    "title": "Pathlib vs. os.path Performance",
+    "section": "General Advice",
+    "text": "General Advice\nIn most cases, the performance difference between pathlib and os.path is negligible for typical use cases. It’s usually more beneficial to prioritize code readability and maintainability, which pathlib often provides, over minor performance optimizations."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html",
+    "href": "posts/vim-url-opener/index.html",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "",
+    "text": "You can easily open a URL in your web browser with a simple keybind right from Vim. The common practice is to use gx as the keybind. However, you need to place the cursor exactly under the URL to open it.\nThat’s why I wrote a small script to improve this workflow: it extracts the URL nearest to the cursor, so that you don’t have to place the cursor exactly under the URL anymore.\nIt also works for Windows via WSL."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#installation",
+    "href": "posts/vim-url-opener/index.html#installation",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Installation",
+    "text": "Installation\nI created a GitHub repository where you can find the scripts, the Vim function, and a shorter version of the instructions below."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#usage",
+    "href": "posts/vim-url-opener/index.html#usage",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Usage",
+    "text": "Usage\nTo open a URL in your web browser, just place the cursor near the URL and press gx. There is no need to have your cursor exactly under the URL."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#setup",
+    "href": "posts/vim-url-opener/index.html#setup",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Setup",
+    "text": "Setup\nThis is not a Vim plugin but a set of Unix filters following the philosophy: “Do one thing and do it well.”\nThis workflow is made of three components:\n\na Bash script (to call the web browser);\na Python script (to extract the URL nearest to the cursor);\na Vim function and a keybind (to call the scripts)."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#adding-the-scripts-to-your-path",
+    "href": "posts/vim-url-opener/index.html#adding-the-scripts-to-your-path",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Adding the Scripts to Your PATH",
+    "text": "Adding the Scripts to Your PATH\nThe two scripts should be in your PATH. This environment variable contains a list of directories in which the shell looks for executables.\nIf you don’t have a custom directory for your scripts, you can use /usr/local/bin. Ensure that the scripts are executable by running chmod +x /path/to/script.\n\nCreating a Custom Directory for Your Scripts\nPersonally, I use ~/.scripts for my custom scripts.\nAdding a directory to your PATH environment variable is done by adding the following line to your .bashrc or .zshrc:\nexport PATH=\"/path/to/your/directory:$PATH\"\nThen, source your .bashrc or .zshrc file:\nsource ~/.bashrc\nOr initialize a new instance of your shell:\nexec -l $SHELL"
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#bash-script-calling-your-web-browser",
+    "href": "posts/vim-url-opener/index.html#bash-script-calling-your-web-browser",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Bash Script: Calling your Web Browser",
+    "text": "Bash Script: Calling your Web Browser\nThis script just call your web browser’s executable with a URL as an argument. If you’re using WSL and Brave, the script should look like this:\n#!/bin/bash\n\n/mnt/c/Program\\ Files/BraveSoftware/Brave-Browser/Application/brave.exe \"$1\" 2&gt; /dev/null &\nAdjust the path according to your web browser and operating system.\nI named the script brave, but you can name it whatever you want. Just remember to change the name in the Vim function."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#python-script-extract-the-url-nearest-to-the-cursor",
+    "href": "posts/vim-url-opener/index.html#python-script-extract-the-url-nearest-to-the-cursor",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Python Script: Extract the URL Nearest to the Cursor",
+    "text": "Python Script: Extract the URL Nearest to the Cursor\nLike the Bash script, place the code below in an executable file within your PATH. I named it extract_nearest_url.\n#!/usr/bin/python3\n\nimport re\nimport sys\n\n\ndef main():\n    line = \" \".join(sys.argv[1:-1]) if len(sys.argv) &gt; 1 else \"\"\n    try:\n        cursor_pos = int(sys.argv[-1])\n    except ValueError:\n        sys.exit(\"Error: Cursor position must be an integer\")\n    url = extract_nearest_url(line, cursor_pos)\n    print(url, end=\"\")  # Print without additional newline\n\n\ndef extract_nearest_url(line, cursor_pos):\n    # Regular expression to extract URLs\n    url_patterns = (\n        r\"\\[.*?\\]\\((\\S+?)\\)\",  # Markdown link\n        r\"&lt;(\\S+?)&gt;\",  # Angle brackets\n        r\"\\\\href\\{(\\S+?)\\}\\{.*?\\}\",  # LaTeX \\href{}{}\n        r\"(http[s]?://\\S+)\",  # Plain URLs with protocol\n        r'(?:src|href|content)=[\"\\'](.*?)[\"\\']',  # HTML/XML attributes\n    )\n    pattern = \"|\".join(url_patterns)\n    matches = re.finditer(pattern, line)\n\n    nearest_url = None\n    min_distance = float(\"inf\")\n\n    # Extract URL\n    for match in matches:\n        url = next((group for group in match.groups() if group), None)\n\n        # Calculate distances to cursor position\n        start_pos = match.start()\n        end_pos = match.end()\n        distance = min(abs(cursor_pos - start_pos), abs(cursor_pos - end_pos))\n\n        # Update nearest URL\n        if distance &lt; min_distance:\n            min_distance = distance\n            # Clean the URL by removing any trailing punctuation and whitespace\n            cleaned_url = re.sub(r\"[\\\"),.\\s]*$\", \"\", url)\n            nearest_url = cleaned_url\n\n    return nearest_url if nearest_url else \"\"\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#vim-function-and-keybind",
+    "href": "posts/vim-url-opener/index.html#vim-function-and-keybind",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Vim Function and Keybind",
+    "text": "Vim Function and Keybind\nAdd the following code to your .vimrc:\n\" This function opens the URL nearest to the cursor in Brave \nfunction! OpenURLNearestToCursor()\n  \" Get the current line and column\n  let l:line = getline('.')\n  let l:col = col('.')\n\n  \" Extract the URL nearest to the cursor\n  let l:escaped_line = shellescape(l:line)\n  let l:command = 'extract_nearest_url ' . l:escaped_line . ' ' . l:col\n  let l:cleaned_url = system(l:command)\n\n  \" If a URL has been found, open it in Brave\n  if l:cleaned_url != ''\n      silent exec \"!brave \" . fnameescape(l:cleaned_url)\n      redraw!\n  endif\nendfunction\n\n\" Bind the function to the `gx` key in normal mode\nnnoremap gx :call OpenURLNearestToCursor()&lt;CR&gt;\nNotice that the function calls the extract_nearest_url script and the brave script on lines 5 and 9 respectively. If you named them differently, you should change the names in the function.\nFinally, on the last line, you can see the keybind gx. You can change it to whatever you want."
+  },
+  {
+    "objectID": "posts/vim-url-opener/index.html#conclusion",
+    "href": "posts/vim-url-opener/index.html#conclusion",
+    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis workflow is an improvement over the ordinary gx keybind. You don’t have to place the cursor exactly under the URL anymore. It’s a small change, but it’s pleasant to use."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Vim: Open the URL Nearest to the Cursor in a Web Browser\n\n\n\n\n\n\nvim\n\n\nworkflow\n\n\n\nImprove your Vim workflow by opening the URL nearest to the cursor in your web browser with a simple keybind. This blog post provides a step-by-step guide on setting up custom scripts and configuring Vim to achieve this functionality.\n\n\n\n\n\nJun 3, 2024\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1: When and Why to Fine-Tune an LLM\n\n\n\n\n\n\nmastering-llm\n\n\n\nMy notes for the first week of the Mastering LLMs conference hosted by Hamel Husain and Dan Becker.\n\n\n\n\n\nMay 26, 2024\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/mastering-llm_week_1/index.html",
@@ -2170,179 +2282,81 @@
     "text": "References\n\nYour AI Product Needs Evals\nA short course on OSS Licensing for Research and Education\nDPD error caused chatbot to swear at customer\nAir Canada has to honor a refund policy its chatbot made up\nBelgian man dies by suicide following exchanges with chatbot\nSimPO: Simple Preference Optimization with a Reference-Free Reward (Meng et al., 2024)\nDirect Preference Optimization: Your Language Model is Secretly a Reward Model (Rafailov et al., 2023)\nA practical example of DPO with the TRL library from HuggingFace"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Blog",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Vim: Open the URL Nearest to the Cursor in a Web Browser\n\n\n\n\n\n\nvim\n\n\nworkflow\n\n\n\nImprove your Vim workflow by opening the URL nearest to the cursor in your web browser with a simple keybind. This blog post provides a step-by-step guide on setting up custom scripts and configuring Vim to achieve this functionality.\n\n\n\n\n\nJun 3, 2024\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1: When and Why to Fine-Tune an LLM\n\n\n\n\n\n\nmastering-llm\n\n\n\nMy notes for the first week of the Mastering LLMs conference hosted by Hamel Husain and Dan Becker.\n\n\n\n\n\nMay 26, 2024\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
+    "text": "The elegance in this picture has been playfully elevated with AI.\n\nThis website serves as a platform for publishing some of my notes."
   },
   {
-    "objectID": "posts/vim-url-opener/index.html",
-    "href": "posts/vim-url-opener/index.html",
-    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
+    "objectID": "zettel/94/index.html",
+    "href": "zettel/94/index.html",
+    "title": "A Quote Diary",
     "section": "",
-    "text": "You can easily open a URL in your web browser with a simple keybind right from Vim. The common practice is to use gx as the keybind. However, you need to place the cursor exactly under the URL to open it.\nThat’s why I wrote a small script to improve this workflow: it extracts the URL nearest to the cursor, so that you don’t have to place the cursor exactly under the URL anymore.\nIt also works for Windows via WSL."
+    "text": "I used to archive numerous quotes in my very old notes. If I happen to rediscover them while rummaging through those archives, I will try to add some of them here. I will also try to add new ones.\n=&gt; Il faut des auteurs médiocres pour les gens médiocres. ___\nI don’t remember the original quote, but I always remembered my interpretation of it:"
   },
   {
-    "objectID": "posts/vim-url-opener/index.html#installation",
-    "href": "posts/vim-url-opener/index.html#installation",
-    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
-    "section": "Installation",
-    "text": "Installation\nI created a GitHub repository where you can find the scripts, the Vim function, and a shorter version of the instructions below."
+    "objectID": "zettel/94/index.html#related-zettel",
+    "href": "zettel/94/index.html#related-zettel",
+    "title": "A Quote Diary",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#9\nZettel#36"
   },
   {
-    "objectID": "posts/vim-url-opener/index.html#usage",
-    "href": "posts/vim-url-opener/index.html#usage",
-    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
-    "section": "Usage",
-    "text": "Usage\nTo open a URL in your web browser, just place the cursor near the URL and press gx. There is no need to have your cursor exactly under the URL."
-  },
-  {
-    "objectID": "posts/vim-url-opener/index.html#setup",
-    "href": "posts/vim-url-opener/index.html#setup",
-    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
-    "section": "Setup",
-    "text": "Setup\nThis is not a Vim plugin but a set of Unix filters following the philosophy: “Do one thing and do it well.”\nThis workflow is made of three components:\n\na Bash script (to call the web browser);\na Python script (to extract the URL nearest to the cursor);\na Vim function and a keybind (to call the scripts)."
-  },
-  {
-    "objectID": "posts/vim-url-opener/index.html#adding-the-scripts-to-your-path",
-    "href": "posts/vim-url-opener/index.html#adding-the-scripts-to-your-path",
-    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
-    "section": "Adding the Scripts to Your PATH",
-    "text": "Adding the Scripts to Your PATH\nThe two scripts should be in your PATH. This environment variable contains a list of directories in which the shell looks for executables.\nIf you don’t have a custom directory for your scripts, you can use /usr/local/bin. Ensure that the scripts are executable by running chmod +x /path/to/script.\n\nCreating a Custom Directory for Your Scripts\nPersonally, I use ~/.scripts for my custom scripts.\nAdding a directory to your PATH environment variable is done by adding the following line to your .bashrc or .zshrc:\nexport PATH=\"/path/to/your/directory:$PATH\"\nThen, source your .bashrc or .zshrc file:\nsource ~/.bashrc\nOr initialize a new instance of your shell:\nexec -l $SHELL"
-  },
-  {
-    "objectID": "posts/vim-url-opener/index.html#bash-script-calling-your-web-browser",
-    "href": "posts/vim-url-opener/index.html#bash-script-calling-your-web-browser",
-    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
-    "section": "Bash Script: Calling your Web Browser",
-    "text": "Bash Script: Calling your Web Browser\nThis script just call your web browser’s executable with a URL as an argument. If you’re using WSL and Brave, the script should look like this:\n#!/bin/bash\n\n/mnt/c/Program\\ Files/BraveSoftware/Brave-Browser/Application/brave.exe \"$1\" 2&gt; /dev/null &\nAdjust the path according to your web browser and operating system.\nI named the script brave, but you can name it whatever you want. Just remember to change the name in the Vim function."
-  },
-  {
-    "objectID": "posts/vim-url-opener/index.html#python-script-extract-the-url-nearest-to-the-cursor",
-    "href": "posts/vim-url-opener/index.html#python-script-extract-the-url-nearest-to-the-cursor",
-    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
-    "section": "Python Script: Extract the URL Nearest to the Cursor",
-    "text": "Python Script: Extract the URL Nearest to the Cursor\nLike the Bash script, place the code below in an executable file within your PATH. I named it extract_nearest_url.\n#!/usr/bin/python3\n\nimport re\nimport sys\n\n\ndef main():\n    line = \" \".join(sys.argv[1:-1]) if len(sys.argv) &gt; 1 else \"\"\n    try:\n        cursor_pos = int(sys.argv[-1])\n    except ValueError:\n        sys.exit(\"Error: Cursor position must be an integer\")\n    url = extract_nearest_url(line, cursor_pos)\n    print(url, end=\"\")  # Print without additional newline\n\n\ndef extract_nearest_url(line, cursor_pos):\n    # Regular expression to extract URLs\n    url_patterns = (\n        r\"\\[.*?\\]\\((\\S+?)\\)\",  # Markdown link\n        r\"&lt;(\\S+?)&gt;\",  # Angle brackets\n        r\"\\\\href\\{(\\S+?)\\}\\{.*?\\}\",  # LaTeX \\href{}{}\n        r\"(http[s]?://\\S+)\",  # Plain URLs with protocol\n        r'(?:src|href|content)=[\"\\'](.*?)[\"\\']',  # HTML/XML attributes\n    )\n    pattern = \"|\".join(url_patterns)\n    matches = re.finditer(pattern, line)\n\n    nearest_url = None\n    min_distance = float(\"inf\")\n\n    # Extract URL\n    for match in matches:\n        url = next((group for group in match.groups() if group), None)\n\n        # Calculate distances to cursor position\n        start_pos = match.start()\n        end_pos = match.end()\n        distance = min(abs(cursor_pos - start_pos), abs(cursor_pos - end_pos))\n\n        # Update nearest URL\n        if distance &lt; min_distance:\n            min_distance = distance\n            # Clean the URL by removing any trailing punctuation and whitespace\n            cleaned_url = re.sub(r\"[\\\"),.\\s]*$\", \"\", url)\n            nearest_url = cleaned_url\n\n    return nearest_url if nearest_url else \"\"\n\n\nif __name__ == \"__main__\":\n    main()"
-  },
-  {
-    "objectID": "posts/vim-url-opener/index.html#vim-function-and-keybind",
-    "href": "posts/vim-url-opener/index.html#vim-function-and-keybind",
-    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
-    "section": "Vim Function and Keybind",
-    "text": "Vim Function and Keybind\nAdd the following code to your .vimrc:\n\" This function opens the URL nearest to the cursor in Brave \nfunction! OpenURLNearestToCursor()\n  \" Get the current line and column\n  let l:line = getline('.')\n  let l:col = col('.')\n\n  \" Extract the URL nearest to the cursor\n  let l:escaped_line = shellescape(l:line)\n  let l:command = 'extract_nearest_url ' . l:escaped_line . ' ' . l:col\n  let l:cleaned_url = system(l:command)\n\n  \" If a URL has been found, open it in Brave\n  if l:cleaned_url != ''\n      silent exec \"!brave \" . fnameescape(l:cleaned_url)\n      redraw!\n  endif\nendfunction\n\n\" Bind the function to the `gx` key in normal mode\nnnoremap gx :call OpenURLNearestToCursor()&lt;CR&gt;\nNotice that the function calls the extract_nearest_url script and the brave script on lines 5 and 9 respectively. If you named them differently, you should change the names in the function.\nFinally, on the last line, you can see the keybind gx. You can change it to whatever you want."
-  },
-  {
-    "objectID": "posts/vim-url-opener/index.html#conclusion",
-    "href": "posts/vim-url-opener/index.html#conclusion",
-    "title": "Vim: Open the URL Nearest to the Cursor in a Web Browser",
-    "section": "Conclusion",
-    "text": "Conclusion\nThis workflow is an improvement over the ordinary gx keybind. You don’t have to place the cursor exactly under the URL anymore. It’s a small change, but it’s pleasant to use."
-  },
-  {
-    "objectID": "zettel/76/index.html",
-    "href": "zettel/76/index.html",
-    "title": "Pathlib vs. os.path Performance",
+    "objectID": "zettel/134/index.html",
+    "href": "zettel/134/index.html",
+    "title": "Moving a Tmux Pane to Another Existing Window",
     "section": "",
-    "text": "Object creation overhead: Path objects store more information and provide additional methods compared to os.path functions, which can lead to a slight overhead when creating and manipulating Path objects.\nMethod calls vs. functions: Method calls on Path objects can be slower than direct function calls from the os.path module, since Python method calls generally have some extra overhead compared to function calls.\nAdditional functionality: Some pathlib methods may perform more work than their equivalent os.path functions to provide additional functionality or to handle corner cases, which can result in slower performance."
+    "text": "These instructions are adapted for my own customized meta key, set to ctrl-q. You will obviously need to adapt it to your own meta key if different."
   },
   {
-    "objectID": "zettel/76/index.html#reasons-for-path-from-pathlib-being-slower-than-os.path",
-    "href": "zettel/76/index.html#reasons-for-path-from-pathlib-being-slower-than-os.path",
-    "title": "Pathlib vs. os.path Performance",
+    "objectID": "zettel/134/index.html#detach-the-pane",
+    "href": "zettel/134/index.html#detach-the-pane",
+    "title": "Moving a Tmux Pane to Another Existing Window",
+    "section": "Detach the Pane",
+    "text": "Detach the Pane\n\nPress ctrl-q ! to detach the pane you want to move.\nThis will create a new window containing only the pane you want to move."
+  },
+  {
+    "objectID": "zettel/134/index.html#navigate-to-target-window",
+    "href": "zettel/134/index.html#navigate-to-target-window",
+    "title": "Moving a Tmux Pane to Another Existing Window",
+    "section": "Navigate to Target Window",
+    "text": "Navigate to Target Window\n\nSwitch to the window where you want to move the pane.\nUse ctrl-q 1 to switch to window 1, for example."
+  },
+  {
+    "objectID": "zettel/134/index.html#join-the-pane",
+    "href": "zettel/134/index.html#join-the-pane",
+    "title": "Moving a Tmux Pane to Another Existing Window",
+    "section": "Join the Pane",
+    "text": "Join the Pane\n\nPress ctrl-q : and then type join-pane -s [source-window].\nReplace [source-window] with the ID or name of the window created in the previous step.\nIf needed, list all windows with ctrl-q s to find this ID."
+  },
+  {
+    "objectID": "zettel/134/index.html#related-zettel",
+    "href": "zettel/134/index.html#related-zettel",
+    "title": "Moving a Tmux Pane to Another Existing Window",
+    "section": "Related Zettel",
+    "text": "Related Zettel\n\nZettel#122"
+  },
+  {
+    "objectID": "zettel/157/index.html",
+    "href": "zettel/157/index.html",
+    "title": "Change Model Directory for Ollama",
     "section": "",
-    "text": "Object creation overhead: Path objects store more information and provide additional methods compared to os.path functions, which can lead to a slight overhead when creating and manipulating Path objects.\nMethod calls vs. functions: Method calls on Path objects can be slower than direct function calls from the os.path module, since Python method calls generally have some extra overhead compared to function calls.\nAdditional functionality: Some pathlib methods may perform more work than their equivalent os.path functions to provide additional functionality or to handle corner cases, which can result in slower performance."
+    "text": "You can set an environment variable OLLAMA_MODELS according to the documentation. However, it seems like it doesn’t always work for unknown reasons.\nInstead, you can create a symbolic link to a custom model directory:\nsudo ln -s /path/to/custom/ollama/model_dir/ /usr/share/ollama/.ollama"
   },
   {
-    "objectID": "zettel/76/index.html#tips-to-minimize-performance-difference",
-    "href": "zettel/76/index.html#tips-to-minimize-performance-difference",
-    "title": "Pathlib vs. os.path Performance",
-    "section": "Tips to minimize performance difference",
-    "text": "Tips to minimize performance difference\n\nUse the most appropriate method or function for your use case. Sometimes pathlib provides a more efficient way to perform a certain operation than os.path does, or vice versa.\nMinimize the creation of unnecessary Path objects. If you need to manipulate paths in a performance-critical loop, consider using os.path functions or caching Path objects where possible to avoid creating new objects repeatedly.\nProfile your code to identify performance bottlenecks. If you find that pathlib is causing a significant slowdown in your code, you can consider switching to os.path for those specific operations."
-  },
-  {
-    "objectID": "zettel/76/index.html#general-advice",
-    "href": "zettel/76/index.html#general-advice",
-    "title": "Pathlib vs. os.path Performance",
-    "section": "General Advice",
-    "text": "General Advice\nIn most cases, the performance difference between pathlib and os.path is negligible for typical use cases. It’s usually more beneficial to prioritize code readability and maintainability, which pathlib often provides, over minor performance optimizations."
-  },
-  {
-    "objectID": "zettel/57/index.html",
-    "href": "zettel/57/index.html",
-    "title": "How to create a virtual environment for a Python project",
+    "objectID": "zettel/177/index.html",
+    "href": "zettel/177/index.html",
+    "title": "Creating Unique Non-None Placeholders in Python",
     "section": "",
-    "text": "A brief guide on creating and managing a virtual environment for your Python projects using either the built-in venv module or the popular third-party tool virtualenv. Both methods allow for project-specific dependencies and settings, enabling you to work on multiple projects with different requirements on the same machine without conflicts.\nYou can install virtualenv using pip by running pip install virtualenv, or you can use your system’s package manager (for example, on Debian-based systems: sudo apt install python3-virtualenv)."
+    "text": "Let’s say we want to create a function with an optional parameter that distinguishes between None as a value and the genuine absence of a value. A solution is to create a unique object with object() and check the identity of the argument with the is operator.\nSince the object() function returns a new featureless object every time it is called, we can use it to create unique dummy values – or sentinel values."
   },
   {
-    "objectID": "zettel/57/index.html#create-the-virtual-environment",
-    "href": "zettel/57/index.html#create-the-virtual-environment",
-    "title": "How to create a virtual environment for a Python project",
-    "section": "Create the virtual environment",
-    "text": "Create the virtual environment\n\nWith the venv module:\npython -m venv .venv\n\n\nWith virtualenv:\nvirtualenv .venv\nReplace .venv with your desired environment name (see below for suggestions)."
-  },
-  {
-    "objectID": "zettel/57/index.html#activate-the-virtual-environment",
-    "href": "zettel/57/index.html#activate-the-virtual-environment",
-    "title": "How to create a virtual environment for a Python project",
-    "section": "Activate the virtual environment",
-    "text": "Activate the virtual environment\n\nOn Unix-based systems:\n. .venv/bin/activate\n\n\nOn Windows:\n.venv\\Scripts\\activate\nThe terminal prompt should change to show the virtual environment’s name."
-  },
-  {
-    "objectID": "zettel/57/index.html#deactivate-the-virtual-environment",
-    "href": "zettel/57/index.html#deactivate-the-virtual-environment",
-    "title": "How to create a virtual environment for a Python project",
-    "section": "Deactivate the virtual environment",
-    "text": "Deactivate the virtual environment\ndeactivate"
-  },
-  {
-    "objectID": "zettel/57/index.html#naming-the-virtual-environment",
-    "href": "zettel/57/index.html#naming-the-virtual-environment",
-    "title": "How to create a virtual environment for a Python project",
-    "section": "Naming the virtual environment",
-    "text": "Naming the virtual environment\nThere is no strict rule for naming a virtual environment, but some common conventions include using descriptive names or names that follow a standard pattern. Here are a few suggestions:\n\nvenv: This is a simple and common name used for virtual environments. It is clear and concise, making it easy to recognize.\n.venv: By adding a dot (.) at the beginning, the virtual environment is treated as a hidden folder in Unix-based systems. This is a common convention, especially when the virtual environment is located within the project folder.\nenv: Another short and clear name that indicates it’s a virtual environment.\nmyenv: Replace my with a more descriptive name related to the project or purpose of the environment.\nprojectname_env: Replace projectname with the name of the project. This helps to easily identify the virtual environment associated with a specific project.\n\nKeep in mind that it’s a good practice to choose a name that clearly indicates the purpose or project it’s associated with. This makes it easier for you and others to manage and understand the virtual environments when working on multiple projects."
-  },
-  {
-    "objectID": "zettel/29/index.html",
-    "href": "zettel/29/index.html",
-    "title": "The problem of seeking informations and the limits of LLMs in that regard",
-    "section": "",
-    "text": "With all the hype around ChatGPT, now is a good time to finally read this paper from March 2022 by Shah & Bender:\nSituating Search (Shah & Bender, 2022): https://dl.acm.org/doi/10.1145/3498366.3505816\nFor a lay introduction to those ideas, see these press articles (directly recommended by Emily Bender):\nAlso, see this Twitter thread by Delip Rao: https://twitter.com/deliprao/status/1599098378172104704\nMight be good to check too… an interview with Emily Bender on the problem with overestimating AI: https://pnw.ai/article/the-problem-with-overestimating-ai/121722775\nVideo series with Bender and Hanna talking about AI: https://videos.trom.tf/w/p/4gykGcMrmHHs7bG2Y6qK9W"
-  },
-  {
-    "objectID": "zettel/29/index.html#chatgpt-is-not-the-new-google-we-want-for",
-    "href": "zettel/29/index.html#chatgpt-is-not-the-new-google-we-want-for",
-    "title": "The problem of seeking informations and the limits of LLMs in that regard",
-    "section": "ChatGPT is not the new Google we want for",
-    "text": "ChatGPT is not the new Google we want for\nDon’t forget that Google Search is not a search engine by design. It lives to display ads; its content recommendation system is the honeypot."
-  },
-  {
-    "objectID": "zettel/25/index.html",
-    "href": "zettel/25/index.html",
-    "title": "How to import/export a database in MySQL/MariaDB",
-    "section": "",
-    "text": "Databases are an essential part of modern applications, and there are times when you might need to move or backup your database. MySQL and MariaDB provide several ways to export and import databases."
-  },
-  {
-    "objectID": "zettel/25/index.html#cli",
-    "href": "zettel/25/index.html#cli",
-    "title": "How to import/export a database in MySQL/MariaDB",
-    "section": "CLI",
-    "text": "CLI\n\nExporting a database\nTo export a database, you can use the mysql client.\nmysql -u username -p db_name &gt; file.sql\nCaveat: You can only use mysql from the CLI, so you need to use a terminal or a command prompt to run this command.\n\n\nExporting specific tables\nmysql -u username -p db_name table1 table2 &gt; file.sql\n\n\nImporting a database\nNote that the DB has to exist before you import the sql file.\nmysql -u username -p db_name &lt; backup.sql\nIf the backup file is compressed with gzip, you can use the following command to import the data:\ngunzip &lt; backup.sql.gz | mysql -u username -p db_name"
-  },
-  {
-    "objectID": "zettel/25/index.html#scripting",
-    "href": "zettel/25/index.html#scripting",
-    "title": "How to import/export a database in MySQL/MariaDB",
-    "section": "Scripting",
-    "text": "Scripting\nIf you want to script the backup process, you can use mysqlpump. It was introduced in MySQL 5.7.8, so you don’t have to install anything else, but note that mysqlpump is not included in MariaDB. Instead, you can use mysqldump, which is included in both MySQL and MariaDB; however, mysqldump is not multithreaded like mysqlpump.\nmysqlpump -u username -p db_name &gt; file.sql\nmysqlpump offers several features, such as parallel compression, incremental backups, and the ability to exclude specific databases or tables.\n\nFor example, to exclude a database from the backup:\nmysqlpump -u username -p --exclude-databases=db_name1,db_name2 &gt; file.sql\n\n\nTo exclude specific tables:\nmysqlpump -u username -p --exclude-tables=db_name.table_name &gt; file.sql\n\n\nSome features of mysqlpump\n\nmysqlpump supports parallel compression, which allows it to compress backup data more efficiently.\nmysqlpump can be used to create incremental backups by using the --incremental option. This feature enables you to backup only the changes that have been made to the database since the last backup.\nmysqlpump provides better control over the backup process than mysqldump. For example, you can use the --exclude-databases and --exclude-tables options to exclude specific databases or tables from the backup.\nmysqlpump generates backup files that are compatible with mysqldump, which means that you can use mysqldump to restore a backup created with mysqlpump.\n\n\n\nManage large databases\nFor large databases (greater than 1TB), consider using the mydumper and myloader tools, which offer parallelism and other benefits for more efficient database management."
-  },
-  {
-    "objectID": "zettel/25/index.html#documentation",
-    "href": "zettel/25/index.html#documentation",
-    "title": "How to import/export a database in MySQL/MariaDB",
-    "section": "Documentation",
-    "text": "Documentation\n\nmydumper & myloader documentation: https://centminmod.com/mydumper.html\nMySQL documentation on backup and recovery: https://dev.mysql.com/doc/refman/8.0/en/backup-and-recovery.html\nMariaDB knowledge base on backup and restore: https://mariadb.com/kb/en/backup-and-restore-overview/"
+    "objectID": "zettel/177/index.html#references",
+    "href": "zettel/177/index.html#references",
+    "title": "Creating Unique Non-None Placeholders in Python",
+    "section": "References",
+    "text": "References\n\nAn article by Trey Hunner on creating unique non-None sentinel values in Python\nPython documentation on the object() function\nWikipedia: Sentinel value"
   },
   {
     "objectID": "zettel/75/index.html",
@@ -2496,7 +2510,7 @@
     "href": "zettel/index.html",
     "title": "Zettelkasten",
     "section": "",
-    "text": "Tip: Full-Text Search\n\n\n\nYou can access a full-text search of the entire website, including the Zettelkasten, in the following ways:\n\nClick on the search icon in the right corner of the navigation bar.\nPress s, f, or / on your keyboard.\n\n\n\nPlease keep in mind that those Zettel are essentially notes and should be regarded as such.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Zettel#\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nZettel#\n\n\nTitle\n\n\n \n\n\nDate\n\n\n\n\n\n\n176\n\n\nSome Python Type Challenges\n\n\n \n\n\nSeptember 2024\n\n\n\n\n175\n\n\nEasily move a WSL distribution to another drive\n\n\n \n\n\nAugust 2024\n\n\n\n\n174\n\n\nHiding Commands and Options in Click CLI Help Messages\n\n\n \n\n\nAugust 2024\n\n\n\n\n173\n\n\nNuances Between Pervading and Pervasive\n\n\n \n\n\nAugust 2024\n\n\n\n\n172\n\n\nNuances Among To Libel, To Vilify, and To Defame\n\n\n \n\n\nAugust 2024\n\n\n\n\n171\n\n\nNuances Between To Spur and To Foster\n\n\n \n\n\nAugust 2024\n\n\n\n\n170\n\n\nNuances Between To Stifle and To Smother\n\n\n \n\n\nAugust 2024\n\n\n\n\n169\n\n\nNuances Between To Wail and To Bewail\n\n\n \n\n\nJuly 2024\n\n\n\n\n168\n\n\nNuances Between To Relinquish and To Forego\n\n\n \n\n\nJuly 2024\n\n\n\n\n167\n\n\nNuances Among Fussy, Finicky, and Particular\n\n\n \n\n\nJuly 2024\n\n\n\n\n166\n\n\nNuances Among Despondency, Dejection, and Gloom\n\n\n \n\n\nJuly 2024\n\n\n\n\n165\n\n\nVocabulary Nuances\n\n\n \n\n\nJuly 2024\n\n\n\n\n164\n\n\nWhat is Style?\n\n\n \n\n\nJuly 2024\n\n\n\n\n163\n\n\nHow to Install Outdated Python Versions on Debian\n\n\n \n\n\nJuly 2024\n\n\n\n\n162\n\n\nShow the Lines of Context Around a ripgrep or grep Search\n\n\n \n\n\nJuly 2024\n\n\n\n\n161\n\n\nUse Multiple GitHub Accounts with the gh CLI\n\n\n \n\n\nJune 2024\n\n\n\n\n160\n\n\nHow to Rename a WSL Distribution\n\n\n \n\n\nJune 2024\n\n\n\n\n159\n\n\nUse git reset --keep, not git reset --hard\n\n\n \n\n\nJune 2024\n\n\n\n\n158\n\n\nCreate a “Featured” Column in Quarto Listings\n\n\n \n\n\nJune 2024\n\n\n\n\n157\n\n\nChange Model Directory for Ollama\n\n\n \n\n\nJune 2024\n\n\n\n\n156\n\n\nThe hosts File as a Self-Care Hack to Block Distractions\n\n\n⭐\n\n\nJune 2024\n\n\n\n\n155\n\n\nSolving X-Server (WSLg) Issues in WSL: Error: Can't open display: :0\n\n\n \n\n\nMay 2024\n\n\n\n\n154\n\n\nReading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)\n\n\n \n\n\nMay 2024\n\n\n\n\n153\n\n\nA Short Course on OSS Licensing for Research and Education\n\n\n \n\n\nMay 2024\n\n\n\n\n152\n\n\nVim: Save a File You Forgot to Open with Sudo\n\n\n \n\n\nMay 2024\n\n\n\n\n151\n\n\nVim: Moving to Next Search Pattern in Incremental Search\n\n\n \n\n\nApril 2024\n\n\n\n\n150\n\n\nBFS vs DFS\n\n\n \n\n\nApril 2024\n\n\n\n\n149\n\n\nHow to Execute Parallel and Concurrent Commands in Bash\n\n\n \n\n\nApril 2024\n\n\n\n\n148\n\n\nVim ga Command Shows ASCII Information\n\n\n \n\n\nApril 2024\n\n\n\n\n147\n\n\nResolving Vim Sluggishness Caused by ALE Linters with LaTeX Files\n\n\n \n\n\nMarch 2024\n\n\n\n\n146\n\n\nAutomating a Reading Note Template Generation Using Zotero Metadata\n\n\n \n\n\nMarch 2024\n\n\n\n\n145\n\n\nUnnecessary else Statement Can Be Better for Readability\n\n\n \n\n\nMarch 2024\n\n\n\n\n144\n\n\nUse ddof=1 for Sample Dispersion Measures with NumPy\n\n\n \n\n\nMarch 2024\n\n\n\n\n143\n\n\nUse git maintenance start\n\n\n \n\n\nFebruary 2024\n\n\n\n\n142\n\n\nGPG Key Configuration for Signing Commits with Git and GitHub\n\n\n \n\n\nFebruary 2024\n\n\n\n\n141\n\n\nManaging Git Configurations Conditionally\n\n\n \n\n\nFebruary 2024\n\n\n\n\n140\n\n\nThe Most Common Applications of Machine Learning\n\n\n \n\n\nFebruary 2024\n\n\n\n\n139\n\n\nVim Shortcuts in Insert Mode\n\n\n \n\n\nJanuary 2024\n\n\n\n\n138\n\n\nUsing Canonical Form via String Sorting for Anagram Grouping\n\n\n \n\n\nOctober 2023\n\n\n\n\n137\n\n\nBasic Time Frames of Emotion\n\n\n \n\n\nOctober 2023\n\n\n\n\n136\n\n\nyield from: The Extend Method for Generators\n\n\n \n\n\nOctober 2023\n\n\n\n\n135\n\n\nHow to Know if an Object is an Iterable in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n134\n\n\nMoving a Tmux Pane to Another Existing Window\n\n\n \n\n\nOctober 2023\n\n\n\n\n133\n\n\nA Better Library for Logging in Python: Eliot\n\n\n \n\n\nOctober 2023\n\n\n\n\n132\n\n\nrich.status: a Spinner for Better CLI UX\n\n\n \n\n\nOctober 2023\n\n\n\n\n131\n\n\nPython Packaging with pyproject.toml\n\n\n⭐\n\n\nOctober 2023\n\n\n\n\n130\n\n\nVim Command for Retrieving Syntax Highlighting Information\n\n\n \n\n\nOctober 2023\n\n\n\n\n129\n\n\nOptimizing Memory and Attribute Lookup in Python Classes with __slots__\n\n\n \n\n\nOctober 2023\n\n\n\n\n128\n\n\nVim :g Command: A Practical Guide\n\n\n \n\n\nOctober 2023\n\n\n\n\n127\n\n\nEquality vs Identity in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n126\n\n\nManaging Pinned Dependencies for Python Packages with uv\n\n\n \n\n\nOctober 2023\n\n\n\n\n125\n\n\nAmending a Specific Past Git Commit Without Affecting Recent Ones\n\n\n \n\n\nSeptember 2023\n\n\n\n\n124\n\n\nThe “Safe Triangle” Design Pattern for Better UI Context Menus\n\n\n \n\n\nSeptember 2023\n\n\n\n\n123\n\n\nSpeedy Directory Switching with CDPATH\n\n\n \n\n\nSeptember 2023\n\n\n\n\n122\n\n\nChatGPT Integration for Code Analysis in Vim\n\n\n \n\n\nSeptember 2023\n\n\n\n\n121\n\n\n!! Substitution in Bash and Zsh\n\n\n \n\n\nSeptember 2023\n\n\n\n\n120\n\n\nA Quick Guide to mktemp in Bash\n\n\n \n\n\nSeptember 2023\n\n\n\n\n119\n\n\nExtracting Largest and Smallest Items from a Collection in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n118\n\n\nCheat Sheet for Python f-string\n\n\n \n\n\nSeptember 2023\n\n\n\n\n117\n\n\nrandom.choices(list, k=n) vs random.sample(list, k=n) in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n116\n\n\nUnderstanding Keyword-Only Function Arguments in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n115\n\n\nHow To Detect a Hashable Object in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n114\n\n\nStrong vs. Weak Typing\n\n\n \n\n\nSeptember 2023\n\n\n\n\n113\n\n\nCommand History Search (Shell with Vi Mode)\n\n\n \n\n\nAugust 2023\n\n\n\n\n112\n\n\nManaging Upgrades of Bundled CLI Tools in a metapackage Installed via pipx\n\n\n \n\n\nAugust 2023\n\n\n\n\n111\n\n\nUUID: An Introduction and Usage\n\n\n \n\n\nJuly 2023\n\n\n\n\n110\n\n\nExtracting Unique Patterns with grep or ripgrep\n\n\n \n\n\nJuly 2023\n\n\n\n\n109\n\n\nUtilizing Alternative Delimiters in Vim’s Substitution Command\n\n\n \n\n\nJuly 2023\n\n\n\n\n108\n\n\nw3m Cheatsheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n107\n\n\nStop Writing Your Error Messages to stdout\n\n\n \n\n\nJuly 2023\n\n\n\n\n106\n\n\nWorking With Timezones in Python\n\n\n \n\n\nJuly 2023\n\n\n\n\n105\n\n\nGoogle Dorking Cheat Sheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n104\n\n\ned Is Pronounced “ee-dee”\n\n\n \n\n\nJuly 2023\n\n\n\n\n103\n\n\nUnderstanding YAML Block Scalars - Folded and Literal Styles\n\n\n \n\n\nJuly 2023\n\n\n\n\n102\n\n\nJedi-Vim Plugin Cheat Sheet\n\n\n \n\n\nJune 2023\n\n\n\n\n101\n\n\nUnderstanding xclip File Commands and Their Use Cases\n\n\n \n\n\nJune 2023\n\n\n\n\n100\n\n\nThere’s been the “good Bing 😊”. But is there a good Edge?\n\n\n \n\n\nJune 2023\n\n\n\n\n99\n\n\nUsing xclip for Clipboard Operations in WSL and VMs Running on Windows\n\n\n \n\n\nJune 2023\n\n\n\n\n98\n\n\nLICEcap: A Simple Tool for Recording GIFs\n\n\n \n\n\nJune 2023\n\n\n\n\n97\n\n\nSeam Carving Algorithm\n\n\n \n\n\nJune 2023\n\n\n\n\n96\n\n\nRemoving Vocals from Music: A Simple Hack\n\n\n \n\n\nJune 2023\n\n\n\n\n95\n\n\nRGB vs HSL Color Models\n\n\n \n\n\nJune 2023\n\n\n\n\n94\n\n\nA Quote Diary\n\n\n \n\n\nJune 2023\n\n\n\n\n93\n\n\nGeneral Strategy Whenever You Have a Bug\n\n\n \n\n\nJune 2023\n\n\n\n\n92\n\n\nUnderstanding Vim Regular Expressions: A Comparison with PCRE\n\n\n \n\n\nMay 2023\n\n\n\n\n91\n\n\nLearn Git and GitHub\n\n\n⭐\n\n\nMay 2023\n\n\n\n\n90\n\n\nContainers, Docker, and Podman\n\n\n \n\n\nMay 2023\n\n\n\n\n89\n\n\nThe XOR Operator and Its Applications to Programming\n\n\n \n\n\nMay 2023\n\n\n\n\n88\n\n\nSetting Up Two-Factor Authentication (2FA) on a Server with Google Authenticator for SSH Logins\n\n\n \n\n\nMay 2023\n\n\n\n\n87\n\n\nRemapping the ² Key on an AZERTY Keyboard with AutoHotkey (Windows)\n\n\n \n\n\nMay 2023\n\n\n\n\n86\n\n\nCasting malloc and calloc in C and C++\n\n\n \n\n\nMay 2023\n\n\n\n\n85\n\n\nFile and Directory Listing in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n84\n\n\nDifference between set and setx in a Windows shell\n\n\n \n\n\nMay 2023\n\n\n\n\n83\n\n\nPartial Functions vs Closures in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n82\n\n\nPartial Functions in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n81\n\n\nInstantly Paste Emojis Using a Windows Keybind\n\n\n \n\n\nApril 2023\n\n\n\n\n80\n\n\nUsing in vs. find() in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n79\n\n\nDelete Lines Not Matching a Specific Pattern in Vim or with Sed\n\n\n \n\n\nApril 2023\n\n\n\n\n78\n\n\nQuick Workflow for Making a Screencast on Windows\n\n\n \n\n\nApril 2023\n\n\n\n\n77\n\n\nHow to Add a title and alt Attribute, and a caption to an Image Using Pandoc Markdown\n\n\n \n\n\nApril 2023\n\n\n\n\n76\n\n\nPathlib vs. os.path Performance\n\n\n \n\n\nApril 2023\n\n\n\n\n75\n\n\nDon’t use time.time()\n\n\n \n\n\nApril 2023\n\n\n\n\n74\n\n\nThe Python Code Formatter Black Can Format Long Strings\n\n\n \n\n\nApril 2023\n\n\n\n\n73\n\n\nUse sys.maxsize instead of float(\"inf\") in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n72\n\n\nCombining Multiple GitHub Repositories into a Single Repository\n\n\n \n\n\nApril 2023\n\n\n\n\n71\n\n\nHandling Long Strings in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n70\n\n\nDistributing a Python CLI Application with Autocompletion\n\n\n⭐\n\n\nApril 2023\n\n\n\n\n69\n\n\nRenaming Variables and Functions Across Multiple Files in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n68\n\n\nPerformance of Set-Based Word Existence Check\n\n\n \n\n\nApril 2023\n\n\n\n\n67\n\n\nIf Your Code Uses f-strings, Your Dictionaries Are Already Ordered\n\n\n \n\n\nApril 2023\n\n\n\n\n66\n\n\nTitles in English Should Be Capitalized\n\n\n \n\n\nApril 2023\n\n\n\n\n65\n\n\nVim Buffers: Renaming, Switching and Opening Files\n\n\n \n\n\nApril 2023\n\n\n\n\n64\n\n\nHow to Determine the Operating System Programmatically\n\n\n \n\n\nApril 2023\n\n\n\n\n63\n\n\nCreating and managing cron jobs\n\n\n \n\n\nApril 2023\n\n\n\n\n62\n\n\nEnhancing Variable Renaming in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n61\n\n\nIgnoring portions of code with the Python code formatter Black\n\n\n \n\n\nApril 2023\n\n\n\n\n60\n\n\nHow to use macros in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n59\n\n\nwhich vs command -v\n\n\n \n\n\nApril 2023\n\n\n\n\n58\n\n\nLinux Output Redirection\n\n\n \n\n\nApril 2023\n\n\n\n\n57\n\n\nHow to create a virtual environment for a Python project\n\n\n \n\n\nApril 2023\n\n\n\n\n56\n\n\nANSI Escape Sequences\n\n\n \n\n\nApril 2023\n\n\n\n\n55\n\n\nProtect yourself from overwriting files with the noclobber option\n\n\n \n\n\nApril 2023\n\n\n\n\n54\n\n\nHow to add a user to the sudo group\n\n\n \n\n\nMarch 2023\n\n\n\n\n53\n\n\nDifference between su and su -\n\n\n \n\n\nMarch 2023\n\n\n\n\n52\n\n\nEnabling autocompletion for a custom script in zsh or bash\n\n\n \n\n\nMarch 2023\n\n\n\n\n51\n\n\nOpen a file from a path in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n50\n\n\npushd and popd are on a boat…\n\n\n \n\n\nMarch 2023\n\n\n\n\n49\n\n\nHandling infinity in programming languages\n\n\n \n\n\nMarch 2023\n\n\n\n\n48\n\n\nEvaluating variables in f-strings in Python\n\n\n \n\n\nMarch 2023\n\n\n\n\n47\n\n\nA Very Simple Windows Management Workflow for Windows\n\n\n⭐\n\n\nMarch 2023\n\n\n\n\n46\n\n\nHow to disable the ^C char printed in Bash when pressing &lt;CTRL-C&gt;\n\n\n \n\n\nMarch 2023\n\n\n\n\n45\n\n\nHow to sort inside brackets (parentheses, etc.) in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n44\n\n\nHow to Use the Native Spell Checker of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n43\n\n\nNo more delay when pasting before the cursor in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n42\n\n\nApply a (useless) rot13 to an entire file in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n41\n\n\nHow to add quotes, parenthesis, etc., around text in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n40\n\n\nHow to use the undofile of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n39\n\n\nWrite a Zettel even if you think you don’t need it\n\n\n \n\n\nMarch 2023\n\n\n\n\n38\n\n\nHow to switch the case of characters in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n37\n\n\nHow to run the Python code formatter Black in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n36\n\n\nChanger de langue (citation de Cioran)\n\n\n \n\n\nFebruary 2023\n\n\n\n\n35\n\n\nHow to automatically create ordered lists in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n34\n\n\nWhat are the five critera for good interface design?\n\n\n \n\n\nFebruary 2023\n\n\n\n\n33\n\n\nCan Python functions get lonely?\n\n\n \n\n\nJanuary 2023\n\n\n\n\n32\n\n\nUse the casefold() method in Python when doing case-insensitive stuff\n\n\n \n\n\nJanuary 2023\n\n\n\n\n31\n\n\nHow to disable cursor blinking in a Linux shell\n\n\n \n\n\nJanuary 2023\n\n\n\n\n30\n\n\nHow to know the number of selected lines in Vim\n\n\n \n\n\nDecember 2022\n\n\n\n\n29\n\n\nThe problem of seeking informations and the limits of LLMs in that regard\n\n\n \n\n\nDecember 2022\n\n\n\n\n28\n\n\nHow to see network traffic in real time in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n27\n\n\nHow to increase the max upload file size for a PHP web server\n\n\n \n\n\nNovember 2022\n\n\n\n\n26\n\n\nHow to securely wipe and erase a disk in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n25\n\n\nHow to import/export a database in MySQL/MariaDB\n\n\n \n\n\nNovember 2022\n\n\n\n\n24\n\n\nHow to easily copy a public SSH key to another machine\n\n\n \n\n\nNovember 2022\n\n\n\n\n23\n\n\nSet timezone in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n22\n\n\nBash history Toolkit\n\n\n \n\n\nNovember 2022\n\n\n\n\n21\n\n\nHow to Determine Character Frequencies in a Python String\n\n\n \n\n\nNovember 2022\n\n\n\n\n20\n\n\nHow to use ssh-agent to automatically enter your SSH key passphrase\n\n\n \n\n\nNovember 2022\n\n\n\n\n19\n\n\nChecking user passwords\n\n\n \n\n\nNovember 2022\n\n\n\n\n18\n\n\nGenerating Secure Passwords with Linux Tools\n\n\n \n\n\nNovember 2022\n\n\n\n\n17\n\n\nHow to make .bashrc aliases available within a Vim shell command (:.!bash)\n\n\n \n\n\nNovember 2022\n\n\n\n\n16\n\n\nUpgrade Windows Applications With a CLI Package Manager\n\n\n \n\n\nNovember 2022\n\n\n\n\n15\n\n\nSome of my favorite fonts\n\n\n \n\n\nNovember 2022\n\n\n\n\n14\n\n\nExperts and Novices don’t learn the same way\n\n\n \n\n\nOctober 2022\n\n\n\n\n13\n\n\nGuido van Rossum on dynamic vs static typing\n\n\n \n\n\nSeptember 2022\n\n\n\n\n12\n\n\nHow to sort files and folders by size in Linux\n\n\n \n\n\nSeptember 2022\n\n\n\n\n11\n\n\nDifferences between Casting, Parsing and Converting\n\n\n \n\n\nSeptember 2022\n\n\n\n\n10\n\n\nHow to disable ligatures for the Fira Code font in Windows Terminal\n\n\n \n\n\nSeptember 2022\n\n\n\n\n9\n\n\nMoby Dick, extrait de la première page\n\n\n \n\n\nAugust 2022\n\n\n\n\n8\n\n\nThe rise of domain experts in deep learning\n\n\n \n\n\nAugust 2022\n\n\n\n\n7\n\n\nHow will machine learning impact the IT industry?\n\n\n \n\n\nAugust 2022\n\n\n\n\n6\n\n\nWhat is the Chiaroscuro technique?\n\n\n \n\n\nAugust 2022\n\n\n\n\n5\n\n\nC++ is not a superset of C\n\n\n \n\n\nAugust 2022\n\n\n\n\n4\n\n\nCybersecurity questions preparation exams\n\n\n \n\n\nJuly 2022\n\n\n\n\n3\n\n\nHow to remap keys in Linux\n\n\n \n\n\nJuly 2022\n\n\n\n\n2\n\n\nHow to change the default editor in Linux (when it’s Nano instead of Vim)\n\n\n \n\n\nJuly 2022\n\n\n\n\n1\n\n\nWhat is the difference between 127.0.0.1 and 0.0.0.0?\n\n\n \n\n\nJuly 2022\n\n\n\n\n0\n\n\nCitation de Louis Blanc\n\n\n \n\n\nJuly 2022\n\n\n\n\n\nNo matching items"
+    "text": "Tip: Full-Text Search\n\n\n\nYou can access a full-text search of the entire website, including the Zettelkasten, in the following ways:\n\nClick on the search icon in the right corner of the navigation bar.\nPress s, f, or / on your keyboard.\n\n\n\nPlease keep in mind that those Zettel are essentially notes and should be regarded as such.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Zettel#\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nZettel#\n\n\nTitle\n\n\n \n\n\nDate\n\n\n\n\n\n\n177\n\n\nCreating Unique Non-None Placeholders in Python\n\n\n \n\n\nSeptember 2024\n\n\n\n\n176\n\n\nSome Python Type Challenges\n\n\n \n\n\nSeptember 2024\n\n\n\n\n175\n\n\nEasily move a WSL distribution to another drive\n\n\n \n\n\nAugust 2024\n\n\n\n\n174\n\n\nHiding Commands and Options in Click CLI Help Messages\n\n\n \n\n\nAugust 2024\n\n\n\n\n173\n\n\nNuances Between Pervading and Pervasive\n\n\n \n\n\nAugust 2024\n\n\n\n\n172\n\n\nNuances Among To Libel, To Vilify, and To Defame\n\n\n \n\n\nAugust 2024\n\n\n\n\n171\n\n\nNuances Between To Spur and To Foster\n\n\n \n\n\nAugust 2024\n\n\n\n\n170\n\n\nNuances Between To Stifle and To Smother\n\n\n \n\n\nAugust 2024\n\n\n\n\n169\n\n\nNuances Between To Wail and To Bewail\n\n\n \n\n\nJuly 2024\n\n\n\n\n168\n\n\nNuances Between To Relinquish and To Forego\n\n\n \n\n\nJuly 2024\n\n\n\n\n167\n\n\nNuances Among Fussy, Finicky, and Particular\n\n\n \n\n\nJuly 2024\n\n\n\n\n166\n\n\nNuances Among Despondency, Dejection, and Gloom\n\n\n \n\n\nJuly 2024\n\n\n\n\n165\n\n\nVocabulary Nuances\n\n\n \n\n\nJuly 2024\n\n\n\n\n164\n\n\nWhat is Style?\n\n\n \n\n\nJuly 2024\n\n\n\n\n163\n\n\nHow to Install Outdated Python Versions on Debian\n\n\n \n\n\nJuly 2024\n\n\n\n\n162\n\n\nShow the Lines of Context Around a ripgrep or grep Search\n\n\n \n\n\nJuly 2024\n\n\n\n\n161\n\n\nUse Multiple GitHub Accounts with the gh CLI\n\n\n \n\n\nJune 2024\n\n\n\n\n160\n\n\nHow to Rename a WSL Distribution\n\n\n \n\n\nJune 2024\n\n\n\n\n159\n\n\nUse git reset --keep, not git reset --hard\n\n\n \n\n\nJune 2024\n\n\n\n\n158\n\n\nCreate a “Featured” Column in Quarto Listings\n\n\n \n\n\nJune 2024\n\n\n\n\n157\n\n\nChange Model Directory for Ollama\n\n\n \n\n\nJune 2024\n\n\n\n\n156\n\n\nThe hosts File as a Self-Care Hack to Block Distractions\n\n\n⭐\n\n\nJune 2024\n\n\n\n\n155\n\n\nSolving X-Server (WSLg) Issues in WSL: Error: Can't open display: :0\n\n\n \n\n\nMay 2024\n\n\n\n\n154\n\n\nReading Note – People Cannot Distinguish GPT-4 from a Human in a Turing Test (2024)\n\n\n \n\n\nMay 2024\n\n\n\n\n153\n\n\nA Short Course on OSS Licensing for Research and Education\n\n\n \n\n\nMay 2024\n\n\n\n\n152\n\n\nVim: Save a File You Forgot to Open with Sudo\n\n\n \n\n\nMay 2024\n\n\n\n\n151\n\n\nVim: Moving to Next Search Pattern in Incremental Search\n\n\n \n\n\nApril 2024\n\n\n\n\n150\n\n\nBFS vs DFS\n\n\n \n\n\nApril 2024\n\n\n\n\n149\n\n\nHow to Execute Parallel and Concurrent Commands in Bash\n\n\n \n\n\nApril 2024\n\n\n\n\n148\n\n\nVim ga Command Shows ASCII Information\n\n\n \n\n\nApril 2024\n\n\n\n\n147\n\n\nResolving Vim Sluggishness Caused by ALE Linters with LaTeX Files\n\n\n \n\n\nMarch 2024\n\n\n\n\n146\n\n\nAutomating a Reading Note Template Generation Using Zotero Metadata\n\n\n \n\n\nMarch 2024\n\n\n\n\n145\n\n\nUnnecessary else Statement Can Be Better for Readability\n\n\n \n\n\nMarch 2024\n\n\n\n\n144\n\n\nUse ddof=1 for Sample Dispersion Measures with NumPy\n\n\n \n\n\nMarch 2024\n\n\n\n\n143\n\n\nUse git maintenance start\n\n\n \n\n\nFebruary 2024\n\n\n\n\n142\n\n\nGPG Key Configuration for Signing Commits with Git and GitHub\n\n\n \n\n\nFebruary 2024\n\n\n\n\n141\n\n\nManaging Git Configurations Conditionally\n\n\n \n\n\nFebruary 2024\n\n\n\n\n140\n\n\nThe Most Common Applications of Machine Learning\n\n\n \n\n\nFebruary 2024\n\n\n\n\n139\n\n\nVim Shortcuts in Insert Mode\n\n\n \n\n\nJanuary 2024\n\n\n\n\n138\n\n\nUsing Canonical Form via String Sorting for Anagram Grouping\n\n\n \n\n\nOctober 2023\n\n\n\n\n137\n\n\nBasic Time Frames of Emotion\n\n\n \n\n\nOctober 2023\n\n\n\n\n136\n\n\nyield from: The Extend Method for Generators\n\n\n \n\n\nOctober 2023\n\n\n\n\n135\n\n\nHow to Know if an Object is an Iterable in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n134\n\n\nMoving a Tmux Pane to Another Existing Window\n\n\n \n\n\nOctober 2023\n\n\n\n\n133\n\n\nA Better Library for Logging in Python: Eliot\n\n\n \n\n\nOctober 2023\n\n\n\n\n132\n\n\nrich.status: a Spinner for Better CLI UX\n\n\n \n\n\nOctober 2023\n\n\n\n\n131\n\n\nPython Packaging with pyproject.toml\n\n\n⭐\n\n\nOctober 2023\n\n\n\n\n130\n\n\nVim Command for Retrieving Syntax Highlighting Information\n\n\n \n\n\nOctober 2023\n\n\n\n\n129\n\n\nOptimizing Memory and Attribute Lookup in Python Classes with __slots__\n\n\n \n\n\nOctober 2023\n\n\n\n\n128\n\n\nVim :g Command: A Practical Guide\n\n\n \n\n\nOctober 2023\n\n\n\n\n127\n\n\nEquality vs Identity in Python\n\n\n \n\n\nOctober 2023\n\n\n\n\n126\n\n\nManaging Pinned Dependencies for Python Packages with uv\n\n\n \n\n\nOctober 2023\n\n\n\n\n125\n\n\nAmending a Specific Past Git Commit Without Affecting Recent Ones\n\n\n \n\n\nSeptember 2023\n\n\n\n\n124\n\n\nThe “Safe Triangle” Design Pattern for Better UI Context Menus\n\n\n \n\n\nSeptember 2023\n\n\n\n\n123\n\n\nSpeedy Directory Switching with CDPATH\n\n\n \n\n\nSeptember 2023\n\n\n\n\n122\n\n\nChatGPT Integration for Code Analysis in Vim\n\n\n \n\n\nSeptember 2023\n\n\n\n\n121\n\n\n!! Substitution in Bash and Zsh\n\n\n \n\n\nSeptember 2023\n\n\n\n\n120\n\n\nA Quick Guide to mktemp in Bash\n\n\n \n\n\nSeptember 2023\n\n\n\n\n119\n\n\nExtracting Largest and Smallest Items from a Collection in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n118\n\n\nCheat Sheet for Python f-string\n\n\n \n\n\nSeptember 2023\n\n\n\n\n117\n\n\nrandom.choices(list, k=n) vs random.sample(list, k=n) in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n116\n\n\nUnderstanding Keyword-Only Function Arguments in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n115\n\n\nHow To Detect a Hashable Object in Python\n\n\n \n\n\nSeptember 2023\n\n\n\n\n114\n\n\nStrong vs. Weak Typing\n\n\n \n\n\nSeptember 2023\n\n\n\n\n113\n\n\nCommand History Search (Shell with Vi Mode)\n\n\n \n\n\nAugust 2023\n\n\n\n\n112\n\n\nManaging Upgrades of Bundled CLI Tools in a metapackage Installed via pipx\n\n\n \n\n\nAugust 2023\n\n\n\n\n111\n\n\nUUID: An Introduction and Usage\n\n\n \n\n\nJuly 2023\n\n\n\n\n110\n\n\nExtracting Unique Patterns with grep or ripgrep\n\n\n \n\n\nJuly 2023\n\n\n\n\n109\n\n\nUtilizing Alternative Delimiters in Vim’s Substitution Command\n\n\n \n\n\nJuly 2023\n\n\n\n\n108\n\n\nw3m Cheatsheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n107\n\n\nStop Writing Your Error Messages to stdout\n\n\n \n\n\nJuly 2023\n\n\n\n\n106\n\n\nWorking With Timezones in Python\n\n\n \n\n\nJuly 2023\n\n\n\n\n105\n\n\nGoogle Dorking Cheat Sheet\n\n\n \n\n\nJuly 2023\n\n\n\n\n104\n\n\ned Is Pronounced “ee-dee”\n\n\n \n\n\nJuly 2023\n\n\n\n\n103\n\n\nUnderstanding YAML Block Scalars - Folded and Literal Styles\n\n\n \n\n\nJuly 2023\n\n\n\n\n102\n\n\nJedi-Vim Plugin Cheat Sheet\n\n\n \n\n\nJune 2023\n\n\n\n\n101\n\n\nUnderstanding xclip File Commands and Their Use Cases\n\n\n \n\n\nJune 2023\n\n\n\n\n100\n\n\nThere’s been the “good Bing 😊”. But is there a good Edge?\n\n\n \n\n\nJune 2023\n\n\n\n\n99\n\n\nUsing xclip for Clipboard Operations in WSL and VMs Running on Windows\n\n\n \n\n\nJune 2023\n\n\n\n\n98\n\n\nLICEcap: A Simple Tool for Recording GIFs\n\n\n \n\n\nJune 2023\n\n\n\n\n97\n\n\nSeam Carving Algorithm\n\n\n \n\n\nJune 2023\n\n\n\n\n96\n\n\nRemoving Vocals from Music: A Simple Hack\n\n\n \n\n\nJune 2023\n\n\n\n\n95\n\n\nRGB vs HSL Color Models\n\n\n \n\n\nJune 2023\n\n\n\n\n94\n\n\nA Quote Diary\n\n\n \n\n\nJune 2023\n\n\n\n\n93\n\n\nGeneral Strategy Whenever You Have a Bug\n\n\n \n\n\nJune 2023\n\n\n\n\n92\n\n\nUnderstanding Vim Regular Expressions: A Comparison with PCRE\n\n\n \n\n\nMay 2023\n\n\n\n\n91\n\n\nLearn Git and GitHub\n\n\n⭐\n\n\nMay 2023\n\n\n\n\n90\n\n\nContainers, Docker, and Podman\n\n\n \n\n\nMay 2023\n\n\n\n\n89\n\n\nThe XOR Operator and Its Applications to Programming\n\n\n \n\n\nMay 2023\n\n\n\n\n88\n\n\nSetting Up Two-Factor Authentication (2FA) on a Server with Google Authenticator for SSH Logins\n\n\n \n\n\nMay 2023\n\n\n\n\n87\n\n\nRemapping the ² Key on an AZERTY Keyboard with AutoHotkey (Windows)\n\n\n \n\n\nMay 2023\n\n\n\n\n86\n\n\nCasting malloc and calloc in C and C++\n\n\n \n\n\nMay 2023\n\n\n\n\n85\n\n\nFile and Directory Listing in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n84\n\n\nDifference between set and setx in a Windows shell\n\n\n \n\n\nMay 2023\n\n\n\n\n83\n\n\nPartial Functions vs Closures in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n82\n\n\nPartial Functions in Python\n\n\n \n\n\nMay 2023\n\n\n\n\n81\n\n\nInstantly Paste Emojis Using a Windows Keybind\n\n\n \n\n\nApril 2023\n\n\n\n\n80\n\n\nUsing in vs. find() in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n79\n\n\nDelete Lines Not Matching a Specific Pattern in Vim or with Sed\n\n\n \n\n\nApril 2023\n\n\n\n\n78\n\n\nQuick Workflow for Making a Screencast on Windows\n\n\n \n\n\nApril 2023\n\n\n\n\n77\n\n\nHow to Add a title and alt Attribute, and a caption to an Image Using Pandoc Markdown\n\n\n \n\n\nApril 2023\n\n\n\n\n76\n\n\nPathlib vs. os.path Performance\n\n\n \n\n\nApril 2023\n\n\n\n\n75\n\n\nDon’t use time.time()\n\n\n \n\n\nApril 2023\n\n\n\n\n74\n\n\nThe Python Code Formatter Black Can Format Long Strings\n\n\n \n\n\nApril 2023\n\n\n\n\n73\n\n\nUse sys.maxsize instead of float(\"inf\") in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n72\n\n\nCombining Multiple GitHub Repositories into a Single Repository\n\n\n \n\n\nApril 2023\n\n\n\n\n71\n\n\nHandling Long Strings in Python\n\n\n \n\n\nApril 2023\n\n\n\n\n70\n\n\nDistributing a Python CLI Application with Autocompletion\n\n\n⭐\n\n\nApril 2023\n\n\n\n\n69\n\n\nRenaming Variables and Functions Across Multiple Files in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n68\n\n\nPerformance of Set-Based Word Existence Check\n\n\n \n\n\nApril 2023\n\n\n\n\n67\n\n\nIf Your Code Uses f-strings, Your Dictionaries Are Already Ordered\n\n\n \n\n\nApril 2023\n\n\n\n\n66\n\n\nTitles in English Should Be Capitalized\n\n\n \n\n\nApril 2023\n\n\n\n\n65\n\n\nVim Buffers: Renaming, Switching and Opening Files\n\n\n \n\n\nApril 2023\n\n\n\n\n64\n\n\nHow to Determine the Operating System Programmatically\n\n\n \n\n\nApril 2023\n\n\n\n\n63\n\n\nCreating and managing cron jobs\n\n\n \n\n\nApril 2023\n\n\n\n\n62\n\n\nEnhancing Variable Renaming in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n61\n\n\nIgnoring portions of code with the Python code formatter Black\n\n\n \n\n\nApril 2023\n\n\n\n\n60\n\n\nHow to use macros in Vim\n\n\n \n\n\nApril 2023\n\n\n\n\n59\n\n\nwhich vs command -v\n\n\n \n\n\nApril 2023\n\n\n\n\n58\n\n\nLinux Output Redirection\n\n\n \n\n\nApril 2023\n\n\n\n\n57\n\n\nHow to create a virtual environment for a Python project\n\n\n \n\n\nApril 2023\n\n\n\n\n56\n\n\nANSI Escape Sequences\n\n\n \n\n\nApril 2023\n\n\n\n\n55\n\n\nProtect yourself from overwriting files with the noclobber option\n\n\n \n\n\nApril 2023\n\n\n\n\n54\n\n\nHow to add a user to the sudo group\n\n\n \n\n\nMarch 2023\n\n\n\n\n53\n\n\nDifference between su and su -\n\n\n \n\n\nMarch 2023\n\n\n\n\n52\n\n\nEnabling autocompletion for a custom script in zsh or bash\n\n\n \n\n\nMarch 2023\n\n\n\n\n51\n\n\nOpen a file from a path in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n50\n\n\npushd and popd are on a boat…\n\n\n \n\n\nMarch 2023\n\n\n\n\n49\n\n\nHandling infinity in programming languages\n\n\n \n\n\nMarch 2023\n\n\n\n\n48\n\n\nEvaluating variables in f-strings in Python\n\n\n \n\n\nMarch 2023\n\n\n\n\n47\n\n\nA Very Simple Windows Management Workflow for Windows\n\n\n⭐\n\n\nMarch 2023\n\n\n\n\n46\n\n\nHow to disable the ^C char printed in Bash when pressing &lt;CTRL-C&gt;\n\n\n \n\n\nMarch 2023\n\n\n\n\n45\n\n\nHow to sort inside brackets (parentheses, etc.) in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n44\n\n\nHow to Use the Native Spell Checker of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n43\n\n\nNo more delay when pasting before the cursor in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n42\n\n\nApply a (useless) rot13 to an entire file in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n41\n\n\nHow to add quotes, parenthesis, etc., around text in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n40\n\n\nHow to use the undofile of Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n39\n\n\nWrite a Zettel even if you think you don’t need it\n\n\n \n\n\nMarch 2023\n\n\n\n\n38\n\n\nHow to switch the case of characters in Vim\n\n\n \n\n\nMarch 2023\n\n\n\n\n37\n\n\nHow to run the Python code formatter Black in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n36\n\n\nChanger de langue (citation de Cioran)\n\n\n \n\n\nFebruary 2023\n\n\n\n\n35\n\n\nHow to automatically create ordered lists in Vim\n\n\n \n\n\nFebruary 2023\n\n\n\n\n34\n\n\nWhat are the five critera for good interface design?\n\n\n \n\n\nFebruary 2023\n\n\n\n\n33\n\n\nCan Python functions get lonely?\n\n\n \n\n\nJanuary 2023\n\n\n\n\n32\n\n\nUse the casefold() method in Python when doing case-insensitive stuff\n\n\n \n\n\nJanuary 2023\n\n\n\n\n31\n\n\nHow to disable cursor blinking in a Linux shell\n\n\n \n\n\nJanuary 2023\n\n\n\n\n30\n\n\nHow to know the number of selected lines in Vim\n\n\n \n\n\nDecember 2022\n\n\n\n\n29\n\n\nThe problem of seeking informations and the limits of LLMs in that regard\n\n\n \n\n\nDecember 2022\n\n\n\n\n28\n\n\nHow to see network traffic in real time in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n27\n\n\nHow to increase the max upload file size for a PHP web server\n\n\n \n\n\nNovember 2022\n\n\n\n\n26\n\n\nHow to securely wipe and erase a disk in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n25\n\n\nHow to import/export a database in MySQL/MariaDB\n\n\n \n\n\nNovember 2022\n\n\n\n\n24\n\n\nHow to easily copy a public SSH key to another machine\n\n\n \n\n\nNovember 2022\n\n\n\n\n23\n\n\nSet timezone in Linux\n\n\n \n\n\nNovember 2022\n\n\n\n\n22\n\n\nBash history Toolkit\n\n\n \n\n\nNovember 2022\n\n\n\n\n21\n\n\nHow to Determine Character Frequencies in a Python String\n\n\n \n\n\nNovember 2022\n\n\n\n\n20\n\n\nHow to use ssh-agent to automatically enter your SSH key passphrase\n\n\n \n\n\nNovember 2022\n\n\n\n\n19\n\n\nChecking user passwords\n\n\n \n\n\nNovember 2022\n\n\n\n\n18\n\n\nGenerating Secure Passwords with Linux Tools\n\n\n \n\n\nNovember 2022\n\n\n\n\n17\n\n\nHow to make .bashrc aliases available within a Vim shell command (:.!bash)\n\n\n \n\n\nNovember 2022\n\n\n\n\n16\n\n\nUpgrade Windows Applications With a CLI Package Manager\n\n\n \n\n\nNovember 2022\n\n\n\n\n15\n\n\nSome of my favorite fonts\n\n\n \n\n\nNovember 2022\n\n\n\n\n14\n\n\nExperts and Novices don’t learn the same way\n\n\n \n\n\nOctober 2022\n\n\n\n\n13\n\n\nGuido van Rossum on dynamic vs static typing\n\n\n \n\n\nSeptember 2022\n\n\n\n\n12\n\n\nHow to sort files and folders by size in Linux\n\n\n \n\n\nSeptember 2022\n\n\n\n\n11\n\n\nDifferences between Casting, Parsing and Converting\n\n\n \n\n\nSeptember 2022\n\n\n\n\n10\n\n\nHow to disable ligatures for the Fira Code font in Windows Terminal\n\n\n \n\n\nSeptember 2022\n\n\n\n\n9\n\n\nMoby Dick, extrait de la première page\n\n\n \n\n\nAugust 2022\n\n\n\n\n8\n\n\nThe rise of domain experts in deep learning\n\n\n \n\n\nAugust 2022\n\n\n\n\n7\n\n\nHow will machine learning impact the IT industry?\n\n\n \n\n\nAugust 2022\n\n\n\n\n6\n\n\nWhat is the Chiaroscuro technique?\n\n\n \n\n\nAugust 2022\n\n\n\n\n5\n\n\nC++ is not a superset of C\n\n\n \n\n\nAugust 2022\n\n\n\n\n4\n\n\nCybersecurity questions preparation exams\n\n\n \n\n\nJuly 2022\n\n\n\n\n3\n\n\nHow to remap keys in Linux\n\n\n \n\n\nJuly 2022\n\n\n\n\n2\n\n\nHow to change the default editor in Linux (when it’s Nano instead of Vim)\n\n\n \n\n\nJuly 2022\n\n\n\n\n1\n\n\nWhat is the difference between 127.0.0.1 and 0.0.0.0?\n\n\n \n\n\nJuly 2022\n\n\n\n\n0\n\n\nCitation de Louis Blanc\n\n\n \n\n\nJuly 2022\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "zettel/107/index.html",
