@@ -1,0 +1,79 @@
+---
+title: "Nuances Between To Wail and To Bewail"
+subtitle: "Zettel#169"
+id: "169"
+date: 2024-07-25
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+spotlight: ""
+---
+While both "wail" and "bewail" involve expressing deep sorrow or grief, they differ in their manner of expression and connotations.
+
+## To Wail
+
+### Definition
+
+To express deep sorrow, grief, or pain through prolonged, high-pitched cries or sounds.
+
+### Connotation and usage
+
+* Suggests a raw, uncontrolled expression of intense emotion
+* Often in response to a deeply distressing event or situation
+* Primarily refers to the physical act of crying or making a sound
+* Can be used literally or figuratively for non-human sounds
+
+### Usage examples 
+
+* **Literature**: "The bereaved mother wailed inconsolably at her child's funeral."
+* **Formal writing**: "The survivors wailed in anguish as they surveyed the devastation left by the hurricane."
+* **Casual conversation**: "I could hear the cat wailing outside my window all night."
+
+### Common collocations
+
+* wail in despair
+* wail of sirens
+* wind wailing
+
+## To Bewail
+
+### Definition
+
+To express deep sorrow, regret, or grief about something, often through words or lamentations.
+
+### Connotation and usage
+
+* Suggests a more verbal or articulate expression of sorrow or regret
+* Often implies a more composed or controlled manner of expression
+* Can express strong disapproval or disappointment about a state of affairs
+* Emphasizes the content of the lamentation rather than the sound
+
+### Usage examples 
+
+* **Literature**: "The poet bewailed the loss of innocence in modern society through his verses."
+* **Formal writing**: "In his memoirs, the former leader bewailed the missed opportunities for peace during his tenure."
+* **Casual conversation**: "She spent the entire evening bewailing her misfortunes to anyone who would listen."
+
+### Common collocations
+
+* bewail one's fate
+* bewail the loss
+* bewail the state of affairs
+
+## Comparison
+
+* **Nature of expression**: "Wail" primarily refers to the physical act of crying or making sounds, while "bewail" emphasizes verbal expression of sorrow or regret.
+* **Level of control**: "Wailing" is often more raw and uncontrolled, while "bewailing" suggests a more composed or controlled expression.
+* **Articulation**: "Wailing" is often inarticulate, whereas "bewailing" implies a more articulate expression of grief or disappointment.
+* **Immediacy**: "Wail" is often associated with an immediate, intense emotional response, while "bewail" can refer to a more prolonged or reflective expression.
+* **Scope**: "Wail" is often used for personal grief, while "bewail" can extend to broader societal or philosophical lamentations.
+
+## Synonyms and Related Words
+
+* **Wail**: cry, howl, lament, keen
+* **Bewail**: lament, mourn, rue, deplore
+* **Related words**: grieve, weep, bemoan
+
+## Related Zettel
+
+* [Zettel#165](/zettel/165/)
