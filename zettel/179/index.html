@@ -170,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="what-happens-when-notimplemented-is-returned">What Happens When <code>NotImplemented</code> Is Returned</h3>
 <p><strong>From the Python documentation</strong>:</p>
 <blockquote class="blockquote">
-<p>Note When a binary (or in-place) method returns <code>NotImplemented</code> the interpreter will try the reflected operation on the other type (or some other fallback, depending on the operator). If all attempts return <code>NotImplemented</code>, the interpreter will raise an appropriate exception. Incorrectly returning <code>NotImplemented</code> will result in a misleading error message or the <code>NotImplemented</code> value being returned to Python code.</p>
+<p>When a binary (or in-place) method returns <code>NotImplemented</code> the interpreter will try the reflected operation on the other type (or some other fallback, depending on the operator). If all attempts return <code>NotImplemented</code>, the interpreter will raise an appropriate exception. Incorrectly returning <code>NotImplemented</code> will result in a misleading error message or the <code>NotImplemented</code> value being returned to Python code.</p>
 <p>See <a href="https://docs.python.org/3/library/numbers.html#implementing-the-arithmetic-operations">Implementing the arithmetic operations</a> for examples.</p>
 </blockquote>
 <p>The “reflected operation on the other type” is just the reverse operation: if <code>a &lt; b</code> returns <code>NotImplemented</code>, Python will try <code>b &lt; a</code>.</p>
