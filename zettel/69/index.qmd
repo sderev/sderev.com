@@ -1,0 +1,36 @@
+---
+title: "Renaming Variables and Functions Across Multiple Files in Vim"
+subtitle: "Zettel#69"
+id: "69"
+date: 2023-04-13
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+Even though Vim isn't an IDE, it still allows for easy refactoring.
+
+## Select the Files You Want to Modify by Populating the Argument List
+
+Use the `:args` command to add all the files matching the specified pattern (e.g., all Python files) to the argument list:
+
+```vim
+:args *.py
+```
+
+## Search and Replace
+
+Perform the search and replace operations across all the files in the argument list:
+
+```vim
+:argdo %s/old_variable_name/new_variable_name/g | update
+```
+
+To ignore potential "pattern not found" errors, append the `e` flag to the `:s(ubstitute)` command: `/ge`.
+
+### Automatically Save with the `update` Command
+
+The `update` command is not strictly necessary for the search and replace operation, but it is useful for saving the changes made in each file after the `:s(ubstitute)` command has been executed. If you prefer to save all of the buffers later, omit the `update` command and use `:wa` when you're ready to save.
+
+## Related Zettel
+
+* [Zettel#62](/zettel/62)

@@ -1,0 +1,18 @@
+---
+title: "C++ is not a superset of C"
+subtitle: "Zettel#5"
+id: "5"
+date: 2022-08-01
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+> If you're not familiar with both languages, you might have heard people say that C++ is a superset of C. 
+> If you're experienced in both languages, you'll know that this is not true at all.
+> 
+> Of course, C++ has many features that C does not; but there are also a few features that only C has. 
+> And, perhaps most importantly, there is code that compiles in both languages but does different things.
+>
+> Hannah McLaughlin (source below)
+  
+<https://mcla.ug/blog/cpp-is-not-a-superset-of-c.html>
