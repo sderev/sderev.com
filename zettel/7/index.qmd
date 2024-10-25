@@ -1,0 +1,27 @@
+---
+title: "How will machine learning impact the IT industry?"
+subtitle: "Zettel#7"
+id: "7"
+date: 2022-08-19
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+**I predict machine learning (ML) will take over the IT industry in the next five years.**
+
+Programming will be one of the first things in IT that will be affected by ML. We already see it happening with GitHub Copilot. I believe ML is the future of web and application development. It is only a matter of time before these domains get almost entirely automated. Everything that seems mundane in the programming world today will stop requiring code written by hand. Instead, programmers will accomplish those trivial tasks by using and training AI.
+
+Generally speaking, the whole industry will shift towards either supporting ML (cybersecurity, cloud & network engineering, data science) or doing ML.
+
+**Skills that won't disappear (reductive take, I know):**
+
+* operating systems;
+* network engineering;
+* cybersecurity;
+* computer science;
+* databases administration;
+* software engineering;
+* math;
+* problem-solving.
+
+#machine-learning #ML #artificial-intelligence #AI #web #programming #future

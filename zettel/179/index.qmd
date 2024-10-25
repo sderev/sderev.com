@@ -1,0 +1,37 @@
+---
+title: "When to use `NotImplemented` and `NotImplementedError` in Python"
+subtitle: "Zettel#179"
+id: "179"
+date: 2024-10-25
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+spotlight: ""
+---
+## `NotImplemented`
+
+First of all, `NotImplemented` is not an exception; it's a built-in constant in Python. It's a special value that must be returned by the binary special methods -- that is, the methods that implement the binary operators of comparison, arithmetic, and bitwise operations (`__eq__`, `__lt__`, `__add__`, etc.) -- when the operation is not implemented for the combination of types involved.
+
+### What Happens When `NotImplemented` Is Returned
+
+**From the Python documentation**:
+
+> When a binary (or in-place) method returns `NotImplemented` the interpreter will try the reflected operation on the other type (or some other fallback, depending on the operator). If all attempts return `NotImplemented`, the interpreter will raise an appropriate exception. Incorrectly returning `NotImplemented` will result in a misleading error message or the `NotImplemented` value being returned to Python code.
+>
+> See [Implementing the arithmetic operations](https://docs.python.org/3/library/numbers.html#implementing-the-arithmetic-operations) for examples.
+
+The "reflected operation on the other type" is just the reverse operation: if `a < b` returns `NotImplemented`, Python will try `b < a`.
+
+## `NotImplementedError`
+
+Now, the `NotImplementedError` is indeed an exception. Its use is more straightforward: it should be raised when a method is not implemented yet.
+
+**From the Python documentation**:
+
+> This exception is derived from `RuntimeError`. In user defined base classes, abstract methods should raise this exception when they require derived classes to override the method, or while the class is being developed to indicate that the real implementation still needs to be added.
+
+## References
+
+* [`NotImplemented` in the Python documentation](https://docs.python.org/3/library/constants.html#NotImplemented)
+* [`NotImplementedError` in the Python documentation](https://docs.python.org/3/library/exceptions.html#NotImplementedError)
+* [A video by anthonywritescode](https://www.youtube.com/watch?v=GSBqmYUnBdk)
