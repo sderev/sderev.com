@@ -1,75 +1,56 @@
 ---
-title: "Amending a Specific Past Git Commit Without Affecting Recent Ones"
+title: "Using Git Interactive Rebase to Edit Commit Contents"
 subtitle: "Zettel#125"
 id: "125"
 date: 2023-09-28
-date-modified: ""
+date-modified: 2024-10-29
 date-format: iso
 categories: [zettelkasten]
 ---
-## Introduction
+Edit the contents of a past Git commit while preserving subsequent commits.
 
-This guide provides a step-by-step process for amending a specific past Git commit without affecting more recent commits. This is particularly useful when you've made a mistake in a past commit and want to correct it without creating a new commit or altering the latest commit.
+## Steps
 
-## Step-by-Step Guide
-
-### 1. Create a Temporary Branch
-
-Create a temporary branch to save the state of your current work.
+1. Start the rebase from the parent of the commit you want to edit:
 
 ```bash
-git switch -c temp-branch
+git log  # Find the commit hash
+git rebase -i <commit_hash>^
 ```
 
-### 2. Switch to the Commit Before the Mistake
+2. In the editor, change `pick` to `edit` for your commit:
 
-Find the commit hash of the commit you want to amend, and switch to it.
+```
+pick abc1234 Earlier commit
+edit def5678 The commit to modify
+pick ghi9012 Later commit
+```
+
+3. Make your changes:
 
 ```bash
-git log
-git switch --detach <commit_hash>
+# Edit your files
+git add -u # Or whatever you need to do
+git commit --amend
 ```
 
-### 3. Amend the Commit
-
-Make the necessary changes to the code file and stage them. Then amend the commit.
+4. Finish the rebase:
 
 ```bash
-# Make your changes to the code file
-git add <file_name>
-git commit --amend --no-edit
+git rebase --continue
+git push --force-with-lease  # If needed
 ```
 
-### 4. Reapply Subsequent Commits
+## Recovery
 
-Now reapply the commits that came after the one you amended.
+If anything goes wrong:
 
 ```bash
-git rebase --onto HEAD <commit_hash> temp-branch
+git reflog  # Find the state before rebase
+git reset --hard HEAD@{n}  # n is the number from reflog
 ```
 
-### 5. Switch Back to Main and Force Push
-
-Switch back to your main branch and force push the changes.
-
-```bash
-git switch main
-git reset --hard temp-branch
-git push --force-with-lease  # Be cautious when using force push
-```
-
-### 6. Clean Up
-
-Delete the temporary branch:
-
-```bash
-git branch -d temp-branch
-```
-
-## Important Notes
-
-* **Backup**: Always make sure to backup your repository before performing operations that rewrite history.
-* **Collaboration**: If you're working with others, you'll need to coordinate with them, as rewriting history will affect everyone else.
+But be aware that this will lose any changes you made during the rebase.
 
 ## Related Zettel
 
