@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2023-09-28">
 
-<title>Amending a Specific Past Git Commit Without Affecting Recent Ones – Sébastien De Revière</title>
+<title>Using Git Interactive Rebase to Edit Commit Contents – Sébastien De Revière</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,10 +104,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Amending a Specific Past Git Commit Without Affecting Recent Ones – Sébastien De Revière">
+<meta property="og:title" content="Using Git Interactive Rebase to Edit Commit Contents – Sébastien De Revière">
 <meta property="og:description" content="Zettel#125">
 <meta property="og:site_name" content="Sébastien De Revière">
-<meta name="twitter:title" content="Amending a Specific Past Git Commit Without Affecting Recent Ones – Sébastien De Revière">
+<meta name="twitter:title" content="Using Git Interactive Rebase to Edit Commit Contents – Sébastien De Revière">
 <meta name="twitter:description" content="Zettel#125">
 <meta name="twitter:creator" content="@sdereviere">
 <meta name="twitter:card" content="summary">
@@ -163,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page">
-      <h1 class="title">Amending a Specific Past Git Commit Without Affecting Recent Ones</h1>
+      <h1 class="title">Using Git Interactive Rebase to Edit Commit Contents</h1>
             <p class="subtitle lead">Zettel#125</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">zettelkasten</div>
@@ -182,6 +182,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">2024-10-29</p>
+      </div>
+    </div>
       
     </div>
     
@@ -197,54 +203,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>This guide provides a step-by-step process for amending a specific past Git commit without affecting more recent commits. This is particularly useful when you’ve made a mistake in a past commit and want to correct it without creating a new commit or altering the latest commit.</p>
+<p>Edit the contents of a past Git commit while preserving subsequent commits.</p>
+<section id="steps" class="level2">
+<h2 class="anchored" data-anchor-id="steps">Steps</h2>
+<ol type="1">
+<li>Start the rebase from the parent of the commit you want to edit:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">git</span> log  <span class="co"># Find the commit hash</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">git</span> rebase <span class="at">-i</span> <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span>^</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>In the editor, change <code>pick</code> to <code>edit</code> for your commit:</li>
+</ol>
+<pre><code>pick abc1234 Earlier commit
+edit def5678 The commit to modify
+pick ghi9012 Later commit</code></pre>
+<ol start="3" type="1">
+<li>Make your changes:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Edit your files</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">git</span> add <span class="at">-u</span> <span class="co"># Or whatever you need to do</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">git</span> commit <span class="at">--amend</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li>Finish the rebase:</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">git</span> rebase <span class="at">--continue</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">git</span> push <span class="at">--force-with-lease</span>  <span class="co"># If needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="step-by-step-guide" class="level2">
-<h2 class="anchored" data-anchor-id="step-by-step-guide">Step-by-Step Guide</h2>
-<section id="create-a-temporary-branch" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-temporary-branch">1. Create a Temporary Branch</h3>
-<p>Create a temporary branch to save the state of your current work.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">git</span> switch <span class="at">-c</span> temp-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="switch-to-the-commit-before-the-mistake" class="level3">
-<h3 class="anchored" data-anchor-id="switch-to-the-commit-before-the-mistake">2. Switch to the Commit Before the Mistake</h3>
-<p>Find the commit hash of the commit you want to amend, and switch to it.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> log</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">git</span> switch <span class="at">--detach</span> <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="amend-the-commit" class="level3">
-<h3 class="anchored" data-anchor-id="amend-the-commit">3. Amend the Commit</h3>
-<p>Make the necessary changes to the code file and stage them. Then amend the commit.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Make your changes to the code file</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">git</span> add <span class="op">&lt;</span>file_name<span class="op">&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">git</span> commit <span class="at">--amend</span> <span class="at">--no-edit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="reapply-subsequent-commits" class="level3">
-<h3 class="anchored" data-anchor-id="reapply-subsequent-commits">4. Reapply Subsequent Commits</h3>
-<p>Now reapply the commits that came after the one you amended.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">git</span> rebase <span class="at">--onto</span> HEAD <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span> temp-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="switch-back-to-main-and-force-push" class="level3">
-<h3 class="anchored" data-anchor-id="switch-back-to-main-and-force-push">5. Switch Back to Main and Force Push</h3>
-<p>Switch back to your main branch and force push the changes.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">git</span> switch main</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">git</span> reset <span class="at">--hard</span> temp-branch</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">git</span> push <span class="at">--force-with-lease</span>  <span class="co"># Be cautious when using force push</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="clean-up" class="level3">
-<h3 class="anchored" data-anchor-id="clean-up">6. Clean Up</h3>
-<p>Delete the temporary branch:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">git</span> branch <span class="at">-d</span> temp-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="important-notes" class="level2">
-<h2 class="anchored" data-anchor-id="important-notes">Important Notes</h2>
-<ul>
-<li><strong>Backup</strong>: Always make sure to backup your repository before performing operations that rewrite history.</li>
-<li><strong>Collaboration</strong>: If you’re working with others, you’ll need to coordinate with them, as rewriting history will affect everyone else.</li>
-</ul>
+<section id="recovery" class="level2">
+<h2 class="anchored" data-anchor-id="recovery">Recovery</h2>
+<p>If anything goes wrong:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">git</span> reflog  <span class="co"># Find the state before rebase</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD@{n}  <span class="co"># n is the number from reflog</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But be aware that this will lose any changes you made during the rebase.</p>
 </section>
 <section id="related-zettel" class="level2">
 <h2 class="anchored" data-anchor-id="related-zettel">Related Zettel</h2>
