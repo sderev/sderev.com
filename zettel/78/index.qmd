@@ -3,11 +3,17 @@ title: "Quick Workflow for Making a Screencast on Windows"
 subtitle: "Zettel#78"
 id: "78"
 date: 2023-04-19
-date-modified: ""
+date-modified: 2024-11-04
 date-format: iso
 categories: [zettelkasten]
 ---
-## Step 1: Record a Video with Windows Game Bar
+## Step 1: Record a Video
+
+### With the Snipping Tool
+
+Press the key combination `Win + Shift + S` and select the camera icon.
+
+### With the Windows Game Bar
 
 Press the key combination `Win + Alt + R` to start or stop recording a video clip of **the active application** using the Windows Game Bar. The recorded videos are saved into your `Videos` folder by default.
 
