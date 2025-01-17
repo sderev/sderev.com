@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-07a02edaac2151d1db16f48b228be1a9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-acd9639646d8a96f615a59c49fb51459.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -148,6 +148,12 @@ ul.task-list li input[type="checkbox"] {
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">2025-01-17</p>
+      </div>
+    </div>
       
     </div>
     
@@ -164,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Although my tenacious habit of searching everything on the web when I can’t remember something has been helpful so far, I recognize the need to focus more on creating content for my Zettelkasten.</p>
-<p>When I forget something, I tend not to write a Zettel for it, either because I consider it too trivial to merit one or because I assume I could easily find the information again. However, the Zettelkasten is not just an archive of notes but also a tool to generate new knowledge. Taking the time to write a note, even for seemingly mundane information, like my <a href="../../zettel/38">Zettel#38</a> about switching the case of characters in Vim, can be an effective method to retain the information in my long-term memory.</p>
+<p>When I forget something, I tend not to write a Zettel for it, either because I consider it too trivial to merit one or because I assume I could easily find the information again. However, a Zettelkasten is not just an archive of notes but also a tool to generate new knowledge. Taking the time to write a note, even for seemingly mundane information – such as my Zettel#38 about switching the case of characters in Vim – can be an effective method for retaining information in long-term memory – as long as the process doesn’t focus only on encoding the information but also involves regular information retrieval practice afterward.</p>
 <p>This is what I wrote in my draft article, “<em>How to learn</em>”, really. It’s crucial to practice what you preach; and I realize that I need to apply this approach more often myself.</p>
 
 
@@ -252,8 +258,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -366,7 +370,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
