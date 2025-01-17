@@ -1,0 +1,40 @@
+---
+title: "`pushd` and `popd` are on a boat..."
+subtitle: "Zettel#50"
+id: "50"
+date: 2023-03-30
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+`pushd` and `popd` are shell commands that allow you to manipulate the directory stack in Linux and Unix-like systems. The directory stack is a list of directories to which you can quickly switch back and forth. Using `pushd` and `popd` can make navigating through the file system more efficient.
+
+### pushd command
+
+The `pushd` command adds a directory to the top of the stack and changes the current directory to the specified one:
+
+```bash
+pushd /path/to/directory
+```
+
+### popd command
+
+The `popd` command removes the top directory from the stack and changes the current directory to the one that was removed:
+
+```bash
+popd
+```
+
+### Common use case
+
+You can use `pushd` and `popd` to switch between two directories easily. First, navigate to the first directory, then use `pushd` to switch to the second directory. To switch back to the first directory, use `popd`.
+
+```bash
+cd /path/to/first_directory
+pushd /path/to/second_directory
+popd
+```
+
+### `dirs` command
+
+The `pushd`, `popd`, and `dirs` commands are built-in to most Unix-like shells, allowing you to manage the directory stack and efficiently navigate the file system.
