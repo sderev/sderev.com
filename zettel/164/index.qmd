@@ -1,0 +1,11 @@
+---
+title: "What is Style?"
+subtitle: "Zettel#164"
+id: "164"
+date: 2024-07-08
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+spotlight: ""
+---
+It's the thing that, when expressed, is the incarnation of an identity.
