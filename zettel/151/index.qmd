@@ -1,0 +1,13 @@
+---
+title: "Vim: Moving to Next Search Pattern in Incremental Search"
+subtitle: "Zettel#151"
+id: "151"
+date: 2024-04-24
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+In Vim's incremental search, you can navigate through matches without committing the search or leaving search mode.
+
+* Press `<C-g>` (Ctrl+G) to move to the next match.
+* Press `<C-t>` (Ctrl+T) to move to the previous match.
