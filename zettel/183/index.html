@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-08-31">
+<meta name="dcterms.date" content="2025-02-18">
 
-<title>Easily move a WSL distribution to another drive – Sébastien De Revière</title>
+<title>Python doesn’t perform tail-call optimization – Sébastien De Revière</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,11 +104,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Easily move a WSL distribution to another drive – Sébastien De Revière">
-<meta property="og:description" content="Zettel#175">
+<meta property="og:title" content="Python doesn’t perform tail-call optimization – Sébastien De Revière">
+<meta property="og:description" content="Zettel#183">
 <meta property="og:site_name" content="Sébastien De Revière">
-<meta name="twitter:title" content="Easily move a WSL distribution to another drive – Sébastien De Revière">
-<meta name="twitter:description" content="Zettel#175">
+<meta name="twitter:title" content="Python doesn’t perform tail-call optimization – Sébastien De Revière">
+<meta name="twitter:description" content="Zettel#183">
 <meta name="twitter:creator" content="@sdereviere">
 <meta name="twitter:card" content="summary">
 </head>
@@ -163,8 +163,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page">
-      <h1 class="title">Easily move a WSL distribution to another drive</h1>
-            <p class="subtitle lead">Zettel#175</p>
+      <h1 class="title">Python doesn’t perform tail-call optimization</h1>
+            <p class="subtitle lead">Zettel#183</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">zettelkasten</div>
               </div>
@@ -178,7 +178,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2024-08-31</p>
+        <p class="date">2025-02-18</p>
       </div>
     </div>
     
@@ -197,10 +197,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>No more export/import. Since <a href="https://github.com/microsoft/WSL/releases/tag/2.3.11">WSL2 <code>2.3.11</code></a>, there is a new command to move a WSL distribution to another drive.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1"></a>wsl <span class="op">--</span>manage <span class="op">&lt;</span>Distro<span class="op">&gt;</span> <span class="op">--</span>move <span class="op">&lt;</span>Location<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Python simply doesn’t implement tail-call optimization for this reason:</p>
+<blockquote class="blockquote">
+<p>Guido van Rossum contends that stack traces are altered by tail-call elimination making debugging harder, and prefers that programmers use explicite iteration instead.</p>
+<p><a href="https://en.wikipedia.org/wiki/Tail_call">source</a></p>
+</blockquote>
+<section id="what-is-a-tail-call-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-tail-call-optimization">What is a tail-call optimization</h2>
+<p>From <a href="https://web.archive.org/web/20250207232634/https://py.mit.edu/fall24/readings/recursion2#_optimizations">MIT 6.101</a>:</p>
+<blockquote class="blockquote">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> sum_list(x):</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="kw">def</span> sum_helper(sum_so_far, lst):</span>
+<span id="cb1-3"><a href="#cb1-3"></a>        <span class="cf">if</span> <span class="kw">not</span> lst:</span>
+<span id="cb1-4"><a href="#cb1-4"></a>            <span class="cf">return</span> sum_so_far</span>
+<span id="cb1-5"><a href="#cb1-5"></a>        <span class="cf">else</span>:</span>
+<span id="cb1-6"><a href="#cb1-6"></a>            num <span class="op">=</span> lst[<span class="dv">0</span>]</span>
+<span id="cb1-7"><a href="#cb1-7"></a>            rest <span class="op">=</span> lst[<span class="dv">1</span>:]</span>
+<span id="cb1-8"><a href="#cb1-8"></a>            <span class="cf">return</span> sum_helper(sum_so_far <span class="op">+</span> num, rest)</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    <span class="cf">return</span> sum_helper(<span class="dv">0</span>, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The recursion-depth limit can be fixed by tail-call optimization. If the recursion is written so that the recursive call is the last thing done in the body of the function – like the line return sum_helper(…) in the recursive version of sum_list above – then this recursive call is called a tail call, coming as it does at the tail end of the work the function has to do. Tail-call optimization means that, when the runtime system encounters a tail call, it deduces that it will no longer need the frame for the current call and can simply reuse it for the new recursive call, rather than creating a new frame. With tail-call optimization, every recursive call to sum_helper simply reuses the same frame, the recursion depth never exceeds 1, and the performance of the recursive version is essentially like a loop.</p>
+<p>Tail-call optimization can’t be applied to a recursive call that isn’t at the very end of the function. If sum_list were written as we originally had it, with return x[0] + sum_list(x[1:]), then this is not a tail call, because the function still needs to do some more work (adding x[0]) after the recursive call comes back. Tail-call optimization is also blocked if the frame needs to be kept for a function object that was created during the call.</p>
+<p>Python unfortunately does not implement tail-call optimization, but other languages do.</p>
+</blockquote>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><a href="https://web.archive.org/web/20250207232634/https://py.mit.edu/fall24/readings/recursion2#_optimizations">MIT 6.101</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tail_call">Wikipedia: Tail call</a></li>
+<li><a href="https://neopythonic.blogspot.com/2009/04/tail-recursion-elimination.html">Article by Guido van Rossum (2009)</a></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
