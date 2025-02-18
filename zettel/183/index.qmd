@@ -1,0 +1,43 @@
+---
+title: "Python doesn't perform tail-call optimization"
+subtitle: "Zettel#183"
+id: "183"
+date: 2025-02-18
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+spotlight: ""
+---
+Python simply doesn't implement tail-call optimization for this reason:
+
+> Guido van Rossum contends that stack traces are altered by tail-call elimination making debugging harder, and prefers that programmers use explicite iteration instead. 
+>
+> [source](https://en.wikipedia.org/wiki/Tail_call)
+
+## What is a tail-call optimization
+
+From [MIT 6.101](https://web.archive.org/web/20250207232634/https://py.mit.edu/fall24/readings/recursion2#_optimizations):
+
+> ```python
+> def sum_list(x):
+>     def sum_helper(sum_so_far, lst):
+>         if not lst:
+>             return sum_so_far
+>         else:
+>             num = lst[0]
+>             rest = lst[1:]
+>             return sum_helper(sum_so_far + num, rest)
+>     return sum_helper(0, x)
+> ```
+>
+> The recursion-depth limit can be fixed by tail-call optimization. If the recursion is written so that the recursive call is the last thing done in the body of the function -- like the line return sum_helper(...) in the recursive version of sum_list above -- then this recursive call is called a tail call, coming as it does at the tail end of the work the function has to do. Tail-call optimization means that, when the runtime system encounters a tail call, it deduces that it will no longer need the frame for the current call and can simply reuse it for the new recursive call, rather than creating a new frame. With tail-call optimization, every recursive call to sum_helper simply reuses the same frame, the recursion depth never exceeds 1, and the performance of the recursive version is essentially like a loop.
+>
+> Tail-call optimization can't be applied to a recursive call that isn't at the very end of the function. If sum_list were written as we originally had it, with return x[0] + sum_list(x[1:]), then this is not a tail call, because the function still needs to do some more work (adding x[0]) after the recursive call comes back. Tail-call optimization is also blocked if the frame needs to be kept for a function object that was created during the call.
+> 
+> Python unfortunately does not implement tail-call optimization, but other languages do.
+
+## References
+
+* [MIT 6.101](https://web.archive.org/web/20250207232634/https://py.mit.edu/fall24/readings/recursion2#_optimizations)
+* [Wikipedia: Tail call](https://en.wikipedia.org/wiki/Tail_call)
+* [Article by Guido van Rossum (2009)](https://neopythonic.blogspot.com/2009/04/tail-recursion-elimination.html)
