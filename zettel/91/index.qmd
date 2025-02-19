@@ -3,7 +3,7 @@ title: "Learn Git and GitHub"
 subtitle: "Zettel#91"
 id: "91"
 date: 2023-05-27
-date-modified: 2024-06-17
+date-modified: 2025-02-19
 date-format: iso
 categories: [zettelkasten]
 spotlight: "⭐"
@@ -25,6 +25,7 @@ spotlight: "⭐"
   * [Git 2: Disaster Recovery](https://web.mit.edu/6.102/www/sp23/tools/git-2-disaster-recovery/)
   * [Git 3: Team Version Control](https://web.mit.edu/6.102/www/sp23/tools/git-3-team-version-control/)
 * [Learn Git Branching](https://learngitbranching.js.org/): An interactive tutorial to learn about Git branching.
+* [ThePrimeagen doing both of his own boot.dev courses on `git`](https://www.youtube.com/watch?v=rH3zE7VlIMs)
 
 ### Not Free Resources
 
