@@ -1,0 +1,34 @@
+---
+title: "Generating Secure Passwords with Linux Tools"
+subtitle: "Zettel#18"
+id: "18"
+date: 2022-11-23
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+> Debian provides **makepasswd**, **apg**, and **pwgen** packages which provide programs (the name is the same as the package) that can be used for generate passwords.
+>
+> **Makepassd** will generate true random passwords with an emphasis on security over pronounceability while **pwgen** will try to make meaningless but pronounceable passwords.
+
+<https://www.debian.org/doc/manuals/securing-debian-manual/ch04s11.en.html#user-pwgen>
+
+## Highly Secure Random Passwords with makepasswd
+
+The `makepasswd` command is a utility available in many Linux distributions to create high-security passwords. It focuses on generating truly random character strings, which, while less pronounceable, offer a high degree of security. 
+
+```bash
+makepasswd --chars 16 --count 10
+```
+
+The `--chars 16` option sets the length of the password to 16 characters, and the `--count 10` option specifies the creation of 10 unique passwords.
+
+## Pronounceable Passwords with pwgen
+
+`pwgen` is another password generation utility available on many Linux distributions. Unlike `makepasswd`, it aims to produce passwords that, while still secure, are easier to pronounce and thus potentially easier to remember.
+
+```bash
+pwgen 16 10 -1
+```
+
+The `16` argument sets the length of the password to 16 characters, `10` specifies the generation of 10 unique passwords, and the `-1` flag ensures that each password is printed on a separate line for better readability.
