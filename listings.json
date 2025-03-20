@@ -1,12 +1,5 @@
 [
   {
-    "listing": "/index.html",
-    "items": [
-      "/posts/vim-url-opener/index.html",
-      "/posts/mastering-llm-week-1/index.html"
-    ]
-  },
-  {
     "listing": "/zettel/index.html",
     "items": [
       "/zettel/184/index.html",
@@ -175,6 +168,7 @@
       "/zettel/21/index.html",
       "/zettel/20/index.html",
       "/zettel/19/index.html",
+      "/zettel/185/index.html",
       "/zettel/18/index.html",
       "/zettel/17/index.html",
       "/zettel/16/index.html",
@@ -194,6 +188,13 @@
       "/zettel/2/index.html",
       "/zettel/1/index.html",
       "/zettel/0/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/vim-url-opener/index.html",
+      "/posts/mastering-llm-week-1/index.html"
     ]
   }
 ]
