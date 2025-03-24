@@ -1,0 +1,21 @@
+---
+title: "Standard Recursive Paradigm"
+subtitle: "Zettel#182"
+id: "182"
+date: 2025-02-18
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+spotlight: ""
+---
+From the book *Programming Abstractions in C++*:
+
+```cpp
+if (test for simple case) {
+    // Compute a simple solution without using recursion.
+} else {
+    // Break the problem down into subproblems of the same form.
+    // Solve each of the subproblems by calling this function recursively.
+    // Reassemble the subproblem solutions into a solution for the whole.
+}
+```
