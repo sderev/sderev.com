@@ -1,0 +1,29 @@
+---
+title: "Zero-Setup Python Script Dependencies with `uv`"
+subtitle: "Zettel#186"
+id: "186"
+date: 2025-03-24
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+spotlight: ""
+---
+With this header, `uv` automatically creates and manages a dedicated virtual environment for your script.
+
+```python
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#     "package-name>=1.0.0",
+#     "another-package",
+# ]
+# ///
+
+# Rest of the script...
+```
+
+## References
+
+* [Python Packaging - Inline Script Metadata](https://packaging.python.org/en/latest/specifications/inline-script-metadata/#inline-script-metadata)
+* [`uv` Documentation - Running Scripts with Dependencies](https://docs.astral.sh/uv/guides/scripts/#running-a-script-with-dependencies)
