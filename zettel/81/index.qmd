@@ -1,0 +1,19 @@
+---
+title: "Instantly Paste Emojis Using a Windows Keybind"
+subtitle: "Zettel#81"
+id: "81"
+date: 2023-04-22
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+You probably know you can access the clipboard on Windows by pressing `Win + V`. This opens up a pane with various tabs, including one for pasting emojis. However, a direct way to access the emoji pane (that I just discovered!) is by pressing `Win + .` (period key).
+
+For AZERTY keyboards, use `Win + ;` (semicolon key) instead.
+
+## Related Zettel
+
+* [Zettel#87](/zettel/87)
+* [Zettel#78](/zettel/78)
+* [Zettel#47](/zettel/47)
+* [Zettel#16](/zettel/16)
