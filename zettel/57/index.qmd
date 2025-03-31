@@ -1,0 +1,62 @@
+---
+title: "How to create a virtual environment for a Python project"
+subtitle: "Zettel#57"
+id: "57"
+date: 2023-04-05
+date-modified: ""
+date-format: iso
+categories: [zettelkasten]
+---
+A brief guide on creating and managing a virtual environment for your Python projects using either the built-in `venv` module or the popular third-party tool `virtualenv`. Both methods allow for project-specific dependencies and settings, enabling you to work on multiple projects with different requirements on the same machine without conflicts.
+
+You can install `virtualenv` using pip by running `pip install virtualenv`, or you can use your system's package manager (for example, on Debian-based systems: `sudo apt install python3-virtualenv`).
+
+## Create the virtual environment
+
+### With the `venv` module:
+
+```bash
+python -m venv .venv
+```
+
+### With `virtualenv`:
+
+```bash
+virtualenv .venv
+```
+
+Replace `.venv` with your desired environment name (see below for suggestions).
+
+## Activate the virtual environment
+
+### On Unix-based systems:
+
+```bash
+. .venv/bin/activate
+```
+
+### On Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+The terminal prompt should change to show the virtual environment's name.
+
+## Deactivate the virtual environment
+
+```bash
+deactivate
+```
+
+## Naming the virtual environment
+
+There is no strict rule for naming a virtual environment, but some common conventions include using descriptive names or names that follow a standard pattern. Here are a few suggestions:
+
+1. `venv`: This is a simple and common name used for virtual environments. It is clear and concise, making it easy to recognize.
+2. `.venv`: By adding a dot (.) at the beginning, the virtual environment is treated as a hidden folder in Unix-based systems. This is a common convention, especially when the virtual environment is located within the project folder.
+3. `env`: Another short and clear name that indicates it's a virtual environment.
+4. `myenv`: Replace `my` with a more descriptive name related to the project or purpose of the environment.
+5. `projectname_env`: Replace `projectname` with the name of the project. This helps to easily identify the virtual environment associated with a specific project.
+
+Keep in mind that it's a good practice to choose a name that clearly indicates the purpose or project it's associated with. This makes it easier for you and others to manage and understand the virtual environments when working on multiple projects.
