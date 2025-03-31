@@ -28,7 +28,4 @@ about:
     #  icon: linkedin
     #  href: https://linkedin.com/in/sderev
 ---
-*The elegance in this picture has been playfully elevated with AI.*
-
-___
 This website serves as a platform for publishing some of my notes.
