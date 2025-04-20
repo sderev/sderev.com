@@ -1,0 +1,18 @@
+---
+title: "LICEcap: A Simple Tool for Recording GIFs"
+subtitle: "Note#98"
+id: "98"
+date: 2023-06-15
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+It's a plain and simple software: [LICEcap](https://www.cockos.com/licecap/)
+
+> LICEcap can capture an area of your desktop and save it directly to .GIF (for viewing in web browsers, etc) or .LCF (see below).
+>
+> LICEcap is an intuitive but flexible application (for Windows and now OSX), that is designed to be lightweight and function with high performance.
+
+## Related Notes
+
+* [Note#78](/notes/78)

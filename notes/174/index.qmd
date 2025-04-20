@@ -1,0 +1,48 @@
+---
+title: "Hiding Commands and Options in `Click` CLI Help Messages"
+subtitle: "Note#174"
+id: "174"
+date: 2024-08-18
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+With `Click`, you can hide a specific option or command from appearing in the help message by setting the `hidden` parameter to `True`.
+
+## Hiding an Option
+
+```python
+@click.option(
+    ...
+    hidden=True,
+)
+```
+
+## Hiding a Command
+
+```python
+@click.command(
+    ...
+    hidden=True,
+)
+```
+
+## Indicate a Deprecated Command
+
+You can use the parameter `deprecated` to indicate that a command is deprecated.
+
+```python
+@click.command(
+    ...
+    deprecated=True,
+)
+```
+
+## References
+
+* [`Click` API Reference - Option](https://click.palletsprojects.com/en/8.1.x/api/#click.Option)
+
+## Related Notes
+
+* [Note#70](/notes/70/)

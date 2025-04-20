@@ -1,0 +1,58 @@
+---
+title: "Protect yourself from overwriting files with the `noclobber` option"
+subtitle: "Note#55"
+id: "55"
+date: 2023-04-02
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+### Using the `noclobber` option:
+
+`noclobber` is a shell option in Unix-like systems that prevents accidental overwriting of existing files when using output redirection with the `>` operator. This option is supported only in interactive shells, however. Keep in mind that **your scripts will still overwrite files** even with `noclobber` enabled.
+
+To enable the `noclobber` option, use the `set` command:
+
+```bash
+set -o noclobber
+```
+
+*Add this line to your `.bashrc` or `.zshrc` for permanent effect.* Zsh uses `setopt` and `unsetopt`, but it also supports `set -o` and `set +o`.
+
+**If you want the correct zsh option, add this instead:**
+
+```zsh
+unsetopt clobber
+```
+
+### Example of `noclobber` preventing file overwriting
+
+Output redirection allows you to save the output of a command to a file. However, using the `>` operator can accidentally overwrite existing files. With `noclobber` enabled, this won't happen:
+
+```bash
+echo "Hello, world!" > file.txt
+echo "This will not overwrite." > file.txt
+# Error: cannot overwrite existing file
+```
+
+### The `>|` operator
+
+You can still overwrite the file while the `noclobber` option is enabled. You just have to use the `>|` operator.
+
+**Example:**
+
+```bash
+echo "This will overwrite." >| file.txt
+```
+
+### Disabling `noclobber`
+
+**Bash:**
+
+```bash
+set +o noclobber
+```
+
+## Related Notes
+
+* [Note#58](/notes/58)

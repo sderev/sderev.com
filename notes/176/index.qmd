@@ -1,0 +1,51 @@
+---
+title: "Some Python Type Challenges"
+subtitle: "Note#176"
+id: "176"
+date: 2024-09-22
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+A series of Python type challenges made by [laike9m](https://github.com/laike9m):
+
+<https://python-type-challenges.zeabur.app/>
+
+Even in the basic challenges, I've discovered `typing.Final` (added in version 3.8) and the deprecated `typing.TypeAlias` (added in version 3.10 but deprecated since version 3.12) that should be replaced with the `type` statement.
+
+## `typing.Final`
+
+> Final names cannot be reassigned in any scope. Final names declared in class scopes cannot be overridden in subclasses.
+> For example:
+
+```python
+from typing import Final
+
+
+MAX_SIZE: Final = 9000
+MAX_SIZE += 1  # Error reported by type checker
+
+class Connection:
+    TIMEOUT: Final[int] = 10
+
+class FastConnector(Connection):
+    TIMEOUT = 1 # Error reported by type checker
+
+```
+
+## `type` statement
+
+> The type statement declares a type alias, which is an instance of typing.TypeAliasType.
+>
+> For example, the following statement creates a type alias:
+
+```python
+type Point = tuple[float, float]
+```
+
+## References
+
+* [`typing.Final`](https://docs.python.org/3/library/typing.html#typing.Final)
+* [`typing.TypeAlias`](https://docs.python.org/3/library/typing.html#typing.TypeAlias)
+* [`type` statement](https://docs.python.org/3/reference/simple_stmts.html#type)

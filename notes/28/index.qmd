@@ -1,0 +1,16 @@
+---
+title: "How to see network traffic in real time in Linux"
+subtitle: "Note#28"
+id: "28"
+date: 2022-11-29
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+The `cbm` package is a small tool that shows network traffic in real time. Plain and simple.
+
+```bash
+apt install cbm
+```
+
+  #server #sysadmin

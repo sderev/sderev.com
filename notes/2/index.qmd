@@ -1,0 +1,26 @@
+---
+title: "How to change the default editor in Linux (when it's Nano instead of Vim)"
+subtitle: "Note#2"
+id: "2"
+date: 2022-07-13
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+### Add to `.bashrc` / `.zshrc`
+
+```bash
+export EDITOR=vim
+```
+
+### Or run the following command to set the default editor for your user account
+
+```bash
+select-editor
+```
+
+### To set the system-wide default editor
+
+```bash
+sudo update-alternatives --config editor
+```

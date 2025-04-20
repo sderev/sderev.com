@@ -1,0 +1,156 @@
+---
+title: "Containers, Docker, and Podman"
+subtitle: "Note#90"
+id: "90"
+date: 2023-05-27
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+## What is a Container?
+
+A container is an instance of an image, which is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.
+
+### Consistency across environments
+
+Regardless of where you're running your application - locally, in a testing environment, or in production - it will work the same way inside a container.
+
+### Isolation
+
+Each container runs in isolation from other containers, ensuring that they don't interfere with each other. This is similar to virtual machines (VMs), but with an important difference. While VMs virtualize the hardware, providing a full operating system stack for each VM, containers share the same host system kernel and isolate the application processes. This makes containers much lighter and faster than VMs.
+
+### Portability
+
+You can run your containerized application on any system that supports containerization technology, without worrying about system-specific dependencies.
+
+## Docker vs Podman: A Detailed Comparison
+
+While Docker has been the go-to container platform for a long time, Podman offers some unique advantages.
+
+### Daemonless
+
+Unlike Docker, which relies on a daemon, Podman doesn't require a daemon to function, leading to improved security and less overhead.
+
+### Rootless Containers
+
+Podman allows you to run containers without root privileges, providing additional security.
+
+### Open Container Initiative (OCI) Compliance
+
+Both Docker and Podman are compliant with the OCI specifications. However, Podman's implementation is stricter and does not include Docker's non-standard features.
+
+### Command Compatibility
+
+Podman is completely command-compatible with Docker, meaning you can use the same commands and Dockerfiles as you would with Docker.
+
+## Leveraging Containers for Efficient Workflow
+
+### Development Efficiency
+
+For developers, containers guarantee that the environment remains consistent across development, testing, and production stages. This means no more "It works on my machine" issues.
+
+### Simplified Testing
+
+If your role involves software testing, you can quickly spin up an isolated environment with containers to test different versions of your application under varying conditions.
+
+### Smoothened Deployment
+
+Deploying software with containers ensures that the software behaves exactly as intended, regardless of the deployment environment.
+
+## Podman Commands (compatible with Docker)
+
+Podman commands are identical to Docker commands, ensuring a smooth transition between the two. Here are some of the key Podman commands you'll use:
+
+### Pull an Image
+
+```
+podman pull registry_name/repository_name:image_tag
+```
+
+The `:image_tag` is optional and defaults to `:latest` if not provided.
+
+### Build an Image
+
+```
+podman build -t my_image .
+```
+
+### Run a Container
+
+```
+podman run -d --name my_container my_image
+```
+
+### Run a Container Interactively with a Custom Hostname and Name, and Remove it after Exit
+
+```
+podman run -it --rm --hostname=my_hostname --name=my_container my_image
+```
+
+### List Running Containers
+
+```
+podman ps
+```
+
+### List all Containers, Including Stopped Ones
+
+```
+podman ps -a
+```
+
+### Start a Container and Attach its Output
+
+```
+podman start -a my_container
+```
+
+### View Logs for a Container
+
+```
+podman logs my_container
+```
+
+### Execute a Command Inside a Running Container
+
+```
+podman exec -it my_container command
+```
+
+### Create a new image from a container's changes
+
+```
+podman commit -c 'USER your_username' -c 'WORKDIR /path/to/workdir' my_container my_new_image
+```
+
+The `-c` or (`--change`) option allows to apply Dockerfile instructions to the image we are creating.
+
+### Initialize a Container
+
+```
+podman init my_container
+```
+
+### Stop a Container
+
+```
+podman stop my_container
+```
+
+### Remove a Container
+
+```
+podman rm my_container
+```
+
+### List Images
+
+```
+podman images
+```
+
+### Remove an Image
+
+```
+podman rmi my_image
+```

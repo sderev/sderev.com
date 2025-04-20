@@ -1,0 +1,15 @@
+---
+title: "Easily move a WSL distribution to another drive"
+subtitle: "Note#175"
+id: "175"
+date: 2024-08-31
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+No more export/import. Since [WSL2 `2.3.11`](https://github.com/microsoft/WSL/releases/tag/2.3.11), there is a new command to move a WSL distribution to another drive.
+
+```powershell
+wsl --manage <Distro> --move <Location>
+```

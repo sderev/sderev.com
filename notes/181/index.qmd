@@ -1,0 +1,21 @@
+---
+title: "Use `getpass` to Get Passwords in Small Python Scripts"
+subtitle: "Note#181"
+id: "181"
+date: 2024-11-24
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+For a small Python script, that is when you don't use `click` for instance, you should use the `getpass` module to get passwords as it hides the password while typing.
+
+```python
+import getpass
+
+password = getpass.getpass('Password: ')
+```
+
+## References
+
+* [`getpass` — Portable password input](https://docs.python.org/3/library/getpass.html)

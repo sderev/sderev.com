@@ -1,0 +1,58 @@
+---
+title: "Linux Output Redirection"
+subtitle: "Note#58"
+id: "58"
+date: 2023-04-06
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+## Standard Output (stdout)
+
+To redirect stdout to a file, use the `>` operator:
+
+```bash
+command > output.txt
+```
+
+To append stdout to a file, use the `>>` operator:
+
+```bash
+command >> output.txt
+```
+
+## Standard Error (stderr)
+
+To redirect stderr to a file, use the `2>` operator:
+
+```bash
+command 2> errors.txt
+```
+
+## Redirecting stdout and stderr Separately
+
+To redirect stdout and stderr to separate files:
+
+```bash
+command > output.txt 2> errors.txt
+```
+
+## Redirecting stdout and stderr to the Same File
+
+To redirect both stdout and stderr to the same file:
+
+```bash
+command > output_and_errors.txt 2>&1
+```
+
+Here, `2>&1` means "redirect stderr (2) to the same location as stdout (1)".
+
+Or even simpler, as it does the same thing:
+
+```bash
+command &> output_and_errors.txt
+```
+
+## Related Notes
+
+* [Note#55](/notes/55)

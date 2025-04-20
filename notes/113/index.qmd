@@ -1,0 +1,39 @@
+---
+title: "Command History Search (Shell with Vi Mode)"
+subtitle: "Note#113"
+id: "113"
+date: 2023-08-22
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+When using `zsh` or `bash` with `vi` mode enabled, you can efficiently navigate and search through your command history.
+
+## Entering Command Mode
+
+Ensure you're in command mode (normal mode) by pressing `ESC`.
+
+## Searching in History
+
+To **search backward** through previous commands:
+
+* Press `/` followed by your search term.
+* Press `Enter`.
+
+## Navigating Search Results and History
+
+After initiating a search, navigate through matches and history using:
+
+* `n` - for the **next** match in the direction of your initial search.
+* `N` - for the **previous** match, opposite to your initial search.
+* `j` - to move to the **next** command in history (downwards).
+* `k` - to move to the **previous** command in history (upwards).
+
+## Configuring `zsh` for Shared History (useful with tmux)
+
+To ensure that all `zsh` sessions (e.g., across different `tmux` panes or windows) share the same command history, add the following option to your `zshrc`:
+
+```sh
+# Enables sharing of command history between different zsh sessions.
+setopt share_history
+```
