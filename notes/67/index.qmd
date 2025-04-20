@@ -1,0 +1,25 @@
+---
+title: "If Your Code Uses `f-strings`, Your Dictionaries Are Already Ordered"
+subtitle: "Note#67"
+id: "67"
+date: 2023-04-11
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+Here's a helpful reminder for those who might be concerned about using `OrderedDict` for compatibility reasons:
+
+> You probably don't need OrderedDict.
+>
+> If your code has f-strings in it, you can rely on dictionaries maintaining their order. 📑
+>
+> Dictionaries are ordered as of Python 3.6. Using an f-string before Python 3.6 results in syntax errors.
+> Traduire le Tweet
+>
+> [From Trey Hunner](https://twitter.com/treyhunner/status/1645593757847367680)
+
+This behavior was implemented in CPython 3.6, and guaranteed in Python 3.7 (source: <https://docs.python.org/3/whatsnew/3.6.html#new-dict-implementation>).
+
+So f-strings may not always be helpful to determine if dictionaries are ordered.
+
+But I'm with him on this nonetheless. I don't want to split hairs. It's a good rule to follow.
