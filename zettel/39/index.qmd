@@ -1,14 +1,15 @@
 ---
-title: "Write a Zettel even if you think you don't need it"
+title: "Write a note even if you think you don't need it"
 subtitle: "Zettel#39"
 id: "39"
 date: 2023-03-07
-date-modified: 2025-01-17
+date-modified: 2025-04-20
 date-format: iso
 categories: [zettelkasten]
 ---
-Although my tenacious habit of searching everything on the web when I can't remember something has been helpful so far, I recognize the need to focus more on creating content for my Zettelkasten.
+Although my tenacious habit of searching everything on the web when I can't remember something has been helpful so far, focusing on taking notes may help me remember things better as a it could be a stronger encoding of the information.
 
-When I forget something, I tend not to write a Zettel for it, either because I consider it too trivial to merit one or because I assume I could easily find the information again. However, a Zettelkasten is not just an archive of notes but also a tool to generate new knowledge. Taking the time to write a note, even for seemingly mundane information – such as my Zettel#38 about switching the case of characters in Vim – can be an effective method for retaining information in long-term memory – as long as the process doesn't focus only on encoding the information but also involves regular information retrieval practice afterward.
+When I forget something, I tend not to write a note about it, either because I consider it too trivial to merit one or because I assume I could easily find the information again. However, writing shouldn't be seen as a way to create an archive of notes but also as a tool to generate new knowledge. Taking the time to write a note, even for seemingly mundane information – such as my Note#38 about switching the case of characters in Vim – can be an effective method for retaining information in long-term memory – as long as the process doesn't focus only on encoding the information but also involves regular information retrieval practice afterward.
 
 This is what I wrote in my draft article, "*How to learn*", really. It's crucial to practice what you preach; and I realize that I need to apply this approach more often myself.
+
