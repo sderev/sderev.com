@@ -3,7 +3,7 @@ title: "Week 1: When and Why to Fine-Tune an LLM"
 date: "2024-05-26"
 categories: [mastering-llm]
 description: "My notes for the first week of the [Mastering LLMs](https://maven.com/parlance-labs/fine-tuning) conference hosted by [Hamel Husain](https://x.com/HamelHusain) and [Dan Becker](https://x.com/dan_s_becker)."
-image: "img/reading-a-book.png"
+image: "img/robot-reading-a-book.png"
 ---
 I have rephrased the quotes for better readability, and enriched some of the content with additional information.
 
