@@ -10,8 +10,8 @@ website:
   navbar:
     right:
       - index.qmd
-      - text: "Zettelkasten"
-        href: zettel/index.qmd
+      - text: "Notes"
+        href: notes/index.qmd
       - about.qmd
       - icon: github
         href: https://github.com/sderev

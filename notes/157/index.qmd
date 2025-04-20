@@ -1,0 +1,17 @@
+---
+title: "Change Model Directory for Ollama"
+subtitle: "Note#157"
+id: "157"
+date: 2024-06-12
+date-modified: 2024-06-16
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+You can set an environment variable `OLLAMA_MODELS` according to [the documentation](https://github.com/ollama/ollama/blob/main/docs/faq.md#where-are-models-stored). However, it seems like it doesn't always work for unknown reasons.
+
+Instead, you can create a symbolic link to a custom model directory:
+
+```bash
+sudo ln -s /path/to/custom/ollama/model_dir/ /usr/share/ollama/.ollama
+```
