@@ -27,5 +27,3 @@ Now, when I want to write some notes on an article, here is what I do:
 * Search for the article I want to write about.
 * Select the metadata.
 * Run a script that generates a note template with the selected metadata.
-
-I manage my notes with my `zettelkit` tool and write in Vim.
