@@ -15,8 +15,9 @@ Regarding the spectrum of strong and weak typing, I tend to define it based on h
 
 ## Strongly Typed Languages
 
-* In strongly typed languages, a variable, once declared with a specific data type, cannot be assumed to be another type without an explicit conversion.
-* Operations between incompatible types are usually disallowed without an explicit conversion.
+In strongly typed languages, a variable, once declared with a specific data type, cannot be assumed to be another type without an explicit conversion.
+
+Operations between incompatible types are usually disallowed without an explicit conversion.
 
 ### Example in Python
 
@@ -36,8 +37,9 @@ var letter string = "A"
 
 ## Weakly Typed Languages
 
-* Weakly typed languages allow variables to be used as though they were of different types with no explicit conversion.
-* The language tries to deduce the operation contextually, which can lead to unpredictable results.
+Weakly typed languages allow variables to be used as though they were of different types with no explicit conversion.
+
+The language tries to deduce the operation contextually, which can lead to unpredictable results.
 
 ### Example in C
 
