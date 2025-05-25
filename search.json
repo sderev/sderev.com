@@ -4078,14 +4078,14 @@
     "href": "notes/114/index.html#strongly-typed-languages",
     "title": "Strong vs. Weak Typing",
     "section": "Strongly Typed Languages",
-    "text": "Strongly Typed Languages\n\nIn strongly typed languages, a variable, once declared with a specific data type, cannot be assumed to be another type without an explicit conversion.\nOperations between incompatible types are usually disallowed without an explicit conversion.\n\n\nExample in Python\nnumber = 17\nletter = \"A\"\ncombined = number + letter  # Raises TypeError: unsupported operand type(s) for +: 'int' and 'str'\n\n\nExample in Go\nvar number int = 17\nvar letter string = \"A\"\n// combined := number + letter  // This would result in a compile-time error."
+    "text": "Strongly Typed Languages\nIn strongly typed languages, a variable, once declared with a specific data type, cannot be assumed to be another type without an explicit conversion.\nOperations between incompatible types are usually disallowed without an explicit conversion.\n\nExample in Python\nnumber = 17\nletter = \"A\"\ncombined = number + letter  # Raises TypeError: unsupported operand type(s) for +: 'int' and 'str'\n\n\nExample in Go\nvar number int = 17\nvar letter string = \"A\"\n// combined := number + letter  // This would result in a compile-time error."
   },
   {
     "objectID": "notes/114/index.html#weakly-typed-languages",
     "href": "notes/114/index.html#weakly-typed-languages",
     "title": "Strong vs. Weak Typing",
     "section": "Weakly Typed Languages",
-    "text": "Weakly Typed Languages\n\nWeakly typed languages allow variables to be used as though they were of different types with no explicit conversion.\nThe language tries to deduce the operation contextually, which can lead to unpredictable results.\n\n\nExample in C\nint number = 17;\nchar letter = 'A';  // ASCII value of 'A' is 65.\nint combined = number + letter;  // combined will be 82.\n\n\nExample in JavaScript\nlet number = 17\nlet letter = \"A\"\nlet combined = number + letter  // combined will be the string \"17A\"."
+    "text": "Weakly Typed Languages\nWeakly typed languages allow variables to be used as though they were of different types with no explicit conversion.\nThe language tries to deduce the operation contextually, which can lead to unpredictable results.\n\nExample in C\nint number = 17;\nchar letter = 'A';  // ASCII value of 'A' is 65.\nint combined = number + letter;  // combined will be 82.\n\n\nExample in JavaScript\nlet number = 17\nlet letter = \"A\"\nlet combined = number + letter  // combined will be the string \"17A\"."
   },
   {
     "objectID": "notes/114/index.html#references",
