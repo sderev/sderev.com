@@ -1,0 +1,15 @@
+---
+title: "What is the difference between 127.0.0.1 and 0.0.0.0?"
+subtitle: "Note#1"
+id: "1"
+date: 2022-07-13
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+* 127.0.0.1 is the loopback address (also known as localhost) ;
+* 0.0.0.0 is a non-routable meta-address used to designate an invalid, unknown, or non-applicable target (a ‘no particular address’ place holder).
+
+#networking #IP #localhost
+
+<https://www.howtogeek.com/225487/what-is-the-difference-between-127.0.0.1-and-0.0.0.0/>
