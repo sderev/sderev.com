@@ -1,5 +1,5 @@
 ---
-title: "Utilizing Alternative Delimiters in Vim's Substitution Command"
+title: "Using Alternative Delimiters in Vim's Substitution Command"
 subtitle: "Note#109"
 id: "109"
 date: 2023-07-30
