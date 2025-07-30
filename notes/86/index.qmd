@@ -1,0 +1,48 @@
+---
+title: "Casting malloc and calloc in C and C++"
+subtitle: "Note#86"
+id: "86"
+date: 2023-05-19
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+## Implicit Conversion in C
+
+In C, it's not necessary to cast the result of a call to `calloc()` or `malloc()`. This is because you can implicitly convert a `void *` to any other pointer type. Here's how you can do it:
+
+```c
+int* ptr_calloc = calloc(5, sizeof(int));
+int* ptr_malloc = malloc(5 * sizeof(int));
+```
+
+## Typecasting in C++
+
+However, this implicit conversion is not allowed in C++. Therefore, in C++ you would need to cast the result of `calloc()` or `malloc()`.
+
+```cpp
+int* ptr_calloc = (int*) calloc(5, sizeof(int));
+int* ptr_malloc = (int*) malloc(5 * sizeof(int));
+```
+
+## C and C++ Compatibility
+
+This cast is often done when writing code that's intended to be compiled as either C or C++. However, this is generally not recommended. C++ has new and delete operators for dynamic memory allocation which are safer and more feature-rich.
+
+## Preferred Dynamic Memory Allocation in C++
+
+In C++, it's more common to use `new` and `delete` for dynamic memory allocation and deallocation. This handles object creation and destruction, works with classes and inheritance, and helps prevent common memory issues.
+
+```cpp
+int* ptr = new int[5];
+// Use ptr...
+delete[] ptr;
+```
+
+## Potential Issues with Casting in C
+
+Casting the result of `calloc()` or `malloc()` in C can mask a failure to include `stdlib.h`, where `calloc()` and `malloc()` are declared. Without the include, and without a cast, the compiler would issue a warning or error. With the cast, this important message can be suppressed.
+
+## Recommendation
+
+It's generally advised not to cast the result of `calloc()` or `malloc()` in C code as it is unnecessary and could potentially conceal a bug.
