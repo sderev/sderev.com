@@ -1922,14 +1922,14 @@
     "href": "notes/3/index.html",
     "title": "How to remap keys in Linux",
     "section": "",
-    "text": "use xev to find out which key you want to remap;\ncreate a file in your home directory called.Xmodmap;\nhere’s an example of to remap a key:"
+    "text": "Use xev to find out which key you want to remap. Then create ~/.Xmodmap.\nHere’s an example of to remap a key:\nAdd the following line to your .bashrc or .zshrc to make it permanent:"
   },
   {
     "objectID": "notes/3/index.html#remap-caps_lock-to-escape",
     "href": "notes/3/index.html#remap-caps_lock-to-escape",
     "title": "How to remap keys in Linux",
     "section": "Remap <Caps_Lock> to <Escape>",
-    "text": "Remap &lt;Caps_Lock&gt; to &lt;Escape&gt;\nThe method described above cannot be used to remap the &lt;Caps_Lock&gt; key. I am unsure why, but it retains its original behavior despite the new one assigned by xmodmap. Fortunately, it is still possible to remap it as intended by other means.\n\nWhen using GNOME\nIf you’re using GNOME, you can remap the &lt;Caps_Lock&gt; key by following these steps:\n\ninstall gnome-tweaks;\ngo to Keyboard and Mouse;\ngo to Additional Layout Options;\nclick on Caps Lock behavior;\nclick on Make Caps Lock an additional Esc.\n\nNote that this method may not work in Hyper-V, but it should work in VMware.\n\n\nWhen using i3\nIf you’re using i3, add this to the end of your i3 configuration file ~/.config/i3/config:\nexec --no-startup-id setxkbmap -option caps:escape\nTo take effect, you have to restart i3. You can do this by logging out and logging back."
+    "text": "Remap &lt;Caps_Lock&gt; to &lt;Escape&gt;\nclear Lock\nkeycode 66 = Nosymbol Nosymbol Nosymbol \nkeycode 66 = Escape\n\nWhen using GNOME\nIf you’re using GNOME, you can remap the &lt;Caps_Lock&gt; key by following these steps:\n\ninstall gnome-tweaks;\ngo to Keyboard and Mouse;\ngo to Additional Layout Options;\nclick on Caps Lock behavior;\nclick on Make Caps Lock an additional Esc.\n\nNote that this method may not work in Hyper-V, but it should work in VMware.\n\n\nWhen using i3\nIf you’re using i3, add this to the end of your i3 configuration file ~/.config/i3/config:\nexec --no-startup-id setxkbmap -option caps:escape\nTo take effect, you have to restart i3. You can do this by logging out and logging back."
   },
   {
     "objectID": "notes/3/index.html#related-notes",

@@ -199,23 +199,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<ol type="1">
-<li>use <code>xev</code> to find out which key you want to remap;</li>
-<li>create a file in your home directory called<code>.Xmodmap</code>;</li>
-<li>here’s an example of to remap a key:</li>
-</ol>
+<p>Use <code>xev</code> to find out which key you want to remap. Then create <code>~/.Xmodmap</code>.</p>
+<p>Here’s an example of to remap a key:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">keycode</span> xx = new_key</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="4" type="1">
-<li>add the following line to your <code>.bashrc</code> to make it permanent:</li>
-</ol>
+<p>Add the following line to your <code>.bashrc</code> or <code>.zshrc</code> to make it permanent:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">xmodmap</span> ~/.Xmodmap</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="5" type="1">
-<li>finally, to apply the changes to your current session, reload your <code>.bashrc</code> file by running the following command:</li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">source</span> ~/.bashrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="remap-caps_lock-to-escape" class="level2">
 <h2 class="anchored" data-anchor-id="remap-caps_lock-to-escape">Remap <code>&lt;Caps_Lock&gt;</code> to <code>&lt;Escape&gt;</code></h2>
-<p>The method described above cannot be used to remap the <code>&lt;Caps_Lock</code>&gt; key. I am unsure why, but it retains its original behavior despite the new one assigned by xmodmap. Fortunately, it is still possible to remap it as intended by other means.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">clear</span> Lock</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">keycode</span> 66 = Nosymbol Nosymbol Nosymbol </span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="ex">keycode</span> 66 = Escape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="when-using-gnome" class="level3">
 <h3 class="anchored" data-anchor-id="when-using-gnome">When using GNOME</h3>
 <p>If you’re using GNOME, you can remap the <code>&lt;Caps_Lock&gt;</code> key by following these steps:</p>
