@@ -1,0 +1,24 @@
+---
+title: "Pathlib vs. os.path Performance"
+subtitle: "Note#76"
+id: "76"
+date: 2023-04-17
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+## Reasons for `Path` from `pathlib` being slower than `os.path`
+
+* **Object creation overhead:** `Path` objects store more information and provide additional methods compared to `os.path` functions, which can lead to a slight overhead when creating and manipulating `Path` objects.
+* **Method calls vs. functions:** Method calls on `Path` objects can be slower than direct function calls from the `os.path` module, since Python method calls generally have some extra overhead compared to function calls.
+* **Additional functionality:** Some `pathlib` methods may perform more work than their equivalent `os.path` functions to provide additional functionality or to handle corner cases, which can result in slower performance.
+
+## Tips to minimize performance difference
+
+* Use the most appropriate method or function for your use case. Sometimes `pathlib` provides a more efficient way to perform a certain operation than `os.path` does, or vice versa.
+* Minimize the creation of unnecessary `Path` objects. If you need to manipulate paths in a performance-critical loop, consider using `os.path` functions or caching `Path` objects where possible to avoid creating new objects repeatedly.
+* Profile your code to identify performance bottlenecks. If you find that `pathlib` is causing a significant slowdown in your code, you can consider switching to `os.path` for those specific operations.
+
+## General Advice
+
+In most cases, the performance difference between `pathlib` and `os.path` is negligible for typical use cases. It's usually more beneficial to prioritize code readability and maintainability, which `pathlib` often provides, over minor performance optimizations.
