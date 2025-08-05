@@ -1,0 +1,34 @@
+---
+title: "ANSI Escape Sequences"
+subtitle: "Note#56"
+id: "56"
+date: 2023-04-04
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+ANSI escape sequences are used for formatting text in terminals. They provide various styles and colors to enhance the readability and presentation of text. There are three common representations for the Escape character used in ANSI escape sequences:
+
+1. **\x1b**: Hexadecimal representation of the Escape character (preferred).
+2. **\033**: Octal representation of the Escape character.
+3. **\e**: Shorthand representation of the Escape character, commonly used in scripting languages like Bash and Perl.
+
+The choice between those for the Escape character in escape sequences depends on personal preference and the conventions of the programming language you use. However, the hexadecimal representation `\x1b` is generally preferred due to its broader portability across programming languages. If supported by the language, the shorthand representation `\e` can be chosen for its simplicity and clarity.
+
+## Frequently Used ANSI Escape Sequences
+
+* **Reset all attributes:** `\x1b[0m`
+* **Bold:** `\x1b[1m`
+* **Italic:** `\x1b[3m`
+* **Underline:** `\x1b[4m`
+* **Reverse (swap foreground and background colors):** `\x1b[7m`
+* **Foreground Color (3/4-bit):** `\x1b[30-37m` or `\x1b[90-97m`
+* **Background Color (3/4-bit):** `\x1b[40-47m` or `\x1b[100-107m`
+* **Foreground Color (8-bit):** `\x1b[38;5;<color_index>m`
+* **Background Color (8-bit):** `\x1b[48;5;<color_index>m`
+* **Foreground Color (24-bit):** `\x1b[38;2;<red>;<green>;<blue>m`
+* **Background Color (24-bit):** `\x1b[48;2;<red>;<green>;<blue>m`
+
+Note that the support for these escape sequences may vary across terminal emulators, and some sequences might not work as expected on certain terminals.
+
+The `m` in the ANSI escape sequence denotes the end of the sequence. For example, in the escape sequence `\x1b[38;5;255m`, the `m` denotes the end of the sequence, which sets the foreground color to color index 255 (white) in this case.
