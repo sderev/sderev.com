@@ -1,0 +1,75 @@
+---
+title: "Nuances Among Despondency, Dejection, and Gloom"
+subtitle: "Note#166"
+id: "166"
+date: 2024-07-19
+date-modified: 2024-07-23
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+These terms all relate to negative emotional states but have distinct connotations in intensity, duration, and usage.
+
+## Despondency
+
+**Definition**: A state of deep despair, hopelessness, or discouragement.
+
+**Characteristics**:
+* Intensity: Often the most severe and profound of the three.
+* Duration: Typically implies a longer-lasting emotional state.
+
+**Usage**: 
+* Literature: "The protagonist's despondency grew with each failed attempt to escape his fate."
+* Formal writing: "The prolonged economic recession led to widespread despondency among job seekers."
+* Casual conversation: "After months of fruitless job searching, John sank into despondency."
+
+**Collocations**: deep despondency, utter despondency, sink into despondency
+
+## Dejection
+
+**Definition**: A state of sadness, disappointment, or lowered spirits.
+
+**Characteristics**:
+* Intensity: Usually less intense than despondency but more than gloom.
+* Duration: Can be short-lived or last for a moderate period.
+
+**Usage**:
+* Literature: "Her dejection was palpable as she read the rejection letter."
+* Formal writing: "The team's dejection following their narrow defeat was evident in the post-match interview."
+* Casual conversation: "Sarah's dejection was clear as she left the audition, convinced she hadn't performed well."
+
+**Collocations**: air of dejection, overcome with dejection
+
+## Gloom
+
+**Definition**: A state of melancholy, pessimism, or despondency.
+
+**Characteristics**:
+* Intensity: Generally less severe than despondency and can be similar to or less intense than dejection.
+* Duration: Can be situational or short-lived, but may also persist for some time.
+
+**Usage**:
+* Literature: "A pall of gloom hung over the household in the days following the funeral."
+* Formal writing: "The constant rain cast a gloom over the entire town, affecting both tourism and local morale."
+* Casual conversation: "The gloomy weather matched my mood perfectly."
+
+**Collocations**: doom and gloom, dispel the gloom
+
+## Comparison
+
+* Intensity: Despondency > Dejection > Gloom (generally)
+* Duration: Despondency (often long-term) > Dejection (moderate) > Gloom (variable)
+* Cause: 
+  * Despondency: Often stems from a deep sense of despair or loss of hope
+  * Dejection: Typically triggered by specific disappointing events
+  * Gloom: Can be caused by external circumstances (like weather) or internal mindset
+
+## Synonyms
+
+* Despondency: hopelessness, despair, depression
+* Dejection: disappointment, downheartedness, low spirits
+* Gloom: melancholy, pessimism, sombreness
+
+## Related Notes
+
+* [Note#165](/notes/165/)
