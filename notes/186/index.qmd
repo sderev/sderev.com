@@ -23,6 +23,12 @@ With this header, `uv` automatically creates and manages a dedicated virtual env
 # Rest of the script...
 ```
 
+## Add Dependencies from the CLI
+
+```sh
+uv add --script script.py dependency_1 dependency_2 dependency_3
+```
+
 ## References
 
 * [Python Packaging - Inline Script Metadata](https://packaging.python.org/en/latest/specifications/inline-script-metadata/#inline-script-metadata)
