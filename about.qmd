@@ -1,0 +1,29 @@
+---
+title: "About"
+
+
+toc: false
+link-external-icon: false
+
+about:
+  template: trestles
+  id: hero-heading
+  image-width: 17em
+  links:
+    - text: Twitter
+      icon: twitter
+      href: https://twitter.com/sdereviere
+    - text: GitHub
+      icon: github
+      href: https://github.com/sderev
+    #- text: Resume
+    #  icon: file-pdf
+    #  href: resume.pdf
+    #- text: Kaggle
+    #  icon: clipboard-data
+    #  href: https://www.kaggle.com/sderev
+    #- text: LinkedIn
+    #  icon: linkedin
+    #  href: https://linkedin.com/in/sderev
+---
+This website serves as a platform for publishing some of my notes.

@@ -1,0 +1,50 @@
+---
+title: "Partial Functions vs Closures in Python"
+subtitle: "Note#83"
+id: "83"
+date: 2023-05-02
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+# Partial Functions vs Closures in Python
+
+## Partial Functions
+
+A partial function is a new function derived from an existing one by pre-filling (or "fixing") some of its arguments with specific values, effectively creating a version of the original function with a reduced arity. In Python, you create a partial function using functools.partial(func, *args, **keywords), where func is the original function, and *args and **keywords are the arguments you want to pre-set; calling partial returns a new callable (the partial function) that, when invoked, will call func with the pre-filled arguments along with any new arguments provided.
+
+### Example
+
+```python
+import functools
+
+def add(x, y):
+    return x + y
+
+add_five = functools.partial(add, 5)
+
+result = add_five(3)
+print(result)
+```
+
+## Closures
+
+A closure is a function that "remembers" and has access to variables from its enclosing lexical scope, even after the outer function has finished executing and those variables are no longer in scope. In Python, closures are created implicitly when a nested function references variables from its containing function, and this nested function is then returned or otherwise made accessible outside the outer function; the returned inner function, along with its captured environment, forms the closure.
+
+### Example
+
+```python
+def make_adder(x):
+    def add(y):
+        return x + y
+    return add
+
+add_five = make_adder(5)
+
+result = add_five(3)
+print(result)
+```
+
+## Related Notes
+
+* [Note#82](/notes/82)
