@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8dfb5261490c18f00614d4012eee409b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3fe21d2e08b0cb77b7aa9e6b7406ce44.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f560e2957bf1c3614580d41dcf66540e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2da55f81b5a5d54216a2ec7f07f8ed12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -122,6 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sébastien De Revière</span>
     </a>
@@ -200,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>For whatever reason—as usual—, <code>xclip</code> and other program using the X-Server stopped working on my WSL installation. I just got the following error:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">Error:</span> Can<span class="st">'t open display: :0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">Error:</span> Can<span class="st">'t open display: :0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Restarting WSL with <code>wsl --shutdown</code> and then started it again temporarily resolved the problem, but opening a <code>tmux</code> session would break it again. I tried the usual Windows shenanigans: check for updates, restart, etc. Nothing worked.</p>
 <p>I finally found a hacky solution in <a href="https://gist.github.com/oleksis/871e185ff85b67e77565a214b163b0f0/#diagnosing-">a GitHub Gist</a> written by <a href="https://github.com/oleksis">oleksis</a> in <a href="https://github.com/microsoft/wslg/issues/1192">one of the GitHub issues of WSLg</a>. The important part for me was this:</p>
 <blockquote class="blockquote">
@@ -208,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you still don’t see socket X0 follow these steps: <a href="https://github.com/microsoft/wslg/issues/43#issuecomment-826039096">issuecomment-826039096</a></p>
 <p>To make it work with systemd, create /etc/tmpfiles.d/wslg.conf with following content:</p>
 </blockquote>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#  This file is part of the debianisation of systemd.</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#  This file is part of the debianisation of systemd.</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co">#</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co">#  systemd is free software; you can redistribute it and/or modify it</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="co">#  under the terms of the GNU General Public License as published by</span></span>
@@ -218,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-8"><a href="#cb2-8"></a><span class="co"># See tmpfiles.d(5) for details</span></span>
 <span id="cb2-9"><a href="#cb2-9"></a></span>
 <span id="cb2-10"><a href="#cb2-10"></a><span class="co"># Type Path           Mode UID  GID  Age Argument</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="ex">L+</span>     /tmp/.X11-unix <span class="at">-</span>    <span class="at">-</span>    <span class="at">-</span>    <span class="at">-</span>   /mnt/wslg/.X11-unix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="ex">L+</span>     /tmp/.X11-unix <span class="at">-</span>    <span class="at">-</span>    <span class="at">-</span>    <span class="at">-</span>   /mnt/wslg/.X11-unix</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 
@@ -274,13 +277,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

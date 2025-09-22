@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8dfb5261490c18f00614d4012eee409b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3fe21d2e08b0cb77b7aa9e6b7406ce44.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f560e2957bf1c3614580d41dcf66540e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2da55f81b5a5d54216a2ec7f07f8ed12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -122,6 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sébastien De Revière</span>
     </a>
@@ -288,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Loop through the array. For each element <code>num</code>, XOR it with <code>X2</code>. By the end of the loop, <code>X2</code> will hold the XOR of all elements in the array.</li>
 <li>XOR <code>X1</code> with <code>X2</code>. The result is the missing number.</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> find_missing_number(arr, n):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> find_missing_number(arr, n):</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    X1, X2 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a>    <span class="co"># XOR all the numbers from 1 to n</span></span>
@@ -300,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10"></a>        X2 <span class="op">=</span> X2 <span class="op">^</span> num</span>
 <span id="cb1-11"><a href="#cb1-11"></a></span>
 <span id="cb1-12"><a href="#cb1-12"></a>    <span class="co"># The missing number is X1 XOR X2</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a>    <span class="cf">return</span> X1 <span class="op">^</span> X2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-13"><a href="#cb1-13"></a>    <span class="cf">return</span> X1 <span class="op">^</span> X2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="problem-2-find-the-unique-number" class="level3">
@@ -314,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Loop through the array and XOR each element with <code>unique</code>.</li>
 <li>By the end of the loop, <code>unique</code> will hold the unique number.</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> find_unique_number(arr):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> find_unique_number(arr):</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    unique <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
 <span id="cb2-4"><a href="#cb2-4"></a>    <span class="co"># XOR all the elements in the array</span></span>
@@ -322,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6"></a>        unique <span class="op">=</span> unique <span class="op">^</span> num</span>
 <span id="cb2-7"><a href="#cb2-7"></a></span>
 <span id="cb2-8"><a href="#cb2-8"></a>    <span class="co"># The result will be the unique number</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>    <span class="cf">return</span> unique</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="cf">return</span> unique</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 </section>
@@ -330,11 +333,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="interesting-but-useless-trick-swapping-variables">Interesting (but Useless) Trick: Swapping Variables</h2>
 <p><strong>The XOR swap trick is more of a neat parlor trick than anything else.</strong> In modern high-level languages and with today’s compiler optimizations, there’s generally no reason to use XOR swap instead of traditional swapping with a temporary variable (or with the pythonic <code>a, b = b, a</code>). However, it’s a good demonstration of how XOR works and how you can take advantage of its unique properties.</p>
 <p>Conventionally, if we wanted to swap the values of two variables, we would need a temporary variable to hold the value of one variable during the operation. For example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> swap(a, b):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> swap(a, b):</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    temp <span class="op">=</span> a</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    a <span class="op">=</span> b</span>
 <span id="cb3-4"><a href="#cb3-4"></a>    b <span class="op">=</span> temp</span>
-<span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">return</span> a, b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">return</span> a, b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>However, the XOR operator allows us to swap values without the need for a temporary variable.</p>
 <section id="algorithm-2" class="level3">
 <h3 class="anchored" data-anchor-id="algorithm-2">Algorithm</h3>
@@ -344,11 +347,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Execute <code>b = a XOR b</code> (since <code>a</code> is now <code>a XOR b</code>, this is equivalent to <code>b = (a XOR b) XOR b</code>, which simplifies to <code>b = a</code> according to the inverse property).</li>
 <li>Finally, execute <code>a = a XOR b</code> (at this stage <code>b</code> is already <code>a</code>, so this is equivalent to <code>a = (a XOR b) XOR a</code>, which simplifies to <code>a = b</code>).</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> swap_without_temp(a, b):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> swap_without_temp(a, b):</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    a <span class="op">=</span> a <span class="op">^</span> b</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    b <span class="op">=</span> a <span class="op">^</span> b</span>
 <span id="cb4-4"><a href="#cb4-4"></a>    a <span class="op">=</span> a <span class="op">^</span> b</span>
-<span id="cb4-5"><a href="#cb4-5"></a>    <span class="cf">return</span> a, b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="cf">return</span> a, b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -406,13 +409,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

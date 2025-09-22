@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8dfb5261490c18f00614d4012eee409b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3fe21d2e08b0cb77b7aa9e6b7406ce44.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f560e2957bf1c3614580d41dcf66540e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2da55f81b5a5d54216a2ec7f07f8ed12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -122,6 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sébastien De Revière</span>
     </a>
@@ -205,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="create-a-completion-function-for-your-script" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-completion-function-for-your-script">Create a completion function for your script</h3>
 <p>Create a function that defines the possible options and arguments for your script. Save this function in a file with a name starting with an underscore, such as _myscript.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource zsh number-lines code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># _myscript completion function for Zsh</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource zsh number-lines code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># _myscript completion function for Zsh</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">_myscript_completion()</span> <span class="kw">{</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>    <span class="bu">local</span> <span class="va">curcontext</span><span class="op">=</span><span class="st">"</span><span class="va">$curcontext</span><span class="st">"</span> <span class="va">state</span> <span class="va">line</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a>    <span class="bu">typeset</span> <span class="at">-A</span> <span class="va">opt_args</span></span>
@@ -220,27 +223,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-13"><a href="#cb1-13"></a>    <span class="cf">esac</span></span>
 <span id="cb1-14"><a href="#cb1-14"></a><span class="kw">}</span></span>
 <span id="cb1-15"><a href="#cb1-15"></a></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="ex">compdef</span> _myscript_completion myscript</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="ex">compdef</span> _myscript_completion myscript</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="save-the-completion-function-file-in-a-directory-in-the-fpath-variable" class="level3">
 <h3 class="anchored" data-anchor-id="save-the-completion-function-file-in-a-directory-in-the-fpath-variable">Save the completion function file in a directory in the <code>FPATH</code> variable</h3>
 <p>Save the <code>_myscript</code> file in a directory where Zsh will look for autoloaded functions. One such directory is <code>/usr/share/zsh/site-functions</code>. Alternatively, you can create a new directory and add it to the <code>FPATH</code> variable in your <code>.zshrc</code> file.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource zsh number-lines code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Add the custom directory to FPATH in .zshrc</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="va">fpath</span><span class="op">+=</span>/path/to/custom/dir</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource zsh number-lines code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Add the custom directory to FPATH in .zshrc</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="va">fpath</span><span class="op">+=</span>/path/to/custom/dir</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="source-the-completion-function-file" class="level3">
 <h3 class="anchored" data-anchor-id="source-the-completion-function-file">Source the completion function file</h3>
 <p>If it doesn’t work for obscure reasons, you can just source your completion <code>_myscript</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource zsh number-lines code-with-copy"><code class="sourceCode zsh"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Source the completion function file</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">source</span> /path/to/_myscript</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource zsh number-lines code-with-copy"><code class="sourceCode zsh"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Source the completion function file</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">source</span> /path/to/_myscript</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now you should be able to use autocompletion for your custom script in Zsh. Type <code>myscript</code> followed by a space, and then press the Tab key to see the available options and arguments.</p>
 <section id="this-is-a-hack" class="level4">
 <h4 class="anchored" data-anchor-id="this-is-a-hack">This is a hack</h4>
 <p>Because I encountered a persistent problem with autocompletion and didn’t want to keep editing my <code>.zshrc</code> file for every new script, I added the following lines to it:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">for</span> script <span class="kw">in</span> ~/.completion_scripts/_<span class="pp">*</span><span class="kw">;</span> <span class="cf">do</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">for</span> script <span class="kw">in</span> ~/.completion_scripts/_<span class="pp">*</span><span class="kw">;</span> <span class="cf">do</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>  <span class="va">script_name</span><span class="op">=</span><span class="va">${script</span><span class="op">:</span>t<span class="va">}</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>  <span class="bu">source</span> ~/.completion_scripts/<span class="va">$script_name</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 </section>
@@ -249,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="create-a-completion-script-for-your-script" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-completion-script-for-your-script">Create a completion script for your script</h3>
 <p>Create a script that defines the possible options and arguments for your script. Save this script in a file with a name starting with an underscore, such as <code>_myscript</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># _myscript completion script for Bash</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># _myscript completion script for Bash</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="fu">_myscript_completion()</span> <span class="kw">{</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a>    <span class="bu">local</span> <span class="va">cur</span> <span class="va">prev</span> <span class="va">opts</span></span>
 <span id="cb5-4"><a href="#cb5-4"></a>    <span class="va">COMPREPLY</span><span class="op">=</span><span class="va">()</span></span>
@@ -267,19 +270,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-16"><a href="#cb5-16"></a>    <span class="cf">esac</span></span>
 <span id="cb5-17"><a href="#cb5-17"></a><span class="kw">}</span></span>
 <span id="cb5-18"><a href="#cb5-18"></a></span>
-<span id="cb5-19"><a href="#cb5-19"></a><span class="bu">complete</span> <span class="at">-F</span> _myscript_completion myscript</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="bu">complete</span> <span class="at">-F</span> _myscript_completion myscript</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="save-the-completion-script-file-in-a-directory-in-the-path-variable" class="level3">
 <h3 class="anchored" data-anchor-id="save-the-completion-script-file-in-a-directory-in-the-path-variable">Save the completion script file in a directory in the <code>PATH</code> variable</h3>
 <p>Save the <code>_myscript</code> file in a directory where Bash will look for executables. One such directory is <code>/usr/local/bin</code>. Alternatively, you can create a new directory and add it to the <code>PATH</code> variable in your <code>.bashrc</code> file.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Add the custom directory to PATH in .bashrc</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$PATH</span>:/path/to/custom/dir</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Add the custom directory to PATH in .bashrc</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$PATH</span>:/path/to/custom/dir</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="source-the-bash-completion-scripts" class="level3">
 <h3 class="anchored" data-anchor-id="source-the-bash-completion-scripts">Source the Bash completion scripts</h3>
 <p>Source the Bash completion scripts to load the autocompletion functionality in your current session.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Source the Bash completion scripts</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">source</span> /usr/share/bash-completion/bash_completion</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Source the Bash completion scripts</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">source</span> /usr/share/bash-completion/bash_completion</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now you should be able to use autocompletion for your custom script in Bash. Type <code>myscript</code> followed by a space, and then press the Tab key to see the available options and arguments.</p>
 
 
@@ -338,13 +341,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

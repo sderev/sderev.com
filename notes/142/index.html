@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8dfb5261490c18f00614d4012eee409b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3fe21d2e08b0cb77b7aa9e6b7406ce44.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f560e2957bf1c3614580d41dcf66540e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2da55f81b5a5d54216a2ec7f07f8ed12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -122,6 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sébastien De Revière</span>
     </a>
@@ -204,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="generate-a-gpg-key">Generate a GPG Key</h2>
 <ol type="1">
 <li><p>Open a terminal and run:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">gpg</span> <span class="at">--full-generate-key</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">gpg</span> <span class="at">--full-generate-key</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Follow the prompts to select the key type, key size (recommend 4096 bits for RSA), and expiration. Enter your name and email address.</p></li>
 </ol>
 </section>
@@ -212,13 +215,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="configure-git-to-sign-commits-with-gpg-key">Configure Git to Sign Commits with GPG Key</h2>
 <ol type="1">
 <li><p>List GPG keys to find your key ID:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">gpg</span> <span class="at">--list-secret-keys</span> <span class="at">--keyid-format</span> LONG</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">gpg</span> <span class="at">--list-secret-keys</span> <span class="at">--keyid-format</span> LONG</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Look for the <code>sec</code> line followed by the key type and size, and then the key ID in this format: <code>rsa4096/ABCDEFGH12345678 2021-01-01 [SC]</code>. The key ID in this example is <code>ABCDEFGH12345678</code>.</p></li>
 <li><p>Configure Git to use your GPG key:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.signingkey YOUR_GPG_KEY_ID</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.signingkey YOUR_GPG_KEY_ID</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can now sign your commits using <code>git commit -S</code>.</p></li>
 <li><p>To sign all commits by default in all repositories, use:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">git</span> config <span class="at">--global</span> commit.gpgSign true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">git</span> config <span class="at">--global</span> commit.gpgSign true</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 </section>
 <section id="add-your-gpg-key-to-github" class="level2">
@@ -227,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="via-github-web-interface">Via GitHub Web Interface</h3>
 <ol type="1">
 <li><p>Export your public GPG key:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">gpg</span> <span class="at">--armor</span> <span class="at">--export</span> YOUR_GPG_KEY_ID</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">gpg</span> <span class="at">--armor</span> <span class="at">--export</span> YOUR_GPG_KEY_ID</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Copy the exported key (including the <code>-----BEGIN PGP PUBLIC KEY BLOCK-----</code> and <code>-----END PGP PUBLIC KEY BLOCK-----</code>).</p></li>
 <li><p>Go to GitHub &gt; Settings &gt; SSH and GPG keys &gt; New GPG key, paste your key, and save.</p></li>
 </ol>
@@ -235,31 +238,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="via-gh-cli" class="level3">
 <h3 class="anchored" data-anchor-id="via-gh-cli">Via <code>gh</code> CLI</h3>
 <p>Run to add your GPG key to GitHub:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">gh</span> api user/gpg_keys <span class="at">-F</span> armored_public_key=<span class="st">"</span><span class="va">$(</span><span class="ex">gpg</span> <span class="at">--armor</span> <span class="at">--export</span> YOUR_GPG_KEY_ID<span class="va">)</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">gh</span> api user/gpg_keys <span class="at">-F</span> armored_public_key=<span class="st">"</span><span class="va">$(</span><span class="ex">gpg</span> <span class="at">--armor</span> <span class="at">--export</span> YOUR_GPG_KEY_ID<span class="va">)</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="verify-commit-signature" class="level2">
 <h2 class="anchored" data-anchor-id="verify-commit-signature">Verify Commit Signature</h2>
 <p>To verify the signature of the latest commit, run:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">git</span> log <span class="at">--show-signature</span> <span class="at">-1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">git</span> log <span class="at">--show-signature</span> <span class="at">-1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="configure-gpg-agent-for-passphrase-caching" class="level2">
 <h2 class="anchored" data-anchor-id="configure-gpg-agent-for-passphrase-caching">Configure GPG Agent for Passphrase Caching</h2>
 <ol type="1">
 <li><p>Edit <code>~/.gnupg/gpg-agent.conf</code> (create if it doesn’t exist):</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">vim</span> ~/.gnupg/gpg-agent.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">vim</span> ~/.gnupg/gpg-agent.conf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Add or modify the following lines:</p>
 <pre><code>default-cache-ttl 3600
 max-cache-ttl 86400</code></pre>
 <p>Adjust the values according to your security and convenience needs.</p></li>
 <li><p>Restart the GPG agent:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">gpgconf</span> <span class="at">--kill</span> gpg-agent</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="ex">gpg-agent</span> <span class="at">--daemon</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">gpgconf</span> <span class="at">--kill</span> gpg-agent</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="ex">gpg-agent</span> <span class="at">--daemon</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 <section id="stay-in-your-terminal-when-prompted-for-passphrase" class="level3">
 <h3 class="anchored" data-anchor-id="stay-in-your-terminal-when-prompted-for-passphrase">Stay in Your Terminal when Prompted for Passphrase</h3>
 <p>To avoid the passphrase prompt from opening a new window, add the following line to your shell configuration file (e.g., <code>~/.bashrc</code>, <code>~/.zshrc</code>):</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">export</span> <span class="va">GPG_TTY</span><span class="op">=</span><span class="va">$(</span><span class="fu">tty</span><span class="va">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">export</span> <span class="va">GPG_TTY</span><span class="op">=</span><span class="va">$(</span><span class="fu">tty</span><span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -317,13 +320,14 @@ max-cache-ttl 86400</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8dfb5261490c18f00614d4012eee409b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3fe21d2e08b0cb77b7aa9e6b7406ce44.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f560e2957bf1c3614580d41dcf66540e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2da55f81b5a5d54216a2ec7f07f8ed12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -122,6 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sébastien De Revière</span>
     </a>
@@ -205,69 +208,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="creating-a-package">Creating a Package</h2>
 <ol type="1">
 <li><p><strong>Setup Your Project Directory</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>/path/to/your/project/</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>/path/to/your/project/</span>
 <span id="cb1-2"><a href="#cb1-2"></a>├── new_project/          # Python package directory.</span>
 <span id="cb1-3"><a href="#cb1-3"></a>│   ├── __init__.py       # Makes the directory a package.</span>
 <span id="cb1-4"><a href="#cb1-4"></a>│   └── cli.py            # An example module for CLI.</span>
 <span id="cb1-5"><a href="#cb1-5"></a>├── tests/                # Directory for tests.</span>
 <span id="cb1-6"><a href="#cb1-6"></a>│   └── cli_test.py       # Test module for CLI.</span>
 <span id="cb1-7"><a href="#cb1-7"></a>├── pyproject.toml        # Definition of build process of the package.</span>
-<span id="cb1-8"><a href="#cb1-8"></a>└── README.md             # README with info about the project.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb1-8"><a href="#cb1-8"></a>└── README.md             # README with info about the project.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Define Your Package Configuration</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">[project]</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">[project]</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="dt">name</span> <span class="op">=</span> <span class="st">"new_project"</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.0.0"</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a></span>
 <span id="cb2-5"><a href="#cb2-5"></a><span class="kw">[project.scripts]</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="dt">new_project</span> <span class="op">=</span> <span class="st">"new_project.cli:cli"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="dt">new_project</span> <span class="op">=</span> <span class="st">"new_project.cli:cli"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 </section>
 <section id="building-and-distributing-your-package" class="level2">
 <h2 class="anchored" data-anchor-id="building-and-distributing-your-package">Building and Distributing Your Package</h2>
 <ol type="1">
 <li><p><strong>Build Your Package</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">python</span> <span class="at">-m</span> build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">python</span> <span class="at">-m</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This command creates a <code>dist/</code> folder in your project directory, containing the built package files.</p></li>
 <li><p><strong>Install Your Package Locally (For Testing)</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Upload Your Package to PyPi</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">pip</span> install twine  <span class="co"># If you haven't installed twine already</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="ex">twine</span> upload dist/<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">pip</span> install twine  <span class="co"># If you haven't installed twine already</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="ex">twine</span> upload dist/<span class="pp">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 </section>
 <section id="managing-dependencies" class="level2">
 <h2 class="anchored" data-anchor-id="managing-dependencies">Managing Dependencies</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">[project]</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">[project]</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="st">"rich"</span><span class="op">,</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a>    <span class="st">"click"</span><span class="op">,</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a><span class="op">]</span></span>
 <span id="cb6-6"><a href="#cb6-6"></a></span>
 <span id="cb6-7"><a href="#cb6-7"></a><span class="kw">[project.optional-dependencies]</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="dt">test</span> <span class="op">=</span> <span class="op">[</span><span class="st">"pytest"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="dt">test</span> <span class="op">=</span> <span class="op">[</span><span class="st">"pytest"</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="configuring-entry-points" class="level2">
 <h2 class="anchored" data-anchor-id="configuring-entry-points">Configuring Entry Points</h2>
 <p>If you’re creating a CLI tool, specify the entry point in the <code>pyproject.toml</code> like so:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">[project.scripts]</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="dt">new_project</span> <span class="op">=</span> <span class="st">"new_project.cli:cli"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">[project.scripts]</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="dt">new_project</span> <span class="op">=</span> <span class="st">"new_project.cli:cli"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="tool-configuration" class="level2">
 <h2 class="anchored" data-anchor-id="tool-configuration">Tool Configuration</h2>
 <p>Configure tools such as <code>black</code> for code formatting and <code>ruff</code> for linting in the <code>pyproject.toml</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">[tool.black]</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">[tool.black]</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="dt">line-length</span> <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a></span>
 <span id="cb8-4"><a href="#cb8-4"></a><span class="kw">[tool.ruff]</span></span>
 <span id="cb8-5"><a href="#cb8-5"></a><span class="dt">line-length</span> <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb8-6"><a href="#cb8-6"></a></span>
 <span id="cb8-7"><a href="#cb8-7"></a><span class="kw">[tool.pytest.ini_options]</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="dt">testpaths</span> <span class="op">=</span> <span class="op">[</span><span class="st">"tests"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="dt">testpaths</span> <span class="op">=</span> <span class="op">[</span><span class="st">"tests"</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="starter-pyproject.toml-example" class="level2">
 <h2 class="anchored" data-anchor-id="starter-pyproject.toml-example">Starter <code>pyproject.toml</code> Example</h2>
 <p>Below is a starter <code>pyproject.toml</code> file for quick project setup:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">[project]</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">[project]</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="dt">name</span> <span class="op">=</span> <span class="st">"new_project"</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.0.0"</span></span>
 <span id="cb9-4"><a href="#cb9-4"></a><span class="dt">authors</span> <span class="op">=</span> <span class="op">[{</span><span class="dt">name</span><span class="op"> =</span> <span class="st">"Sébastien De Revière"</span><span class="op">},]</span></span>
@@ -316,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-47"><a href="#cb9-47"></a><span class="dt">line-length</span> <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb9-48"><a href="#cb9-48"></a></span>
 <span id="cb9-49"><a href="#cb9-49"></a><span class="kw">[tool.pytest.ini_options]</span></span>
-<span id="cb9-50"><a href="#cb9-50"></a><span class="dt">testpaths</span> <span class="op">=</span> <span class="op">[</span><span class="st">"tests"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-50"><a href="#cb9-50"></a><span class="dt">testpaths</span> <span class="op">=</span> <span class="op">[</span><span class="st">"tests"</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
@@ -392,13 +395,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8dfb5261490c18f00614d4012eee409b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3fe21d2e08b0cb77b7aa9e6b7406ce44.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f560e2957bf1c3614580d41dcf66540e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2da55f81b5a5d54216a2ec7f07f8ed12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -122,6 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sébastien De Revière</span>
     </a>
@@ -202,14 +205,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Google Authenticator provides 2-factor authentication (2FA), which can enhance the security of SSH logins.</p>
 <section id="install-google-authenticator-on-the-server" class="level2">
 <h2 class="anchored" data-anchor-id="install-google-authenticator-on-the-server">Install Google Authenticator on the server</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sudo</span> apt install libpam-google-authenticator</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sudo</span> apt install libpam-google-authenticator</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="generate-the-secret-key-and-qr-code" class="level2">
 <h2 class="anchored" data-anchor-id="generate-the-secret-key-and-qr-code">Generate the secret key and QR code</h2>
 <p>In this section, we will generate a secret key and a QR code for Google Authenticator.</p>
 <section id="run-the-google-authenticator-pam-module" class="level3">
 <h3 class="anchored" data-anchor-id="run-the-google-authenticator-pam-module">Run the Google Authenticator PAM module</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">google-authenticator</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">google-authenticator</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>During the <code>google-authenticator</code> command, you will be asked a series of questions:</p>
 <ul>
 <li>Generate a new secret key? - <code>Y</code></li>
@@ -221,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="for-scripting-purposes-use-the-following-command-with-the-specified-options" class="level3">
 <h3 class="anchored" data-anchor-id="for-scripting-purposes-use-the-following-command-with-the-specified-options">For scripting purposes, use the following command with the specified options</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">google-authenticator</span> <span class="at">-t</span> <span class="at">-f</span> <span class="at">-d</span> <span class="at">-w</span> 3 <span class="at">-e</span> 10 <span class="at">-r</span> 3 <span class="at">-R</span> 30</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">google-authenticator</span> <span class="at">-t</span> <span class="at">-f</span> <span class="at">-d</span> <span class="at">-w</span> 3 <span class="at">-e</span> 10 <span class="at">-r</span> 3 <span class="at">-R</span> 30</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This command executes the following functions:</p>
 <ul>
 <li><code>-t</code> to generate a new secret key for time-based authentication</li>
@@ -239,21 +242,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now, let’s modify the PAM configuration for SSH on the server.</p>
 <section id="open-the-pam-configuration-for-ssh" class="level3">
 <h3 class="anchored" data-anchor-id="open-the-pam-configuration-for-ssh">Open the PAM configuration for SSH</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">sudo</span> vim /etc/pam.d/sshd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">sudo</span> vim /etc/pam.d/sshd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="at-the-bottom-of-the-file-add-the-following-lines" class="level3">
 <h3 class="anchored" data-anchor-id="at-the-bottom-of-the-file-add-the-following-lines">At the bottom of the file, add the following lines</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Google Authenticator 2FA configuration</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Google Authenticator 2FA configuration</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="dt">auth required pam_google_authenticator.so nullok</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="dt">auth required pam_permit.so</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="dt">auth required pam_permit.so</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The <code>nullok</code> option in the line <code>auth required pam_google_authenticator.so nullok</code> allows users, who have not yet configured Google Authenticator, to log in using their SSH keys. This feature can assist in the transition to 2FA. If this option is not required, <strong>feel free to remove it</strong>.</p>
 <p>If you wish to necessitate password authentication in addition to the 2FA, insert the following line before the previously mentioned lines:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1"></a><span class="dt">auth requisite pam_unix.so</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1"></a><span class="dt">auth requisite pam_unix.so</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The order will determine how the user is prompted for authentication. To be extra clear, the following line will prompt the user in this order: 1) password; 2) 2FA code.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Google Authenticator 2FA configuration</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Google Authenticator 2FA configuration</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="dt">auth requisite pam_unix.so</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="dt">auth required pam_google_authenticator.so nullok</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="dt">auth required pam_permit.so</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="dt">auth required pam_permit.so</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="control-flags-in-pam" class="level3">
 <h3 class="anchored" data-anchor-id="control-flags-in-pam">Control Flags in PAM</h3>
@@ -266,40 +269,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="at-the-beginning-of-the-file-you-should-comment-out-the-following-line" class="level3">
 <h3 class="anchored" data-anchor-id="at-the-beginning-of-the-file-you-should-comment-out-the-following-line">At the beginning of the file, you should comment out the following line</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Standard Un*x authentication.</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#@include common-auth</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Standard Un*x authentication.</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#@include common-auth</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="update-sshd-configuration" class="level2">
 <h2 class="anchored" data-anchor-id="update-sshd-configuration">Update SSHD configuration</h2>
 <section id="edit-the-sshd-configuration-file" class="level3">
 <h3 class="anchored" data-anchor-id="edit-the-sshd-configuration-file">Edit the SSHD configuration file</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">sudo</span> vim /etc/ssh/sshd_config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">sudo</span> vim /etc/ssh/sshd_config</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="ensure-that-the-following-lines-are-present-and-not-commented-out" class="level3">
 <h3 class="anchored" data-anchor-id="ensure-that-the-following-lines-are-present-and-not-commented-out">Ensure that the following lines are present and not commented out</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Enabled for 2FA with Google Authenticator</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="dt">ChallengeResponseAuthentication yes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb11-1"><a href="#cb11-1"></a><span class="dt">KbdInteractiveAuthentication yes</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="dt">UsePAM yes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Enabled for 2FA with Google Authenticator</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="dt">ChallengeResponseAuthentication yes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb11-1"><a href="#cb11-1"></a><span class="dt">KbdInteractiveAuthentication yes</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="dt">UsePAM yes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="at-the-bottom-of-the-file-add-one-of-the-following-lines-based-on-the-desired-behavior" class="level3">
 <h3 class="anchored" data-anchor-id="at-the-bottom-of-the-file-add-one-of-the-following-lines-based-on-the-desired-behavior">At the bottom of the file, add one of the following lines based on the desired behavior</h3>
 <ul>
 <li>To require both an SSH key and either a password or the 2FA code:</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb12-1"><a href="#cb12-1"></a><span class="dt">AuthenticationMethods publickey,password publickey,keyboard-interactive</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb12-1"><a href="#cb12-1"></a><span class="dt">AuthenticationMethods publickey,password publickey,keyboard-interactive</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>To require both an SSH key and the 2FA code:</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb13-1"><a href="#cb13-1"></a><span class="dt">AuthenticationMethods publickey,keyboard-interactive</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb13-1"><a href="#cb13-1"></a><span class="dt">AuthenticationMethods publickey,keyboard-interactive</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you want it, don’t forget to enable public key authentication:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb14-1"><a href="#cb14-1"></a><span class="dt">PubkeyAuthentication yes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource cfg number-lines code-with-copy"><code class="sourceCode ini"><span id="cb14-1"><a href="#cb14-1"></a><span class="dt">PubkeyAuthentication yes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="restart-the-sshd-service" class="level2">
 <h2 class="anchored" data-anchor-id="restart-the-sshd-service">Restart the SSHD service</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">sudo</span> systemctl restart sshd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">sudo</span> systemctl restart sshd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="disabling-2fa" class="level2">
 <h2 class="anchored" data-anchor-id="disabling-2fa">Disabling 2FA</h2>
@@ -373,13 +376,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

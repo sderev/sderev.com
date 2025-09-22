@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8dfb5261490c18f00614d4012eee409b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3fe21d2e08b0cb77b7aa9e6b7406ce44.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f560e2957bf1c3614580d41dcf66540e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2da55f81b5a5d54216a2ec7f07f8ed12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -122,6 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sébastien De Revière</span>
     </a>
@@ -204,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="packaging-and-publishing-to-pypi">Packaging and Publishing to PyPI</h2>
 <section id="use-setuptools-in-your-setup.py-file" class="level3">
 <h3 class="anchored" data-anchor-id="use-setuptools-in-your-setup.py-file">Use <code>setuptools</code> in your <code>setup.py</code> file</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> setuptools <span class="im">import</span> setup, find_packages</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> setuptools <span class="im">import</span> setup, find_packages</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"README.md"</span>, encoding<span class="op">=</span><span class="st">"UTF-8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
@@ -227,16 +230,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-21"><a href="#cb1-21"></a>    },</span>
 <span id="cb1-22"><a href="#cb1-22"></a>    long_description<span class="op">=</span>readme,</span>
 <span id="cb1-23"><a href="#cb1-23"></a>    long_description_content_type<span class="op">=</span><span class="st">"text/markdown"</span>,</span>
-<span id="cb1-24"><a href="#cb1-24"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-24"><a href="#cb1-24"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Replace <code>your-package-name</code>, <code>your-package-version</code>, <code>your-command-name</code>, <code>your_package.module</code>, and <code>function</code> with the appropriate values for your project.</p>
 </section>
 <section id="testing-your-package" class="level3">
 <h3 class="anchored" data-anchor-id="testing-your-package">Testing your package</h3>
 <p>In your virtual environment, you can install and test your package by running the following command:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>pip install <span class="op">--</span>editable .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>pip install <span class="op">--</span>editable .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You should be able to call your command in your virtual environment:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">$</span> my_script</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">Hello</span> World!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">$</span> my_script</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">Hello</span> World!</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="publish-your-package-to-pypi" class="level3">
 <h3 class="anchored" data-anchor-id="publish-your-package-to-pypi">Publish your package to PyPI</h3>
@@ -282,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="using-keyring">Using Keyring</h3>
 <p>When using the <a href="https://pypi.org/project/keyring/"><code>keyring</code></a> library, ensure that you have the necessary backend installed for your system. On Linux, <code>keyring</code> often uses the Secret Service daemon provided by GNOME or KWallet provided by KDE. For terminal-only environments or cloud servers, <a href="https://pypi.org/project/keyrings.alt/"><code>keyrings.alt</code></a> may be used as a backend but it is less secure as it stores secrets in plaintext. On macOS, there is <code>Keychain</code>. And on Windows, <code>Windows Credential Locker</code>.</p>
 <p>Then, you can use <code>keyring</code> to store your API token:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">keyring</span> set https://upload.pypi.org/legacy/ your-username</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">keyring</span> set https://upload.pypi.org/legacy/ your-username</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Unfortunately, there isn’t a builtin way to store different API tokens per project. Maybe this will change in the future, as PyPi is pushing everyone to enable 2FA, which requires the use of an API token to upload—and not just a password.</p>
 </section>
 </section>
@@ -297,17 +300,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Save the script somewhere:</strong></p>
 <ul>
 <li><p>Bash</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="va">_FOO_BAR_COMPLETE</span><span class="op">=</span>bash_source <span class="ex">foo-bar</span> <span class="op">&gt;</span> ~/.foo-bar-complete.bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="va">_FOO_BAR_COMPLETE</span><span class="op">=</span>bash_source <span class="ex">foo-bar</span> <span class="op">&gt;</span> ~/.foo-bar-complete.bash</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Source the file in <code>~/.bashrc</code></strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">.</span> ~/.foo-bar-complete.bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">.</span> ~/.foo-bar-complete.bash</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Zsh</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="va">_FOO_BAR_COMPLETE</span><span class="op">=</span>zsh_source <span class="ex">foo-bar</span> <span class="op">&gt;</span> ~/.foo-bar-complete.zsh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="va">_FOO_BAR_COMPLETE</span><span class="op">=</span>zsh_source <span class="ex">foo-bar</span> <span class="op">&gt;</span> ~/.foo-bar-complete.zsh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Source the file in <code>~/.zshrc</code></strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">.</span> ~/.foo-bar-complete.zsh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">.</span> ~/.foo-bar-complete.zsh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Don’t forget to make it executable.</p></li>
 </ul>
 <p>I didn’t test it, but this might work for powershell:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">Invoke-Expression</span> <span class="op">-</span>Command <span class="op">(</span>env<span class="op">:</span>_YOUR_COMMAND_NAME_COMPLETE<span class="op">=</span>PowerShell your-command-name<span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">Invoke-Expression</span> <span class="op">-</span>Command <span class="op">(</span>env<span class="op">:</span>_YOUR_COMMAND_NAME_COMPLETE<span class="op">=</span>PowerShell your-command-name<span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="distributing-with-pipx" class="level2">
@@ -386,13 +389,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

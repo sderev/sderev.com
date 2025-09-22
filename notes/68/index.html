@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8dfb5261490c18f00614d4012eee409b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3fe21d2e08b0cb77b7aa9e6b7406ce44.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f560e2957bf1c3614580d41dcf66540e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2da55f81b5a5d54216a2ec7f07f8ed12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -122,6 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sébastien De Revière</span>
     </a>
@@ -205,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Sets use hashing, allowing for fast membership testing. Storing words in a set and then checking for a word’s existence has an average time complexity of O(1). This means the search time remains constant, regardless of the size of the set.</p>
 <section id="code-example" class="level3">
 <h3 class="anchored" data-anchor-id="code-example">Code Example</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>_word_sets_cache <span class="op">=</span> {}</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>_word_sets_cache <span class="op">=</span> {}</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="kw">def</span> word_exists(word, file_path):</span>
 <span id="cb1-4"><a href="#cb1-4"></a>    <span class="cf">if</span> file_path <span class="kw">not</span> <span class="kw">in</span> _word_sets_cache:</span>
@@ -214,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7"></a>        _word_sets_cache[file_path] <span class="op">=</span> words_set</span>
 <span id="cb1-8"><a href="#cb1-8"></a>    <span class="cf">else</span>:</span>
 <span id="cb1-9"><a href="#cb1-9"></a>        words_set <span class="op">=</span> _word_sets_cache[file_path]</span>
-<span id="cb1-10"><a href="#cb1-10"></a>    <span class="cf">return</span> word <span class="kw">in</span> words_set</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10"></a>    <span class="cf">return</span> word <span class="kw">in</span> words_set</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="word-by-word-check" class="level2">
@@ -222,13 +225,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A classic word by word check involves iterating through the file and comparing each word individually. This results in a linear time complexity of O(n), where ‘n’ is the number of words in the file. In this case, the search time increases linearly with the size of the file.</p>
 <section id="code-example-1" class="level3">
 <h3 class="anchored" data-anchor-id="code-example-1">Code Example</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> word_exists(word, file_path):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> word_exists(word, file_path):</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="cf">with</span> <span class="bu">open</span>(file_path, encoding<span class="op">=</span><span class="st">"UTF-8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb2-3"><a href="#cb2-3"></a>        <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
 <span id="cb2-4"><a href="#cb2-4"></a>            <span class="cf">for</span> curr_word <span class="kw">in</span> line.split():</span>
 <span id="cb2-5"><a href="#cb2-5"></a>                <span class="cf">if</span> curr_word <span class="op">==</span> word:</span>
 <span id="cb2-6"><a href="#cb2-6"></a>                    <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>    <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7"></a>    <span class="cf">return</span> <span class="va">False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="performance-comparison" class="level2">
@@ -301,13 +304,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
