@@ -1,8 +1,6 @@
 ---
 title: "About"
 
-image: profile.png
-image-alt: "Profile picture of Sébastien De Revière, wearing an elegant outfit generated with a fine-tuned Stable Diffusion model."
 
 toc: false
 link-external-icon: false
