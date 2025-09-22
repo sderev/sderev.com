@@ -8,4 +8,4 @@ date-format: iso
 categories: [notes]
 spotlight: ""
 ---
-It's the thing that, when expressed, is the incarnation of an identity.
+It's the thing that, when expressed, is the incarnation of a sensibility.
