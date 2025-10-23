@@ -9,9 +9,10 @@ website:
 
   navbar:
     right:
-      - index.qmd
       - text: "Notes"
-        href: notes/index.qmd
+        href: index.qmd
+      - text: "Blog"
+        href: posts/index.qmd
       - about.qmd
       - icon: github
         href: https://github.com/sderev
