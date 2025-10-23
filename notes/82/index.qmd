@@ -7,8 +7,6 @@ date-modified: ""
 date-format: iso
 categories: [notes]
 ---
-# Partial Functions in Python
-
 A partial function is derived from an existing function by pre-filling (or "fixing") some of its arguments with specific values. This creates a new function that behaves like the original but with fewer arguments to supply. In Python, you create them using `functools.partial(func, *args, **kwargs)`.
 
 ## Core Uses & Benefits
