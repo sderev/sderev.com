@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/notes/index.html",
+    "listing": "/index.html",
     "items": [
       "/notes/189/index.html",
       "/notes/188/index.html",
@@ -195,7 +195,7 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/posts/index.html",
     "items": [
       "/posts/mastering-llm-week-1/index.html"
     ]
