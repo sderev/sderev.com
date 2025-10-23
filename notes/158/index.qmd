@@ -1,0 +1,41 @@
+---
+title: "Create a \"Featured\" Column in Quarto Listings"
+subtitle: "Note#158"
+id: "158"
+date: 2024-06-14
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+I use [Quarto](https://quarto.org) to generate my website, which includes my notes.
+
+For the listing of [my notes](https://sderev.com/notes), I wanted a way to feature certain notes. To do that, I created a custom key-value pair in the YAML header of the note that I named `spotlight`, and I set the value to a star emoji `⭐`:
+
+```yaml
+---
+title: "The `hosts` File as a Self-Care Hack to Block Distractions"
+subtitle: "Note#156"
+id: "156"
+date: 2024-06-01
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: "⭐"
+---
+```
+
+Then, in the YAML header of the listing page, I set the `fields` key to include the custom key-value pair, and I hide it with a non-breaking space character:
+
+```yaml
+title: "Notes"
+listing:
+    ...
+    fields: [id, title, spotlight, date]
+    field-display-names:
+        spotlight: "&nbsp;"
+```
+
+See how it renders:
+
+![](/notes/assets/images/screenshot_2024-06-14T06:10:16_0.png)
