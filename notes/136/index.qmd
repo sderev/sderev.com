@@ -6,6 +6,7 @@ date: 2023-10-19
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 As Trey Hunner said: "The `yield from` statement is to a `list.extend()` the way a `yield` statement is to a `list.append()`."
 

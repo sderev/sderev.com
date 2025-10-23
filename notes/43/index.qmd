@@ -6,6 +6,7 @@ date: 2023-03-10
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 After hours of searching, I'm relieved that I finally found the solution. I couldn't understand why there was a delay when I pasted something before the cursor with `<Shift + P>` in Vim. What frustrated me was that even an empty `.vimrc` file would create a ~1 second delay, while there was no delay if I had no `.vimrc` file at all.
 

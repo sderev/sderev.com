@@ -6,6 +6,7 @@ date: 2023-10-20
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 I found a very old note from my early years when I was studying psychology. I'm not sure whether I wrote this note myself or quoted it from an article or book. Regardless, I believe it's worth archiving here.
 

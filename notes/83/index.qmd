@@ -6,6 +6,7 @@ date: 2023-05-02
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ## Partial Functions
 
@@ -45,4 +46,4 @@ print(result)
 
 ## Related Notes
 
-* [Note#82](/notes/82)
+* [Note#82](/notes/82/)

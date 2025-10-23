@@ -6,6 +6,7 @@ date: 2023-03-11
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Sorting text inside brackets, parentheses, or curly brackets in Vim can be done with a simple command. However, cases where the text is not appropriately formatted may require more effort and a better approach.
 

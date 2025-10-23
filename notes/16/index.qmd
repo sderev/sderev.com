@@ -6,6 +6,7 @@ date: 2022-11-11
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 It can be slow, though... It must be related to the archive servers, however, since it doesn't fetch install packages from Microsoft. Also, it's the usual install process afterwards; and some softwares take a really long time to install.
 
@@ -41,7 +42,7 @@ winget upgrade package_name
 
 ## Related Notes
 
-* [Note#87](/notes/87)
-* [Note#81](/notes/81)
-* [Note#78](/notes/78)
-* [Note#47](/notes/47)
+* [Note#87](/notes/87/)
+* [Note#81](/notes/81/)
+* [Note#78](/notes/78/)
+* [Note#47](/notes/47/)

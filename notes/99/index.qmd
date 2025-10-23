@@ -6,6 +6,7 @@ date: 2023-06-15
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ```bash
 xclip -selection clipboard
@@ -43,5 +44,5 @@ alias xclip='xclip -selection clipboard'
 
 ## Related Notes
 
-* [Note#101](/notes/101)
-* [Note#47](/notes/47)
+* [Note#101](/notes/101/)
+* [Note#47](/notes/47/)

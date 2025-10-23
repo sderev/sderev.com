@@ -6,6 +6,7 @@ date: 2022-11-23
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 > Debian provides **makepasswd**, **apg**, and **pwgen** packages which provide programs (the name is the same as the package) that can be used for generate passwords.
 >

@@ -6,6 +6,7 @@ date: 2023-04-02
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ### Using the `noclobber` option:
 
@@ -55,4 +56,4 @@ set +o noclobber
 
 ## Related Notes
 
-* [Note#58](/notes/58)
+* [Note#58](/notes/58/)

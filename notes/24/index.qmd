@@ -6,6 +6,7 @@ date: 2022-11-27
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ```bash
 ssh-copy-id user@server
@@ -44,5 +45,5 @@ sudo systemctl restart ssh
 
 ## Related Notes
 
-* [Note#20](/notes/20)
-* [Note#88](/notes/88)
+* [Note#20](/notes/20/)
+* [Note#88](/notes/88/)

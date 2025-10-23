@@ -6,6 +6,7 @@ date: 2023-04-21
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 As a stream editor, `sed` is more efficient since it doesn't load the entire file into memory, making it faster than the Vim command. Nonetheless, the difference is negligible for small files.
 

@@ -6,6 +6,7 @@ date: 2023-08-22
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ## The Challenge
 
@@ -69,6 +70,6 @@ Before releasing a new version of the metapackage, make sure to execute this scr
 
 ## Related Notes
 
-* [Note#70](/notes/70)
-* [Note#126](/notes/126)
-* [Note#131](/notes/131)
+* [Note#70](/notes/70/)
+* [Note#126](/notes/126/)
+* [Note#131](/notes/131/)

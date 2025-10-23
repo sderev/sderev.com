@@ -166,6 +166,6 @@ testpaths = ["tests"]
 
 ## Related Notes
 
-* [Note#70](/notes/70)
-* [Note#112](/notes/112)
-* [Note#126](/notes/126)
+* [Note#70](/notes/70/)
+* [Note#112](/notes/112/)
+* [Note#126](/notes/126/)

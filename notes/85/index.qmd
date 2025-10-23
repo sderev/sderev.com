@@ -6,6 +6,7 @@ date: 2023-05-09
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Python provides multiple ways to interact with the file system. This includes listing files and directories, checking if a path is a file or directory, and performing more complex operations.
 

@@ -6,6 +6,7 @@ date: 2022-07-12
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 > De chacun selon ses moyens, à chacun selon ses besoins.
 

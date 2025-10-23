@@ -6,6 +6,7 @@ date: 2023-09-12
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 The concepts of *strong* and *weak* typing lack universally accepted definitions, leading to diverse interpretations. A common misunderstanding is to associate the type declarations with strong typing. This is despite the fact that compilers in languages like Go or Rust can infer types, thus not requiring explicity declarations by the programmer, which contradicts the initial association. And optional type annotations are often mistakenly linked with weak typing. Moreover, type declarations are sometimes incorrectly associated with static typing, and type annotations with dynamic typing.
 
@@ -63,4 +64,4 @@ let combined = number + letter  // combined will be the string "17A".
 
 ## Related Notes
 
-* [Note#13](/notes/13)
+* [Note#13](/notes/13/)
