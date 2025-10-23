@@ -1,0 +1,20 @@
+---
+title: "The Python Code Formatter Black Can Format Long Strings"
+subtitle: "Note#74"
+id: "74"
+date: 2023-04-16
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+> The `--preview` flag will format long strings but not long comments. There are no current plans to split long comments.
+>
+> *source: <https://github.com/psf/black/issues/1331#issuecomment-1129236738>*
+
+```bash
+black --preview myfile.py
+```
+
+## Related Notes
+
+* [Note#71](/notes/71)

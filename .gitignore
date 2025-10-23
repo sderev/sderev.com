@@ -1,0 +1,7 @@
+/_site/
+
+/.quarto/
+
+*.swp
+
+**/*.quarto_ipynb
