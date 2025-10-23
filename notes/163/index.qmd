@@ -10,7 +10,7 @@ spotlight: ""
 ---
 ::: {.callout-note}
 All of this is now made far more convenient with `uv` and `-p/--python <PYTHON_VERSION>`.
-Just run `uv <cmd> -p 3.10` and you're done.
+Just run `uv -p 3.10` and you're done.
 
 [`uv` documentation](https://docs.astral.sh/uv/)
 :::
