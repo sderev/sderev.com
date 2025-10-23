@@ -39,8 +39,6 @@ If you're using GNOME, you can remap the `<Caps_Lock>` key by following these st
 4. click on **Caps Lock behavior**;
 5. click on **Make Caps Lock an additional Esc**.
 
-Note that this method may not work in Hyper-V, but it should work in VMware.
-
 ### When using i3
 
 If you're using i3, add this to the end of your i3 configuration file `~/.config/i3/config`:
