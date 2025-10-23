@@ -6,6 +6,7 @@ date: 2022-09-16
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ```bash
 du -sh -- *  | sort -rh  # Files and directories, or

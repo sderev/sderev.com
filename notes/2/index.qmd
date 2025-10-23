@@ -6,6 +6,7 @@ date: 2022-07-13
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ### Add to `.bashrc` / `.zshrc`
 

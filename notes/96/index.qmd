@@ -6,6 +6,7 @@ date: 2023-06-11
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 The process of removing vocals from a song can sometimes be accomplished by leveraging the way stereo tracks are typically recorded. This method, which involves subtracting one stereo channel from the other, is more of a hack than a professional technique, as the general sound quality will be severely deteriorated.
 

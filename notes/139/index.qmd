@@ -6,6 +6,7 @@ date: 2024-01-29
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ### Deletion and Backspace
 

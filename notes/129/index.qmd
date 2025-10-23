@@ -6,6 +6,7 @@ date: 2023-10-06
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 In Python, class attributes are usually stored in a dictionary called `__dict__`. This allows for dynamic addition of attributes but can be memory-inefficient. Python offers an alternative: the `__slots__` attribute. By defining `__slots__` in a class, you specify a fixed set of attributes, eliminating the need for a `__dict__`.
 

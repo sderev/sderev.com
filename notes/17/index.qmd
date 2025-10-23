@@ -6,6 +6,7 @@ date: 2022-11-19
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 > If you want non-interactive shell (as default) but expansion of bash aliases, put your alias definitions in a file, e.g. `.bash_aliases` and explicitly enable alias expansion in this file:
 >

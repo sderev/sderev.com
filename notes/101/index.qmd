@@ -6,6 +6,7 @@ date: 2023-06-16
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 In addition to working with plain text, the `xclip` command line tool has some less-known commands: `xclip-copyfile`, `xclip-cutfile`, and `xclip-pastefile`. These commands provide a bridge between terminal-based operations and clipboard functionality involving files.
 
@@ -29,5 +30,5 @@ In the end, whether or not these commands are useful to you will largely depend 
 
 ## Related Notes
 
-* [Note#99](/notes/99)
-* [Note#47](/notes/47)
+* [Note#99](/notes/99/)
+* [Note#47](/notes/47/)

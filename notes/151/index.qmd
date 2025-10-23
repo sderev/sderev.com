@@ -6,6 +6,7 @@ date: 2024-04-24
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 In Vim's incremental search, you can navigate through matches without committing the search or leaving search mode.
 

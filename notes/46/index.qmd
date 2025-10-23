@@ -6,6 +6,7 @@ date: 2023-03-12
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ```bash
 stty -echoctl

@@ -6,6 +6,7 @@ date: 2023-10-25
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 When solving problems related to anagrams, one efficient technique to group them is by converting each string to its Canonical Form.
 

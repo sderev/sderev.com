@@ -6,6 +6,7 @@ date: 2022-08-23
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 *Dans la traduction d'Armel Guerne.*
 
@@ -13,5 +14,5 @@ categories: [notes]
 
 ## Related Notes
 
-* [Note#36](/notes/36)
-* [Note#94](/notes/94)
+* [Note#36](/notes/36/)
+* [Note#94](/notes/94/)

@@ -6,6 +6,7 @@ date: 2023-04-12
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 When checking for the existence of a word in a file, using a set-based approach is more efficient than a classic word-by-word check, especially **when querying for multiple words**. However, this approach **may not be optimal for very large files or when memory is a concern**.
 

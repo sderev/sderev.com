@@ -6,6 +6,7 @@ date: 2023-05-19
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 This guide explains how to create and automatically run an AutoHotkey script to map the `²` key on an AZERTY keyboard to insert a backtick `` ` ``.
 
@@ -43,8 +44,8 @@ This will create a shortcut to your script in the Startup folder and run your sc
 
 ## Related Notes
 
-* [Note#3](/notes/3)
-* [Note#47](/notes/47)
-* [Note#81](/notes/81)
-* [Note#78](/notes/78)
-* [Note#16](/notes/16)
+* [Note#3](/notes/3/)
+* [Note#47](/notes/47/)
+* [Note#81](/notes/81/)
+* [Note#78](/notes/78/)
+* [Note#16](/notes/16/)

@@ -6,6 +6,7 @@ date: 2022-12-04
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 With all the hype around ChatGPT, now is a good time to finally read this paper from March 2022 by Shah & Bender:
 

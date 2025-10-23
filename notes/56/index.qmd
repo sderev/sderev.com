@@ -6,6 +6,7 @@ date: 2023-04-04
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ANSI escape sequences are used for formatting text in terminals. They provide various styles and colors to enhance the readability and presentation of text. There are three common representations for the Escape character used in ANSI escape sequences:
 

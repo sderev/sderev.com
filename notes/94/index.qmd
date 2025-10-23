@@ -6,6 +6,7 @@ date: 2023-06-06
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 I used to archive numerous quotes in my very old notes. If I happen to rediscover them while rummaging through those archives, I will try to add some of them here. I will also try to add new ones.
 
@@ -99,5 +100,5 @@ ___
 
 ## Related Notes
 
-* [Note#9](/notes/9)
-* [Note#36](/notes/36)
+* [Note#9](/notes/9/)
+* [Note#36](/notes/36/)

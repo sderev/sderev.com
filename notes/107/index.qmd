@@ -6,6 +6,7 @@ date: 2023-07-23
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Using `print()` is easy and convenient, but it prints everything to `stdout`. It can be the right tool for quick and dirty debugging—everyone does it. However, it's not without its problems. For instance, what if we want the output to go to a file instead of the screen (for logging purposes)? Also, do we really want to print our error messages to `stdout` in production?
 
@@ -80,4 +81,4 @@ By logging error messages to a file, you can easily track and analyze them, help
 
 ## Related Notes
 
-* [Note#133](/notes/133)
+* [Note#133](/notes/133/)

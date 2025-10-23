@@ -6,5 +6,6 @@ date: 2022-12-07
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Select lines in `VISUAL` mode, and then press `g` + `<C-g>`.

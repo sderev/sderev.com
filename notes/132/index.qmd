@@ -6,6 +6,7 @@ date: 2023-10-14
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 I really should read the documentation of the Rich library in detail... I just found another gem: the `rich.status` module, which provides a spinner and status message while a task is being processed. This visual feedback informs the user that the application is actively working on a task, contributing to a more engaging and informative user interaction.
 
@@ -62,6 +63,6 @@ Make sure you have the Rich library installed in your virtual environment (`pyth
 
 ## Related Notes
 
-* [Note#70](/notes/70)
-* [Note#112](/notes/112)
-* [Note#131](/notes/131)
+* [Note#70](/notes/70/)
+* [Note#112](/notes/112/)
+* [Note#131](/notes/131/)

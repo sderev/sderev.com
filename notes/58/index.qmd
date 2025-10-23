@@ -6,6 +6,7 @@ date: 2023-04-06
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ## Standard Output (stdout)
 
@@ -55,4 +56,4 @@ command &> output_and_errors.txt
 
 ## Related Notes
 
-* [Note#55](/notes/55)
+* [Note#55](/notes/55/)

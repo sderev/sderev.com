@@ -6,6 +6,7 @@ date: 2023-04-17
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ## Reasons for `Path` from `pathlib` being slower than `os.path`
 

@@ -6,6 +6,7 @@ date: 2022-08-21
 date-modified: 2024-08-15
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 **Interview with Jeremy Howard, the founder of fast.ai.**
 

@@ -6,6 +6,7 @@ date: 2023-06-16
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 In a spontaneous moment of curiosity today, I found myself looking into Microsoft Edge, with its neat new tricks and features.
 
@@ -25,4 +26,4 @@ There is the "new Bing", the integration of ChatGPT, of course, which you can ea
 
 ## Related Notes
 
-* [Note#47](/notes/47)
+* [Note#47](/notes/47/)

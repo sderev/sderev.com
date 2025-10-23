@@ -6,6 +6,7 @@ date: 2023-03-30
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Autocompletion is a convenient feature in both Zsh and Bash shells that can save time and reduce typing errors. If you have a custom script that you frequently use, you may want to enable autocompletion for it. Here's how to do it in both shells.
 

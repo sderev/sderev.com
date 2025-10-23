@@ -6,6 +6,7 @@ date: 2023-03-24
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 In Python, infinity (`inf`) and negative infinity (`-inf`) are special floating-point values representing numbers larger or smaller than any other number, respectively. They can be the result of certain mathematical operations, such as dividing a positive number by zero for infinity or dividing a negative number by zero for negative infinity. To represent infinity in Python, use the constant `float("inf")`, and for negative infinity, use `float("-inf")`.
 
@@ -37,4 +38,4 @@ Handling infinity is a concept present in multiple programming languages and lib
 
 ## Related Notes
 
-* [Note#73](/notes/73)
+* [Note#73](/notes/73/)
