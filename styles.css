@@ -1,6 +1,16 @@
 /*-- fonts --*/
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Fira+Code:wght@300..700&display=swap');
 
+/* Code blocks with rounding and shadow */
+div.sourceCode {
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+pre.sourceCode {
+  border-radius: 6px;
+}
+
 h1 code {
   font-size: 1.3rem;
   background-color: #f0f0f0;

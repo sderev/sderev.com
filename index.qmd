@@ -1,19 +1,30 @@
 ---
-title: "Blog"
+title: "Notes"
 listing:
-  - id: posts
-    contents: posts
-    sort: "date desc"
-    type: default
+    contents: "notes/*/index.qmd"
+    page-size: 1000
+    sort:
+      - "date desc"
+      - "subtitle desc"
+    sort-ui: [id, date]
+    type: table
+    filter-ui: true
     categories: false
-    sort-ui: false
-    filter-ui: false
-    fields: [image, date, title, description, categories, reading-time]
+    fields: [id, title, spotlight, date]
+    field-display-names:
+        id: "Note#"
+        spotlight: "&nbsp;"
+    date-format: "MMMM YYYY"
+    table-hover: true
 page-layout: full
-title-block-banner: true
+title-block-banner: false
 title-block-style: default
 toc: false
 ---
-:::{#posts}
+::: {.callout-tip}
+## Tip: Full-Text Search
+
+Press `s`, `f`, or `/` on your keyboard to search the entire website.
 :::
 
+Please keep in mind that these notes are just notes and should be regarded as such.
