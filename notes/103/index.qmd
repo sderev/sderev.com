@@ -6,6 +6,7 @@ date: 2023-07-03
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 YAML block scalars are specific types of data in YAML that span multiple lines. There are two styles: "folded" and "literal".
 

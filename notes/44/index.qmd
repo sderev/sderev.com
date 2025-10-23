@@ -6,6 +6,7 @@ date: 2023-03-10
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ## Add the Languages You Want to Spell Check
 

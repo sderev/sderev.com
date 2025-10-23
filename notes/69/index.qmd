@@ -6,6 +6,7 @@ date: 2023-04-13
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Even though Vim isn't an IDE, it still allows for easy refactoring.
 
@@ -33,4 +34,4 @@ The `update` command is not strictly necessary for the search and replace operat
 
 ## Related Notes
 
-* [Note#62](/notes/62)
+* [Note#62](/notes/62/)

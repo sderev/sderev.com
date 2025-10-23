@@ -6,6 +6,7 @@ date: 2023-10-05
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 The `:g` command in Vim is a powerful tool for performing actions on lines that match a particular pattern. Below are some practical examples to demonstrate its utility.
 
@@ -43,13 +44,13 @@ g/^\s*-/s/-/*/
 
 ## Related Notes
 
-* [Note#30](/notes/30)
-* [Note#35](/notes/35)
-* [Note#40](/notes/40)
-* [Note#42](/notes/42)
-* [Note#44](/notes/44)
-* [Note#45](/notes/45)
-* [Note#51](/notes/51)
-* [Note#60](/notes/60)
-* [Note#79](/notes/79)
-* [Note#122](/notes/122)
+* [Note#30](/notes/30/)
+* [Note#35](/notes/35/)
+* [Note#40](/notes/40/)
+* [Note#42](/notes/42/)
+* [Note#44](/notes/44/)
+* [Note#45](/notes/45/)
+* [Note#51](/notes/51/)
+* [Note#60](/notes/60/)
+* [Note#79](/notes/79/)
+* [Note#122](/notes/122/)

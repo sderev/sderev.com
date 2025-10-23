@@ -6,6 +6,7 @@ date: 2024-05-30
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 For whatever reason—as usual—, `xclip` and other program using the X-Server stopped working on my WSL installation. I just got the following error:
 

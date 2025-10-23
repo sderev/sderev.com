@@ -6,6 +6,7 @@ date: 2023-04-16
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ## Breaking Long Strings into Multiple Lines
 
@@ -50,4 +51,4 @@ These limits can be customized, but sticking to the recommended limits ensures c
 
 ## Related Notes
 
-* [Note#74](/notes/74)
+* [Note#74](/notes/74/)

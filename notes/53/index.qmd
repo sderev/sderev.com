@@ -6,6 +6,7 @@ date: 2023-03-31
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 `su` and `su -` are Unix commands used to switch the user account in a terminal session. The key differences are:
 

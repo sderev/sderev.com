@@ -6,6 +6,7 @@ date: 2023-10-19
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 These instructions are adapted for my own customized meta key, set to `ctrl-q`. You will obviously need to adapt it to your own meta key if different.
 
@@ -27,4 +28,4 @@ These instructions are adapted for my own customized meta key, set to `ctrl-q`. 
 
 ## Related Notes
 
-* [Note#122](/notes/122)
+* [Note#122](/notes/122/)

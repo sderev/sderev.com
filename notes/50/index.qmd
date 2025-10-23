@@ -6,6 +6,7 @@ date: 2023-03-30
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 `pushd` and `popd` are shell commands that allow you to manipulate the directory stack in Linux and Unix-like systems. The directory stack is a list of directories to which you can quickly switch back and forth. Using `pushd` and `popd` can make navigating through the file system more efficient.
 

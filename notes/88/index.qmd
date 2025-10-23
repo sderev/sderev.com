@@ -6,6 +6,7 @@ date: 2023-05-22
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Google Authenticator provides 2-factor authentication (2FA), which can enhance the security of SSH logins.
 
@@ -158,5 +159,5 @@ If you wish to disable 2FA, you can either remove or comment out the associated 
 
 ## Related Notes
 
-* [Note#20](/notes/20)
-* [Note#24](/notes/24)
+* [Note#20](/notes/20/)
+* [Note#24](/notes/24/)

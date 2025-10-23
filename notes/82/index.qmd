@@ -6,6 +6,7 @@ date: 2023-05-02
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 A partial function is derived from an existing function by pre-filling (or "fixing") some of its arguments with specific values. This creates a new function that behaves like the original but with fewer arguments to supply. In Python, you create them using `functools.partial(func, *args, **kwargs)`.
 
@@ -44,4 +45,4 @@ sms_notifier(recipient="+1234567890", message="Meeting reminder at 2 PM.")
 
 ## Related Notes
 
-* [Note#83](/notes/83)
+* [Note#83](/notes/83/)

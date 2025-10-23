@@ -6,6 +6,7 @@ date: 2024-04-24
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 **Source**: [https://py.mit.edu/spring24/readings/graph_search#_summary_of_bfs_vs_dfs](https://py.mit.edu/spring24/readings/graph_search#_summary_of_bfs_vs_dfs)
 

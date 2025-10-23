@@ -6,6 +6,7 @@ date: 2023-07-30
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Vim's `:s` command lets you use substitution with regular expressions. While `/` is the common delimiter, you can use other characters (except for `\`, `"`, `|`). 
 

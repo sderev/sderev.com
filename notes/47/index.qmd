@@ -60,7 +60,7 @@ I personally don't use FancyZones much, but if a more advanced tiling window man
 
 ## Related Notes
 
-* [Note#87](/notes/87)
-* [Note#81](/notes/81)
-* [Note#78](/notes/78)
-* [Note#16](/notes/16)
+* [Note#87](/notes/87/)
+* [Note#81](/notes/81/)
+* [Note#78](/notes/78/)
+* [Note#16](/notes/16/)

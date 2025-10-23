@@ -6,6 +6,7 @@ date: 2023-06-23
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ## Keybindings
 
@@ -28,8 +29,8 @@ To access the built-in documentation of Jedi-Vim in Vim, use the following comma
 
 ## Related Notes
 
-* [Note#62](/notes/62)
-* [Note#69](/notes/69)
+* [Note#62](/notes/62/)
+* [Note#69](/notes/69/)
 
 ## References
 

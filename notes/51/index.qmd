@@ -6,6 +6,7 @@ date: 2023-03-30
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Put your cursor on the path and press `gf`.
 
@@ -17,4 +18,4 @@ To navigate through buffers, you cal also use `:bn` or `:bnext`, and `:bp` or `:
 
 ## Related Notes
 
-* [Note#65](/notes/65)
+* [Note#65](/notes/65/)

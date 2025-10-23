@@ -6,6 +6,7 @@ date: 2023-08-22
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 When using `zsh` or `bash` with `vi` mode enabled, you can efficiently navigate and search through your command history.
 

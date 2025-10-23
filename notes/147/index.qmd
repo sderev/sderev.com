@@ -6,6 +6,7 @@ date: 2024-03-31
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 I experienced sluggishness in Vim when editing `LaTeX` files. Despite disabling plugins like `vimtex` and other settings, Vim remained very slow. Eventually, I found the issue was caused by ALE implicitly enabling several linters. 
 

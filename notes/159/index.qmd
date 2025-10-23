@@ -53,8 +53,8 @@ If you use `git reset --hard`, you will lose your changes.
 ```
 % git reset --hard @~
 HEAD is now at <commit-hash> Create a file
-```
+``` 
 
 ## Related Notes
 
-* [Note#91](/notes/91)
+* [Note#91](/notes/91/)

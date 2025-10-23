@@ -6,6 +6,7 @@ date: 2022-11-25
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ```bash
 sudo timedatectl set-timezone Europe/Paris

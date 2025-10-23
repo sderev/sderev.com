@@ -6,6 +6,7 @@ date: 2023-09-28
 date-modified: 2024-10-29
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Edit the contents of a past Git commit while preserving subsequent commits.
 
@@ -54,5 +55,5 @@ But be aware that this will lose any changes you made during the rebase.
 
 ## Related Notes
 
-* [Note#72](/notes/72)
-* [Note#91](/notes/91)
+* [Note#72](/notes/72/)
+* [Note#91](/notes/91/)

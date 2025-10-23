@@ -6,6 +6,7 @@ date: 2024-03-27
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 I wanted to easily write some notes for any article when I feel like it, in the same way I already do with anything else. However, I wanted to have a template with some metadata about the article. This metadata would contain elements like the title, the publication date, keywords, URL, and abstract.
 

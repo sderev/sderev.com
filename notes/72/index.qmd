@@ -6,6 +6,7 @@ date: 2023-04-16
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ## Create a New Repository
 
@@ -63,5 +64,5 @@ gh repo delete yourusername/old-repo-2 --confirm
 
 ## Related Notes
 
-* [Note#91](/notes/91)
-* [Note#125](/notes/125)
+* [Note#91](/notes/91/)
+* [Note#125](/notes/125/)

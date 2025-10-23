@@ -6,6 +6,7 @@ date: 2023-09-24
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 `CDPATH` is an environment variable in Unix-like shells such as Bash and Zsh that allows for quick directory navigation. It holds a list of directories that the `cd` command will search when you attempt to change directories.
 

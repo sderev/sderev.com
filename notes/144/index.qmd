@@ -6,6 +6,7 @@ date: 2024-03-01
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 By default, `np.var()` and `np.std()` calculate the **population** (biased) variance and standard deviation, whereas `statistics.variance()` and `statistics.stdev()` calculate the **sample** (unbiased) variance and standard deviation by default.
 

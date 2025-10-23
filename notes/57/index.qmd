@@ -6,6 +6,7 @@ date: 2023-04-05
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 A brief guide on creating and managing a virtual environment for your Python projects using either the built-in `venv` module or the popular third-party tool `virtualenv`. Both methods allow for project-specific dependencies and settings, enabling you to work on multiple projects with different requirements on the same machine without conflicts.
 

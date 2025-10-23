@@ -6,6 +6,7 @@ date: 2024-02-15
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 A step-by-step guide to generating a GPG key, configuring Git to use it for signing commits, adding the key to GitHub, verifying commit signatures, and setting up GPG agent for passphrase caching.
 

@@ -6,6 +6,7 @@ date: 2024-02-12
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Git's `includeIf` directive allows for conditional inclusion of configuration files based on the repository path, enabling different configurations for projects in distinct directories.
 

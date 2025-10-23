@@ -6,6 +6,7 @@ date: 2022-09-08
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 **Add these parameters in the JSON settings file:**
 

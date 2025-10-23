@@ -6,6 +6,7 @@ date: 2023-10-19
 date-modified: 2024-09-23
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 **According to the [Python documentation](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable):**
 

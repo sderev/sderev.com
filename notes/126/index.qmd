@@ -6,6 +6,7 @@ date: 2023-10-04
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 There was `pip-tools`, but now there is `uv`.
 
@@ -43,6 +44,6 @@ pipx install uv
 
 ## Related Notes
 
-* [Note#70](/notes/70)
-* [Note#112](/notes/112)
-* [Note#131](/notes/131)
+* [Note#70](/notes/70/)
+* [Note#112](/notes/112/)
+* [Note#131](/notes/131/)

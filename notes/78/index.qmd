@@ -6,6 +6,7 @@ date: 2023-04-19
 date-modified: 2024-11-04
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ## Step 1: Record a Video
 
@@ -33,8 +34,8 @@ Although Clipchamp can easily record your screen and/or your webcam, I find it q
 
 ## Related Notes
 
-* [Note#87](/notes/87)
-* [Note#81](/notes/81)
-* [Note#47](/notes/47)
-* [Note#16](/notes/16)
-* [Note#98](/notes/98)
+* [Note#87](/notes/87/)
+* [Note#81](/notes/81/)
+* [Note#47](/notes/47/)
+* [Note#16](/notes/16/)
+* [Note#98](/notes/98/)

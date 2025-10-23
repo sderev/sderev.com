@@ -6,6 +6,7 @@ date: 2023-04-17
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 When measuring time intervals in a Python program, it is recommended to avoid using `time.time()` and choose `time.monotonic()` or `time.monotonic_ns()` instead.
 

@@ -6,6 +6,7 @@ date: 2023-03-08
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 > The simplest version is: create `~/.vim/undo-dir/` directory and add the following to the `.vimrc`: 
 > 

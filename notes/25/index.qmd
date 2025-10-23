@@ -6,6 +6,7 @@ date: 2022-11-28
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 Databases are an essential part of modern applications, and there are times when you might need to move or backup your database. MySQL and MariaDB provide several ways to export and import databases.
 

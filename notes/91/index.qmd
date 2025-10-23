@@ -63,6 +63,6 @@ Almost everything you can do on the GitHub website, you can do it in a CLI with 
 
 ## Related Notes
 
-* [Note#72](/notes/72)
-* [Note#125](/notes/125)
-* [Note#159](/notes/159)
+* [Note#72](/notes/72/)
+* [Note#125](/notes/125/)
+* [Note#159](/notes/159/)

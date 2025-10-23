@@ -6,6 +6,7 @@ date: 2023-04-08
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 ## Renaming the Current Buffer in Vim
 
@@ -111,4 +112,4 @@ Jump to a specific buffer using the `:b` or `:buffer` command followed by the bu
 
 ## Related Notes
 
-* [Note#51](/notes/51)
+* [Note#51](/notes/51/)

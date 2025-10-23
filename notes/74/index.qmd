@@ -6,6 +6,7 @@ date: 2023-04-16
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 > The `--preview` flag will format long strings but not long comments. There are no current plans to split long comments.
 >
@@ -17,4 +18,4 @@ black --preview myfile.py
 
 ## Related Notes
 
-* [Note#71](/notes/71)
+* [Note#71](/notes/71/)

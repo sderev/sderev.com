@@ -166,7 +166,7 @@ Instruct users to install and use `pipx`:
 
 ## Related Notes
 
-* [Note#112](/notes/112)
-* [Note#126](/notes/126)
-* [Note#131](/notes/131)
-* [Note#132](/notes/132)
+* [Note#112](/notes/112/)
+* [Note#126](/notes/126/)
+* [Note#131](/notes/131/)
+* [Note#132](/notes/132/)

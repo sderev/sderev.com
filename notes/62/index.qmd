@@ -6,6 +6,7 @@ date: 2023-04-07
 date-modified: ""
 date-format: iso
 categories: [notes]
+spotlight: ""
 ---
 1. Move your cursor over the variable you want to rename.
 2. Press `gd` to go to the local declaration of the variable.
@@ -19,5 +20,5 @@ While your cursor is on a name: `<leader>r` (In case of using Jedi-Vim plugin fo
 
 ## Related Notes
 
-* [Note#69](/notes/69)
-* [Note#102](/notes/102)
+* [Note#69](/notes/69/)
+* [Note#102](/notes/102/)
