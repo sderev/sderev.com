@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-10-05">
+<meta name="dcterms.date" content="2025-10-23">
 
-<title>Vim :g Command: A Practical Guide – Sébastien De Revière</title>
+<title>Command Aliases in Click: True Aliases vs Prefix Matching – Sébastien De Revière</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,11 +107,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Vim :g Command: A Practical Guide – Sébastien De Revière">
-<meta property="og:description" content="Note#128">
+<meta property="og:title" content="Command Aliases in Click: True Aliases vs Prefix Matching – Sébastien De Revière">
+<meta property="og:description" content="Note#190">
 <meta property="og:site_name" content="Sébastien De Revière">
-<meta name="twitter:title" content="Vim :g Command: A Practical Guide – Sébastien De Revière">
-<meta name="twitter:description" content="Note#128">
+<meta name="twitter:title" content="Command Aliases in Click: True Aliases vs Prefix Matching – Sébastien De Revière">
+<meta name="twitter:description" content="Note#190">
 <meta name="twitter:creator" content="@sdereviere">
 <meta name="twitter:card" content="summary">
 </head>
@@ -168,8 +168,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page">
-      <h1 class="title">Vim <code>:g</code> Command: A Practical Guide</h1>
-            <p class="subtitle lead">Note#128</p>
+      <h1 class="title">Command Aliases in Click: True Aliases vs Prefix Matching</h1>
+            <p class="subtitle lead">Note#190</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">notes</div>
               </div>
@@ -183,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2023-10-05</p>
+        <p class="date">2025-10-23</p>
       </div>
     </div>
     
@@ -202,40 +202,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>The <code>:g</code> command in Vim is a powerful tool for performing actions on lines that match a particular pattern. Below are some practical examples to demonstrate its utility.</p>
-<section id="inserting-a-new-line-below-markdown-headings" class="level2">
-<h2 class="anchored" data-anchor-id="inserting-a-new-line-below-markdown-headings">Inserting a New Line Below Markdown Headings</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>:g/^#/normal o</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Description</strong>: Useful in Markdown files to insert a new line below each heading, ensuring that headings and paragraphs are separated.</p>
+<p>Click doesn’t provide built-in command aliases. The common workarounds are:</p>
+<ol type="1">
+<li><strong>Prefix matching</strong> (native, via custom <code>Group</code>)</li>
+<li><strong>True aliases</strong> (via <code>click-aliases</code> package)</li>
+</ol>
+<section id="whats-the-difference" class="level2">
+<h2 class="anchored" data-anchor-id="whats-the-difference">What’s the Difference?</h2>
+<section id="prefix-matching" class="level3">
+<h3 class="anchored" data-anchor-id="prefix-matching">Prefix matching</h3>
+<p>Type any unique prefix of a command name.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">cli</span> status  <span class="co"># Full command</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">cli</span> st      <span class="co"># Prefix works if unique</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="deleting-double-empty-lines" class="level2">
-<h2 class="anchored" data-anchor-id="deleting-double-empty-lines">Deleting Double Empty Lines</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>:g/^\n\n/normal dd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Description</strong>: Deletes one of each set of double empty lines, reducing them to single empty lines.</p>
+<section id="true-aliases" class="level3">
+<h3 class="anchored" data-anchor-id="true-aliases">True aliases</h3>
+<p>Multiple distinct names for the same command.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">cli</span> new     <span class="co"># Primary name</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">cli</span> create  <span class="co"># Explicit alias</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">cli</span> add     <span class="co"># Another explicit alias</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="changing-bullet-point-style-in-unordered-lists" class="level2">
-<h2 class="anchored" data-anchor-id="changing-bullet-point-style-in-unordered-lists">Changing Bullet Point Style in Unordered Lists</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>g/^\s*-/s/-/*/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Description</strong>: Changes the bullet point style from <code>-</code> to <code>*</code> in unordered lists, which is particularly useful when you want to standardize the list format.</p>
 </section>
-<section id="displaying-lines-containing-a-specific-word" class="level2">
-<h2 class="anchored" data-anchor-id="displaying-lines-containing-a-specific-word">Displaying Lines Containing a Specific Word</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>:g/word/#</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Description</strong>: Displays line numbers and content for lines containing the word “word.”</p>
+<section id="native-approach-prefix-matching" class="level2">
+<h2 class="anchored" data-anchor-id="native-approach-prefix-matching">Native Approach: Prefix Matching</h2>
+<p>Click’s documentation shows how to implement git-style abbreviations:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> click</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">class</span> AliasedGroup(click.Group):</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="kw">def</span> get_command(<span class="va">self</span>, ctx, cmd_name):</span>
+<span id="cb3-5"><a href="#cb3-5"></a>        rv <span class="op">=</span> click.Group.get_command(<span class="va">self</span>, ctx, cmd_name)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>        <span class="cf">if</span> rv <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb3-7"><a href="#cb3-7"></a>            <span class="cf">return</span> rv</span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a>        matches <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> <span class="va">self</span>.list_commands(ctx)</span>
+<span id="cb3-10"><a href="#cb3-10"></a>                   <span class="cf">if</span> x.startswith(cmd_name)]</span>
+<span id="cb3-11"><a href="#cb3-11"></a>        <span class="cf">if</span> <span class="kw">not</span> matches:</span>
+<span id="cb3-12"><a href="#cb3-12"></a>            <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>        <span class="cf">elif</span> <span class="bu">len</span>(matches) <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-14"><a href="#cb3-14"></a>            <span class="cf">return</span> click.Group.get_command(<span class="va">self</span>, ctx, matches[<span class="dv">0</span>])</span>
+<span id="cb3-15"><a href="#cb3-15"></a></span>
+<span id="cb3-16"><a href="#cb3-16"></a>        ctx.fail(<span class="ss">f"Too many matches: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(<span class="bu">sorted</span>(matches))<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-17"><a href="#cb3-17"></a></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="at">@click.group</span>(cls<span class="op">=</span>AliasedGroup)</span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="kw">def</span> cli():</span>
+<span id="cb3-20"><a href="#cb3-20"></a>    <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="limitation" class="level3">
+<h3 class="anchored" data-anchor-id="limitation">Limitation</h3>
+<p>Adding a <code>start</code> command would make <code>st</code> ambiguous if you already have <code>status</code>.</p>
 </section>
-<section id="related-notes" class="level2">
-<h2 class="anchored" data-anchor-id="related-notes">Related Notes</h2>
+</section>
+<section id="true-aliases-click-aliases-package" class="level2">
+<h2 class="anchored" data-anchor-id="true-aliases-click-aliases-package">True Aliases: <code>click-aliases</code> Package</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> click_aliases <span class="im">import</span> ClickAliasedGroup</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="at">@click.group</span>(cls<span class="op">=</span>ClickAliasedGroup)</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">def</span> cli():</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="cf">pass</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="at">@cli.command</span>(aliases<span class="op">=</span>[<span class="st">'create'</span>, <span class="st">'add'</span>])</span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="kw">def</span> new():</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    click.echo(<span class="st">'Creating...'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
 <ul>
-<li><a href="../../notes/30/">Note#30</a></li>
-<li><a href="../../notes/35/">Note#35</a></li>
-<li><a href="../../notes/40/">Note#40</a></li>
-<li><a href="../../notes/42/">Note#42</a></li>
-<li><a href="../../notes/44/">Note#44</a></li>
-<li><a href="../../notes/45/">Note#45</a></li>
-<li><a href="../../notes/51/">Note#51</a></li>
-<li><a href="../../notes/60/">Note#60</a></li>
-<li><a href="../../notes/79/">Note#79</a></li>
-<li><a href="../../notes/122/">Note#122</a></li>
+<li><a href="https://click.palletsprojects.com/en/stable/advanced/">Click Advanced Patterns - Command Aliases</a></li>
+<li><a href="https://github.com/click-contrib/click-aliases"><code>click-aliases</code> GitHub Repository</a></li>
+<li><a href="https://click.palletsprojects.com/en/stable/api/#click.Group">Click API Reference - Groups</a></li>
 </ul>
 
 

@@ -202,8 +202,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="partial-functions-vs-closures-in-python" class="level1">
-<h1>Partial Functions vs Closures in Python</h1>
 <section id="partial-functions" class="level2">
 <h2 class="anchored" data-anchor-id="partial-functions">Partial Functions</h2>
 <p>A partial function is a new function derived from an existing one by pre-filling (or “fixing”) some of its arguments with specific values, effectively creating a version of the original function with a reduced arity. In Python, you create a partial function using functools.partial(func, *args, **keywords), where func is the original function, and *args and **keywords are the arguments you want to pre-set; calling partial returns a new callable (the partial function) that, when invoked, will call func with the pre-filled arguments along with any new arguments provided.</p>
@@ -239,11 +237,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="related-notes" class="level2">
 <h2 class="anchored" data-anchor-id="related-notes">Related Notes</h2>
 <ul>
-<li><a href="../../notes/82">Note#82</a></li>
+<li><a href="../../notes/82/">Note#82</a></li>
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
