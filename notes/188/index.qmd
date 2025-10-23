@@ -1,6 +1,6 @@
 ---
 title: "Automatic PyTorch Backend Selection with `uv`"
-subtitle: "Zettel#188"
+subtitle: "Note#188"
 id: "188"
 date: 2025-05-24
 date-modified: ""
