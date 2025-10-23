@@ -1,6 +1,6 @@
 ---
 title: "Remap `Win + e` to File Pilot"
-subtitle: "Zettel#189"
+subtitle: "Note#189"
 id: "189"
 date: 2025-08-05
 date-modified: ""
