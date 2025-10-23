@@ -10,7 +10,7 @@ spotlight: ""
 ---
 I use [Quarto](https://quarto.org) to generate my website, which includes my notes.
 
-For the listing of [my notes](https://sderev.com/notes), I wanted a way to feature certain notes. To do that, I created a custom key-value pair in the YAML header of the notes that I named `spotlight` so that it will be invisible in the listing, and I set the value to a star emoji `⭐`:
+For the listing of [my notes](https://sderev.com/notes), I wanted a way to feature certain notes. To do that, I created a custom key-value pair in the YAML header of the note that I named `spotlight`, and I set the value to a star emoji `⭐`:
 
 ```yaml
 ---
@@ -25,23 +25,15 @@ spotlight: "⭐"
 ---
 ```
 
-Then, in the YAML header of the listing page, I set the `fields` key to include the custom key-value pair:
+Then, in the YAML header of the listing page, I set the `fields` key to include the custom key-value pair, and I hide it with a non-breaking space character:
 
 ```yaml
----
 title: "Notes"
 listing:
-    page-size: 1000
-    sort: 
-      - "date desc"
-      - "subtitle desc"
-    sort-ui: [subtitle, reading-time]
-    type: table
-    filter-ui: true
-    categories: false
-    fields: [subtitle, title, spotlight, date]
-    date-format: iso
----
+    ...
+    fields: [id, title, spotlight, date]
+    field-display-names:
+        spotlight: "&nbsp;"
 ```
 
 See how it renders:
