@@ -5,7 +5,7 @@ id: "188"
 date: 2025-05-24
 date-modified: ""
 date-format: iso
-categories: [zettelkasten]
+categories: [notes]
 spotlight: ""
 ---
 [Tweet by Charlie Marsh](https://x.com/charliermarsh/status/1926250345887396217):

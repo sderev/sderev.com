@@ -5,7 +5,7 @@ id: "189"
 date: 2025-08-05
 date-modified: ""
 date-format: iso
-categories: [zettelkasten]
+categories: [notes]
 spotlight: ""
 ---
 I've been using File Pilot for a few months now, and I recommend every Windows user to try it out.
