@@ -1,0 +1,23 @@
+---
+title: "Evaluating variables in f-strings in Python"
+subtitle: "Note#48"
+id: "48"
+date: 2023-03-21
+date-modified: ""
+date-format: iso
+categories: [notes]
+---
+In Python, you can use the `=` character in an f-string to evaluate and display the value of a variable. This is a concise way to include both the variable name and its value in the output.
+
+### Example:
+
+```python
+x = 3
+print(f"{x=}")
+```
+
+### Output:
+
+```python
+x = 3
+```
