@@ -13,7 +13,7 @@ categories: [notes]
 
 Press the key combination `Win + Shift + S` and select the camera icon.
 
-### With the Windows Game Bar
+### With Windows Game Bar
 
 Press the key combination `Win + Alt + R` to start or stop recording a video clip of **the active application** using the Windows Game Bar. The recorded videos are saved into your `Videos` folder by default.
 
