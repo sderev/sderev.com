@@ -7,8 +7,6 @@ date-modified: ""
 date-format: iso
 categories: [notes]
 ---
-# Partial Functions vs Closures in Python
-
 ## Partial Functions
 
 A partial function is a new function derived from an existing one by pre-filling (or "fixing") some of its arguments with specific values, effectively creating a version of the original function with a reduced arity. In Python, you create a partial function using functools.partial(func, *args, **keywords), where func is the original function, and *args and **keywords are the arguments you want to pre-set; calling partial returns a new callable (the partial function) that, when invoked, will call func with the pre-filled arguments along with any new arguments provided.
