@@ -31,7 +31,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 try:
-    from PIL import Image
+    from PIL import Image, ImageOps
     import pillow_avif  # noqa: F401 - required for AVIF support
 except ImportError as e:
     print(f"Error: Missing required package: {e}", file=sys.stderr)
@@ -125,7 +125,11 @@ def optimize_image(source: Path, output: Path, max_width: int = 1024, quality: i
             return
 
     with Image.open(source) as img:
-        # Strip EXIF metadata
+        # Apply EXIF orientation before stripping metadata
+        # This ensures phone photos display correctly after EXIF removal
+        img = ImageOps.exif_transpose(img) or img
+
+        # Strip EXIF metadata for privacy and file size
         if "exif" in img.info:
             del img.info["exif"]
 
@@ -278,7 +282,8 @@ def main():
     if args.preview:
         print(f"\nNext {args.preview} days:")
         for offset in range(args.preview):
-            future_date = datetime.now(paris_tz).replace(
+            # Base preview on now_paris (which includes --day-offset)
+            future_date = now_paris.replace(
                 hour=0, minute=0, second=0, microsecond=0
             )
             future_date += timedelta(days=offset)
@@ -287,7 +292,8 @@ def main():
             future_chosen_idx = indices[future_cycle_idx]
             future_file = files[future_chosen_idx].name
 
-            marker = " ← TODAY" if offset == 0 else ""
+            # Mark the current selection (accounting for --day-offset)
+            marker = " ← SELECTED" if offset == 0 else ""
             print(f"  {future_date.strftime('%Y-%m-%d')}: {future_file}{marker}")
 
     # Dry-run mode: exit without saving
