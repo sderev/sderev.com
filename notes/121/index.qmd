@@ -1,0 +1,18 @@
+---
+title: "`!!` Substitution in Bash and Zsh"
+subtitle: "Note#121"
+id: "121"
+date: 2023-09-23
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+I typically rely on `vi` mode for editing commands, but `!!` could be useful for those who don't, as it recalls the last command. Useful for adding a forgotten `sudo` or making quick adjustments.
+
+```bash
+$ apt update  # Oops, forgot sudo
+$ sudo !!
+```
+
+Note that can use `!b` to recall the most recent command starting with `b`. It works with any letter.

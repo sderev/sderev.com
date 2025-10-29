@@ -1,0 +1,17 @@
+---
+title: "Use Multiple GitHub Accounts with the `gh` CLI"
+subtitle: "Note#161"
+id: "161"
+date: 2024-06-24
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+There is no configuration needed other than authenticating another account with `gh auth login`. After that, the new account will be added to `~/.config/gh/hosts.yaml`.
+
+You can see which accounts are associated with your configuration by running `gh auth status`. You'll also see which account is currently active.
+
+As of now, you have to manually switch the active account, which you can do with `gh auth switch`.
+
+**source**: <https://github.com/cli/cli/releases/tag/v2.40.0>
