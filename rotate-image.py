@@ -67,25 +67,63 @@ def discover_source_images(src_dir: Path) -> list[Path]:
         src_dir: Source directory path
 
     Returns:
-        Sorted list of JPG/JPEG file paths
+        Sorted list of image file paths (JPG, JPEG, PNG, WebP)
     """
-    patterns = ["*.jpg", "*.jpeg", "*.JPG", "*.JPEG"]
+    patterns = [
+        "*.jpg", "*.jpeg", "*.JPG", "*.JPEG",
+        "*.png", "*.PNG",
+        "*.webp", "*.WEBP"
+    ]
     files = []
     for pattern in patterns:
         files.extend(src_dir.glob(pattern))
     return sorted(files)
 
 
-def optimize_image(source: Path, output: Path, max_width: int = 1024, quality: int = 80):
+def validate_image(path: Path) -> bool:
     """
-    Optimize image to AVIF format.
+    Validate that file is a valid image.
+
+    Args:
+        path: Path to image file
+
+    Returns:
+        True if valid image, False otherwise
+    """
+    try:
+        with Image.open(path) as img:
+            img.verify()
+        return True
+    except Exception as e:
+        print(f"Warning: {path.name} is not a valid image: {e}", file=sys.stderr)
+        return False
+
+
+def optimize_image(source: Path, output: Path, max_width: int = 1024, quality: int = 80, force: bool = False):
+    """
+    Optimize image to AVIF format with fallback to JPEG.
 
     Args:
         source: Source image path
         output: Output AVIF path
         max_width: Maximum width in pixels
         quality: AVIF quality (0-100), default 80
+        force: Force reprocessing even if output exists and is newer
+
+    Raises:
+        Exception: If both AVIF and JPEG conversion fail
     """
+    # Check if we can skip processing (caching)
+    if not force and output.exists():
+        # Check both AVIF and potential JPEG fallback
+        jpeg_output = output.with_suffix(".jpg")
+        if output.exists() and output.stat().st_mtime > source.stat().st_mtime:
+            print(f"  Skipping (already optimized): {output.name}")
+            return
+        elif jpeg_output.exists() and jpeg_output.stat().st_mtime > source.stat().st_mtime:
+            print(f"  Skipping (already optimized): {jpeg_output.name}")
+            return
+
     with Image.open(source) as img:
         # Strip EXIF metadata
         if "exif" in img.info:
@@ -97,13 +135,32 @@ def optimize_image(source: Path, output: Path, max_width: int = 1024, quality: i
             new_height = int(img.height * ratio)
             img = img.resize((max_width, new_height), Image.Resampling.LANCZOS)
 
-        # Save as AVIF
-        img.save(
-            output,
-            format="AVIF",
-            quality=quality,
-            speed=4,  # effort parameter (0=slowest/best, 10=fastest/worst)
-        )
+        # Try AVIF first
+        try:
+            img.save(
+                output,
+                format="AVIF",
+                quality=quality,
+                speed=4,  # effort parameter (0=slowest/best, 10=fastest/worst)
+            )
+            print(f"  Saved as AVIF (Q={quality})")
+        except Exception as avif_error:
+            # Fallback to JPEG if AVIF fails
+            print(f"  AVIF conversion failed: {avif_error}", file=sys.stderr)
+            print(f"  Falling back to JPEG format", file=sys.stderr)
+
+            jpeg_output = output.with_suffix(".jpg")
+            try:
+                # Convert RGBA to RGB if needed (for PNG with transparency)
+                if img.mode in ("RGBA", "LA", "P"):
+                    rgb_img = Image.new("RGB", img.size, (255, 255, 255))
+                    rgb_img.paste(img, mask=img.split()[-1] if img.mode == "RGBA" else None)
+                    img = rgb_img
+
+                img.save(jpeg_output, format="JPEG", quality=95, optimize=True)
+                print(f"  Saved as JPEG: {jpeg_output.name}")
+            except Exception as jpeg_error:
+                raise Exception(f"Both AVIF and JPEG conversion failed: {jpeg_error}")
 
 
 def main():
@@ -148,6 +205,11 @@ def main():
         metavar="N",
         help="Simulate N days in the future (for testing rotation)",
     )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Force reprocessing even if output already exists",
+    )
 
     args = parser.parse_args()
 
@@ -158,9 +220,20 @@ def main():
 
     files = discover_source_images(args.src_dir)
     if not files:
-        print(f"Error: No JPG/JPEG files found in {args.src_dir}", file=sys.stderr)
+        print(f"Error: No image files found in {args.src_dir}", file=sys.stderr)
+        print("  Supported formats: JPG, JPEG, PNG, WebP", file=sys.stderr)
         sys.exit(1)
 
+    # Validate discovered images
+    valid_files = [f for f in files if validate_image(f)]
+    if not valid_files:
+        print(f"Error: No valid images found in {args.src_dir}", file=sys.stderr)
+        sys.exit(1)
+
+    if len(valid_files) < len(files):
+        print(f"Warning: Skipped {len(files) - len(valid_files)} invalid image(s)")
+
+    files = valid_files
     n = len(files)
     print(f"Found {n} source image(s)")
 
@@ -226,7 +299,7 @@ def main():
     args.output.parent.mkdir(parents=True, exist_ok=True)
 
     print(f"\nOptimizing {chosen_file} → {args.output}")
-    optimize_image(chosen_file, args.output)
+    optimize_image(chosen_file, args.output, force=args.force)
 
     print(f"✓ Image rotation complete")
 

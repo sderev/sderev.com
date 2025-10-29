@@ -4,7 +4,8 @@ This directory contains the source images that rotate daily on the About page.
 
 ## Adding New Images
 
-1. **Place your source images here** as JPG or JPEG files
+1. **Place your source images here** in any supported format
+   - Supported formats: JPG, JPEG, PNG, WebP
    - Any orientation works: portrait, landscape, or square
    - The workflow preserves aspect ratios (no cropping or distortion)
    - Recommended minimum: 1024px on the longest dimension
@@ -12,11 +13,12 @@ This directory contains the source images that rotate daily on the About page.
 
 2. **Automatic optimization**
    - The GitHub Action runs `rotate-image.py` (Python script)
-   - Converts JPG → AVIF format using Pillow
+   - Converts to AVIF format (with JPEG fallback if AVIF fails)
    - Downsizes large images to max 1024px width (Q=80 quality)
    - Preserves small images at original resolution
    - Strips metadata for privacy and smaller file size
-   - Output: `/img/about/image.avif` on the `gh-pages` branch
+   - Validates images before processing (skips corrupted files)
+   - Output: `/img/about/image.avif` (or `.jpg` fallback) on the `gh-pages` branch
 
 3. **No further action needed**
    - Images are automatically included in rotation after pushing to `main`
@@ -56,6 +58,9 @@ uv run rotate-image.py --day-offset 1
 
 # Test rotation for any future date (e.g., 7 days from now)
 uv run rotate-image.py --day-offset 7
+
+# Force reprocessing (bypass cache)
+uv run rotate-image.py --force
 ```
 
 The script uses PEP 723 inline dependencies, so `uv` automatically manages the required packages (Pillow and pillow-avif-plugin). The algorithm is identical to the GitHub Action, guaranteeing consistent results.
