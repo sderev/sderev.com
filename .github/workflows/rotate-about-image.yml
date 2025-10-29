@@ -7,6 +7,11 @@ on:
     - cron: "7 * * * *"
   workflow_dispatch:
 
+# Prevent race conditions between scheduled and manual runs
+concurrency:
+  group: rotate-about-image
+  cancel-in-progress: false  # Queue runs instead of canceling
+
 permissions:
   contents: write
 
@@ -32,7 +37,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
       # 4) Install dependencies
       - name: Install dependencies
@@ -50,10 +54,11 @@ jobs:
           mkdir -p img/about
 
           # Run rotation (reads from ../src/img/about-src/, writes to img/about/)
+          # Exit explicitly on failure to ensure workflow fails visibly
           python rotate-image.py \
             --repository "$GITHUB_REPOSITORY" \
             --src-dir ../src/img/about-src \
-            --output img/about/image.avif
+            --output img/about/image.avif || { echo "Image rotation failed"; exit 1; }
 
           # Capture Paris date for commit message
           PARIS_DATE=$(python -c "from datetime import datetime; from zoneinfo import ZoneInfo; print(datetime.now(ZoneInfo('Europe/Paris')).strftime('%Y-%m-%d'))")
