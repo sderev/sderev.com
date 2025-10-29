@@ -1,4 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#     "pillow",
+#     "pillow-avif-plugin",
+# ]
+# ///
 """
 Daily rotating image for About page.
 
@@ -6,7 +13,7 @@ This script implements a deterministic image rotation system:
 - Discovers source images in img/about-src/
 - Uses Python's random.shuffle() with fixed integer seed (deterministic, non-repeating)
 - Selects today's image based on Paris timezone day-of-year
-- Optimizes to AVIF format (Q=70) with metadata stripping
+- Optimizes to AVIF format (Q=80) with metadata stripping
 - Can run locally (dry-run) or in GitHub Actions (production)
 
 Why integer seed instead of random.seed(string):
@@ -19,7 +26,7 @@ import argparse
 import hashlib
 import random
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -28,7 +35,8 @@ try:
     import pillow_avif  # noqa: F401 - required for AVIF support
 except ImportError as e:
     print(f"Error: Missing required package: {e}", file=sys.stderr)
-    print("Install with: pip install pillow pillow-avif-plugin", file=sys.stderr)
+    print("Run with: uv run rotate-image.py", file=sys.stderr)
+    print("Or install manually: pip install pillow pillow-avif-plugin", file=sys.stderr)
     sys.exit(1)
 
 
@@ -68,7 +76,7 @@ def discover_source_images(src_dir: Path) -> list[Path]:
     return sorted(files)
 
 
-def optimize_image(source: Path, output: Path, max_width: int = 1024, quality: int = 70):
+def optimize_image(source: Path, output: Path, max_width: int = 1024, quality: int = 80):
     """
     Optimize image to AVIF format.
 
@@ -76,7 +84,7 @@ def optimize_image(source: Path, output: Path, max_width: int = 1024, quality: i
         source: Source image path
         output: Output AVIF path
         max_width: Maximum width in pixels
-        quality: AVIF quality (0-100), default 70
+        quality: AVIF quality (0-100), default 80
     """
     with Image.open(source) as img:
         # Strip EXIF metadata
@@ -133,6 +141,13 @@ def main():
         default=Path("img/about/image.avif"),
         help="Output AVIF path (default: img/about/image.avif)",
     )
+    parser.add_argument(
+        "--day-offset",
+        type=int,
+        default=0,
+        metavar="N",
+        help="Simulate N days in the future (for testing rotation)",
+    )
 
     args = parser.parse_args()
 
@@ -167,6 +182,11 @@ def main():
     # Get Paris timezone date
     paris_tz = ZoneInfo("Europe/Paris")
     now_paris = datetime.now(paris_tz)
+
+    # Apply day offset for testing
+    if args.day_offset:
+        now_paris += timedelta(days=args.day_offset)
+
     paris_date = now_paris.strftime("%Y-%m-%d")
     paris_day = int(now_paris.strftime("%j"))  # Day of year (001-366)
 
@@ -183,8 +203,6 @@ def main():
 
     # Preview mode
     if args.preview:
-        from datetime import timedelta
-
         print(f"\nNext {args.preview} days:")
         for offset in range(args.preview):
             future_date = datetime.now(paris_tz).replace(
