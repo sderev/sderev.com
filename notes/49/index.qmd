@@ -1,0 +1,41 @@
+---
+title: "Handling infinity in programming languages"
+subtitle: "Note#49"
+id: "49"
+date: 2023-03-24
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+In Python, infinity (`inf`) and negative infinity (`-inf`) are special floating-point values representing numbers larger or smaller than any other number, respectively. They can be the result of certain mathematical operations, such as dividing a positive number by zero for infinity or dividing a negative number by zero for negative infinity. To represent infinity in Python, use the constant `float("inf")`, and for negative infinity, use `float("-inf")`.
+
+In the NumPy library, which is widely used in Python for numerical computations, infinity can be represented using the `np.inf` or `np.PINF` constants, and negative infinity can be represented using the `-np.inf` or `np.NINF` constant:
+
+```python
+import numpy as np
+inf = np.inf  # or inf = np.PINF
+neg_inf = np.NINF  # or neg_inf = -np.inf
+```
+
+## In C++, infinity and negative infinity can be represented using the `std::numeric_limits` library from the <limits> header:
+
+```cpp
+#include <limits>
+double inf = std::numeric_limits<double>::infinity();
+double neg_inf = -std::numeric_limits<double>::infinity();
+```
+
+## Mathematical operations involving `inf` and `-inf` follow specific rules:
+
+1. Any number added to or subtracted from `inf` results in inf. For -inf, the same operation results in -inf.
+2. Any positive number multiplied by `inf` results in `inf`, and by `-inf` results in `-inf`.
+3. Any negative number multiplied by `inf` results in `-inf`, and by `-inf` results in `inf`.
+4. Dividing any number by `inf` or `-inf` results in 0.
+5. Some operations with `inf` and `-inf` are undefined or considered not a number (NaN), such as dividing `inf` by `inf`, dividing `-inf` by `-inf,` or adding `inf` and `-inf`.
+
+Handling infinity is a concept present in multiple programming languages and libraries, allowing for the representation of values larger or smaller than any other number and proper handling of certain mathematical operations.
+
+## Related Notes
+
+* [Note#73](/notes/73/)

@@ -1,0 +1,41 @@
+---
+title: "Quick Workflow for Making a Screencast on Windows"
+subtitle: "Note#78"
+id: "78"
+date: 2023-04-19
+date-modified: 2024-11-04
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+## Step 1: Record a Video
+
+### With the Snipping Tool
+
+Press the key combination `Win + Shift + S` and select the camera icon.
+
+### With Windows Game Bar
+
+Press the key combination `Win + Alt + R` to start or stop recording a video clip of **the active application** using the Windows Game Bar. The recorded videos are saved into your `Videos` folder by default.
+
+## Step 2: Edit the Video with Clipchamp
+
+Use Clipchamp, a user-friendly video editing software natively integrated into Windows (so it should already be installed on your computer), to edit the recorded video:
+
+1. Open Clipchamp by pressing the `Win` key and typing "clipchamp" into the search bar.
+2. Import your recorded video.
+3. Use the drag-and-drop editing feature to arrange clips on the timeline.
+4. Add transitions, effects, text, titles, and audio to enhance your video.
+5. Export the edited video in the desired format and resolution.
+
+Clipchamp is a more accessible option for quick video editing compared to professional-grade software like Adobe Premiere Pro, making it an ideal choice for beginners or those who need to edit videos quickly and efficiently.
+
+Although Clipchamp can easily record your screen and/or your webcam, I find it quicker to start recording with `Win + Alt + R` if I only want to make a screencast of an application and not my whole screen, and then use Clipchamp for editing.
+
+## Related Notes
+
+* [Note#87](/notes/87/)
+* [Note#81](/notes/81/)
+* [Note#47](/notes/47/)
+* [Note#16](/notes/16/)
+* [Note#98](/notes/98/)
