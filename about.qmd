@@ -8,6 +8,9 @@ link-external-icon: false
 about:
   template: trestles
   id: hero-heading
+  image: /img/about/image.avif
+  image-alt: "Artwork featured on About page"
+  image-shape: rectangle
   image-width: 17em
   links:
     - text: Twitter
@@ -27,3 +30,5 @@ about:
     #  href: https://linkedin.com/in/sderev
 ---
 This website serves as a platform for publishing some of my notes.
+
+*The image changes daily.*
