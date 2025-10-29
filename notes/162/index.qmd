@@ -1,0 +1,29 @@
+---
+title: "Show the Lines of Context Around a `ripgrep` or `grep` Search"
+subtitle: "Note#162"
+id: "162"
+date: 2024-07-04
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+The same options apply to both `grep` and `ripgrep` (`rg`).
+
+## Show the Lines Before the Matching Lines
+
+```bash
+rg -B 3 "keyword" filename
+```
+
+## Show the Lines After the Matching Lines
+
+```bash
+rg -A 3 "keyword" filename
+```
+
+## Show the Lines Around the Matching Lines
+
+```bash
+rg -C 3 "keyword" filename
+```

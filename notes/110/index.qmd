@@ -1,0 +1,35 @@
+---
+title: "Extracting Unique Patterns with `grep` or `ripgrep`"
+subtitle: "Note#110"
+id: "110"
+date: 2023-07-30
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Extract and sort unique instances of a pattern (`ERROR:\w*`) from a file:
+
+```bash
+grep -o 'ERROR:\w*' logfile | sort -u | less
+```
+
+Or to save to a file:
+
+```bash
+grep -o 'ERROR:\w*' logfile | sort -u > sorted_errors.txt
+```
+
+For `ripgrep` (`rg`), add `-N` to `-o` to prevent line numbers in output:
+
+```bash
+rg -o -N 'ERROR:\w*' logfile | sort -u | less
+```
+
+## Breakdown
+
+* `grep -o 'ERROR:\w*' logfile` or `rg -o -N 'ERROR:\w*' logfile`: Extracts `ERROR:` followed by any number of word characters (`[a-zA-Z0-9_]`).
+* `sort -u`: Sorts and removes duplicates.
+* `less` or `> sorted_errors.txt`: Displays results or saves to file.
+
+Replace `logfile` with your file and adjust the pattern as needed.
