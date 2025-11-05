@@ -3,6 +3,7 @@ title: "Notes"
 aliases:
   - notes/index.html
 listing:
+  - id: desktop-listing
     contents: "notes/*/index.qmd"
     page-size: 1000
     sort:
@@ -18,6 +19,30 @@ listing:
         spotlight: "&nbsp;"
     date-format: "MMMM YYYY"
     table-hover: true
+  - id: mobile-listing
+    contents: "notes/*/index.qmd"
+    page-size: 1000
+    sort:
+      - "date desc"
+      - "subtitle desc"
+    sort-ui: [id, date]
+    type: custom
+    filter-ui: true
+    categories: false
+    template: _includes/listing-mobile-custom.ejs
+    template-params:
+        grid-columns: 1
+        grid-item-align: left
+        grid-item-border: true
+        note-label: "Note#"
+    fields: [id, title, spotlight, date]
+    field-display-names:
+        id: "Note#"
+        spotlight: "&nbsp;"
+    date-format: "MMMM YYYY"
+    grid-columns: 1
+    grid-item-border: true
+    grid-item-align: left
 page-layout: full
 title-block-banner: false
 title-block-style: default
