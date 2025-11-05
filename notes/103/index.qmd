@@ -1,0 +1,56 @@
+---
+title: "Understanding YAML Block Scalars - Folded and Literal Styles"
+subtitle: "Note#103"
+id: "103"
+date: 2023-07-03
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+YAML block scalars are specific types of data in YAML that span multiple lines. There are two styles: "folded" and "literal".
+
+## Folded Style (`>`)
+
+The "folded style" in YAML is denoted using the greater-than sign (`>`). It is used for text data where:
+
+* Newlines should be replaced with spaces, effectively creating a single long line from the source text.
+* If you want to insert a newline in the parsed text, you need to use a double newline in the source.
+
+Here's an example:
+
+```yaml
+folded_style: >
+  This is a very long
+  sentence that spans several
+  lines in the YAML but will be
+  rendered as a single line
+  in the resulting string.
+```
+
+In the above YAML, the value of `folded_style` will be: `This is a very long sentence that spans several lines in the YAML but will be rendered as a single line in the resulting string.`
+
+## Literal Style (`|`)
+
+The "literal style" in YAML is denoted using the pipe character (`|`). It is used for text data where:
+
+* Newlines should be preserved exactly as they are given in the source text.
+
+Here's an example:
+
+```yaml
+literal_style: |
+  This is a sentence.
+  This is another sentence.
+  This is yet another sentence.
+```
+
+In the above YAML, the value of `literal_style` will be:
+
+```
+This is a sentence.
+This is another sentence.
+This is yet another sentence.
+```
+
+For both the folded and literal styles, the initial level of indentation (before the `>` or `|`) is removed in the parsed text, but any additional indentation is preserved.

@@ -1,0 +1,36 @@
+---
+title: "Ignoring portions of code with the Python code formatter Black"
+subtitle: "Note#61"
+id: "61"
+date: 2023-04-07
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+To make Black ignore a specific portion of your code, you can use the `# fmt: off` and `# fmt: on` comments.
+
+**Follow these steps:**
+
+1. Add `# fmt: off` before the section you want Black to ignore.
+2. Write your code (the portion you don't want Black to format).
+3. Add `# fmt: on` after the section you want Black to ignore.
+
+**Example:**
+
+```python
+import numpy as np
+
+# fmt: off
+matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+# fmt: on
+
+def some_function():
+    pass
+```
+
+In this example, the matrix array will not be formatted by Black, while the rest of the code will follow Black's formatting rules.

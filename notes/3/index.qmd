@@ -1,0 +1,55 @@
+---
+title: "How to remap keys in Linux"
+subtitle: "Note#3"
+id: "3"
+date: 2022-07-13
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Use `xev` to find out which key you want to remap. Then create `~/.Xmodmap`.
+
+Here's an example of to remap a key:
+
+```bash
+keycode xx = new_key
+```
+
+Add the following line to your `.bashrc` or `.zshrc` to make it permanent:
+
+```bash
+xmodmap ~/.Xmodmap
+```
+
+## Remap `<Caps_Lock>` to `<Escape>`
+
+```bash
+clear Lock
+keycode 66 = Nosymbol Nosymbol Nosymbol 
+keycode 66 = Escape
+```
+
+### When using GNOME
+
+If you're using GNOME, you can remap the `<Caps_Lock>` key by following these steps:
+
+1. install `gnome-tweaks`;
+2. go to *Keyboard and Mouse*;
+3. go to *Additional Layout Options*;
+4. click on **Caps Lock behavior**;
+5. click on **Make Caps Lock an additional Esc**.
+
+### When using i3
+
+If you're using i3, add this to the end of your i3 configuration file `~/.config/i3/config`:
+
+```bash
+exec --no-startup-id setxkbmap -option caps:escape
+```
+
+To take effect, you have to restart i3. You can do this by logging out and logging back.
+
+## Related Notes
+
+* [Note#87](/notes/87/)
