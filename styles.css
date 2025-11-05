@@ -32,6 +32,107 @@ tbody tr:hover a {
     color: #000;
 }
 
+/* Responsive Listings: Show/Hide based on screen size */
+#listing-mobile-listing {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #listing-desktop-listing {
+    display: none;
+  }
+  #listing-mobile-listing {
+    display: block;
+  }
+
+  .quarto-grid-item.card {
+    margin-bottom: 0.6rem;
+    border: 1px solid #e0e0e0;
+    box-shadow: none;
+    position: relative;
+  }
+
+  .quarto-grid-item .card-body {
+    padding: 0.6rem 0.75rem 0.7rem;
+  }
+
+  .quarto-grid-item .card-title {
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+    line-height: 1.4;
+    padding-right: 2.25rem;
+  }
+
+  .card-attribution.card-text-small {
+    margin-bottom: 0.35rem;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  #listing-mobile-listing .listing-date {
+    font-size: 0.75rem;
+    color: #666;
+  }
+
+  .mobile-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+  .mobile-meta .note-label {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .mobile-meta .listing-id {
+    font-weight: 500;
+  }
+
+  .mobile-spotlight {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.55rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.35rem;
+  }
+
+  .quarto-grid-link {
+    display: block;
+    text-decoration: none;
+  }
+}
+
+/* Fix date wrapping in both table and grid layouts */
+.listing-date {
+  white-space: nowrap;
+}
+
+/* Make grid card titles blue like table links */
+.quarto-grid-item .card-title.listing-title {
+  color: #325cc0;
+}
+
+.quarto-grid-item:hover .card-title.listing-title {
+  color: #1a3a7a;
+}
+
+/* Spotlight styling */
+.listing-spotlight:not(:empty) {
+  font-size: 1.2rem;
+}
+
+#listing-mobile-listing .mobile-spotlight {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
 /*-- scss:defaults --*/
 $toc-font-size: .95em;
 $code-block-bg-padding: 1em;
