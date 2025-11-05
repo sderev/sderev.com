@@ -1,13 +1,8 @@
 [
   {
-    "listing": "/posts/index.html",
-    "items": [
-      "/posts/mastering-llm-week-1/index.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
+      "/notes/191/index.html",
       "/notes/190/index.html",
       "/notes/189/index.html",
       "/notes/188/index.html",
@@ -199,6 +194,12 @@
       "/notes/2/index.html",
       "/notes/1/index.html",
       "/notes/0/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/mastering-llm-week-1/index.html"
     ]
   }
 ]
