@@ -1,0 +1,11 @@
+---
+title: "`ed` Is Pronounced \"ee-dee\""
+subtitle: "Note#104"
+id: "104"
+date: 2023-07-04
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+This was stated by Brian Kernighan: <https://youtu.be/NTfOnGZUZDk?t=113>.

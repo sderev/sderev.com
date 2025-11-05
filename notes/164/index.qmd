@@ -1,0 +1,11 @@
+---
+title: "What is Style?"
+subtitle: "Note#164"
+id: "164"
+date: 2024-07-08
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+It's the thing that, when expressed, is the incarnation of a sensibility.
