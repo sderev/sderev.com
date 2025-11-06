@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-78a17ff4bb15c28a08b6d1e33b5e9bfc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-880d4701c59102ac6625842c8e618dd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6061d907802625405354f97cb7ed9fdb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -195,6 +195,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">2025-11-06</p>
+      </div>
+    </div>
       
     </div>
     
@@ -214,91 +220,248 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="../../notes/assets/images/screenshot_e11883c1-93dc-4d7c-b705-bcd4ae96f26e.png" class="img-fluid" alt="Claude Code status line with git status and context percentage."></p>
 <section id="implementation" class="level2">
 <h2 class="anchored" data-anchor-id="implementation">Implementation</h2>
-<p>Three files are needed in <code>~/.claude/</code>:</p>
-<section id="statusline-command.sh" class="level3">
-<h3 class="anchored" data-anchor-id="statusline-command.sh"><code>statusline-command.sh</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#!/bin/zsh</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Read JSON input</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="va">input</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span><span class="va">)</span></span>
+<p>Create the file <code>statusline.sh</code> in <code>~/.claude/</code> and copy the code below.</p>
+<section id="statusline.sh" class="level3">
+<h3 class="anchored" data-anchor-id="statusline.sh"><code>statusline.sh</code></h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Show <code>statusline.sh</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">set</span> <span class="at">-euo</span> pipefail</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Input: {"workspace":{"current_dir":"/abs/path"}}</span></span>
 <span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># Extract working directory</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="va">cwd</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-n</span> <span class="st">'s/.*"current_dir":"\([^"]*\)".*/\1/p'</span><span class="va">)</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># Git information</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="cf">if</span> <span class="fu">git</span> <span class="at">-C</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> rev-parse <span class="at">--git-dir</span> <span class="op">&gt;</span> /dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>  <span class="va">repo_name</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">"s|^</span><span class="va">$HOME</span><span class="st">/Repos/github.com/||"</span><span class="va">)</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a>  <span class="va">branch</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> <span class="at">-C</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="at">--no-optional-locks</span> rev-parse <span class="at">--abbrev-ref</span> HEAD <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a></span>
-<span id="cb1-14"><a href="#cb1-14"></a>  <span class="va">staged</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> <span class="at">-C</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="at">--no-optional-locks</span> diff <span class="at">--cached</span> <span class="at">--name-only</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span><span class="va">)</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>  <span class="va">unstaged</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> <span class="at">-C</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="at">--no-optional-locks</span> diff <span class="at">--name-only</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span><span class="va">)</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a>  <span class="va">untracked</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> <span class="at">-C</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="at">--no-optional-locks</span> ls-files <span class="at">--others</span> <span class="at">--exclude-standard</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span><span class="va">)</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># Color codes</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="va">reset</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[00m'</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="va">green</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[38;5;70m'</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="va">blue</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[38;5;67m'</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="va">cyan</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[38;5;32m'</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="va">red</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[31m'</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="va">black</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[38;5;0m'</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="va">bold</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[1m'</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="va">normal</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[22m'</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="va">default_fg</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[39m'</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="va">context_black</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[38;5;16m'</span></span>
 <span id="cb1-17"><a href="#cb1-17"></a></span>
-<span id="cb1-18"><a href="#cb1-18"></a>  <span class="co"># Colors matching .zshrc</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>  <span class="bu">local</span> <span class="va">reset</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[00m'</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a>  <span class="bu">local</span> <span class="va">green</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[38;5;70m'</span>    <span class="co"># F{70}</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a>  <span class="bu">local</span> <span class="va">blue</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[38;5;67m'</span>     <span class="co"># F{67}</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a>  <span class="bu">local</span> <span class="va">cyan</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[38;5;32m'</span>     <span class="co"># F{32}</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a>  <span class="bu">local</span> <span class="va">red</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[31m'</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a>  <span class="bu">local</span> <span class="va">black</span><span class="op">=</span><span class="st">$'</span><span class="dt">\033</span><span class="st">[38;5;0m'</span></span>
-<span id="cb1-25"><a href="#cb1-25"></a></span>
-<span id="cb1-26"><a href="#cb1-26"></a>  <span class="co"># Ahead/behind commits</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a>  <span class="va">ahead_behind</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> <span class="at">-C</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="at">--no-optional-locks</span> rev-list <span class="at">--count</span> <span class="at">--left-right</span> @{u}...HEAD <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a>  <span class="va">num_behind</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="va">$ahead_behind</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $1}'</span><span class="va">)</span></span>
-<span id="cb1-29"><a href="#cb1-29"></a>  <span class="va">num_ahead</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="va">$ahead_behind</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $2}'</span><span class="va">)</span></span>
-<span id="cb1-30"><a href="#cb1-30"></a>  <span class="va">commit_delta</span><span class="op">=</span><span class="st">""</span></span>
-<span id="cb1-31"><a href="#cb1-31"></a>  <span class="kw">[[</span> <span class="va">$num_ahead</span> <span class="ot">-gt</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">commit_delta</span><span class="op">+=</span><span class="st">"</span><span class="va">${black}</span><span class="st">↑</span><span class="va">${num_ahead}</span><span class="st">"</span></span>
-<span id="cb1-32"><a href="#cb1-32"></a>  <span class="kw">[[</span> <span class="va">$num_behind</span> <span class="ot">-gt</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">commit_delta</span><span class="op">+=</span><span class="st">"</span><span class="va">${black}</span><span class="st">↓</span><span class="va">${num_behind}</span><span class="st">"</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="va">input</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span><span class="va">)</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="co"># Extract current_dir from JSON</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="va">cwd</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> jq <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a>  <span class="cf">if</span> <span class="ot">! </span><span class="va">cwd</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-er</span> <span class="st">'.workspace.current_dir'</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>    <span class="va">cwd</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a>  <span class="cf">fi</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="cf">fi</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a></span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="va">$cwd</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">command</span> <span class="at">-v</span> node <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>  <span class="cf">if</span> <span class="ot">! </span><span class="va">cwd</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">node</span> <span class="at">-e</span> <span class="st">'(() =&gt; { const fs=require("fs"); try { const data=JSON.parse(fs.readFileSync(0,"utf-8")); const dir=data &amp;&amp; data.workspace &amp;&amp; data.workspace.current_dir; if (typeof dir === "string") { process.stdout.write(dir); } } catch (_) {} })()'</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a>    <span class="va">cwd</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a>  <span class="cf">fi</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="cf">fi</span></span>
 <span id="cb1-33"><a href="#cb1-33"></a></span>
-<span id="cb1-34"><a href="#cb1-34"></a>  <span class="co"># Status indicators: untracked… ●staged ✚unstaged</span></span>
-<span id="cb1-35"><a href="#cb1-35"></a>  <span class="bu">local</span> <span class="va">indicators</span><span class="op">=</span><span class="st">""</span></span>
-<span id="cb1-36"><a href="#cb1-36"></a>  <span class="kw">[[</span> <span class="va">$untracked</span> <span class="ot">-gt</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">indicators</span><span class="op">+=</span><span class="st">"</span><span class="va">${red}${untracked}</span><span class="st">…</span><span class="va">${reset}</span><span class="st">"</span></span>
-<span id="cb1-37"><a href="#cb1-37"></a>  <span class="kw">[[</span> <span class="va">$staged</span> <span class="ot">-gt</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">indicators</span><span class="op">+=</span><span class="st">"</span><span class="va">${green}</span><span class="st">●</span><span class="va">${staged}${reset}</span><span class="st">"</span></span>
-<span id="cb1-38"><a href="#cb1-38"></a>  <span class="kw">[[</span> <span class="va">$unstaged</span> <span class="ot">-gt</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">indicators</span><span class="op">+=</span><span class="st">"</span><span class="va">${cyan}</span><span class="st">✚</span><span class="va">${unstaged}${reset}</span><span class="st">"</span></span>
-<span id="cb1-39"><a href="#cb1-39"></a></span>
-<span id="cb1-40"><a href="#cb1-40"></a>  <span class="co"># Format: repo_name | (branch↑↓|indicators)</span></span>
-<span id="cb1-41"><a href="#cb1-41"></a>  <span class="bu">printf</span> <span class="st">'%s%s%s | %s(%s%s'</span> <span class="st">"</span><span class="va">$green</span><span class="st">"</span> <span class="st">"</span><span class="va">$repo_name</span><span class="st">"</span> <span class="st">"</span><span class="va">$reset</span><span class="st">"</span> <span class="st">"</span><span class="va">$blue</span><span class="st">"</span> <span class="st">"</span><span class="va">$branch</span><span class="st">"</span> <span class="st">"</span><span class="va">$commit_delta</span><span class="st">"</span></span>
-<span id="cb1-42"><a href="#cb1-42"></a>  <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$indicators</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb1-43"><a href="#cb1-43"></a>    <span class="bu">printf</span> <span class="st">'%s|%s%s)%s'</span> <span class="st">"</span><span class="va">$reset</span><span class="st">"</span> <span class="st">"</span><span class="va">$indicators</span><span class="st">"</span> <span class="st">"</span><span class="va">$blue</span><span class="st">"</span> <span class="st">"</span><span class="va">$reset</span><span class="st">"</span></span>
-<span id="cb1-44"><a href="#cb1-44"></a>  <span class="cf">else</span></span>
-<span id="cb1-45"><a href="#cb1-45"></a>    <span class="bu">printf</span> <span class="st">'%s)%s'</span> <span class="st">"</span><span class="va">$blue</span><span class="st">"</span> <span class="st">"</span><span class="va">$reset</span><span class="st">"</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="kw">||</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"null"</span> <span class="kw">||</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"undefined"</span> <span class="kw">||</span> <span class="ot">!</span> <span class="ot">-d</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a>  <span class="bu">printf</span> <span class="st">'%s[error: no current_dir]%s'</span> <span class="st">"</span><span class="va">$green</span><span class="st">"</span> <span class="st">"</span><span class="va">$reset</span><span class="st">"</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a>  <span class="bu">exit</span> 0</span>
+<span id="cb1-37"><a href="#cb1-37"></a><span class="cf">fi</span></span>
+<span id="cb1-38"><a href="#cb1-38"></a></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="co"># Git information</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a><span class="cf">if</span> <span class="fu">git</span> <span class="at">-C</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> rev-parse <span class="at">--git-dir</span> <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a>  <span class="va">status_output</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> <span class="at">-C</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="at">--no-optional-locks</span> status <span class="at">--porcelain</span><span class="op">=</span>v2 <span class="at">--branch</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span></span>
+<span id="cb1-42"><a href="#cb1-42"></a></span>
+<span id="cb1-43"><a href="#cb1-43"></a>  <span class="va">branch</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$status_output</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="st">'^# branch.head '</span> <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span><span class="st">' '</span> <span class="at">-f3</span><span class="va">)</span></span>
+<span id="cb1-44"><a href="#cb1-44"></a>  <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$branch</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a>    <span class="va">branch</span><span class="op">=</span><span class="st">"HEAD"</span></span>
 <span id="cb1-46"><a href="#cb1-46"></a>  <span class="cf">fi</span></span>
-<span id="cb1-47"><a href="#cb1-47"></a><span class="cf">else</span></span>
-<span id="cb1-48"><a href="#cb1-48"></a>  <span class="bu">printf</span> <span class="st">'\033[38;5;70m%s\033[00m'</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span></span>
-<span id="cb1-49"><a href="#cb1-49"></a><span class="cf">fi</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Change <code>$HOME/Repos/github.com/</code> to your repositories directory.</p>
-</section>
-<section id="statusline-wrapper.sh" class="level3">
-<h3 class="anchored" data-anchor-id="statusline-wrapper.sh"><code>statusline-wrapper.sh</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#!/bin/zsh</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="va">input</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span><span class="va">)</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># Get git info</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="va">git_info</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">zsh</span> ~/.claude/statusline-command.sh<span class="va">)</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># Get context percentage from ccstatusline</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="va">context_pct</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">npx</span> ccstatusline<span class="va">)</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="bu">printf</span> <span class="st">'%s | %s'</span> <span class="st">"</span><span class="va">$git_info</span><span class="st">"</span> <span class="st">"</span><span class="va">$context_pct</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-47"><a href="#cb1-47"></a></span>
+<span id="cb1-48"><a href="#cb1-48"></a>  <span class="va">ahead</span><span class="op">=</span>0</span>
+<span id="cb1-49"><a href="#cb1-49"></a>  <span class="va">behind</span><span class="op">=</span>0</span>
+<span id="cb1-50"><a href="#cb1-50"></a>  <span class="va">ab_line</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$status_output</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="st">'^# branch.ab '</span> <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>  <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$ab_line</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-52"><a href="#cb1-52"></a>    <span class="va">ahead</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$ab_line</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $3}'</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'+'</span><span class="va">)</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a>    <span class="va">behind</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$ab_line</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $4}'</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'-'</span><span class="va">)</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a>  <span class="cf">fi</span></span>
+<span id="cb1-55"><a href="#cb1-55"></a></span>
+<span id="cb1-56"><a href="#cb1-56"></a>  <span class="va">staged</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$status_output</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-c</span> <span class="st">'^[12] [MADRCT].'</span> <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
+<span id="cb1-57"><a href="#cb1-57"></a>  <span class="va">unstaged</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$status_output</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-c</span> <span class="st">'^[12] .[MADRCT]'</span> <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
+<span id="cb1-58"><a href="#cb1-58"></a>  <span class="va">untracked</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$status_output</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-c</span> <span class="st">'^?'</span> <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
+<span id="cb1-59"><a href="#cb1-59"></a>  <span class="va">conflicts</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$status_output</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-c</span> <span class="st">'^u '</span> <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
+<span id="cb1-60"><a href="#cb1-60"></a></span>
+<span id="cb1-61"><a href="#cb1-61"></a>  <span class="co"># Format path</span></span>
+<span id="cb1-62"><a href="#cb1-62"></a>  <span class="cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"</span><span class="va">$HOME</span><span class="st">/Repos/github.com/"</span><span class="pp">*</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-63"><a href="#cb1-63"></a>    <span class="va">repo_name</span><span class="op">=</span><span class="st">"</span><span class="va">${cwd</span><span class="op">#</span><span class="st">"</span><span class="va">$HOME</span><span class="st">/Repos/github.com/"</span><span class="va">}</span><span class="st">"</span></span>
+<span id="cb1-64"><a href="#cb1-64"></a>  <span class="cf">elif</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"</span><span class="va">$HOME</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-65"><a href="#cb1-65"></a>    <span class="va">repo_name</span><span class="op">=</span><span class="st">"~"</span></span>
+<span id="cb1-66"><a href="#cb1-66"></a>  <span class="cf">elif</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"</span><span class="va">$HOME</span><span class="st">/"</span><span class="pp">*</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-67"><a href="#cb1-67"></a>    <span class="co"># shellcheck disable=SC2088</span></span>
+<span id="cb1-68"><a href="#cb1-68"></a>    <span class="va">repo_name</span><span class="op">=</span><span class="st">"~/</span><span class="va">${cwd</span><span class="op">#</span><span class="st">"</span><span class="va">$HOME</span><span class="st">/"</span><span class="va">}</span><span class="st">"</span></span>
+<span id="cb1-69"><a href="#cb1-69"></a>  <span class="cf">else</span></span>
+<span id="cb1-70"><a href="#cb1-70"></a>    <span class="va">repo_name</span><span class="op">=</span><span class="st">"</span><span class="va">$cwd</span><span class="st">"</span></span>
+<span id="cb1-71"><a href="#cb1-71"></a>  <span class="cf">fi</span></span>
+<span id="cb1-72"><a href="#cb1-72"></a></span>
+<span id="cb1-73"><a href="#cb1-73"></a>  <span class="co"># Commit delta</span></span>
+<span id="cb1-74"><a href="#cb1-74"></a>  <span class="va">commit_delta</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb1-75"><a href="#cb1-75"></a>  <span class="kw">[[</span> <span class="va">$ahead</span> <span class="ot">-gt</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">commit_delta</span><span class="op">+=</span><span class="st">"</span><span class="va">${black}</span><span class="st">↑</span><span class="va">${ahead}</span><span class="st">"</span></span>
+<span id="cb1-76"><a href="#cb1-76"></a>  <span class="kw">[[</span> <span class="va">$behind</span> <span class="ot">-gt</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">commit_delta</span><span class="op">+=</span><span class="st">"</span><span class="va">${black}</span><span class="st">↓</span><span class="va">${behind}</span><span class="st">"</span></span>
+<span id="cb1-77"><a href="#cb1-77"></a></span>
+<span id="cb1-78"><a href="#cb1-78"></a>  <span class="co"># Status indicators</span></span>
+<span id="cb1-79"><a href="#cb1-79"></a>  <span class="va">indicators</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb1-80"><a href="#cb1-80"></a>  <span class="kw">[[</span> <span class="va">$untracked</span> <span class="ot">-gt</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">indicators</span><span class="op">+=</span><span class="st">"</span><span class="va">${red}${untracked}</span><span class="st">…</span><span class="va">${reset}</span><span class="st">"</span></span>
+<span id="cb1-81"><a href="#cb1-81"></a>  <span class="kw">[[</span> <span class="va">$staged</span> <span class="ot">-gt</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">indicators</span><span class="op">+=</span><span class="st">"</span><span class="va">${green}</span><span class="st">●</span><span class="va">${staged}${reset}</span><span class="st">"</span></span>
+<span id="cb1-82"><a href="#cb1-82"></a>  <span class="kw">[[</span> <span class="va">$conflicts</span> <span class="ot">-gt</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">indicators</span><span class="op">+=</span><span class="st">"</span><span class="va">${red}</span><span class="st">✗</span><span class="va">${conflicts}${reset}</span><span class="st">"</span></span>
+<span id="cb1-83"><a href="#cb1-83"></a>  <span class="kw">[[</span> <span class="va">$unstaged</span> <span class="ot">-gt</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">indicators</span><span class="op">+=</span><span class="st">"</span><span class="va">${cyan}</span><span class="st">✚</span><span class="va">${unstaged}${reset}</span><span class="st">"</span></span>
+<span id="cb1-84"><a href="#cb1-84"></a></span>
+<span id="cb1-85"><a href="#cb1-85"></a>  <span class="va">git_info</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s%s%s | %s(%s%s'</span> <span class="st">"</span><span class="va">$green</span><span class="st">"</span> <span class="st">"</span><span class="va">$repo_name</span><span class="st">"</span> <span class="st">"</span><span class="va">$reset</span><span class="st">"</span> <span class="st">"</span><span class="va">$blue</span><span class="st">"</span> <span class="st">"</span><span class="va">$branch</span><span class="st">"</span> <span class="st">"</span><span class="va">$commit_delta</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb1-86"><a href="#cb1-86"></a>  <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$indicators</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-87"><a href="#cb1-87"></a>    <span class="va">git_info</span><span class="op">+=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s|%s%s)%s'</span> <span class="st">"</span><span class="va">$reset</span><span class="st">"</span> <span class="st">"</span><span class="va">$indicators</span><span class="st">"</span> <span class="st">"</span><span class="va">$blue</span><span class="st">"</span> <span class="st">"</span><span class="va">$reset</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb1-88"><a href="#cb1-88"></a>  <span class="cf">else</span></span>
+<span id="cb1-89"><a href="#cb1-89"></a>    <span class="va">git_info</span><span class="op">+=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s)%s'</span> <span class="st">"</span><span class="va">$blue</span><span class="st">"</span> <span class="st">"</span><span class="va">$reset</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb1-90"><a href="#cb1-90"></a>  <span class="cf">fi</span></span>
+<span id="cb1-91"><a href="#cb1-91"></a><span class="cf">else</span></span>
+<span id="cb1-92"><a href="#cb1-92"></a>  <span class="co"># Not a git repo</span></span>
+<span id="cb1-93"><a href="#cb1-93"></a>  <span class="cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"</span><span class="va">$HOME</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-94"><a href="#cb1-94"></a>    <span class="va">display_path</span><span class="op">=</span><span class="st">"~"</span></span>
+<span id="cb1-95"><a href="#cb1-95"></a>  <span class="cf">elif</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$cwd</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"</span><span class="va">$HOME</span><span class="st">/"</span><span class="pp">*</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-96"><a href="#cb1-96"></a>    <span class="co"># shellcheck disable=SC2088</span></span>
+<span id="cb1-97"><a href="#cb1-97"></a>    <span class="va">display_path</span><span class="op">=</span><span class="st">"~/</span><span class="va">${cwd</span><span class="op">#</span><span class="st">"</span><span class="va">$HOME</span><span class="st">/"</span><span class="va">}</span><span class="st">"</span></span>
+<span id="cb1-98"><a href="#cb1-98"></a>  <span class="cf">else</span></span>
+<span id="cb1-99"><a href="#cb1-99"></a>    <span class="va">display_path</span><span class="op">=</span><span class="st">"</span><span class="va">$cwd</span><span class="st">"</span></span>
+<span id="cb1-100"><a href="#cb1-100"></a>  <span class="cf">fi</span></span>
+<span id="cb1-101"><a href="#cb1-101"></a>  <span class="va">git_info</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s%s%s'</span> <span class="st">"</span><span class="va">$green</span><span class="st">"</span> <span class="st">"</span><span class="va">$display_path</span><span class="st">"</span> <span class="st">"</span><span class="va">$reset</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb1-102"><a href="#cb1-102"></a><span class="cf">fi</span></span>
+<span id="cb1-103"><a href="#cb1-103"></a></span>
+<span id="cb1-104"><a href="#cb1-104"></a><span class="co"># Context window limit constant</span></span>
+<span id="cb1-105"><a href="#cb1-105"></a><span class="bu">readonly</span> <span class="va">CONTEXT_LIMIT</span><span class="op">=</span>200000</span>
+<span id="cb1-106"><a href="#cb1-106"></a></span>
+<span id="cb1-107"><a href="#cb1-107"></a><span class="co"># Context percentage calculation</span></span>
+<span id="cb1-108"><a href="#cb1-108"></a><span class="fu">calculate_context_percentage()</span> <span class="kw">{</span></span>
+<span id="cb1-109"><a href="#cb1-109"></a>  <span class="bu">local</span> <span class="va">json_input</span><span class="op">=</span><span class="st">"</span><span class="va">$1</span><span class="st">"</span></span>
+<span id="cb1-110"><a href="#cb1-110"></a>  <span class="bu">local</span> <span class="va">transcript_path</span></span>
+<span id="cb1-111"><a href="#cb1-111"></a>  <span class="bu">local</span> <span class="va">context_prefix</span><span class="op">=</span><span class="st">"</span><span class="va">${reset}${bold}${context_black}</span><span class="st">"</span></span>
+<span id="cb1-112"><a href="#cb1-112"></a>  <span class="bu">local</span> <span class="va">context_suffix</span><span class="op">=</span><span class="st">"</span><span class="va">${default_fg}${normal}</span><span class="st">"</span></span>
+<span id="cb1-113"><a href="#cb1-113"></a>  <span class="bu">local</span> <span class="va">zero_context</span><span class="op">=</span><span class="st">"</span><span class="va">${context_prefix}</span><span class="st">0.0%</span><span class="va">${context_suffix}</span><span class="st">"</span></span>
+<span id="cb1-114"><a href="#cb1-114"></a></span>
+<span id="cb1-115"><a href="#cb1-115"></a>  <span class="co"># Extract transcript_path from input</span></span>
+<span id="cb1-116"><a href="#cb1-116"></a>  <span class="va">transcript_path</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$json_input</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.transcript_path // empty'</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span></span>
+<span id="cb1-117"><a href="#cb1-117"></a></span>
+<span id="cb1-118"><a href="#cb1-118"></a>  <span class="co"># Validate path safety</span></span>
+<span id="cb1-119"><a href="#cb1-119"></a>  <span class="cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$transcript_path</span><span class="st">"</span> <span class="ot">==</span> <span class="pp">*</span><span class="st">".."</span><span class="pp">*</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-120"><a href="#cb1-120"></a>    <span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$zero_context</span><span class="st">"</span></span>
+<span id="cb1-121"><a href="#cb1-121"></a>    <span class="cf">return</span></span>
+<span id="cb1-122"><a href="#cb1-122"></a>  <span class="cf">fi</span></span>
+<span id="cb1-123"><a href="#cb1-123"></a></span>
+<span id="cb1-124"><a href="#cb1-124"></a>  <span class="co"># Validate file exists</span></span>
+<span id="cb1-125"><a href="#cb1-125"></a>  <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$transcript_path</span><span class="st">"</span> <span class="kw">]]</span> <span class="kw">||</span> <span class="kw">[[</span> <span class="ot">!</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">$transcript_path</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-126"><a href="#cb1-126"></a>    <span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$zero_context</span><span class="st">"</span></span>
+<span id="cb1-127"><a href="#cb1-127"></a>    <span class="cf">return</span></span>
+<span id="cb1-128"><a href="#cb1-128"></a>  <span class="cf">fi</span></span>
+<span id="cb1-129"><a href="#cb1-129"></a></span>
+<span id="cb1-130"><a href="#cb1-130"></a>  <span class="co"># Find most recent entry with usage data (no type filter, matches ccstatusline)</span></span>
+<span id="cb1-131"><a href="#cb1-131"></a>  <span class="bu">local</span> <span class="va">most_recent</span></span>
+<span id="cb1-132"><a href="#cb1-132"></a>  <span class="va">most_recent</span><span class="op">=</span><span class="va">$(</span><span class="ex">jq</span> <span class="at">-Rc</span> <span class="st">'fromjson? | select(. != null) | select(.message.usage and (.isSidechain | not) and (.isApiErrorMessage | not) and .timestamp)'</span> <span class="dt">\</span></span>
+<span id="cb1-133"><a href="#cb1-133"></a>    <span class="st">"</span><span class="va">$transcript_path</span><span class="st">"</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-1</span> <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
+<span id="cb1-134"><a href="#cb1-134"></a></span>
+<span id="cb1-135"><a href="#cb1-135"></a>  <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$most_recent</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-136"><a href="#cb1-136"></a>    <span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$zero_context</span><span class="st">"</span></span>
+<span id="cb1-137"><a href="#cb1-137"></a>    <span class="cf">return</span></span>
+<span id="cb1-138"><a href="#cb1-138"></a>  <span class="cf">fi</span></span>
+<span id="cb1-139"><a href="#cb1-139"></a></span>
+<span id="cb1-140"><a href="#cb1-140"></a>  <span class="co"># Extract token values without executing shell code</span></span>
+<span id="cb1-141"><a href="#cb1-141"></a>  <span class="bu">local</span> <span class="va">usage_values</span></span>
+<span id="cb1-142"><a href="#cb1-142"></a>  <span class="va">usage_values</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$most_recent</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-er</span> <span class="st">'</span></span>
+<span id="cb1-143"><a href="#cb1-143"></a><span class="st">    def to_num:</span></span>
+<span id="cb1-144"><a href="#cb1-144"></a><span class="st">      if type == "number" then .</span></span>
+<span id="cb1-145"><a href="#cb1-145"></a><span class="st">      elif type == "string" then (try (tonumber) catch 0)</span></span>
+<span id="cb1-146"><a href="#cb1-146"></a><span class="st">      else 0</span></span>
+<span id="cb1-147"><a href="#cb1-147"></a><span class="st">      end;</span></span>
+<span id="cb1-148"><a href="#cb1-148"></a><span class="st">    [</span></span>
+<span id="cb1-149"><a href="#cb1-149"></a><span class="st">      (.message.usage.input_tokens // 0 | to_num),</span></span>
+<span id="cb1-150"><a href="#cb1-150"></a><span class="st">      (.message.usage.cache_read_input_tokens // 0 | to_num),</span></span>
+<span id="cb1-151"><a href="#cb1-151"></a><span class="st">      (.message.usage.cache_creation_input_tokens // 0 | to_num)</span></span>
+<span id="cb1-152"><a href="#cb1-152"></a><span class="st">    ] | @tsv</span></span>
+<span id="cb1-153"><a href="#cb1-153"></a><span class="st">  '</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span> <span class="kw">||</span> <span class="va">usage_values</span><span class="op">=</span><span class="st">$'0</span><span class="dt">\t</span><span class="st">0</span><span class="dt">\t</span><span class="st">0'</span></span>
+<span id="cb1-154"><a href="#cb1-154"></a></span>
+<span id="cb1-155"><a href="#cb1-155"></a>  <span class="bu">local</span> <span class="va">input_tokens</span> <span class="va">cache_read</span> <span class="va">cache_creation</span></span>
+<span id="cb1-156"><a href="#cb1-156"></a>  <span class="va">IFS</span><span class="op">=</span><span class="st">$'</span><span class="dt">\t</span><span class="st">'</span> <span class="bu">read</span> <span class="at">-r</span> <span class="va">input_tokens</span> <span class="va">cache_read</span> <span class="va">cache_creation</span> <span class="op">&lt;&lt;&lt;</span> <span class="st">"</span><span class="va">$usage_values</span><span class="st">"</span></span>
+<span id="cb1-157"><a href="#cb1-157"></a></span>
+<span id="cb1-158"><a href="#cb1-158"></a>  <span class="bu">local</span> <span class="va">var_name</span></span>
+<span id="cb1-159"><a href="#cb1-159"></a>  <span class="cf">for</span> var_name <span class="kw">in</span> input_tokens cache_read cache_creation<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-160"><a href="#cb1-160"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">!</span> <span class="va">${</span><span class="op">!</span><span class="va">var_name}</span> <span class="ot">=~</span> <span class="pp">^</span><span class="ss">-</span><span class="pp">?</span><span class="op">[</span><span class="ss">0</span><span class="op">-</span><span class="ss">9</span><span class="op">]</span><span class="pp">+</span><span class="op">$</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-161"><a href="#cb1-161"></a>      <span class="bu">printf</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$var_name</span><span class="st">"</span> <span class="st">'0'</span></span>
+<span id="cb1-162"><a href="#cb1-162"></a>    <span class="cf">fi</span></span>
+<span id="cb1-163"><a href="#cb1-163"></a>  <span class="cf">done</span></span>
+<span id="cb1-164"><a href="#cb1-164"></a></span>
+<span id="cb1-165"><a href="#cb1-165"></a>  <span class="co"># Calculate context length</span></span>
+<span id="cb1-166"><a href="#cb1-166"></a>  <span class="bu">local</span> <span class="va">context_length</span><span class="op">=</span><span class="va">$((input_tokens</span> <span class="op">+</span> <span class="va">cache_read</span> <span class="op">+</span> <span class="va">cache_creation))</span></span>
+<span id="cb1-167"><a href="#cb1-167"></a></span>
+<span id="cb1-168"><a href="#cb1-168"></a>  <span class="co"># Calculate percentage (capped at 100)</span></span>
+<span id="cb1-169"><a href="#cb1-169"></a>  <span class="bu">local</span> <span class="va">percentage</span></span>
+<span id="cb1-170"><a href="#cb1-170"></a>  <span class="va">percentage</span><span class="op">=</span><span class="va">$(</span><span class="fu">awk</span> <span class="at">-v</span> context_length=<span class="st">"</span><span class="va">$context_length</span><span class="st">"</span> <span class="at">-v</span> limit=<span class="st">"</span><span class="va">$CONTEXT_LIMIT</span><span class="st">"</span> <span class="st">'BEGIN {</span></span>
+<span id="cb1-171"><a href="#cb1-171"></a><span class="st">    pct = (context_length / limit) * 100;</span></span>
+<span id="cb1-172"><a href="#cb1-172"></a><span class="st">    if (pct &gt; 100) pct = 100;</span></span>
+<span id="cb1-173"><a href="#cb1-173"></a><span class="st">    if (pct &lt; 0) pct = 0;</span></span>
+<span id="cb1-174"><a href="#cb1-174"></a><span class="st">    pct += 1e-9;</span></span>
+<span id="cb1-175"><a href="#cb1-175"></a><span class="st">    printf "%.1f%%", pct;</span></span>
+<span id="cb1-176"><a href="#cb1-176"></a><span class="st">  }'</span><span class="va">)</span></span>
+<span id="cb1-177"><a href="#cb1-177"></a></span>
+<span id="cb1-178"><a href="#cb1-178"></a>  <span class="co"># Format with black color (matching ccstatusline)</span></span>
+<span id="cb1-179"><a href="#cb1-179"></a>  <span class="bu">printf</span> <span class="st">'%s%s%s'</span> <span class="st">"</span><span class="va">$context_prefix</span><span class="st">"</span> <span class="st">"</span><span class="va">$percentage</span><span class="st">"</span> <span class="st">"</span><span class="va">$context_suffix</span><span class="st">"</span></span>
+<span id="cb1-180"><a href="#cb1-180"></a><span class="kw">}</span></span>
+<span id="cb1-181"><a href="#cb1-181"></a></span>
+<span id="cb1-182"><a href="#cb1-182"></a><span class="co"># Try native bash implementation first</span></span>
+<span id="cb1-183"><a href="#cb1-183"></a><span class="va">context_pct</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb1-184"><a href="#cb1-184"></a><span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> jq <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-185"><a href="#cb1-185"></a>  <span class="va">context_pct</span><span class="op">=</span><span class="va">$(</span><span class="ex">calculate_context_percentage</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb1-186"><a href="#cb1-186"></a><span class="cf">fi</span></span>
+<span id="cb1-187"><a href="#cb1-187"></a></span>
+<span id="cb1-188"><a href="#cb1-188"></a><span class="co"># Fallback if native implementation unavailable</span></span>
+<span id="cb1-189"><a href="#cb1-189"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$context_pct</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-190"><a href="#cb1-190"></a>  <span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> ccstatusline <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-191"><a href="#cb1-191"></a>    <span class="va">alt_pct</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">ccstatusline</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
+<span id="cb1-192"><a href="#cb1-192"></a>    <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$alt_pct</span><span class="st">"</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">context_pct</span><span class="op">=</span><span class="st">"</span><span class="va">$alt_pct</span><span class="st">"</span></span>
+<span id="cb1-193"><a href="#cb1-193"></a>  <span class="cf">elif</span> <span class="bu">command</span> <span class="at">-v</span> npx <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-194"><a href="#cb1-194"></a>    <span class="va">context_output</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">npx</span> <span class="at">--yes</span> <span class="at">--quiet</span> ccstatusline <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
+<span id="cb1-195"><a href="#cb1-195"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="va">$context_output</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-196"><a href="#cb1-196"></a>      <span class="cf">while</span> <span class="va">IFS</span><span class="op">=</span> <span class="bu">read</span> <span class="at">-r</span> <span class="va">line</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-197"><a href="#cb1-197"></a>        <span class="kw">[[</span> <span class="ot">-n</span> <span class="va">$line</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">context_pct</span><span class="op">=</span><span class="va">$line</span></span>
+<span id="cb1-198"><a href="#cb1-198"></a>      <span class="cf">done</span> <span class="op">&lt;&lt;&lt;</span> <span class="st">"</span><span class="va">$context_output</span><span class="st">"</span></span>
+<span id="cb1-199"><a href="#cb1-199"></a>    <span class="cf">fi</span></span>
+<span id="cb1-200"><a href="#cb1-200"></a>  <span class="cf">fi</span></span>
+<span id="cb1-201"><a href="#cb1-201"></a><span class="cf">fi</span></span>
+<span id="cb1-202"><a href="#cb1-202"></a></span>
+<span id="cb1-203"><a href="#cb1-203"></a><span class="co"># Output</span></span>
+<span id="cb1-204"><a href="#cb1-204"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$context_pct</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-205"><a href="#cb1-205"></a>  <span class="bu">printf</span> <span class="st">'%s | %s'</span> <span class="st">"</span><span class="va">$git_info</span><span class="st">"</span> <span class="st">"</span><span class="va">$context_pct</span><span class="st">"</span></span>
+<span id="cb1-206"><a href="#cb1-206"></a><span class="cf">else</span></span>
+<span id="cb1-207"><a href="#cb1-207"></a>  <span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$git_info</span><span class="st">"</span></span>
+<span id="cb1-208"><a href="#cb1-208"></a><span class="cf">fi</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>Adjust the <code>repo_name</code> trimming logic if your repositories live outside <code>~/Repos/github.com/</code>.</p>
 </section>
 <section id="settings.json" class="level3">
 <h3 class="anchored" data-anchor-id="settings.json"><code>settings.json</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">{</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="dt">"statusLine"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>    <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"command"</span><span class="fu">,</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>    <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"zsh ~/.claude/statusline-wrapper.sh"</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">}</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Only change the command for the status line in <code>~/.claude/settings.json</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="dt">"statusLine"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"command"</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"bash ~/.claude/statusline.sh"</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="fu">}</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="make-both-shell-scripts-executable" class="level2">
-<h2 class="anchored" data-anchor-id="make-both-shell-scripts-executable">Make Both Shell Scripts Executable</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">chmod</span> u+x ~/.claude/statusline-command.sh ~/.claude/statusline-wrapper.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="configuring-ccstatusline" class="level2">
-<h2 class="anchored" data-anchor-id="configuring-ccstatusline">Configuring <code>ccstatusline</code></h2>
-<p>Run <code>npx ccstatusline</code>, select “Edit Colors”, and configure the context percentage widget color.</p>
+<section id="make-the-script-executable" class="level2">
+<h2 class="anchored" data-anchor-id="make-the-script-executable">Make the Script Executable</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">chmod</span> u+x ~/.claude/statusline.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
