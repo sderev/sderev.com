@@ -62,7 +62,7 @@ format:
     toc-title: Contents
 
     code-block-background: true
-    code-block-bg: "#fafafa"
+    code-block-bg: "#f8f8f8"
     code-copy: true
     code-line-numbers: true
     highlight-style: alabaster.theme
