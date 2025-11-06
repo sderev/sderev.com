@@ -1,0 +1,34 @@
+---
+title: "How to use ssh-agent to automatically enter your SSH key passphrase"
+subtitle: "Note#20"
+id: "20"
+date: 2022-11-24
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+**First, set up the environment variables:**
+
+```bash
+eval $(ssh-agent)
+```
+
+**Then, add your private key to the agent and enter your passphrase:**
+
+```bash
+ssh-add ~/.ssh/id_ed25519
+```
+
+Your passphrase is now cached for the rest of the shell session.
+
+**Finally, you can list the fingerprints of all your keys currently represented by the agent:**
+
+```bash
+ssh-add -l
+```
+
+## Related Notes
+
+* [Note#24](/notes/24/)
+* [Note#88](/notes/88/)
