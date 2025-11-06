@@ -41,7 +41,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-78a17ff4bb15c28a08b6d1e33b5e9bfc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6061d907802625405354f97cb7ed9fdb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-59faff4b7d7a2fab3baf83f5f4ecaf3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -213,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="implications">Implications</h3>
 <p>These findings highlight GPT-4’s advanced conversational abilities, though it still lags behind actual humans. The study suggests that stylistic and socio-emotional factors are crucial in passing the Turing test.</p>
 <p>The figure below shows all the strategies used by participants to identify the AI:</p>
-<p><img src="../../notes/assets/images/screenshot_2024-05-16T20:31:28_0.png" class="img-fluid"></p>
+<p><a href="../../notes/assets/images/screenshot_2024-05-16T20:31:28_0.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../../notes/assets/images/screenshot_2024-05-16T20:31:28_0.png" class="img-fluid"></a></p>
 </section>
 <section id="personal-notes" class="level3">
 <h3 class="anchored" data-anchor-id="personal-notes">Personal Notes</h3>
@@ -660,6 +663,38 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

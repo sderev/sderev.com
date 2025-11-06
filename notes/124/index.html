@@ -41,7 +41,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-78a17ff4bb15c28a08b6d1e33b5e9bfc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6061d907802625405354f97cb7ed9fdb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-59faff4b7d7a2fab3baf83f5f4ecaf3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -180,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="solution-the-safe-triangle" class="level2">
 <h2 class="anchored" data-anchor-id="solution-the-safe-triangle">Solution: The “Safe Triangle”</h2>
 <p>The “Safe Triangle” is a UI design pattern that effectively addresses this issue. It enhances the usability of hierarchical or nested context menus by creating an SVG triangle that serves as a “safe zone” around the submenu. Cursor tracking is implemented to ensure that the submenu remains open as long as the cursor is within this triangular area.</p>
-<p><img src="../../notes/assets/images/screenshot_2023-09-27T00:56:29_0.png" class="img-fluid"></p>
+<p><a href="../../notes/assets/images/screenshot_2023-09-27T00:56:29_0.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../../notes/assets/images/screenshot_2023-09-27T00:56:29_0.png" class="img-fluid"></a></p>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
@@ -621,6 +624,38 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

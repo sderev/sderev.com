@@ -76,7 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-78a17ff4bb15c28a08b6d1e33b5e9bfc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6061d907802625405354f97cb7ed9fdb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-59faff4b7d7a2fab3baf83f5f4ecaf3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -217,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>I adapted <a href="https://www.aihero.dev/creating-the-perfect-claude-code-status-line">Matt Pocock’s article</a> to replicate my zsh git prompt in Claude Code’s status line.</p>
-<p><img src="../../notes/assets/images/screenshot_e11883c1-93dc-4d7c-b705-bcd4ae96f26e.png" class="img-fluid" alt="Claude Code status line with git status and context percentage."></p>
+<p><a href="../../notes/assets/images/screenshot_e11883c1-93dc-4d7c-b705-bcd4ae96f26e.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../../notes/assets/images/screenshot_e11883c1-93dc-4d7c-b705-bcd4ae96f26e.png" class="img-fluid" alt="Claude Code status line with git status and context percentage."></a></p>
 <section id="implementation" class="level2">
 <h2 class="anchored" data-anchor-id="implementation">Implementation</h2>
 <p>Create the file <code>statusline.sh</code> in <code>~/.claude/</code> and copy the code below.</p>
@@ -446,7 +449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Adjust the <code>repo_name</code> trimming logic if your repositories live outside <code>~/Repos/github.com/</code>.</p>
+<p>Change <code>$HOME/Repos/github.com/</code> to your repositories directory.</p>
 </section>
 <section id="settings.json" class="level3">
 <h3 class="anchored" data-anchor-id="settings.json"><code>settings.json</code></h3>
@@ -903,6 +906,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
