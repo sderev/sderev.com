@@ -70,6 +70,7 @@ format:
     monofont: Fira Code
 
     link-external-icon: true
+    lightbox: auto
 
 execute:
   freeze: auto
