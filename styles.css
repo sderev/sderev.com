@@ -26,7 +26,10 @@ tbody tr:hover {
   --bs-table-hover-bg: #e5effd !important;
 }
 a {
-    color: #325cc0;
+  color: #325cc0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 tbody tr:hover a {
     color: #000;
@@ -106,6 +109,14 @@ tbody tr:hover a {
   .quarto-grid-link {
     display: block;
     text-decoration: none;
+  }
+
+  /* Allow inline code in card titles to wrap properly */
+  .quarto-grid-item .card-title code {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
   }
 }
 
