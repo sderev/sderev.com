@@ -1,0 +1,15 @@
+---
+title: "Cybersecurity questions preparation exams"
+subtitle: "Note#4"
+id: "4"
+date: 2022-07-14
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Some references about how to prepare for technical interviews for a cybersecurity role.
+
+#cybersecurity #interviews #infosec
+
+<https://danielmiessler.com/study/infosec_interview_questions/>

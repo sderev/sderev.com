@@ -1,0 +1,77 @@
+---
+title: "Bash history Toolkit"
+subtitle: "Note#22"
+id: "22"
+date: 2022-11-25
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+> ## Exit bash without writing anything
+>
+> ```bash
+> kill -9 $$
+> ```
+>
+> This is hacky and aggressive. But it's a fun way to end an espionage session.
+>
+> ## Clears the history of the current session, even this command itself
+>
+> ```bash
+> history -c
+> ```
+>
+> ## Disables history saving
+>
+> ```bash
+> unset HISTFILE
+> ```
+>
+> ##  Reloads history from disk
+>
+> ```bash
+> history -r
+> ```
+>
+> ## Executes a commande without including it in history
+>
+> ```bash
+> echo foo bar; history -d $(history 1)
+> ```
+>
+> ## Deletes your password (a command, etc.) from your history
+>
+> If all you are concerned about is getting rid of a single entry, you can use the previous example creatively. Use `history` to find the number of the entry to delete. Then delete it by number. For example...
+>
+> ```bash
+> $ history
+>   1  pwd
+>   2  date
+>   3  sudovisudo
+>   4  hunter2
+>   5  man history
+>   6  help history
+>   7  history
+> $ history -d 4
+> ```
+>
+> I hope I don't have to tell you this, but just in case: **Don't grep history for your password.** If you "*really do*" need to search history, do `history | LESSHISTFILE=/dev/null less`, and explicitly do a `/` search.
+>
+> If you are really embarrassed and want there to be no record of you deleting something from history, you can combined this concept with the last.
+>
+> ```bash
+> history -d 4; history -d $(history 1)
+> ```
+>
+> Or to also get rid of the original mistake...
+>
+> ```bash
+> for n in "$(history 1)" 4 3; do history -d $n; done
+> ```
+>
+> Notice that you have to cycle over the entry numbers in **descending** order because each call to `history -d` pops the entry out of the list and all subsequent entries' numbers decrease by 1. Also, you have to double quote the subshell because `history 1` returns not just the number, but also the command and its arguments, and each would get a separate cycle in the `for` loop. But at this point this is turning into a `bash` lesson and I'll stop.
+
+  #shell #bash
+
+<https://stackoverflow.com/a/52208927>
