@@ -4,3 +4,5 @@
 
 *.swp
 worktrees/
+
+**/*.quarto_ipynb
