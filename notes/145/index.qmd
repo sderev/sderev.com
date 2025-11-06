@@ -1,0 +1,49 @@
+---
+title: "Unnecessary `else` Statement Can Be Better for Readability"
+subtitle: "Note#145"
+id: "145"
+date: 2024-03-23
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Just watched [a short video by Trey Hunner](https://www.youtube.com/watch?v=zcgo4kYTHt8) and thought it was a good rule.
+
+## Balanced Statements
+
+If the `else` statement **is not more important** than the `if` check, then keeping it can improve readability. The `if` and the `else` statements are like a balance scale.
+
+### Example
+
+```python
+from dateutil.parser import parse
+
+def earliest_data(date1, date2):
+    """Return the string representing the earliest date."""
+    if parse(date1, fuzzy=True) < parse(date2, fuzzy=True):
+        return date1
+    else:
+        return date2
+```
+
+## Unnecessary and Confusing `else` Statement
+
+However, if the `else` statement **is more important** than the `if` check, it is better to remove the `else` statement.
+
+### Example
+
+```python
+from pathlib import Path
+
+def calculate_directory_size(path):
+    path = Path(path)
+
+    if path.is_file():
+        return path.stat().st_size
+
+    return sum(
+        calculate_directory_size(item)
+        for item in path.iterdir()
+    )
+```

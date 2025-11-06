@@ -1,0 +1,92 @@
+---
+title: "How to sort inside brackets (parentheses, etc.) in Vim"
+subtitle: "Note#45"
+id: "45"
+date: 2023-03-11
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Sorting text inside brackets, parentheses, or curly brackets in Vim can be done with a simple command. However, cases where the text is not appropriately formatted may require more effort and a better approach.
+
+## Basic Sorting Command
+
+### Suppose you have this CSS code
+
+```css
+.selector {
+    width: 100vw;
+    display: flex;
+    border: 1px solid red;
+    color: blue;
+}
+```
+
+### Place the cursor inside the curly brackets and enter the following command
+
+```vim
+vi{:sor
+```
+
+## Sorting Text Inside Square Brackets
+
+```python
+[
+    85,
+    33,
+    2,
+    55,
+    5,
+]
+```
+
+This is the same idea but don't forget the `n` parameter to sort the numbers for humans.
+
+### Use this command
+
+```vim
+vi[:sor n
+```
+
+## But it doesn't always work
+
+The reason why the above commands work is because the elements to sort are separated by a newline character.
+
+### Now, imagine you have a list formatted like below
+
+```python
+[88, 54, 23, 8, 39, 16, 2, 5]
+```
+
+The previous command doesn't work anymore.
+
+### To solve this problem, you might think it could be a good idea to create a cumbersome keybind in your `.vimrc`
+
+`nnoremap <leader>sor F[a<CR><Esc>f]i, <Esc>vi[:s/, /,\r/g<CR>vi[:sort n<CR>vi[:s/,\n/, /g<CR>%<S-J>xf]XX`
+
+**After having placed your cursor inside the brackets, this very long command performs three actions:**
+
+1. it adds a newline character after each number;
+2. it sorts the numbers;
+3. it reformats the sorted numbers to appear on a single line.
+
+**Obviously, don't do this...** even if it kinda works and that the keybind looks funny.
+
+## Write Python code (or any interpreted language, for that matter)
+
+A more reliable solution would be to call the built-in `sorted()` Python function.
+
+### Write the text you want to sort in Python syntax.
+
+```python
+print(sorted([88, 54, 23, 8, 39, 16, 2, 5]))
+```
+
+### Place your cursor on the line and call Python by entering the following command
+
+```vim
+:.!python3
+```
+
+**The numbers are now sorted.**

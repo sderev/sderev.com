@@ -1,0 +1,24 @@
+---
+title: "Enhancing Variable Renaming in Vim"
+subtitle: "Note#62"
+id: "62"
+date: 2023-04-07
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+1. Move your cursor over the variable you want to rename.
+2. Press `gd` to go to the local declaration of the variable.
+3. Press `cgn` to change the text covered by the last search (the variable name, in this case).
+4. Type the new name and press `<Esc>` to return to normal mode.
+5. Press `.` to repeat the rename operation for the next occurrence of the variable. If you want to rename all occurrences in the buffer at once, you can use `:%normal .`.
+
+## Jedi-Vim's Renaming
+
+While your cursor is on a name: `<leader>r` (In case of using Jedi-Vim plugin for Python). Also, it does it across multiple files—project wide.
+
+## Related Notes
+
+* [Note#69](/notes/69/)
+* [Note#102](/notes/102/)

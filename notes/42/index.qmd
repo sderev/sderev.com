@@ -1,0 +1,13 @@
+---
+title: "Apply a (useless) rot13 to an entire file in Vim"
+subtitle: "Note#42"
+id: "42"
+date: 2023-03-09
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+### `ggg?G`
+
+That's it.
