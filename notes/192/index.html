@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-06-11">
+<meta name="dcterms.date" content="2025-11-14">
 
-<title>Seam Carving Algorithm – Sébastien De Revière</title>
+<title>Should You Write Tests with Language Models? – Sébastien De Revière</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,11 +107,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Seam Carving Algorithm – Sébastien De Revière">
-<meta property="og:description" content="Note#97">
+<meta property="og:title" content="Should You Write Tests with Language Models? – Sébastien De Revière">
+<meta property="og:description" content="Note#192">
 <meta property="og:site_name" content="Sébastien De Revière">
-<meta name="twitter:title" content="Seam Carving Algorithm – Sébastien De Revière">
-<meta name="twitter:description" content="Note#97">
+<meta name="twitter:title" content="Should You Write Tests with Language Models? – Sébastien De Revière">
+<meta name="twitter:description" content="Note#192">
 <meta name="twitter:creator" content="@sdereviere">
 <meta name="twitter:card" content="summary">
 </head>
@@ -131,8 +166,8 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page">
-      <h1 class="title">Seam Carving Algorithm</h1>
-            <p class="subtitle lead">Note#97</p>
+      <h1 class="title">Should You Write Tests with Language Models?</h1>
+            <p class="subtitle lead">Note#192</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">notes</div>
               </div>
@@ -146,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2023-06-11</p>
+        <p class="date">2025-11-14</p>
       </div>
     </div>
     
@@ -165,54 +200,188 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>The <strong>Seam Carving algorithm</strong>, also known as <em>content-aware resizing</em> or <em>retargeting</em>, is an innovative image resizing technique that strives to maintain the perceptually important parts of an image, focusing on preserving the core visual content when resizing.</p>
-<section id="historical-context" class="level2">
-<h2 class="anchored" data-anchor-id="historical-context">Historical Context</h2>
-<p>The concept of <em>seam carving</em> was introduced in 2007 by researchers Shai Avidan and Ariel Shamir. The technique offered a novel approach to image resizing, focusing on the preservation of content, which was a noticeable improvement over traditional methods like scaling and cropping. Over the years, the algorithm has been refined and is commonly used in applications requiring sophisticated image resizing.</p>
+<p>This cheat sheet has (obviously?) been made by a language model from the transcript of <a href="https://www.youtube.com/watch?v=Lha1741iEjE">the PyBay 2025 talk by Pamela Fox</a>.</p>
+<blockquote class="blockquote">
+<p>Use LMs as fast test scaffolding, not as oracles: humans still define invariants, edge cases, and what “correct” means.</p>
+</blockquote>
+<section id="quick-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="quick-checklist">Quick Checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Parametrize equivalents; don’t duplicate tests</label></li>
+<li><label><input type="checkbox">Use fixtures for setup/teardown; avoid state leaks</label></li>
+<li><label><input type="checkbox">Generate realistic, seeded fake data (Faker, explicit locales)</label></li>
+<li><label><input type="checkbox">Assert behavior and constraints; snapshot JSON where useful</label></li>
+<li><label><input type="checkbox">Review line <strong>and</strong> branch coverage; close gaps intentionally</label></li>
+<li><label><input type="checkbox">Add Hypothesis on critical inputs and edge cases</label></li>
+<li><label><input type="checkbox">Fuzz APIs from OpenAPI (e.g., Schemathesis)</label></li>
+<li><label><input type="checkbox">Ensure determinism: seed RNG, freeze time, run twice/parallel</label></li>
+<li><label><input type="checkbox">Favor integration/E2E for real user flows</label></li>
+<li><label><input type="checkbox">Use LMs with strict guidelines and mandatory human review</label></li>
+</ul>
 </section>
-<section id="the-algorithm" class="level2">
-<h2 class="anchored" data-anchor-id="the-algorithm">The Algorithm</h2>
-<section id="greyscale-conversion" class="level3">
-<h3 class="anchored" data-anchor-id="greyscale-conversion">Greyscale Conversion</h3>
-<p>The algorithm starts by converting the original color image into greyscale. The greyscale value <code>v</code> of a pixel is calculated using the formula <code>v = round(.299*r + .587*g + .114*b)</code>, where <code>r</code>, <code>g</code>, and <code>b</code> represent the red, green, and blue values of the pixel respectively.</p>
+<section id="reduce-redundancy" class="level2">
+<h2 class="anchored" data-anchor-id="reduce-redundancy">1. Reduce Redundancy</h2>
+<p>Use parametrization instead of near-duplicate tests, and centralize setup with fixtures that also clean up.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pytest</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="at">@pytest.mark.parametrize</span>(</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="st">"order, expected_first"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    [(<span class="st">"desc"</span>, <span class="st">"bee3"</span>), (<span class="st">"asc"</span>, <span class="st">"bee1"</span>)]</span>
+<span id="cb1-6"><a href="#cb1-6"></a>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">def</span> test_list_bees_sorted(client, seed_bees, order, expected_first):</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    res <span class="op">=</span> client.get(<span class="ss">f"/bees?order=</span><span class="sc">{</span>order<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    <span class="cf">assert</span> res.status_code <span class="op">==</span> <span class="dv">200</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>    data <span class="op">=</span> res.json()</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    <span class="cf">assert</span> data[<span class="dv">0</span>][<span class="st">"id"</span>] <span class="op">==</span> expected_first</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> pytest</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">def</span> seed_bees(db_session):</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="co"># Insert rows</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="co"># db_session.add_all([...])</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>    <span class="cf">yield</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="co"># Guaranteed cleanup to avoid uniqueness/state bleed</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>    db_session.execute(<span class="st">"DELETE FROM bees;"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    db_session.commit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Key ideas:</p>
+<ul>
+<li>Parametrize when only a few values differ.</li>
+<li>Keep shared setup/teardown in fixtures, not copy-pasted into every test.</li>
+</ul>
 </section>
-<section id="energy-map-calculation" class="level3">
-<h3 class="anchored" data-anchor-id="energy-map-calculation">Energy Map Calculation</h3>
-<p>An ‘energy map’ of the greyscale image is computed. This map uses an edge detection function to represent the “energy” or significance of each pixel.</p>
+<section id="make-fake-data-look-real-and-diverse" class="level2">
+<h2 class="anchored" data-anchor-id="make-fake-data-look-real-and-diverse">2. Make Fake Data Look Real and Diverse</h2>
+<p>Prefer libraries over hand-rolled strings; seed for reproducibility and control locales.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> faker <span class="im">import</span> Faker</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>Faker.seed(<span class="dv">1337</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>faker <span class="op">=</span> Faker(locale<span class="op">=</span><span class="st">"en_US"</span>)  <span class="co"># or a list of controlled locales</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="kw">def</span> fake_person():</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="cf">return</span> {</span>
+<span id="cb3-8"><a href="#cb3-8"></a>        <span class="st">"name"</span>: faker.name(),          <span class="co"># accents, hyphens, multi-part</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>        <span class="st">"email"</span>: faker.email(),</span>
+<span id="cb3-10"><a href="#cb3-10"></a>        <span class="st">"address"</span>: faker.address(),</span>
+<span id="cb3-11"><a href="#cb3-11"></a>        <span class="st">"lat"</span>: faker.latitude(),</span>
+<span id="cb3-12"><a href="#cb3-12"></a>        <span class="st">"lon"</span>: faker.longitude(),</span>
+<span id="cb3-13"><a href="#cb3-13"></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Also explicitly test edge cases:</p>
+<ul>
+<li>Names with non-ASCII characters</li>
+<li>Names with multiple middle names</li>
+<li>Names with accents or hyphens</li>
+<li>Very long or single-character names</li>
+<li>Addresses and locales outside your usual region</li>
+</ul>
+<p>LMs tend to give “John Doe” / “Jane Smith”; your tests shouldn’t.</p>
 </section>
-<section id="cumulative-energy-map-computation" class="level3">
-<h3 class="anchored" data-anchor-id="cumulative-energy-map-computation">Cumulative Energy Map Computation</h3>
-<p>The algorithm computes a <em>cumulative energy map</em> after creating the energy map. The cumulative energy map is a matrix of the same dimensions as the image where the value at each pixel is not just the energy of that pixel, but the total energy of the lowest-energy path from the top of the image to that pixel.</p>
-<p>To calculate this, the algorithm starts with the top row of the image, where the cumulative energy is the same as the original energy from the energy map. For each subsequent row, the algorithm finds the cumulative energy for each pixel by adding its own energy value (from the energy map) to the minimum cumulative energy of the pixels directly above it in the previous row. The pixels considered are directly above, or one pixel to the right or to the left of the current pixel in the row above. This process is repeated for each pixel and for each row, down to the bottom of the image.</p>
+<section id="assert-behavior-not-just-shape" class="level2">
+<h2 class="anchored" data-anchor-id="assert-behavior-not-just-shape">3. Assert Behavior, Not Just Shape</h2>
+<p>Don’t only check that keys exist—validate values and constraints. For JSON APIs, snapshot full responses when that’s more expressive.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> test_bee_api_snapshot(client, snapshot):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    res <span class="op">=</span> client.get(<span class="st">"/bees?order=desc"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="cf">assert</span> res.status_code <span class="op">==</span> <span class="dv">200</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>    data <span class="op">=</span> res.json()</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    snapshot.assert_match(data, <span class="st">"bees_desc.json"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Guidelines:</p>
+<ul>
+<li>Snapshot only <strong>stable</strong> fields (no timestamps, random IDs, etc.), or filter before snapshotting.</li>
+<li>Treat snapshot diffs like code changes: review them, don’t click “accept” blindly.</li>
+</ul>
 </section>
-<section id="minimum-energy-seam-identification" class="level3">
-<h3 class="anchored" data-anchor-id="minimum-energy-seam-identification">Minimum-Energy Seam Identification</h3>
-<p>The process of identifying the minimum-energy seam begins once the cumulative energy map is complete. This seam is a connected path of pixels from the top to the bottom of the image that has the lowest total energy.</p>
-<p>To identify this seam, the algorithm starts at the bottom row of the cumulative energy map and locates the pixel with the smallest cumulative energy. This pixel is the start of the minimum-energy seam. The algorithm then traces the seam back up to the top of the image. At each step, the algorithm moves to the pixel in the row above that has the smallest cumulative energy and is adjacent to the current pixel. The adjacent pixels considered are directly above, or one pixel to the right or to the left of the current pixel.</p>
-<p>This process creates a path from the bottom of the image to the top, representing the seam of least cumulative energy. This seam is then used in the final step of the algorithm: seam removal.</p>
+<section id="treat-coverage-as-a-tool-not-a-target" class="level2">
+<h2 class="anchored" data-anchor-id="treat-coverage-as-a-tool-not-a-target">4. Treat Coverage as a Tool, Not a Target</h2>
+<p>Coverage highlights what you forgot to test; it does not prove correctness.</p>
+<ul>
+<li>Run <strong>line and branch</strong> coverage.</li>
+<li>Inspect uncovered lines and branches, especially around conditionals and error handling.</li>
+<li>Add tests that exercise those paths with meaningful assertions.</li>
+</ul>
+<p>Even at ~100% line coverage, you may still be missing behaviors—property-based tests (§5) and fuzzing (§6) help there.</p>
 </section>
-<section id="seam-removal" class="level3">
-<h3 class="anchored" data-anchor-id="seam-removal">Seam Removal</h3>
-<p>The identified seam is then removed from the original color image, effectively reducing the image’s width by one pixel. This process is repeated until the image is resized to the desired size.</p>
+<section id="break-the-happy-path-with-property-based-testing" class="level2">
+<h2 class="anchored" data-anchor-id="break-the-happy-path-with-property-based-testing">5. Break the Happy Path with Property-Based Testing</h2>
+<p>Use Hypothesis to explore tricky inputs (empty/huge/negative/unicode, weird floats, etc.).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">from</span> hypothesis <span class="im">import</span> given, strategies <span class="im">as</span> st</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="at">@given</span>(taxon_id<span class="op">=</span>st.integers())</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">def</span> test_taxon_endpoint_handles_any_int(client, taxon_id):</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    res <span class="op">=</span> client.get(<span class="ss">f"/taxa/</span><span class="sc">{</span>taxon_id<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="cf">assert</span> res.status_code <span class="kw">in</span> {<span class="dv">200</span>, <span class="dv">400</span>, <span class="dv">404</span>}  <span class="co"># never 500</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can also model realistic numeric ranges:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="at">@given</span>(</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    lat<span class="op">=</span>st.floats(min_value<span class="op">=-</span><span class="dv">90</span>, max_value<span class="op">=</span><span class="dv">90</span>, allow_nan<span class="op">=</span><span class="va">False</span>),</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    lon<span class="op">=</span>st.floats(min_value<span class="op">=-</span><span class="dv">180</span>, max_value<span class="op">=</span><span class="dv">180</span>, allow_nan<span class="op">=</span><span class="va">False</span>),</span>
+<span id="cb6-4"><a href="#cb6-4"></a>)</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="kw">def</span> test_bees_active_accepts_valid_coords(client, lat, lon):</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    res <span class="op">=</span> client.get(<span class="st">"/bees/active"</span>, params<span class="op">=</span>{<span class="st">"lat"</span>: lat, <span class="st">"lon"</span>: lon})</span>
+<span id="cb6-7"><a href="#cb6-7"></a>    <span class="cf">assert</span> res.status_code <span class="kw">in</span> {<span class="dv">200</span>, <span class="dv">400</span>, <span class="dv">404</span>}  <span class="co"># but not 500</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add input validation so invalid inputs yield clear 4xx responses, not 500s.</p>
 </section>
+<section id="fuzz-apis-end-to-end-from-the-spec" class="level2">
+<h2 class="anchored" data-anchor-id="fuzz-apis-end-to-end-from-the-spec">6. Fuzz APIs End-to-End from the Spec</h2>
+<p>Given an OpenAPI/Swagger spec, use <strong>Schemathesis</strong> (built on Hypothesis) to generate inputs across routes/params and reproduce failures with minimal examples or <code>curl</code> commands.</p>
+<p>Conceptual example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> pytest</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="im">import</span> schemathesis</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="kw">def</span> web_app(app):</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    <span class="cf">return</span> schemathesis.openapi.from_asgi(<span class="st">"/openapi.json"</span>, app)</span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a>schema <span class="op">=</span> schemathesis.pytest.from_fixture(<span class="st">"web_app"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="at">@schema.parametrize</span>()</span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="kw">def</span> test_openapi_specification(case):</span>
+<span id="cb7-12"><a href="#cb7-12"></a>    case.call_and_validate()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This explores your API like Hypothesis explores functions, and gives you a concrete request to reproduce each failure.</p>
 </section>
-<section id="advantages-and-disadvantages" class="level2">
-<h2 class="anchored" data-anchor-id="advantages-and-disadvantages">Advantages and Disadvantages</h2>
-<section id="advantage" class="level3">
-<h3 class="anchored" data-anchor-id="advantage">Advantage</h3>
-<p>The Seam Carving algorithm excels in preserving the visual content of an image during resizing. It selectively removes less important portions of the image, ensuring that the core visual content remains intact, a significant improvement over traditional resizing methods.</p>
+<section id="make-tests-deterministic-and-re-runnable" class="level2">
+<h2 class="anchored" data-anchor-id="make-tests-deterministic-and-re-runnable">7. Make Tests Deterministic and Re-Runnable</h2>
+<ul>
+<li>Seed Faker, <code>random</code>, NumPy, and Hypothesis.</li>
+<li>Freeze time if logic depends on “now”.</li>
+<li>Ensure fixtures clean DB, files, and any in-memory/global state.</li>
+<li>Run the suite <strong>twice</strong> and in parallel (locally/CI) to reveal hidden shared state.</li>
+<li>Pin dependency versions and control environment variables (<code>TZ</code>, feature flags, API base URLs).</li>
+</ul>
+<p>If a test passes sometimes and fails sometimes, assume there is a bug until proven otherwise.</p>
 </section>
-<section id="disadvantage" class="level3">
-<h3 class="anchored" data-anchor-id="disadvantage">Disadvantage</h3>
-<p>The algorithm might struggle with images that have a lot of high-energy content, or when important details are evenly distributed across the image. In such cases, important content might be removed, leading to a loss in image quality.</p>
+<section id="prefer-higher-value-test-levels-when-appropriate" class="level2">
+<h2 class="anchored" data-anchor-id="prefer-higher-value-test-levels-when-appropriate">8. Prefer Higher-Value Test Levels When Appropriate</h2>
+<p>For user-facing web apps, bias toward <strong>integration/E2E</strong> tests (e.g., Playwright) that cover real user journeys:</p>
+<ul>
+<li>“User signs up, logs in, creates X, sees Y”</li>
+<li>“User searches with weird filters and still gets a reasonable result or a clear error”</li>
+</ul>
+<p>Support these with a smaller set of focused unit tests for core pure logic (parsers, calculations, transformations).</p>
 </section>
+<section id="use-lms-as-generalists" class="level2">
+<h2 class="anchored" data-anchor-id="use-lms-as-generalists">9. Use LMs as Generalists</h2>
+<p>Let an LM scaffold, but enforce <strong>specialist</strong> practices (pytest features, Faker, Hypothesis, snapshots), and always review/refactor.</p>
+<p><strong>Prompt stub (adapt as needed):</strong></p>
+<blockquote class="blockquote">
+<p>Write pytest tests for a FastAPI app. Use fixtures from <code>conftest.py</code>. Parametrize similar cases; use fixtures for DB setup/teardown; use Faker with a fixed seed and explicit locale; add at least one Hypothesis test per route’s inputs; write one snapshot test per JSON route (only snapshot stable fields); run coverage and add tests for uncovered lines/branches; ensure tests are idempotent and re-runnable.</p>
+</blockquote>
+<p>LMs are good at volume; humans are responsible for correctness.</p>
+</section>
+<section id="practical-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="practical-workflow">10. Practical Workflow</h2>
+<ol type="1">
+<li>Establish robust fixtures (app/client/DB) with cleanup.</li>
+<li>Generate a first pass with an LM using the prompt above.</li>
+<li>Refactor: parameterize, centralize factories, seed Faker, add snapshots.</li>
+<li>Add Hypothesis on risky inputs; fix validation to return 4xx, not 500.</li>
+<li>Coverage pass: close gaps for important lines/branches.</li>
+<li>Add E2E smoke tests for key flows (login, main user journeys).</li>
+<li>Ensure determinism: seed, freeze time, run twice/parallel, pin deps.</li>
+<li>Merge gates: green CI, coverage threshold met, snapshot diffs reviewed, human review of LM-generated tests.</li>
+</ol>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <ul>
-<li><a href="https://py.mit.edu/spring23/labs/image_processing_2">Image Processing, Part 2 | 6.101 Spring 2023 (py.mit.edu)</a></li>
-<li>Seam carving. (n.d.). In <em>Wikipedia</em>. <a href="https://en.wikipedia.org/wiki/Seam_carving">https://en.wikipedia.org/wiki/Seam_carving</a></li>
-<li>Avidan, S., &amp; Shamir, A. (2007). Seam Carving for Content-Aware Image Resizing. <em>ACM Transactions on Graphics</em>, 26(3), Article 10. <a href="https://doi.org/10.1145/1275808.1276390">https://doi.org/10.1145/1275808.1276390</a></li>
+<li><a href="https://www.youtube.com/watch?v=Lha1741iEjE">Just because AI can write your tests, should it? – Pamela Fox (PyBay 2025)</a></li>
 </ul>
 
 
