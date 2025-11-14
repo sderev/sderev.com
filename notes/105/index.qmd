@@ -1,0 +1,91 @@
+---
+title: "Google Dorking Cheat Sheet"
+subtitle: "Note#105"
+id: "105"
+date: 2023-07-04
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+## Basic Operators
+
+* `site:`: Restricts search results to a specific website or domain.
+    * Example: `site:example.com`
+* `link:`: Shows pages that link to a certain page.
+    * Example: `link:example.com`
+* `cache:`: Shows the version of the web page as it appeared when Google last indexed it.
+    * Example: `cache:example.com`
+* `info:`: Shows information Google has about a webpage.
+    * Example: `info:example.com`
+* `related:`: Shows sites related to a specified site.
+    * Example: `related:example.com`
+
+## Searching Within Parts of a Page
+
+* `intitle:`: Searches within the title tags.
+    * Example: `intitle:"login page"`
+* `allintitle:`: Searches for documents containing all the specified words in the title.
+    * Example: `allintitle:apple banana`
+* `intext:`: Searches within the body text.
+    * Example: `intext:"important announcement"`
+* `allintext:`: Searches for documents containing all the specified words in the body text.
+    * Example: `allintext:apple banana`
+* `inurl:`: Searches within the URL.
+    * Example: `inurl:login`
+* `allinurl:`: Searches for a URL containing all the specified words.
+    * Example: `allinurl:apple banana`
+
+## Filetype Search
+
+* `filetype:`: Searches for specific file types.
+    * Example: `filetype:pdf`
+* `ext:`: Alternative to filetype.
+    * Example: `ext:pdf`
+
+## Time-Based Search
+
+* `after:`: Shows results that are newer than the specified date. You can use year, month, and day formats (YYYY, YYYY-MM, YYYY-MM-DD).
+    * Example: `nasa news after:2023-01-01`
+* `before:`: Shows results that are older than the specified date. Same date formats apply as in `after:`.
+    * Example: `nasa news before:2023-01-01`
+
+## Proximity Search
+
+* `AROUND(X)`: Can be used between two words, with X representing the maximum amount of words that you want to allow between the two.
+    * Example: `Apple AROUND(3) iPhone`
+
+## Specialized Search
+
+* `define:`: Looks up the definition of a word.
+    * Example: `define:computer`
+* `stocks:`: Gives information about stocks when followed by a ticker symbol.
+    * Example: `stocks:AAPL`
+* `book:`: Can be followed by a book title to get information about the book.
+    * Example: `book:"The World as Will and Representation"`
+* `movie:`: Can be followed by a movie title to get reviews and showtimes.
+    * Example: `movie:Matrix`
+* `music:`: Searches for music-related information.
+    * Example: `music:public memory`
+* `weather:`: Gives the current weather for a specified location.
+    * Example: `weather:Paris`
+* `phonebook:`: Finds phone numbers and addresses listed in US phone books.
+    * Example: `phonebook:John Doe`
+* `area code:`: Shows the location for a particular area code.
+    * Example: `area code:415`
+
+## Numerical Range Search
+
+* `numrange:`: Used to locate specific numbers in your search. Use two periods without spaces (..) to represent an inclusive range of numbers.
+    * Example: `camera $50..$100`
+
+## Logical Operators
+
+* `AND`: Shows results where both terms on either side of the AND operator are present. `AND` must be in upper case. Google search defaults to using `AND` between terms if no other operator is specified.
+    * Example: `apple AND banana`
+* `OR`: Shows results where either term (or both terms) is present. `OR` must be in upper case.
+    * Example: `apple OR banana`
+* `- (minus sign)`: Excludes results containing the term that follows the `-` operator.
+    * Example: `apple -banana`
+* `" "` (quotes): Searches for an exact phrase match.
+    * Example: `"apple banana"`
