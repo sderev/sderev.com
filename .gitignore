@@ -1,0 +1,8 @@
+/_site/
+
+/.quarto/
+
+*.swp
+worktrees/
+
+**/*.quarto_ipynb
