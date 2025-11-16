@@ -1,0 +1,115 @@
+---
+title: "Enabling autocompletion for a custom script in `zsh` or `bash`"
+subtitle: "Note#52"
+id: "52"
+date: 2023-03-30
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Autocompletion is a convenient feature in both Zsh and Bash shells that can save time and reduce typing errors. If you have a custom script that you frequently use, you may want to enable autocompletion for it. Here's how to do it in both shells.
+
+## Zsh
+
+### Create a completion function for your script
+
+Create a function that defines the possible options and arguments for your script. Save this function in a file with a name starting with an underscore, such as _myscript.
+
+```zsh
+# _myscript completion function for Zsh
+_myscript_completion() {
+    local curcontext="$curcontext" state line
+    typeset -A opt_args
+
+    _arguments '1: :->command'
+
+    case $state in
+        (command)
+            local -a commands=("option1" "option2" "option3")
+            _describe -t commands 'myscript command' commands && ret=0
+            ;;
+    esac
+}
+
+compdef _myscript_completion myscript
+``` 
+
+### Save the completion function file in a directory in the `FPATH` variable
+
+Save the `_myscript` file in a directory where Zsh will look for autoloaded functions. One such directory is `/usr/share/zsh/site-functions`. Alternatively, you can create a new directory and add it to the `FPATH` variable in your `.zshrc` file.
+
+```zsh
+# Add the custom directory to FPATH in .zshrc
+fpath+=/path/to/custom/dir
+```
+
+### Source the completion function file
+
+If it doesn't work for obscure reasons, you can just source your completion `_myscript`.
+
+```zsh
+# Source the completion function file
+source /path/to/_myscript
+```
+
+Now you should be able to use autocompletion for your custom script in Zsh. Type `myscript` followed by a space, and then press the Tab key to see the available options and arguments.
+
+#### This is a hack
+
+Because I encountered a persistent problem with autocompletion and didn't want to keep editing my `.zshrc` file for every new script, I added the following lines to it:
+
+```bash
+for script in ~/.completion_scripts/_*; do
+  script_name=${script:t}
+  source ~/.completion_scripts/$script_name
+done
+```
+
+## Bash
+
+### Create a completion script for your script
+
+Create a script that defines the possible options and arguments for your script. Save this script in a file with a name starting with an underscore, such as `_myscript`.
+
+```bash
+# _myscript completion script for Bash
+_myscript_completion() {
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+    case "${prev}" in
+        myscript)
+            opts="option1 option2 option3"
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+            ;;
+        *)
+            ;;
+    esac
+}
+
+complete -F _myscript_completion myscript
+```
+
+### Save the completion script file in a directory in the `PATH` variable
+
+Save the `_myscript` file in a directory where Bash will look for executables. One such directory is `/usr/local/bin`. Alternatively, you can create a new directory and add it to the `PATH` variable in your `.bashrc` file.
+
+```bash
+# Add the custom directory to PATH in .bashrc
+export PATH=$PATH:/path/to/custom/dir
+```
+
+### Source the Bash completion scripts
+
+Source the Bash completion scripts to load the autocompletion functionality in your current session.
+
+```bash
+# Source the Bash completion scripts
+source /usr/share/bash-completion/bash_completion
+```
+
+Now you should be able to use autocompletion for your custom script in Bash. Type `myscript` followed by a space, and then press the Tab key to see the available options and arguments.

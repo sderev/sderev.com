@@ -1,0 +1,21 @@
+---
+title: "Use `git maintenance start`"
+subtitle: "Note#143"
+id: "143"
+date: 2024-02-15
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Just run `git maintenance start` inside a git repository to automate optimization tasks—by creating `cron` jobs.
+
+> Run tasks to optimize Git repository data, speeding up other Git commands and reducing storage requirements for the repository.
+>
+> Git commands that add repository data, such as git add or git fetch, are optimized for a responsive user experience. These commands do not take time to optimize the Git data, since such optimizations scale with the full size of the repository while these user commands each perform a relatively small action.
+>
+> The git maintenance command provides flexibility for how to optimize the Git repository.
+
+## References
+
+* [Git Maintenance Documentation](https://git-scm.com/docs/git-maintenance)
