@@ -255,7 +255,16 @@ Only change the command for the status line in `~/.claude/settings.json`:
 chmod u+x ~/.claude/statusline.sh
 ```
 
+## Context Calculation
+
+This script includes `output_tokens` in the calculation, unlike [`ccstatusline`](https://github.com/sirmalloc/ccstatusline). Output tokens from the current response become input tokens in the next request, so including them shows context growing in real-time as the agent works.
+
+Claude Code has documented bugs causing inflated warnings. Issue [#8792](https://github.com/anthropics/claude-code/issues/8792) reported 99% usage when actual usage was 55%. Issue [#6616](https://github.com/anthropics/claude-code/issues/6616) warned "7% remaining" with 86% free. Use `/context` for accurate measurements.
+
 ## References
 
 * [Matt Pocock's article](https://www.aihero.dev/creating-the-perfect-claude-code-status-line)
 * [Claude Code Status Line Configuration](https://docs.claude.com/en/docs/claude-code/statusline)
+* [ccstatusline](https://github.com/sirmalloc/ccstatusline)
+* [Issue #8792: Context calculation discrepancy](https://github.com/anthropics/claude-code/issues/8792)
+* [Issue #6616: Premature context warnings](https://github.com/anthropics/claude-code/issues/6616)
