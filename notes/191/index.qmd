@@ -3,7 +3,7 @@ title: "Custom Claude Code Status Line with Git Integration"
 subtitle: "Note#191"
 id: "191"
 date: 2025-11-05
-date-modified: "2025-11-06"
+date-modified: "2025-11-16"
 date-format: iso
 categories: [notes]
 spotlight: ""
@@ -172,22 +172,23 @@ calculate_context_percentage() {
     [
       (.message.usage.input_tokens // 0 | to_num),
       (.message.usage.cache_read_input_tokens // 0 | to_num),
-      (.message.usage.cache_creation_input_tokens // 0 | to_num)
+      (.message.usage.cache_creation_input_tokens // 0 | to_num),
+      (.message.usage.output_tokens // 0 | to_num)
     ] | @tsv
-  ' 2>/dev/null) || usage_values=$'0\t0\t0'
+  ' 2>/dev/null) || usage_values=$'0\t0\t0\t0'
 
-  local input_tokens cache_read cache_creation
-  IFS=$'\t' read -r input_tokens cache_read cache_creation <<< "$usage_values"
+  local input_tokens cache_read cache_creation output_tokens
+  IFS=$'\t' read -r input_tokens cache_read cache_creation output_tokens <<< "$usage_values"
 
   local var_name
-  for var_name in input_tokens cache_read cache_creation; do
+  for var_name in input_tokens cache_read cache_creation output_tokens; do
     if [[ ! ${!var_name} =~ ^-?[0-9]+$ ]]; then
       printf -v "$var_name" '0'
     fi
   done
 
   # Calculate context length
-  local context_length=$((input_tokens + cache_read + cache_creation))
+  local context_length=$((input_tokens + cache_read + cache_creation + output_tokens))
 
   # Calculate percentage (capped at 100)
   local percentage
