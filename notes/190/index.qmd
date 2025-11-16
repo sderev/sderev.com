@@ -1,0 +1,86 @@
+---
+title: "Command Aliases in Click: True Aliases vs Prefix Matching"
+subtitle: "Note#190"
+id: "190"
+date: 2025-10-23
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Click doesn't provide built-in command aliases. The common workarounds are:
+
+1. **Prefix matching** (native, via custom `Group`)
+2. **True aliases** (via `click-aliases` package)
+
+## What's the Difference?
+
+### Prefix matching
+
+Type any unique prefix of a command name.
+
+```bash
+cli status  # Full command
+cli st      # Prefix works if unique
+```
+
+### True aliases
+
+Multiple distinct names for the same command.
+
+```bash
+cli new     # Primary name
+cli create  # Explicit alias
+cli add     # Another explicit alias
+```
+
+## Native Approach: Prefix Matching
+
+Click's documentation shows how to implement git-style abbreviations:
+
+```python
+import click
+
+class AliasedGroup(click.Group):
+    def get_command(self, ctx, cmd_name):
+        rv = click.Group.get_command(self, ctx, cmd_name)
+        if rv is not None:
+            return rv
+
+        matches = [x for x in self.list_commands(ctx)
+                   if x.startswith(cmd_name)]
+        if not matches:
+            return None
+        elif len(matches) == 1:
+            return click.Group.get_command(self, ctx, matches[0])
+
+        ctx.fail(f"Too many matches: {', '.join(sorted(matches))}")
+
+@click.group(cls=AliasedGroup)
+def cli():
+    pass
+```
+
+### Limitation
+
+Adding a `start` command would make `st` ambiguous if you already have `status`.
+
+## True Aliases: `click-aliases` Package
+
+```python
+from click_aliases import ClickAliasedGroup
+
+@click.group(cls=ClickAliasedGroup)
+def cli():
+    pass
+
+@cli.command(aliases=['create', 'add'])
+def new():
+    click.echo('Creating...')
+```
+
+## References
+
+* [Click Advanced Patterns - Command Aliases](https://click.palletsprojects.com/en/stable/advanced/)
+* [`click-aliases` GitHub Repository](https://github.com/click-contrib/click-aliases)
+* [Click API Reference - Groups](https://click.palletsprojects.com/en/stable/api/#click.Group)

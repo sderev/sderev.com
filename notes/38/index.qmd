@@ -1,0 +1,43 @@
+---
+title: "How to switch the case of characters in Vim"
+subtitle: "Note#38"
+id: "38"
+date: 2023-03-05
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+### `~`
+
+Toggles case of the character under the cursor. 
+
+### `4~`
+
+Toggles case of the next four characters.
+
+### `g~3w`
+
+Toggles case of the next three words.
+
+### `g~iw`
+
+Toggles case of the inner word.
+
+### `g~$`
+
+Toggles case of all the characters to the end of the line.
+
+### `g~~`
+
+Toggles case of all the characters of the current line.
+
+### `gUiw`
+
+Switches to upper case all of the characters of the inner word.
+
+### `gUU` or `VU`
+
+Switches to upper case all the characters of the current line.
+
+You can replace `U` by `u` to lower the case of the characters.
