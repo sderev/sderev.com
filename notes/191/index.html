@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">2025-11-06</p>
+        <p class="date-modified">2025-11-16</p>
       </div>
     </div>
       
@@ -386,64 +386,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-148"><a href="#cb1-148"></a><span class="st">    [</span></span>
 <span id="cb1-149"><a href="#cb1-149"></a><span class="st">      (.message.usage.input_tokens // 0 | to_num),</span></span>
 <span id="cb1-150"><a href="#cb1-150"></a><span class="st">      (.message.usage.cache_read_input_tokens // 0 | to_num),</span></span>
-<span id="cb1-151"><a href="#cb1-151"></a><span class="st">      (.message.usage.cache_creation_input_tokens // 0 | to_num)</span></span>
-<span id="cb1-152"><a href="#cb1-152"></a><span class="st">    ] | @tsv</span></span>
-<span id="cb1-153"><a href="#cb1-153"></a><span class="st">  '</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span> <span class="kw">||</span> <span class="va">usage_values</span><span class="op">=</span><span class="st">$'0</span><span class="dt">\t</span><span class="st">0</span><span class="dt">\t</span><span class="st">0'</span></span>
-<span id="cb1-154"><a href="#cb1-154"></a></span>
-<span id="cb1-155"><a href="#cb1-155"></a>  <span class="bu">local</span> <span class="va">input_tokens</span> <span class="va">cache_read</span> <span class="va">cache_creation</span></span>
-<span id="cb1-156"><a href="#cb1-156"></a>  <span class="va">IFS</span><span class="op">=</span><span class="st">$'</span><span class="dt">\t</span><span class="st">'</span> <span class="bu">read</span> <span class="at">-r</span> <span class="va">input_tokens</span> <span class="va">cache_read</span> <span class="va">cache_creation</span> <span class="op">&lt;&lt;&lt;</span> <span class="st">"</span><span class="va">$usage_values</span><span class="st">"</span></span>
-<span id="cb1-157"><a href="#cb1-157"></a></span>
-<span id="cb1-158"><a href="#cb1-158"></a>  <span class="bu">local</span> <span class="va">var_name</span></span>
-<span id="cb1-159"><a href="#cb1-159"></a>  <span class="cf">for</span> var_name <span class="kw">in</span> input_tokens cache_read cache_creation<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb1-160"><a href="#cb1-160"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">!</span> <span class="va">${</span><span class="op">!</span><span class="va">var_name}</span> <span class="ot">=~</span> <span class="pp">^</span><span class="ss">-</span><span class="pp">?</span><span class="op">[</span><span class="ss">0</span><span class="op">-</span><span class="ss">9</span><span class="op">]</span><span class="pp">+</span><span class="op">$</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb1-161"><a href="#cb1-161"></a>      <span class="bu">printf</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$var_name</span><span class="st">"</span> <span class="st">'0'</span></span>
-<span id="cb1-162"><a href="#cb1-162"></a>    <span class="cf">fi</span></span>
-<span id="cb1-163"><a href="#cb1-163"></a>  <span class="cf">done</span></span>
-<span id="cb1-164"><a href="#cb1-164"></a></span>
-<span id="cb1-165"><a href="#cb1-165"></a>  <span class="co"># Calculate context length</span></span>
-<span id="cb1-166"><a href="#cb1-166"></a>  <span class="bu">local</span> <span class="va">context_length</span><span class="op">=</span><span class="va">$((input_tokens</span> <span class="op">+</span> <span class="va">cache_read</span> <span class="op">+</span> <span class="va">cache_creation))</span></span>
-<span id="cb1-167"><a href="#cb1-167"></a></span>
-<span id="cb1-168"><a href="#cb1-168"></a>  <span class="co"># Calculate percentage (capped at 100)</span></span>
-<span id="cb1-169"><a href="#cb1-169"></a>  <span class="bu">local</span> <span class="va">percentage</span></span>
-<span id="cb1-170"><a href="#cb1-170"></a>  <span class="va">percentage</span><span class="op">=</span><span class="va">$(</span><span class="fu">awk</span> <span class="at">-v</span> context_length=<span class="st">"</span><span class="va">$context_length</span><span class="st">"</span> <span class="at">-v</span> limit=<span class="st">"</span><span class="va">$CONTEXT_LIMIT</span><span class="st">"</span> <span class="st">'BEGIN {</span></span>
-<span id="cb1-171"><a href="#cb1-171"></a><span class="st">    pct = (context_length / limit) * 100;</span></span>
-<span id="cb1-172"><a href="#cb1-172"></a><span class="st">    if (pct &gt; 100) pct = 100;</span></span>
-<span id="cb1-173"><a href="#cb1-173"></a><span class="st">    if (pct &lt; 0) pct = 0;</span></span>
-<span id="cb1-174"><a href="#cb1-174"></a><span class="st">    pct += 1e-9;</span></span>
-<span id="cb1-175"><a href="#cb1-175"></a><span class="st">    printf "%.1f%%", pct;</span></span>
-<span id="cb1-176"><a href="#cb1-176"></a><span class="st">  }'</span><span class="va">)</span></span>
-<span id="cb1-177"><a href="#cb1-177"></a></span>
-<span id="cb1-178"><a href="#cb1-178"></a>  <span class="co"># Format with black color (matching ccstatusline)</span></span>
-<span id="cb1-179"><a href="#cb1-179"></a>  <span class="bu">printf</span> <span class="st">'%s%s%s'</span> <span class="st">"</span><span class="va">$context_prefix</span><span class="st">"</span> <span class="st">"</span><span class="va">$percentage</span><span class="st">"</span> <span class="st">"</span><span class="va">$context_suffix</span><span class="st">"</span></span>
-<span id="cb1-180"><a href="#cb1-180"></a><span class="kw">}</span></span>
-<span id="cb1-181"><a href="#cb1-181"></a></span>
-<span id="cb1-182"><a href="#cb1-182"></a><span class="co"># Try native bash implementation first</span></span>
-<span id="cb1-183"><a href="#cb1-183"></a><span class="va">context_pct</span><span class="op">=</span><span class="st">""</span></span>
-<span id="cb1-184"><a href="#cb1-184"></a><span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> jq <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb1-185"><a href="#cb1-185"></a>  <span class="va">context_pct</span><span class="op">=</span><span class="va">$(</span><span class="ex">calculate_context_percentage</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span><span class="va">)</span></span>
-<span id="cb1-186"><a href="#cb1-186"></a><span class="cf">fi</span></span>
-<span id="cb1-187"><a href="#cb1-187"></a></span>
-<span id="cb1-188"><a href="#cb1-188"></a><span class="co"># Fallback if native implementation unavailable</span></span>
-<span id="cb1-189"><a href="#cb1-189"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$context_pct</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb1-190"><a href="#cb1-190"></a>  <span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> ccstatusline <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb1-191"><a href="#cb1-191"></a>    <span class="va">alt_pct</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">ccstatusline</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
-<span id="cb1-192"><a href="#cb1-192"></a>    <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$alt_pct</span><span class="st">"</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">context_pct</span><span class="op">=</span><span class="st">"</span><span class="va">$alt_pct</span><span class="st">"</span></span>
-<span id="cb1-193"><a href="#cb1-193"></a>  <span class="cf">elif</span> <span class="bu">command</span> <span class="at">-v</span> npx <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb1-194"><a href="#cb1-194"></a>    <span class="va">context_output</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">npx</span> <span class="at">--yes</span> <span class="at">--quiet</span> ccstatusline <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
-<span id="cb1-195"><a href="#cb1-195"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="va">$context_output</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb1-196"><a href="#cb1-196"></a>      <span class="cf">while</span> <span class="va">IFS</span><span class="op">=</span> <span class="bu">read</span> <span class="at">-r</span> <span class="va">line</span><span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb1-197"><a href="#cb1-197"></a>        <span class="kw">[[</span> <span class="ot">-n</span> <span class="va">$line</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">context_pct</span><span class="op">=</span><span class="va">$line</span></span>
-<span id="cb1-198"><a href="#cb1-198"></a>      <span class="cf">done</span> <span class="op">&lt;&lt;&lt;</span> <span class="st">"</span><span class="va">$context_output</span><span class="st">"</span></span>
-<span id="cb1-199"><a href="#cb1-199"></a>    <span class="cf">fi</span></span>
-<span id="cb1-200"><a href="#cb1-200"></a>  <span class="cf">fi</span></span>
-<span id="cb1-201"><a href="#cb1-201"></a><span class="cf">fi</span></span>
-<span id="cb1-202"><a href="#cb1-202"></a></span>
-<span id="cb1-203"><a href="#cb1-203"></a><span class="co"># Output</span></span>
-<span id="cb1-204"><a href="#cb1-204"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$context_pct</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb1-205"><a href="#cb1-205"></a>  <span class="bu">printf</span> <span class="st">'%s | %s'</span> <span class="st">"</span><span class="va">$git_info</span><span class="st">"</span> <span class="st">"</span><span class="va">$context_pct</span><span class="st">"</span></span>
-<span id="cb1-206"><a href="#cb1-206"></a><span class="cf">else</span></span>
-<span id="cb1-207"><a href="#cb1-207"></a>  <span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$git_info</span><span class="st">"</span></span>
-<span id="cb1-208"><a href="#cb1-208"></a><span class="cf">fi</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-151"><a href="#cb1-151"></a><span class="st">      (.message.usage.cache_creation_input_tokens // 0 | to_num),</span></span>
+<span id="cb1-152"><a href="#cb1-152"></a><span class="st">      (.message.usage.output_tokens // 0 | to_num)</span></span>
+<span id="cb1-153"><a href="#cb1-153"></a><span class="st">    ] | @tsv</span></span>
+<span id="cb1-154"><a href="#cb1-154"></a><span class="st">  '</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span> <span class="kw">||</span> <span class="va">usage_values</span><span class="op">=</span><span class="st">$'0</span><span class="dt">\t</span><span class="st">0</span><span class="dt">\t</span><span class="st">0</span><span class="dt">\t</span><span class="st">0'</span></span>
+<span id="cb1-155"><a href="#cb1-155"></a></span>
+<span id="cb1-156"><a href="#cb1-156"></a>  <span class="bu">local</span> <span class="va">input_tokens</span> <span class="va">cache_read</span> <span class="va">cache_creation</span> <span class="va">output_tokens</span></span>
+<span id="cb1-157"><a href="#cb1-157"></a>  <span class="va">IFS</span><span class="op">=</span><span class="st">$'</span><span class="dt">\t</span><span class="st">'</span> <span class="bu">read</span> <span class="at">-r</span> <span class="va">input_tokens</span> <span class="va">cache_read</span> <span class="va">cache_creation</span> <span class="va">output_tokens</span> <span class="op">&lt;&lt;&lt;</span> <span class="st">"</span><span class="va">$usage_values</span><span class="st">"</span></span>
+<span id="cb1-158"><a href="#cb1-158"></a></span>
+<span id="cb1-159"><a href="#cb1-159"></a>  <span class="bu">local</span> <span class="va">var_name</span></span>
+<span id="cb1-160"><a href="#cb1-160"></a>  <span class="cf">for</span> var_name <span class="kw">in</span> input_tokens cache_read cache_creation output_tokens<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-161"><a href="#cb1-161"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">!</span> <span class="va">${</span><span class="op">!</span><span class="va">var_name}</span> <span class="ot">=~</span> <span class="pp">^</span><span class="ss">-</span><span class="pp">?</span><span class="op">[</span><span class="ss">0</span><span class="op">-</span><span class="ss">9</span><span class="op">]</span><span class="pp">+</span><span class="op">$</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-162"><a href="#cb1-162"></a>      <span class="bu">printf</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$var_name</span><span class="st">"</span> <span class="st">'0'</span></span>
+<span id="cb1-163"><a href="#cb1-163"></a>    <span class="cf">fi</span></span>
+<span id="cb1-164"><a href="#cb1-164"></a>  <span class="cf">done</span></span>
+<span id="cb1-165"><a href="#cb1-165"></a></span>
+<span id="cb1-166"><a href="#cb1-166"></a>  <span class="co"># Calculate context length</span></span>
+<span id="cb1-167"><a href="#cb1-167"></a>  <span class="bu">local</span> <span class="va">context_length</span><span class="op">=</span><span class="va">$((input_tokens</span> <span class="op">+</span> <span class="va">cache_read</span> <span class="op">+</span> <span class="va">cache_creation</span> <span class="op">+</span> <span class="va">output_tokens))</span></span>
+<span id="cb1-168"><a href="#cb1-168"></a></span>
+<span id="cb1-169"><a href="#cb1-169"></a>  <span class="co"># Calculate percentage (capped at 100)</span></span>
+<span id="cb1-170"><a href="#cb1-170"></a>  <span class="bu">local</span> <span class="va">percentage</span></span>
+<span id="cb1-171"><a href="#cb1-171"></a>  <span class="va">percentage</span><span class="op">=</span><span class="va">$(</span><span class="fu">awk</span> <span class="at">-v</span> context_length=<span class="st">"</span><span class="va">$context_length</span><span class="st">"</span> <span class="at">-v</span> limit=<span class="st">"</span><span class="va">$CONTEXT_LIMIT</span><span class="st">"</span> <span class="st">'BEGIN {</span></span>
+<span id="cb1-172"><a href="#cb1-172"></a><span class="st">    pct = (context_length / limit) * 100;</span></span>
+<span id="cb1-173"><a href="#cb1-173"></a><span class="st">    if (pct &gt; 100) pct = 100;</span></span>
+<span id="cb1-174"><a href="#cb1-174"></a><span class="st">    if (pct &lt; 0) pct = 0;</span></span>
+<span id="cb1-175"><a href="#cb1-175"></a><span class="st">    pct += 1e-9;</span></span>
+<span id="cb1-176"><a href="#cb1-176"></a><span class="st">    printf "%.1f%%", pct;</span></span>
+<span id="cb1-177"><a href="#cb1-177"></a><span class="st">  }'</span><span class="va">)</span></span>
+<span id="cb1-178"><a href="#cb1-178"></a></span>
+<span id="cb1-179"><a href="#cb1-179"></a>  <span class="co"># Format with black color (matching ccstatusline)</span></span>
+<span id="cb1-180"><a href="#cb1-180"></a>  <span class="bu">printf</span> <span class="st">'%s%s%s'</span> <span class="st">"</span><span class="va">$context_prefix</span><span class="st">"</span> <span class="st">"</span><span class="va">$percentage</span><span class="st">"</span> <span class="st">"</span><span class="va">$context_suffix</span><span class="st">"</span></span>
+<span id="cb1-181"><a href="#cb1-181"></a><span class="kw">}</span></span>
+<span id="cb1-182"><a href="#cb1-182"></a></span>
+<span id="cb1-183"><a href="#cb1-183"></a><span class="co"># Try native bash implementation first</span></span>
+<span id="cb1-184"><a href="#cb1-184"></a><span class="va">context_pct</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb1-185"><a href="#cb1-185"></a><span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> jq <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-186"><a href="#cb1-186"></a>  <span class="va">context_pct</span><span class="op">=</span><span class="va">$(</span><span class="ex">calculate_context_percentage</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb1-187"><a href="#cb1-187"></a><span class="cf">fi</span></span>
+<span id="cb1-188"><a href="#cb1-188"></a></span>
+<span id="cb1-189"><a href="#cb1-189"></a><span class="co"># Fallback if native implementation unavailable</span></span>
+<span id="cb1-190"><a href="#cb1-190"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$context_pct</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-191"><a href="#cb1-191"></a>  <span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> ccstatusline <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-192"><a href="#cb1-192"></a>    <span class="va">alt_pct</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">ccstatusline</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
+<span id="cb1-193"><a href="#cb1-193"></a>    <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$alt_pct</span><span class="st">"</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">context_pct</span><span class="op">=</span><span class="st">"</span><span class="va">$alt_pct</span><span class="st">"</span></span>
+<span id="cb1-194"><a href="#cb1-194"></a>  <span class="cf">elif</span> <span class="bu">command</span> <span class="at">-v</span> npx <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-195"><a href="#cb1-195"></a>    <span class="va">context_output</span><span class="op">=</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">npx</span> <span class="at">--yes</span> <span class="at">--quiet</span> ccstatusline <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span></span>
+<span id="cb1-196"><a href="#cb1-196"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="va">$context_output</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-197"><a href="#cb1-197"></a>      <span class="cf">while</span> <span class="va">IFS</span><span class="op">=</span> <span class="bu">read</span> <span class="at">-r</span> <span class="va">line</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-198"><a href="#cb1-198"></a>        <span class="kw">[[</span> <span class="ot">-n</span> <span class="va">$line</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">context_pct</span><span class="op">=</span><span class="va">$line</span></span>
+<span id="cb1-199"><a href="#cb1-199"></a>      <span class="cf">done</span> <span class="op">&lt;&lt;&lt;</span> <span class="st">"</span><span class="va">$context_output</span><span class="st">"</span></span>
+<span id="cb1-200"><a href="#cb1-200"></a>    <span class="cf">fi</span></span>
+<span id="cb1-201"><a href="#cb1-201"></a>  <span class="cf">fi</span></span>
+<span id="cb1-202"><a href="#cb1-202"></a><span class="cf">fi</span></span>
+<span id="cb1-203"><a href="#cb1-203"></a></span>
+<span id="cb1-204"><a href="#cb1-204"></a><span class="co"># Output</span></span>
+<span id="cb1-205"><a href="#cb1-205"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$context_pct</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-206"><a href="#cb1-206"></a>  <span class="bu">printf</span> <span class="st">'%s | %s'</span> <span class="st">"</span><span class="va">$git_info</span><span class="st">"</span> <span class="st">"</span><span class="va">$context_pct</span><span class="st">"</span></span>
+<span id="cb1-207"><a href="#cb1-207"></a><span class="cf">else</span></span>
+<span id="cb1-208"><a href="#cb1-208"></a>  <span class="bu">printf</span> <span class="st">'%s'</span> <span class="st">"</span><span class="va">$git_info</span><span class="st">"</span></span>
+<span id="cb1-209"><a href="#cb1-209"></a><span class="cf">fi</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
