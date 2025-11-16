@@ -465,11 +465,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="make-the-script-executable">Make the Script Executable</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">chmod</span> u+x ~/.claude/statusline.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="context-calculation" class="level2">
+<h2 class="anchored" data-anchor-id="context-calculation">Context Calculation</h2>
+<p>This script includes <code>output_tokens</code> in the calculation, unlike <a href="https://github.com/sirmalloc/ccstatusline"><code>ccstatusline</code></a>. Output tokens from the current response become input tokens in the next request, so including them shows context growing in real-time as the agent works.</p>
+<p>Claude Code has documented bugs causing inflated warnings. Issue <a href="https://github.com/anthropics/claude-code/issues/8792">#8792</a> reported 99% usage when actual usage was 55%. Issue <a href="https://github.com/anthropics/claude-code/issues/6616">#6616</a> warned “7% remaining” with 86% free. Use <code>/context</code> for accurate measurements.</p>
+</section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <ul>
 <li><a href="https://www.aihero.dev/creating-the-perfect-claude-code-status-line">Matt Pocock’s article</a></li>
 <li><a href="https://docs.claude.com/en/docs/claude-code/statusline">Claude Code Status Line Configuration</a></li>
+<li><a href="https://github.com/sirmalloc/ccstatusline">ccstatusline</a></li>
+<li><a href="https://github.com/anthropics/claude-code/issues/8792">Issue #8792: Context calculation discrepancy</a></li>
+<li><a href="https://github.com/anthropics/claude-code/issues/6616">Issue #6616: Premature context warnings</a></li>
 </ul>
 
 

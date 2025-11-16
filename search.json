@@ -1197,11 +1197,18 @@
     "text": "Make the Script Executable\nchmod u+x ~/.claude/statusline.sh"
   },
   {
+    "objectID": "notes/191/index.html#context-calculation",
+    "href": "notes/191/index.html#context-calculation",
+    "title": "Custom Claude Code Status Line with Git Integration",
+    "section": "Context Calculation",
+    "text": "Context Calculation\nThis script includes output_tokens in the calculation, unlike ccstatusline. Output tokens from the current response become input tokens in the next request, so including them shows context growing in real-time as the agent works.\nClaude Code has documented bugs causing inflated warnings. Issue #8792 reported 99% usage when actual usage was 55%. Issue #6616 warned “7% remaining” with 86% free. Use /context for accurate measurements."
+  },
+  {
     "objectID": "notes/191/index.html#references",
     "href": "notes/191/index.html#references",
     "title": "Custom Claude Code Status Line with Git Integration",
     "section": "References",
-    "text": "References\n\nMatt Pocock’s article\nClaude Code Status Line Configuration"
+    "text": "References\n\nMatt Pocock’s article\nClaude Code Status Line Configuration\nccstatusline\nIssue #8792: Context calculation discrepancy\nIssue #6616: Premature context warnings"
   },
   {
     "objectID": "notes/24/index.html",
