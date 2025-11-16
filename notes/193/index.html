@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-11-16">
 
-<title>Blog – Sébastien De Revière</title>
+<title>Use Co-authored-by for AI Code Commits – Sébastien De Revière</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +21,65 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c4a39345b0a1926c3c6e968952e11b06.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-59faff4b7d7a2fab3baf83f5f4ecaf3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c4a39345b0a1926c3c6e968952e11b06.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-59faff4b7d7a2fab3baf83f5f4ecaf3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -69,92 +106,22 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-description','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Blog – Sébastien De Revière">
-<meta property="og:image" content="https://sderev.com/posts/mastering-llm-week-1/img/robot-reading-a-book.png">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Use Co-authored-by for AI Code Commits – Sébastien De Revière">
+<meta property="og:description" content="Note#193">
+<meta property="og:image" content="https://sderev.com/notes/assets/images/screenshot_ded7ace0-5e1b-4218-9954-2873c4d8b0d9.png">
 <meta property="og:site_name" content="Sébastien De Revière">
-<meta property="og:image:height" content="768">
-<meta property="og:image:width" content="768">
-<meta name="twitter:title" content="Blog – Sébastien De Revière">
-<meta name="twitter:image" content="https://sderev.com/posts/mastering-llm-week-1/img/robot-reading-a-book.png">
+<meta property="og:image:height" content="359">
+<meta property="og:image:width" content="796">
+<meta name="twitter:title" content="Use Co-authored-by for AI Code Commits – Sébastien De Revière">
+<meta name="twitter:description" content="Note#193">
+<meta name="twitter:image" content="https://sderev.com/notes/assets/images/screenshot_ded7ace0-5e1b-4218-9954-2873c4d8b0d9.png">
 <meta name="twitter:creator" content="@sdereviere">
-<meta name="twitter:image-height" content="768">
-<meta name="twitter:image-width" content="768">
+<meta name="twitter:image-height" content="359">
+<meta name="twitter:image-width" content="796">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -165,7 +132,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sébastien De Revière</span>
     </a>
   </div>
@@ -176,15 +143,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../posts/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -208,14 +175,24 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page">
-      <h1 class="title">Blog</h1>
-                      </div>
+      <h1 class="title">Use <code>Co-authored-by</code> for AI Code Commits</h1>
+            <p class="subtitle lead">Note#193</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">notes</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta column-page">
 
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2025-11-16</p>
+      </div>
+    </div>
     
       
     </div>
@@ -232,43 +209,38 @@ window.Quarto = {
 
 
 
+<p>When working with AI code agents, commits mix human and AI contributions. Eleanor Berger’s <a href="https://elite-ai-assisted-coding.dev/p/attribute-git-commits-to-ai-agents">Attribute Git Commits to AI Agents</a> uses <code>git commit --author="AI &lt;ai@example.com&gt;"</code> to distinguish AI work, which allows filtering with <code>git log --author="AI"</code>. But on GitHub this breaks your contribution graph: commits only count when the author email matches one registered on your profile.</p>
+<p>I wanted three things simultaneously: keep my own contribution graph accurate, make the AI visible as a distinct identity in the commit view, and be able to filter AI-related commits easily.</p>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>I created a separate GitHub account for the AI with the email <code>ai@sderev.com</code> and add it as a co-author in commit messages:</p>
+<pre><code>Co-authored-by: AI &lt;ai@sderev.com&gt;</code></pre>
+<p>This is the same “trick” used by Claude Code for AI-assisted commits, which can be disabled by setting <code>includeCoAuthoredBy: false</code> in <code>~/.claude/settings.json</code>. I had already disabled that myself and now customize it with my global <code>AGENTS.md</code> (I use a symlink for <code>CLAUDE.md</code> that targets my <code>AGENTS.md</code> file). This customization therefore also works with Codex Agent or any other agent tool, unlike the native Claude Code implementation.</p>
+<p><a href="../../notes/assets/images/screenshot_ded7ace0-5e1b-4218-9954-2873c4d8b0d9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../../notes/assets/images/screenshot_ded7ace0-5e1b-4218-9954-2873c4d8b0d9.png" class="img-fluid"></a></p>
+<p>With this setup, the commit counts toward my GitHub contributions since I’m the main author. The AI account appears as a co-author with its own avatar and profile link, and I can browse the AI account to see its activity.</p>
+</section>
+<section id="filtering-ai-commits" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-ai-commits">Filtering AI commits</h2>
+<p>To filter AI commits locally in your repository, use:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> log <span class="at">--grep</span><span class="op">=</span><span class="st">"Co-authored-by: AI"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="related-notes" class="level2">
+<h2 class="anchored" data-anchor-id="related-notes">Related Notes</h2>
+<ul>
+<li><a href="https://sderev.com/notes/191">Note#191 – Custom Claude Code Status Line with Git Integration</a></li>
+</ul>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><a href="https://elite-ai-assisted-coding.dev/p/attribute-git-commits-to-ai-agents">Eleanor Berger – Attribute Git Commits to AI Agents</a></li>
+<li><a href="https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors">GitHub Documentation – Creating a commit with multiple authors</a></li>
+</ul>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="bWFzdGVyaW5nLWxsbQ==" data-listing-date-sort="1716681600000" data-listing-file-modified-sort="1763269610946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="985">
-<div class="thumbnail"><a href="../posts/mastering-llm-week-1/index.html" class="no-external">
-
-<img loading="lazy" src="../posts/mastering-llm-week-1/img/robot-reading-a-book.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/mastering-llm-week-1/index.html" class="no-external">Week 1: When and Why to Fine-Tune an LLM</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWFzdGVyaW5nLWxsbQ=='); return false;">mastering-llm</div>
-
-</div>
-<div class="delink listing-description"><a href="../posts/mastering-llm-week-1/index.html" class="no-external">
-</a><p><a href="../posts/mastering-llm-week-1/index.html" class="no-external">My notes for the first week of the </a><a href="https://maven.com/parlance-labs/fine-tuning">Mastering LLMs</a> conference hosted by <a href="https://x.com/HamelHusain">Hamel Husain</a> and <a href="https://x.com/dan_s_becker">Dan Becker</a>.</p>
-</div>
-</div>
-<div class="metadata">
-<a href="../posts/mastering-llm-week-1/index.html" class="no-external">
-<div class="listing-date">
-May 26, 2024
-</div>
-<div class="listing-reading-time">5 min</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -698,9 +670,41 @@ May 26, 2024
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
