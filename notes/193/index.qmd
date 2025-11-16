@@ -1,0 +1,44 @@
+---
+title: "Use `Co-authored-by` for AI Code Commits"
+subtitle: "Note#193"
+id: "193"
+date: 2025-11-16
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+When working with AI code agents, commits mix human and AI contributions.  Eleanor Berger's [Attribute Git Commits to AI Agents](https://elite-ai-assisted-coding.dev/p/attribute-git-commits-to-ai-agents) uses `git commit --author="AI <ai@example.com>"` to distinguish AI work, which allows filtering with `git log --author="AI"`. But on GitHub this breaks your contribution graph: commits only count when the author email matches one registered on your profile.
+
+I wanted three things simultaneously: keep my own contribution graph accurate, make the AI visible as a distinct identity in the commit view, and be able to filter AI-related commits easily.
+
+## Setup
+
+I created a separate GitHub account for the AI with the email `ai@sderev.com` and add it as a co-author in commit messages:
+
+```
+Co-authored-by: AI <ai@sderev.com>
+```
+
+This is the same "trick" used by Claude Code for AI-assisted commits, which can be disabled by setting `includeCoAuthoredBy: false` in `~/.claude/settings.json`. I had already disabled that myself and now customize it with my global `AGENTS.md` (I use a symlink for `CLAUDE.md` that targets my `AGENTS.md` file). This customization therefore also works with Codex Agent or any other agent tool, unlike the native Claude Code implementation.
+
+![](/notes/assets/images/screenshot_ded7ace0-5e1b-4218-9954-2873c4d8b0d9.png)
+
+With this setup, the commit counts toward my GitHub contributions since I'm the main author. The AI account appears as a co-author with its own avatar and profile link, and I can browse the AI account to see its activity.
+
+## Filtering AI commits
+
+To filter AI commits locally in your repository, use:
+
+```bash
+git log --grep="Co-authored-by: AI"
+```
+
+## Related Notes
+
+* [Note#191 – Custom Claude Code Status Line with Git Integration](https://sderev.com/notes/191)
+
+## References
+
+* [Eleanor Berger – Attribute Git Commits to AI Agents](https://elite-ai-assisted-coding.dev/p/attribute-git-commits-to-ai-agents)
+* [GitHub Documentation – Creating a commit with multiple authors](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)
