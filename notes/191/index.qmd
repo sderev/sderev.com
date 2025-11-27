@@ -38,6 +38,10 @@ bold=$'\033[1m'
 normal=$'\033[22m'
 default_fg=$'\033[39m'
 context_black=$'\033[38;5;16m'
+context_prefix="${reset}${bold}${context_black}"
+context_suffix="${default_fg}${normal}"
+context_full="${context_prefix}100% left${context_suffix}"
+context_unknown="${context_prefix}N/A${context_suffix}"
 
 input=$(cat)
 
@@ -132,32 +136,29 @@ readonly CONTEXT_LIMIT=200000
 calculate_context_percentage() {
   local json_input="$1"
   local transcript_path
-  local context_prefix="${reset}${bold}${context_black}"
-  local context_suffix="${default_fg}${normal}"
-  local zero_context="${context_prefix}0.0%${context_suffix}"
 
   # Extract transcript_path from input
-  transcript_path=$(printf '%s' "$json_input" | jq -r '.transcript_path // empty' 2>/dev/null)
+  transcript_path=$(printf '%s' "$json_input" | jq -r '.transcript_path // empty' 2>/dev/null || true)
 
   # Validate path safety
   if [[ "$transcript_path" == *".."* ]]; then
-    printf '%s' "$zero_context"
+    printf '%s' "$context_unknown"
     return
   fi
 
   # Validate file exists
   if [[ -z "$transcript_path" ]] || [[ ! -f "$transcript_path" ]]; then
-    printf '%s' "$zero_context"
+    printf '%s' "$context_full"
     return
   fi
 
-  # Find most recent entry with usage data (no type filter, matches ccstatusline)
+  # Find most recent entry with usage data
   local most_recent
   most_recent=$(jq -Rc 'fromjson? | select(. != null) | select(.message.usage and (.isSidechain | not) and (.isApiErrorMessage | not) and .timestamp)' \
     "$transcript_path" 2>/dev/null | tail -1 || true)
 
   if [[ -z "$most_recent" ]]; then
-    printf '%s' "$zero_context"
+    printf '%s' "$context_full"
     return
   fi
 
@@ -189,39 +190,31 @@ calculate_context_percentage() {
 
   # Calculate context length
   local context_length=$((input_tokens + cache_read + cache_creation + output_tokens))
+  if (( context_length <= 0 )); then
+    printf '%s' "$context_full"
+    return
+  fi
 
-  # Calculate percentage (capped at 100)
+  # Calculate remaining percentage
   local percentage
   percentage=$(awk -v context_length="$context_length" -v limit="$CONTEXT_LIMIT" 'BEGIN {
-    pct = (context_length / limit) * 100;
-    if (pct > 100) pct = 100;
-    if (pct < 0) pct = 0;
-    pct += 1e-9;
-    printf "%.1f%%", pct;
+    used_pct = (context_length / limit) * 100;
+    if (used_pct > 100) used_pct = 100;
+    if (used_pct < 0) used_pct = 0;
+    remaining = 100 - used_pct;
+    if (remaining < 0) remaining = 0;
+    printf "%.0f%% left", remaining;
   }')
 
-  # Format with black color (matching ccstatusline)
+  # Format with black color
   printf '%s%s%s' "$context_prefix" "$percentage" "$context_suffix"
 }
 
-# Try native bash implementation first
-context_pct=""
+# Calculate context percentage
+context_pct="$context_full"
 if command -v jq >/dev/null 2>&1; then
-  context_pct=$(calculate_context_percentage "$input")
-fi
-
-# Fallback if native implementation unavailable
-if [[ -z "$context_pct" ]]; then
-  if command -v ccstatusline >/dev/null 2>&1; then
-    alt_pct=$(printf '%s' "$input" | ccstatusline 2>/dev/null || true)
-    [[ -n "$alt_pct" ]] && context_pct="$alt_pct"
-  elif command -v npx >/dev/null 2>&1; then
-    context_output=$(printf '%s' "$input" | npx --yes --quiet ccstatusline 2>/dev/null || true)
-    if [[ -n $context_output ]]; then
-      while IFS= read -r line; do
-        [[ -n $line ]] && context_pct=$line
-      done <<< "$context_output"
-    fi
+  if ! context_pct=$(calculate_context_percentage "$input"); then
+    context_pct="$context_unknown"
   fi
 fi
 
