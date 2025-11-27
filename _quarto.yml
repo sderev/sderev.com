@@ -1,5 +1,9 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "**/*.qmd"
+    - "!worktrees/"
 
 website:
   title: "Sébastien De Revière"
