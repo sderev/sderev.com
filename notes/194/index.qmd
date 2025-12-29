@@ -1,0 +1,21 @@
+---
+title: "Prevent Claude Code from Deleting Conversations Older than 30 Days"
+subtitle: "Note#194"
+id: "194"
+date: 2025-12-29
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+In `.claude/settings.json`, set `cleanupPeriodDays` to a very large value:
+
+```json
+{
+  "cleanupPeriodDays": 99999
+}
+```
+
+## References
+
+* [https://code.claude.com/docs/en/settings#available-settings](https://code.claude.com/docs/en/settings#available-settings)
