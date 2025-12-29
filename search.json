@@ -1040,7 +1040,7 @@
     "href": "notes/194/index.html",
     "title": "Prevent Claude Code from Deleting Conversations Older than 30 Days",
     "section": "",
-    "text": "In .claude/settings.json, set cleanupPeriodDays to a very large value:\n```json { “cleanupPeriodDays”: 99999 }"
+    "text": "In .claude/settings.json, set cleanupPeriodDays to a very large value:"
   },
   {
     "objectID": "notes/194/index.html#references",
