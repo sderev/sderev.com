@@ -1,0 +1,36 @@
+---
+title: "Auto-Resume Claude Code or Codex After You Reach 5h Usage Limits with `at` + `tmux`"
+subtitle: "Note#196"
+id: "196"
+date: 2026-01-10
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Whether you know you'll soon reach your 5h usage limit with Claude Code or Codex, or you just reached it, you'll be happy to learn how to use the `at` command, that enables you to schedule a one-shot job. Combined with `tmux`, you'll be able to auto-resume your coding AI agent.
+
+## Wakey Wakey
+
+```bash
+echo "
+tmux has-session -t absolute-necessity 2>/dev/null || exit 0
+tmux send-keys -t absolute-necessity:1.1 Enter
+sleep 5
+tmux send-keys -t absolute-necessity:1.1 -l 'Resume'
+sleep 5
+tmux send-keys -t absolute-necessity:1.1 Enter
+" | at 14:00
+```
+
+## Caveat
+
+This relies on `atd` running, and at schedules in your local timezone.
+
+## Useful helpers
+
+```bash
+atq        # list queued jobs
+atrm <id>  # remove a job
+at -c <id>  # cat job contents
+```
