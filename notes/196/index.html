@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-01-10">
 
-<title>Blog – Sébastien De Revière</title>
+<title>Auto-Resume Claude Code or Codex After You Reach 5h Usage Limits with at + tmux – Sébastien De Revière</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +21,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c4a39345b0a1926c3c6e968952e11b06.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6e6aa1b3c91f96e710c0ac282c40779c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c4a39345b0a1926c3c6e968952e11b06.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6e6aa1b3c91f96e710c0ac282c40779c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -69,93 +103,17 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-description','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Blog – Sébastien De Revière">
-<meta property="og:image" content="https://sderev.com/posts/mastering-llm-week-1/img/robot-reading-a-book.png">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Auto-Resume Claude Code or Codex After You Reach 5h Usage Limits with at + tmux – Sébastien De Revière">
+<meta property="og:description" content="Note#196">
 <meta property="og:site_name" content="Sébastien De Revière">
-<meta property="og:image:height" content="768">
-<meta property="og:image:width" content="768">
-<meta name="twitter:title" content="Blog – Sébastien De Revière">
-<meta name="twitter:image" content="https://sderev.com/posts/mastering-llm-week-1/img/robot-reading-a-book.png">
+<meta name="twitter:title" content="Auto-Resume Claude Code or Codex After You Reach 5h Usage Limits with at + tmux – Sébastien De Revière">
+<meta name="twitter:description" content="Note#196">
 <meta name="twitter:creator" content="@sdereviere">
-<meta name="twitter:image-height" content="768">
-<meta name="twitter:image-width" content="768">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -165,7 +123,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sébastien De Revière</span>
     </a>
   </div>
@@ -176,11 +134,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -204,14 +162,24 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page">
-      <h1 class="title">Blog</h1>
-                      </div>
+      <h1 class="title">Auto-Resume Claude Code or Codex After You Reach 5h Usage Limits with <code>at</code> + <code>tmux</code></h1>
+            <p class="subtitle lead">Note#196</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">notes</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta column-page">
 
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2026-01-10</p>
+      </div>
+    </div>
     
       
     </div>
@@ -228,43 +196,32 @@ window.Quarto = {
 
 
 
+<p>Whether you know you’ll soon reach your 5h usage limit with Claude Code or Codex, or you just reached it, you’ll be happy to learn how to use the <code>at</code> command, that enables you to schedule a one-shot job. Combined with <code>tmux</code>, you’ll be able to auto-resume your coding AI agent.</p>
+<section id="wakey-wakey" class="level2">
+<h2 class="anchored" data-anchor-id="wakey-wakey">Wakey Wakey</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">echo</span> <span class="st">"</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="st">tmux has-session -t absolute-necessity 2&gt;/dev/null || exit 0</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="st">tmux send-keys -t absolute-necessity:1.1 Enter</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="st">sleep 5</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="st">tmux send-keys -t absolute-necessity:1.1 -l 'Resume'</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="st">sleep 5</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="st">tmux send-keys -t absolute-necessity:1.1 Enter</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="st">"</span> <span class="kw">|</span> <span class="ex">at</span> 14:00</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="caveat" class="level2">
+<h2 class="anchored" data-anchor-id="caveat">Caveat</h2>
+<p>This relies on <code>atd</code> running, and at schedules in your local timezone.</p>
+</section>
+<section id="useful-helpers" class="level2">
+<h2 class="anchored" data-anchor-id="useful-helpers">Useful helpers</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">atq</span>        <span class="co"># list queued jobs</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">atrm</span> <span class="op">&lt;</span>id<span class="op">&gt;</span>  <span class="co"># remove a job</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">at</span> <span class="at">-c</span> <span class="op">&lt;</span>id<span class="op">&gt;</span>  <span class="co"># cat job contents</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="bWFzdGVyaW5nLWxsbQ==" data-listing-date-sort="1716681600000" data-listing-file-modified-sort="1768019652363" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="985">
-<div class="thumbnail"><a href="../posts/mastering-llm-week-1/index.html" class="no-external">
-
-<img loading="lazy" src="../posts/mastering-llm-week-1/img/robot-reading-a-book.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/mastering-llm-week-1/index.html" class="no-external">Week 1: When and Why to Fine-Tune an LLM</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWFzdGVyaW5nLWxsbQ=='); return false;">mastering-llm</div>
-
-</div>
-<div class="delink listing-description"><a href="../posts/mastering-llm-week-1/index.html" class="no-external">
-</a><p><a href="../posts/mastering-llm-week-1/index.html" class="no-external">My notes for the first week of the </a><a href="https://maven.com/parlance-labs/fine-tuning">Mastering LLMs</a> conference hosted by <a href="https://x.com/HamelHusain">Hamel Husain</a> and <a href="https://x.com/dan_s_becker">Dan Becker</a>.</p>
-</div>
-</div>
-<div class="metadata">
-<a href="../posts/mastering-llm-week-1/index.html" class="no-external">
-<div class="listing-date">
-May 26, 2024
-</div>
-<div class="listing-reading-time">5 min</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -698,5 +655,5 @@ May 26, 2024
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
