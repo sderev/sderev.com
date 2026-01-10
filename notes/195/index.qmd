@@ -1,0 +1,35 @@
+---
+title: "Working with Multiple Coding AI Agents: Just Use `tmux`"
+subtitle: "Note#195"
+id: "195"
+date: 2026-01-10
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+When you want Claude Code to drive Codex, or coordinate multiple agents (via OpenCode, Amp, or pi), don't over-engineer it with hooks or whatnot. Just use `tmux`.
+
+## Use `tmux` as a Bridge
+
+The trick is to treat `tmux` as a coordination layer. Have one agent create a new session, window, or pane that runs another agent CLI, then drive it with `tmux send-keys`. That gives you a simple and scriptable way to coordinate multiple agents.
+
+### Example
+
+```bash
+# Start a second agent in its own tmux session
+tmux new-session -d -s codex 'codex'
+
+# Send instructions
+tmux send-keys -t codex -l 'Read /tmp/instructions.md and follow it.'
+tmux send-keys -t codex Enter
+
+# Inspect output
+tmux capture-pane -t codex -p -S -100
+```
+
+## Practical Caveats
+
+You can also target panes using `<session>:<window>.<pane>` (for example `codex-review:1.2`).
+
+Sending `Enter` can be flaky if you include newlines in the instructions string. I've had better results when I explicitly instruct the agent to press `Enter` after sending the instructions, and when the actual `tmux send-keys ... Enter` is its own command. Consider documenting this in your `AGENTS.md` or an agent skill.
