@@ -3,6 +3,6 @@
 /.quarto/
 
 *.swp
-worktrees/
+.worktrees/
 
 **/*.quarto_ipynb
