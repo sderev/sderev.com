@@ -1,0 +1,47 @@
+---
+title: "Stop Banning `rm`: Deletion Is a Capability, Not a Command"
+subtitle: "Note#197"
+id: "197"
+date: 2026-01-18
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+So you want to block your agents from deleting files? Can you list all the ways to destroy data?
+
+```bash
+python -c "import os; os.remove('file')"
+python -c "from pathlib import Path; Path('file').unlink()"
+python -c "import shutil; shutil.rmtree('dir')"
+node -e "require('fs').rmSync('file')"
+node -e "require('fs').rmSync('dir', { recursive: true, force: true })"
+
+find . -name 'file' -delete
+unlink file
+rmdir dir
+
+git clean -fdx
+rsync -a --delete src_dir/ dest_dir/
+
+truncate -s 0 file
+dd if=/dev/zero of=file bs=1M count=1
+shred -u file
+
+set -o noclobber
+: > file # This will fail, sure.
+: >| file # But agents don’t care about safety nets.
+
+# Bypassing a PATH-wrapped `rm`
+/bin/rm -f file
+
+...
+```
+
+You get my point. We can't block them all; there are too many.
+
+Instead of squandering your time building failing guardrails with over-engineered hooks, preventing your agent from accessing commands by wrapping them in your `PATH`, or whatever, you'd be better off building a sandbox (a container or a micro VM) with all the tools you need. And if you want to feel safe when agents are running amok on your files, then it's time to build a good backup system.
+
+Adding instructions in `AGENTS.md` to prefer `trash` over `rm` is better than nothing, but it’s not a real protection charm.
+
+**Remember:** deletion is a capability, not a command.
