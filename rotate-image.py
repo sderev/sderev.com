@@ -31,8 +31,8 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 try:
-    from PIL import Image, ImageOps
     import pillow_avif  # noqa: F401 - required for AVIF support
+    from PIL import Image, ImageOps
 except ImportError as e:
     print(f"Error: Missing required package: {e}", file=sys.stderr)
     print("Run with: uv run rotate-image.py", file=sys.stderr)
@@ -69,11 +69,7 @@ def discover_source_images(src_dir: Path) -> list[Path]:
     Returns:
         Sorted list of image file paths (JPG, JPEG, PNG, WebP)
     """
-    patterns = [
-        "*.jpg", "*.jpeg", "*.JPG", "*.JPEG",
-        "*.png", "*.PNG",
-        "*.webp", "*.WEBP"
-    ]
+    patterns = ["*.jpg", "*.jpeg", "*.JPG", "*.JPEG", "*.png", "*.PNG", "*.webp", "*.WEBP"]
     files = []
     for pattern in patterns:
         files.extend(src_dir.glob(pattern))
@@ -99,7 +95,9 @@ def validate_image(path: Path) -> bool:
         return False
 
 
-def optimize_image(source: Path, output: Path, max_width: int = 1024, quality: int = 80, force: bool = False):
+def optimize_image(
+    source: Path, output: Path, max_width: int = 1024, quality: int = 80, force: bool = False
+):
     """
     Optimize image to AVIF format with fallback to JPEG.
 
@@ -151,7 +149,7 @@ def optimize_image(source: Path, output: Path, max_width: int = 1024, quality: i
         except Exception as avif_error:
             # Fallback to JPEG if AVIF fails
             print(f"  AVIF conversion failed: {avif_error}", file=sys.stderr)
-            print(f"  Falling back to JPEG format", file=sys.stderr)
+            print("  Falling back to JPEG format", file=sys.stderr)
 
             jpeg_output = output.with_suffix(".jpg")
             try:
@@ -283,9 +281,7 @@ def main():
         print(f"\nNext {args.preview} days:")
         for offset in range(args.preview):
             # Base preview on now_paris (which includes --day-offset)
-            future_date = now_paris.replace(
-                hour=0, minute=0, second=0, microsecond=0
-            )
+            future_date = now_paris.replace(hour=0, minute=0, second=0, microsecond=0)
             future_date += timedelta(days=offset)
             future_day = int(future_date.strftime("%j"))
             future_cycle_idx = (future_day - 1) % n
@@ -307,7 +303,7 @@ def main():
     print(f"\nOptimizing {chosen_file} → {args.output}")
     optimize_image(chosen_file, args.output, force=args.force)
 
-    print(f"✓ Image rotation complete")
+    print("✓ Image rotation complete")
 
 
 if __name__ == "__main__":
