@@ -39,11 +39,17 @@ jobs:
           python-version: '3.11'
 
       # 4) Install dependencies
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libavif-dev
+
+      # 5) Install Python dependencies
       - name: Install dependencies
         run: |
           pip install pillow pillow-avif-plugin
 
-      # 5) Run rotation script
+      # 6) Run rotation script
       - name: Rotate image
         id: rotate
         run: |
@@ -64,7 +70,7 @@ jobs:
           PARIS_DATE=$(python -c "from datetime import datetime; from zoneinfo import ZoneInfo; print(datetime.now(ZoneInfo('Europe/Paris')).strftime('%Y-%m-%d'))")
           echo "date=$PARIS_DATE" >> "$GITHUB_OUTPUT"
 
-      # 6) Commit only if the file actually changed
+      # 7) Commit only if the file actually changed
       - name: Commit to gh-pages
         run: |
           git config user.name "github-actions[bot]"
