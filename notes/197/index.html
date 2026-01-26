@@ -219,7 +219,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-20"><a href="#cb1-20"></a><span class="bu">:</span> <span class="op">&gt;|</span> file <span class="co"># But agents don’t care about safety nets.</span></span>
 <span id="cb1-21"><a href="#cb1-21"></a></span>
 <span id="cb1-22"><a href="#cb1-22"></a><span class="co"># Bypassing a PATH-wrapped `rm`</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="ex">/bin/rm</span> <span class="at">-f</span> file</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="ex">/bin/rm</span> <span class="at">-f</span> file</span>
+<span id="cb1-24"><a href="#cb1-24"></a></span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="ex">...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You get my point. We can’t block them all; there are too many.</p>
 <p>Instead of squandering your time building failing guardrails with over-engineered hooks, preventing your agent from accessing commands by wrapping them in your <code>PATH</code>, or whatever, you’d be better off building a sandbox (a container or a micro VM) with all the tools you need. And if you want to feel safe when agents are running amok on your files, then it’s time to build a good backup system.</p>
 <p>Adding instructions in <code>AGENTS.md</code> to prefer <code>trash</code> over <code>rm</code> is better than nothing, but it’s not a real protection charm.</p>
