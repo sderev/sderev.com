@@ -254,32 +254,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-19"><a href="#cb4-19"></a><span class="va">REPO_NAME</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="st">"</span><span class="va">$(</span><span class="fu">git</span> rev-parse <span class="at">--show-toplevel</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">||</span> <span class="bu">echo</span> <span class="st">"</span><span class="va">$PWD</span><span class="st">"</span><span class="va">)</span><span class="st">"</span><span class="va">)</span></span>
 <span id="cb4-20"><a href="#cb4-20"></a></span>
 <span id="cb4-21"><a href="#cb4-21"></a><span class="fu">stop_debug_chrome()</span> <span class="kw">{</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a>    <span class="bu">echo</span> <span class="st">"Stopping Chrome debug instances (port </span><span class="va">$DEBUG_PORT</span><span class="st">)..."</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a>    <span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="st">        </span><span class="dt">\$</span><span class="st">procs = Get-CimInstance Win32_Process -Filter </span><span class="dt">\"</span><span class="st">Name='chrome.exe' AND CommandLine LIKE '%--remote-debugging-port=</span><span class="va">$DEBUG_PORT</span><span class="st">%'</span><span class="dt">\"</span></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="st">        if (</span><span class="dt">\$</span><span class="st">procs) {</span></span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="st">            </span><span class="dt">\$</span><span class="st">procs | ForEach-Object { Stop-Process -Id </span><span class="dt">\$</span><span class="st">_.ProcessId -Force }</span></span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="st">            Write-Host 'Debug Chrome stopped.'</span></span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="st">        } else {</span></span>
-<span id="cb4-29"><a href="#cb4-29"></a><span class="st">            Write-Host 'No debug Chrome instance found.'</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a><span class="st">        }</span></span>
-<span id="cb4-31"><a href="#cb4-31"></a><span class="st">    "</span></span>
-<span id="cb4-32"><a href="#cb4-32"></a><span class="kw">}</span></span>
-<span id="cb4-33"><a href="#cb4-33"></a></span>
-<span id="cb4-34"><a href="#cb4-34"></a><span class="fu">start_debug_chrome()</span> <span class="kw">{</span></span>
-<span id="cb4-35"><a href="#cb4-35"></a>    <span class="bu">echo</span> <span class="st">"Starting Chrome with remote debugging on port </span><span class="va">$DEBUG_PORT</span><span class="st">..."</span></span>
-<span id="cb4-36"><a href="#cb4-36"></a>    <span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
-<span id="cb4-37"><a href="#cb4-37"></a><span class="st">        </span><span class="dt">\$</span><span class="st">profileDir = </span><span class="dt">\"\$</span><span class="st">env:LOCALAPPDATA</span><span class="dt">\\</span><span class="st">ChromeDebugProfiles</span><span class="dt">\\</span><span class="va">$REPO_NAME</span><span class="dt">\"</span></span>
-<span id="cb4-38"><a href="#cb4-38"></a><span class="st">        Write-Host </span><span class="dt">\"</span><span class="st">Profile: </span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span></span>
-<span id="cb4-39"><a href="#cb4-39"></a><span class="st">        Start-Process -FilePath '</span><span class="va">$CHROME_PATH</span><span class="st">' -ArgumentList '--remote-debugging-port=</span><span class="va">$DEBUG_PORT</span><span class="st">', </span><span class="dt">\"</span><span class="st">--user-data-dir=</span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span></span>
-<span id="cb4-40"><a href="#cb4-40"></a><span class="st">    "</span></span>
-<span id="cb4-41"><a href="#cb4-41"></a><span class="kw">}</span></span>
-<span id="cb4-42"><a href="#cb4-42"></a></span>
-<span id="cb4-43"><a href="#cb4-43"></a><span class="cf">case</span> <span class="st">"</span><span class="va">${1</span><span class="op">:-</span><span class="va">}</span><span class="st">"</span> <span class="kw">in</span></span>
-<span id="cb4-44"><a href="#cb4-44"></a>    <span class="ss">stop</span><span class="kw">)</span>        <span class="ex">stop_debug_chrome</span> <span class="cf">;;</span></span>
-<span id="cb4-45"><a href="#cb4-45"></a>    <span class="st">""</span><span class="kw">|</span><span class="ss">start</span><span class="kw">)</span>    <span class="ex">start_debug_chrome</span> <span class="cf">;;</span></span>
-<span id="cb4-46"><a href="#cb4-46"></a>    <span class="pp">*</span><span class="kw">)</span>           <span class="bu">echo</span> <span class="st">"Usage: </span><span class="va">$0</span><span class="st"> [start|stop]"</span><span class="kw">;</span> <span class="bu">exit</span> 1 <span class="cf">;;</span></span>
-<span id="cb4-47"><a href="#cb4-47"></a><span class="cf">esac</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-22"><a href="#cb4-22"></a>    <span class="bu">echo</span> <span class="st">"Stopping Chrome debug instance (port </span><span class="va">$DEBUG_PORT</span><span class="st">)..."</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a></span>
+<span id="cb4-24"><a href="#cb4-24"></a>    <span class="co"># Get the main Chrome process PID for the debug instance</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a>    <span class="va">main_pid</span><span class="op">=</span><span class="va">$(</span><span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="st">        </span><span class="dt">\$</span><span class="st">proc = Get-CimInstance Win32_Process -Filter </span><span class="dt">\"</span><span class="st">Name='chrome.exe' AND CommandLine LIKE '%--remote-debugging-port=</span><span class="va">$DEBUG_PORT</span><span class="st">%'</span><span class="dt">\"</span><span class="st"> |</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a><span class="st">            Where-Object { </span><span class="dt">\$</span><span class="st">_.CommandLine -notmatch '--type=' } |</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="st">            Select-Object -First 1</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="st">        if (</span><span class="dt">\$</span><span class="st">proc) { </span><span class="dt">\$</span><span class="st">proc.ProcessId }</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="st">    "</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'\r\n'</span><span class="va">)</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a></span>
+<span id="cb4-32"><a href="#cb4-32"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$main_pid</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a>        <span class="bu">echo</span> <span class="st">"No debug Chrome instance found."</span></span>
+<span id="cb4-34"><a href="#cb4-34"></a>        <span class="cf">return</span></span>
+<span id="cb4-35"><a href="#cb4-35"></a>    <span class="cf">fi</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a></span>
+<span id="cb4-37"><a href="#cb4-37"></a>    <span class="co"># Stop Chrome</span></span>
+<span id="cb4-38"><a href="#cb4-38"></a>    <span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
+<span id="cb4-39"><a href="#cb4-39"></a><span class="st">        Stop-Process -Id </span><span class="va">$main_pid</span><span class="st"> -ErrorAction SilentlyContinue</span></span>
+<span id="cb4-40"><a href="#cb4-40"></a><span class="st">        Start-Sleep -Milliseconds 500</span></span>
+<span id="cb4-41"><a href="#cb4-41"></a><span class="st">        if (Get-Process -Id </span><span class="va">$main_pid</span><span class="st"> -ErrorAction SilentlyContinue) {</span></span>
+<span id="cb4-42"><a href="#cb4-42"></a><span class="st">            Stop-Process -Id </span><span class="va">$main_pid</span><span class="st"> -Force</span></span>
+<span id="cb4-43"><a href="#cb4-43"></a><span class="st">        }</span></span>
+<span id="cb4-44"><a href="#cb4-44"></a><span class="st">    "</span></span>
+<span id="cb4-45"><a href="#cb4-45"></a></span>
+<span id="cb4-46"><a href="#cb4-46"></a>    <span class="co"># Mark exit as clean in preferences to prevent "restore pages" prompt.</span></span>
+<span id="cb4-47"><a href="#cb4-47"></a>    <span class="co"># Chrome sets exit_type to "Crashed" when terminated externally; resetting</span></span>
+<span id="cb4-48"><a href="#cb4-48"></a>    <span class="co"># it avoids the recovery dialog on next launch.</span></span>
+<span id="cb4-49"><a href="#cb4-49"></a>    <span class="va">local_appdata</span><span class="op">=</span><span class="va">$(</span><span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">'Write-Host $env:LOCALAPPDATA'</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'\r\n'</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s|\\|/|g'</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s|^\([A-Za-z]\):|/mnt/\L\1|'</span><span class="va">)</span></span>
+<span id="cb4-50"><a href="#cb4-50"></a>    <span class="va">prefs_file</span><span class="op">=</span><span class="st">"</span><span class="va">$local_appdata</span><span class="st">/ChromeDebugProfiles/</span><span class="va">$REPO_NAME</span><span class="st">/Default/Preferences"</span></span>
+<span id="cb4-51"><a href="#cb4-51"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">$prefs_file</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb4-52"><a href="#cb4-52"></a>        <span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/"exit_type":"Crashed"/"exit_type":"Normal"/g'</span> <span class="st">"</span><span class="va">$prefs_file</span><span class="st">"</span></span>
+<span id="cb4-53"><a href="#cb4-53"></a>        <span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/"exited_cleanly":false/"exited_cleanly":true/g'</span> <span class="st">"</span><span class="va">$prefs_file</span><span class="st">"</span></span>
+<span id="cb4-54"><a href="#cb4-54"></a>    <span class="cf">fi</span></span>
+<span id="cb4-55"><a href="#cb4-55"></a></span>
+<span id="cb4-56"><a href="#cb4-56"></a>    <span class="bu">echo</span> <span class="st">"Debug Chrome stopped."</span></span>
+<span id="cb4-57"><a href="#cb4-57"></a><span class="kw">}</span></span>
+<span id="cb4-58"><a href="#cb4-58"></a></span>
+<span id="cb4-59"><a href="#cb4-59"></a><span class="fu">start_debug_chrome()</span> <span class="kw">{</span></span>
+<span id="cb4-60"><a href="#cb4-60"></a>    <span class="bu">echo</span> <span class="st">"Starting Chrome with remote debugging on port </span><span class="va">$DEBUG_PORT</span><span class="st">..."</span></span>
+<span id="cb4-61"><a href="#cb4-61"></a>    <span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
+<span id="cb4-62"><a href="#cb4-62"></a><span class="st">        </span><span class="dt">\$</span><span class="st">profileDir = </span><span class="dt">\"\$</span><span class="st">env:LOCALAPPDATA</span><span class="dt">\\</span><span class="st">ChromeDebugProfiles</span><span class="dt">\\</span><span class="va">$REPO_NAME</span><span class="dt">\"</span></span>
+<span id="cb4-63"><a href="#cb4-63"></a><span class="st">        Write-Host </span><span class="dt">\"</span><span class="st">Profile: </span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span></span>
+<span id="cb4-64"><a href="#cb4-64"></a><span class="st">        Start-Process -FilePath '</span><span class="va">$CHROME_PATH</span><span class="st">' -ArgumentList '--remote-debugging-port=</span><span class="va">$DEBUG_PORT</span><span class="st">', </span><span class="dt">\"</span><span class="st">--user-data-dir=</span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span><span class="st">, '--disable-session-crashed-bubble'</span></span>
+<span id="cb4-65"><a href="#cb4-65"></a><span class="st">    "</span></span>
+<span id="cb4-66"><a href="#cb4-66"></a><span class="kw">}</span></span>
+<span id="cb4-67"><a href="#cb4-67"></a></span>
+<span id="cb4-68"><a href="#cb4-68"></a><span class="cf">case</span> <span class="st">"</span><span class="va">${1</span><span class="op">:-</span><span class="va">}</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb4-69"><a href="#cb4-69"></a>    <span class="ss">stop</span><span class="kw">)</span>        <span class="ex">stop_debug_chrome</span> <span class="cf">;;</span></span>
+<span id="cb4-70"><a href="#cb4-70"></a>    <span class="st">""</span><span class="kw">|</span><span class="ss">start</span><span class="kw">)</span>    <span class="ex">start_debug_chrome</span> <span class="cf">;;</span></span>
+<span id="cb4-71"><a href="#cb4-71"></a>    <span class="pp">*</span><span class="kw">)</span>           <span class="bu">echo</span> <span class="st">"Usage: </span><span class="va">$0</span><span class="st"> [start|stop]"</span><span class="kw">;</span> <span class="bu">exit</span> 1 <span class="cf">;;</span></span>
+<span id="cb4-72"><a href="#cb4-72"></a><span class="cf">esac</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
