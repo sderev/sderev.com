@@ -234,38 +234,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="helper-script">Helper Script</h2>
 <p>A script to launch Chrome with remote debugging from WSL:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#!/usr/bin/env bash</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># Launch Chrome with remote debugging for DevTools MCP</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># Run from WSL - executes Chrome natively on Windows via PowerShell</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># chrome-debug - Launch or stop Chrome with remote debugging for DevTools MCP</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a><span class="co">#</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># Uses a dedicated profile directory on the Windows filesystem, separate from</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co"># your main Chrome profile. The profile persists between sessions: logins,</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># cookies, extensions, and settings are preserved across restarts.</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># USAGE</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#   ./tools/chrome-debug          Start Chrome with remote debugging</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#   ./tools/chrome-debug stop     Stop only the debug Chrome instance</span></span>
 <span id="cb4-8"><a href="#cb4-8"></a><span class="co">#</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="co"># Profile is named after the repository to keep different projects isolated.</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="bu">set</span> <span class="at">-euo</span> pipefail</span>
-<span id="cb4-12"><a href="#cb4-12"></a></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="va">CHROME_PATH</span><span class="op">=</span><span class="st">'C:\Program Files\Google\Chrome\Application\chrome.exe'</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="va">DEBUG_PORT</span><span class="op">=</span>9222</span>
-<span id="cb4-15"><a href="#cb4-15"></a></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co"># Derive profile name from git repo root directory name</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="va">REPO_NAME</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="st">"</span><span class="va">$(</span><span class="fu">git</span> rev-parse <span class="at">--show-toplevel</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span><span class="st">"</span> <span class="kw">||</span> <span class="fu">basename</span> <span class="st">"</span><span class="va">$PWD</span><span class="st">"</span><span class="va">)</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a></span>
-<span id="cb4-19"><a href="#cb4-19"></a><span class="bu">echo</span> <span class="st">"Starting Chrome with remote debugging on port </span><span class="va">$DEBUG_PORT</span><span class="st">..."</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co"># Run from WSL. Uses a dedicated profile at %LOCALAPPDATA%\ChromeDebugProfiles\&lt;repo-name&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co"># to keep the debug browser separate from your main Chrome. Profile persists between sessions.</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">#</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co"># The stop command closes only Chrome instances with --remote-debugging-port=9222,</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co"># leaving your regular Chrome untouched.</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="bu">set</span> <span class="at">-euo</span> pipefail</span>
+<span id="cb4-16"><a href="#cb4-16"></a></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="va">CHROME_PATH</span><span class="op">=</span><span class="st">'C:\Program Files\Google\Chrome\Application\chrome.exe'</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="va">DEBUG_PORT</span><span class="op">=</span>9222</span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="va">REPO_NAME</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="st">"</span><span class="va">$(</span><span class="fu">git</span> rev-parse <span class="at">--show-toplevel</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">||</span> <span class="bu">echo</span> <span class="st">"</span><span class="va">$PWD</span><span class="st">"</span><span class="va">)</span><span class="st">"</span><span class="va">)</span></span>
 <span id="cb4-20"><a href="#cb4-20"></a></span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="st">    </span><span class="dt">\$</span><span class="st">profileDir = </span><span class="dt">\"\$</span><span class="st">env:LOCALAPPDATA</span><span class="dt">\\</span><span class="st">ChromeDebugProfiles</span><span class="dt">\\</span><span class="va">$REPO_NAME</span><span class="dt">\"</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="st">    Write-Host </span><span class="dt">\"</span><span class="st">Profile: </span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="st">    Start-Process -FilePath '</span><span class="va">$CHROME_PATH</span><span class="st">' -ArgumentList '--remote-debugging-port=</span><span class="va">$DEBUG_PORT</span><span class="st">', </span><span class="dt">\"</span><span class="st">--user-data-dir=</span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="st">"</span></span>
-<span id="cb4-26"><a href="#cb4-26"></a></span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="co"># Test if Chrome is responding (requires WSL mirrored networking)</span></span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="cf">if</span> <span class="ex">curl</span> <span class="at">-s</span> <span class="at">--connect-timeout</span> 5 <span class="st">"http://localhost:</span><span class="va">$DEBUG_PORT</span><span class="st">/json/version"</span> <span class="op">&gt;</span> /dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb4-29"><a href="#cb4-29"></a>    <span class="bu">echo</span> <span class="st">"Debug port accessible at localhost:</span><span class="va">$DEBUG_PORT</span><span class="st">"</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a><span class="cf">else</span></span>
-<span id="cb4-31"><a href="#cb4-31"></a>    <span class="bu">echo</span> <span class="st">"Warning: Cannot reach debug port from WSL"</span></span>
-<span id="cb4-32"><a href="#cb4-32"></a>    <span class="bu">echo</span> <span class="st">"Ensure networkingMode=mirrored is set in %USERPROFILE%</span><span class="dt">\\</span><span class="st">.wslconfig"</span></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="cf">fi</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="fu">stop_debug_chrome()</span> <span class="kw">{</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a>    <span class="bu">echo</span> <span class="st">"Stopping Chrome debug instances (port </span><span class="va">$DEBUG_PORT</span><span class="st">)..."</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a>    <span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="st">        </span><span class="dt">\$</span><span class="st">procs = Get-CimInstance Win32_Process -Filter </span><span class="dt">\"</span><span class="st">Name='chrome.exe' AND CommandLine LIKE '%--remote-debugging-port=</span><span class="va">$DEBUG_PORT</span><span class="st">%'</span><span class="dt">\"</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="st">        if (</span><span class="dt">\$</span><span class="st">procs) {</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="st">            </span><span class="dt">\$</span><span class="st">procs | ForEach-Object { Stop-Process -Id </span><span class="dt">\$</span><span class="st">_.ProcessId -Force }</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a><span class="st">            Write-Host 'Debug Chrome stopped.'</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="st">        } else {</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="st">            Write-Host 'No debug Chrome instance found.'</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="st">        }</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="st">    "</span></span>
+<span id="cb4-32"><a href="#cb4-32"></a><span class="kw">}</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a></span>
+<span id="cb4-34"><a href="#cb4-34"></a><span class="fu">start_debug_chrome()</span> <span class="kw">{</span></span>
+<span id="cb4-35"><a href="#cb4-35"></a>    <span class="bu">echo</span> <span class="st">"Starting Chrome with remote debugging on port </span><span class="va">$DEBUG_PORT</span><span class="st">..."</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a>    <span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a><span class="st">        </span><span class="dt">\$</span><span class="st">profileDir = </span><span class="dt">\"\$</span><span class="st">env:LOCALAPPDATA</span><span class="dt">\\</span><span class="st">ChromeDebugProfiles</span><span class="dt">\\</span><span class="va">$REPO_NAME</span><span class="dt">\"</span></span>
+<span id="cb4-38"><a href="#cb4-38"></a><span class="st">        Write-Host </span><span class="dt">\"</span><span class="st">Profile: </span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span></span>
+<span id="cb4-39"><a href="#cb4-39"></a><span class="st">        Start-Process -FilePath '</span><span class="va">$CHROME_PATH</span><span class="st">' -ArgumentList '--remote-debugging-port=</span><span class="va">$DEBUG_PORT</span><span class="st">', </span><span class="dt">\"</span><span class="st">--user-data-dir=</span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span></span>
+<span id="cb4-40"><a href="#cb4-40"></a><span class="st">    "</span></span>
+<span id="cb4-41"><a href="#cb4-41"></a><span class="kw">}</span></span>
+<span id="cb4-42"><a href="#cb4-42"></a></span>
+<span id="cb4-43"><a href="#cb4-43"></a><span class="cf">case</span> <span class="st">"</span><span class="va">${1</span><span class="op">:-</span><span class="va">}</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb4-44"><a href="#cb4-44"></a>    <span class="ss">stop</span><span class="kw">)</span>        <span class="ex">stop_debug_chrome</span> <span class="cf">;;</span></span>
+<span id="cb4-45"><a href="#cb4-45"></a>    <span class="st">""</span><span class="kw">|</span><span class="ss">start</span><span class="kw">)</span>    <span class="ex">start_debug_chrome</span> <span class="cf">;;</span></span>
+<span id="cb4-46"><a href="#cb4-46"></a>    <span class="pp">*</span><span class="kw">)</span>           <span class="bu">echo</span> <span class="st">"Usage: </span><span class="va">$0</span><span class="st"> [start|stop]"</span><span class="kw">;</span> <span class="bu">exit</span> 1 <span class="cf">;;</span></span>
+<span id="cb4-47"><a href="#cb4-47"></a><span class="cf">esac</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
