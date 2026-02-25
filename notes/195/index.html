@@ -181,6 +181,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">2026-02-25</p>
+      </div>
+    </div>
       
     </div>
     
@@ -196,27 +202,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>When you want Claude Code to drive Codex, or coordinate multiple agents (via OpenCode, Amp, or pi), don’t over-engineer it with hooks or whatnot. Just use <code>tmux</code>.</p>
+<p>When you want Codex to orchestrate other Codex agents, or Claude Code to drive Codex, or any mix of agent CLIs (OpenCode, Amp, pi), don’t over-engineer it with hooks or whatnot. Just use <code>tmux</code>.</p>
 <section id="use-tmux-as-a-bridge" class="level2">
 <h2 class="anchored" data-anchor-id="use-tmux-as-a-bridge">Use <code>tmux</code> as a Bridge</h2>
-<p>The trick is to treat <code>tmux</code> as a coordination layer. Have one agent create a new session, window, or pane that runs another agent CLI, then drive it with <code>tmux send-keys</code>. That gives you a simple and scriptable way to coordinate multiple agents.</p>
-<section id="example" class="level3">
-<h3 class="anchored" data-anchor-id="example">Example</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Start a second agent in its own tmux session</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">tmux</span> new-session <span class="at">-d</span> <span class="at">-s</span> codex <span class="st">'codex'</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Send instructions</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="ex">tmux</span> send-keys <span class="at">-t</span> codex <span class="at">-l</span> <span class="st">'Read /tmp/instructions.md and follow it.'</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="ex">tmux</span> send-keys <span class="at">-t</span> codex Enter</span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># Inspect output</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="ex">tmux</span> capture-pane <span class="at">-t</span> codex <span class="at">-p</span> <span class="at">-S</span> <span class="at">-100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Treat <code>tmux</code> as a coordination layer. Have one agent create a new session that runs another agent CLI, then drive it with <code>tmux send-keys</code>. That gives you a scriptable way to coordinate multiple agents without any special framework.</p>
 </section>
+<section id="the-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="the-workflow">The Workflow</h2>
+<p>What follows is how I coordinate agents. Not a copy of my <code>AGENTS.md</code>. Adapt the patterns to fit your own setup.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># 1. Write instructions to a file</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">cat</span> <span class="op">&gt;</span> /tmp/instructions-{description}.md <span class="op">&lt;&lt; 'EOF'</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="st">...</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="op">EOF</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># 2. Create a worktree so the agent has its own isolated copy</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">git</span> worktree add .worktrees/{description} <span class="at">-b</span> {branch}</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># 3. Start the agent in its own session, inside the worktree</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="ex">tmux</span> new-session <span class="at">-d</span> <span class="at">-s</span> <span class="op">&lt;</span>repo<span class="op">&gt;</span>-<span class="op">&lt;</span>role<span class="op">&gt;</span> -c .worktrees/{description} <span class="st">'codex'</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># 4. Send the instruction</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="ex">tmux</span> send-keys <span class="at">-t</span> <span class="op">&lt;</span>repo<span class="op">&gt;</span>-<span class="op">&lt;</span>role<span class="op">&gt;</span> -l <span class="st">'Read /tmp/instructions-{description}.md and follow it.'</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="fu">sleep</span> 2</span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="ex">tmux</span> send-keys <span class="at">-t</span> <span class="op">&lt;</span>repo<span class="op">&gt;</span>-<span class="op">&lt;</span>role<span class="op">&gt;</span> Enter</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="co"># 5. Poll for output (twice because agent may ask questions early)</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="fu">sleep</span> 10</span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="ex">tmux</span> capture-pane <span class="at">-t</span> <span class="op">&lt;</span>repo<span class="op">&gt;</span>-<span class="op">&lt;</span>role<span class="op">&gt;</span> -p <span class="at">-S</span> <span class="at">-50</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="fu">sleep</span> 10</span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="ex">tmux</span> capture-pane <span class="at">-t</span> <span class="op">&lt;</span>repo<span class="op">&gt;</span>-<span class="op">&lt;</span>role<span class="op">&gt;</span> -p <span class="at">-S</span> <span class="at">-50</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>sleep 2</code> between the text send and the Enter send matters. Without it, the <code>Enter</code> is often not delivered, so the message just sits there unsubmitted.</p>
 </section>
-<section id="practical-caveats" class="level2">
-<h2 class="anchored" data-anchor-id="practical-caveats">Practical Caveats</h2>
-<p>You can also target panes using <code>&lt;session&gt;:&lt;window&gt;.&lt;pane&gt;</code> (for example <code>codex-review:1.2</code>).</p>
-<p>Sending <code>Enter</code> can be flaky if you include newlines in the instructions string. I’ve had better results when I explicitly instruct the agent to press <code>Enter</code> after sending the instructions, and when the actual <code>tmux send-keys ... Enter</code> is its own command. Consider documenting this in your <code>AGENTS.md</code> or an agent skill.</p>
+<section id="agent-identity-and-messaging" class="level2">
+<h2 class="anchored" data-anchor-id="agent-identity-and-messaging">Agent Identity and Messaging</h2>
+<p>When agents need to talk to each other, they need an address. I call it the <strong><code>tmux</code> identity</strong>: <code>session:window.pane</code>; agents can target it with <code>send-keys -t</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">tmux</span> display-message <span class="at">-p</span> <span class="st">'#S:#I.#P'</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># Output: myrepo-review:1.1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Agents should always re-query this before sharing it, because panes can move.</p>
+<p>When one agent contacts another, it uses this message template:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>tmux identity: &lt;session:window.pane&gt;</span>
+<span id="cb3-2"><a href="#cb3-2"></a>Reason: &lt;one sentence max&gt;</span>
+<span id="cb3-3"><a href="#cb3-3"></a>Details: /tmp/&lt;short_description&gt;-$(isosec).md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>isosec</code> is a script I use. It’s just a <code>date</code> wrapper that outputs a compact ISO 8601 timestamp (e.g., <code>20260110T120000Z</code>).</p>
+<p>The instructions file includes the orchestrator’s <code>tmux</code> identity and asks the agent to send a message to it when done.</p>
+</section>
+<section id="session-hygiene" class="level2">
+<h2 class="anchored" data-anchor-id="session-hygiene">Session Hygiene</h2>
+<ul>
+<li>Name sessions <code>&lt;repo&gt;-&lt;role&gt;</code> (e.g., <code>myrepo-review</code>, <code>myrepo-fix</code>, <code>myrepo-impl</code>). This prevents collisions when you run agents across repos.</li>
+<li>Give each agent its own <code>tmux</code> session and git worktree. Sessions are easier to navigate (<code>prefix + s</code>) than scattered windows and panes. Separate worktrees prevent concurrent <code>git</code> conflicts, but you can use checkouts too if you prefer.</li>
+<li>The orchestrator is responsible for cleaning up <code>tmux</code> sessions when they’re absolutely certain they won’t need them anymore.</li>
+</ul>
+</section>
+<section id="orchestration-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="orchestration-patterns">Orchestration Patterns</h2>
+<p>Once the primitives work (session creation, <code>send-keys</code>, identity, callbacks), you can build structured workflows on top.</p>
+<p>The one I use the most is the <strong>Review -&gt; Fix loop</strong>. An orchestrator agent spawns a review agent in one <code>tmux</code> session and a fix agent in another. The review agent reads the diff and produces a list of findings. The fix agent addresses them. The orchestrator repeats the cycle until we get two consecutive <em>nihil obstat</em>.</p>
+<p>For larger tasks, the orchestrator splits the work into slices and delegates each to an implementation agent:</p>
+<ul>
+<li>Spawn implementation agent with a scoped definition of done.</li>
+<li>Run one review pass on its output.</li>
+<li>If findings exist, spawn a fix agent.</li>
+<li>Cherry-pick the clean commits into a consolidation branch.</li>
+<li>Move to the next slice only when the current one is clean.</li>
+</ul>
+<p>This is broadly how I handle agent coordination end-to-end: from defining a sliced implementation to merged PR, all through <code>tmux</code>.</p>
 
 
 </section>

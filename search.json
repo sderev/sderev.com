@@ -3721,21 +3721,42 @@
     "href": "notes/195/index.html",
     "title": "Working with Multiple Coding AI Agents: Just Use tmux",
     "section": "",
-    "text": "When you want Claude Code to drive Codex, or coordinate multiple agents (via OpenCode, Amp, or pi), don’t over-engineer it with hooks or whatnot. Just use tmux."
+    "text": "When you want Codex to orchestrate other Codex agents, or Claude Code to drive Codex, or any mix of agent CLIs (OpenCode, Amp, pi), don’t over-engineer it with hooks or whatnot. Just use tmux."
   },
   {
     "objectID": "notes/195/index.html#use-tmux-as-a-bridge",
     "href": "notes/195/index.html#use-tmux-as-a-bridge",
     "title": "Working with Multiple Coding AI Agents: Just Use tmux",
     "section": "Use tmux as a Bridge",
-    "text": "Use tmux as a Bridge\nThe trick is to treat tmux as a coordination layer. Have one agent create a new session, window, or pane that runs another agent CLI, then drive it with tmux send-keys. That gives you a simple and scriptable way to coordinate multiple agents.\n\nExample\n# Start a second agent in its own tmux session\ntmux new-session -d -s codex 'codex'\n\n# Send instructions\ntmux send-keys -t codex -l 'Read /tmp/instructions.md and follow it.'\ntmux send-keys -t codex Enter\n\n# Inspect output\ntmux capture-pane -t codex -p -S -100"
+    "text": "Use tmux as a Bridge\nTreat tmux as a coordination layer. Have one agent create a new session that runs another agent CLI, then drive it with tmux send-keys. That gives you a scriptable way to coordinate multiple agents without any special framework."
   },
   {
-    "objectID": "notes/195/index.html#practical-caveats",
-    "href": "notes/195/index.html#practical-caveats",
+    "objectID": "notes/195/index.html#the-workflow",
+    "href": "notes/195/index.html#the-workflow",
     "title": "Working with Multiple Coding AI Agents: Just Use tmux",
-    "section": "Practical Caveats",
-    "text": "Practical Caveats\nYou can also target panes using &lt;session&gt;:&lt;window&gt;.&lt;pane&gt; (for example codex-review:1.2).\nSending Enter can be flaky if you include newlines in the instructions string. I’ve had better results when I explicitly instruct the agent to press Enter after sending the instructions, and when the actual tmux send-keys ... Enter is its own command. Consider documenting this in your AGENTS.md or an agent skill."
+    "section": "The Workflow",
+    "text": "The Workflow\nWhat follows is how I coordinate agents. Not a copy of my AGENTS.md. Adapt the patterns to fit your own setup.\n# 1. Write instructions to a file\ncat &gt; /tmp/instructions-{description}.md &lt;&lt; 'EOF'\n...\nEOF\n\n# 2. Create a worktree so the agent has its own isolated copy\ngit worktree add .worktrees/{description} -b {branch}\n\n# 3. Start the agent in its own session, inside the worktree\ntmux new-session -d -s &lt;repo&gt;-&lt;role&gt; -c .worktrees/{description} 'codex'\n\n# 4. Send the instruction\ntmux send-keys -t &lt;repo&gt;-&lt;role&gt; -l 'Read /tmp/instructions-{description}.md and follow it.'\nsleep 2\ntmux send-keys -t &lt;repo&gt;-&lt;role&gt; Enter\n\n# 5. Poll for output (twice because agent may ask questions early)\nsleep 10\ntmux capture-pane -t &lt;repo&gt;-&lt;role&gt; -p -S -50\nsleep 10\ntmux capture-pane -t &lt;repo&gt;-&lt;role&gt; -p -S -50\nThe sleep 2 between the text send and the Enter send matters. Without it, the Enter is often not delivered, so the message just sits there unsubmitted."
+  },
+  {
+    "objectID": "notes/195/index.html#agent-identity-and-messaging",
+    "href": "notes/195/index.html#agent-identity-and-messaging",
+    "title": "Working with Multiple Coding AI Agents: Just Use tmux",
+    "section": "Agent Identity and Messaging",
+    "text": "Agent Identity and Messaging\nWhen agents need to talk to each other, they need an address. I call it the tmux identity: session:window.pane; agents can target it with send-keys -t.\ntmux display-message -p '#S:#I.#P'\n# Output: myrepo-review:1.1\nAgents should always re-query this before sharing it, because panes can move.\nWhen one agent contacts another, it uses this message template:\ntmux identity: &lt;session:window.pane&gt;\nReason: &lt;one sentence max&gt;\nDetails: /tmp/&lt;short_description&gt;-$(isosec).md\nisosec is a script I use. It’s just a date wrapper that outputs a compact ISO 8601 timestamp (e.g., 20260110T120000Z).\nThe instructions file includes the orchestrator’s tmux identity and asks the agent to send a message to it when done."
+  },
+  {
+    "objectID": "notes/195/index.html#session-hygiene",
+    "href": "notes/195/index.html#session-hygiene",
+    "title": "Working with Multiple Coding AI Agents: Just Use tmux",
+    "section": "Session Hygiene",
+    "text": "Session Hygiene\n\nName sessions &lt;repo&gt;-&lt;role&gt; (e.g., myrepo-review, myrepo-fix, myrepo-impl). This prevents collisions when you run agents across repos.\nGive each agent its own tmux session and git worktree. Sessions are easier to navigate (prefix + s) than scattered windows and panes. Separate worktrees prevent concurrent git conflicts, but you can use checkouts too if you prefer.\nThe orchestrator is responsible for cleaning up tmux sessions when they’re absolutely certain they won’t need them anymore."
+  },
+  {
+    "objectID": "notes/195/index.html#orchestration-patterns",
+    "href": "notes/195/index.html#orchestration-patterns",
+    "title": "Working with Multiple Coding AI Agents: Just Use tmux",
+    "section": "Orchestration Patterns",
+    "text": "Orchestration Patterns\nOnce the primitives work (session creation, send-keys, identity, callbacks), you can build structured workflows on top.\nThe one I use the most is the Review -&gt; Fix loop. An orchestrator agent spawns a review agent in one tmux session and a fix agent in another. The review agent reads the diff and produces a list of findings. The fix agent addresses them. The orchestrator repeats the cycle until we get two consecutive nihil obstat.\nFor larger tasks, the orchestrator splits the work into slices and delegates each to an implementation agent:\n\nSpawn implementation agent with a scoped definition of done.\nRun one review pass on its output.\nIf findings exist, spawn a fix agent.\nCherry-pick the clean commits into a consolidation branch.\nMove to the next slice only when the current one is clean.\n\nThis is broadly how I handle agent coordination end-to-end: from defining a sliced implementation to merged PR, all through tmux."
   },
   {
     "objectID": "notes/197/index.html",
