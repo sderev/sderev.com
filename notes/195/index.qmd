@@ -3,33 +3,88 @@ title: "Working with Multiple Coding AI Agents: Just Use `tmux`"
 subtitle: "Note#195"
 id: "195"
 date: 2026-01-10
-date-modified: ""
+date-modified: "2026-02-25"
 date-format: iso
 categories: [notes]
 spotlight: ""
 ---
-When you want Claude Code to drive Codex, or coordinate multiple agents (via OpenCode, Amp, or pi), don't over-engineer it with hooks or whatnot. Just use `tmux`.
+When you want Codex to orchestrate other Codex agents, or Claude Code to drive Codex, or any mix of agent CLIs (OpenCode, Amp, pi), don't over-engineer it with hooks or whatnot. Just use `tmux`.
 
 ## Use `tmux` as a Bridge
 
-The trick is to treat `tmux` as a coordination layer. Have one agent create a new session, window, or pane that runs another agent CLI, then drive it with `tmux send-keys`. That gives you a simple and scriptable way to coordinate multiple agents.
+Treat `tmux` as a coordination layer. Have one agent create a new session that runs another agent CLI, then drive it with `tmux send-keys`. That gives you a scriptable way to coordinate multiple agents without any special framework.
 
-### Example
+## The Workflow
+
+What follows is how I coordinate agents. Not a copy of my `AGENTS.md`. Adapt the patterns to fit your own setup.
 
 ```bash
-# Start a second agent in its own tmux session
-tmux new-session -d -s codex 'codex'
+# 1. Write instructions to a file
+cat > /tmp/instructions-{description}.md << 'EOF'
+...
+EOF
 
-# Send instructions
-tmux send-keys -t codex -l 'Read /tmp/instructions.md and follow it.'
-tmux send-keys -t codex Enter
+# 2. Create a worktree so the agent has its own isolated copy
+git worktree add .worktrees/{description} -b {branch}
 
-# Inspect output
-tmux capture-pane -t codex -p -S -100
+# 3. Start the agent in its own session, inside the worktree
+tmux new-session -d -s <repo>-<role> -c .worktrees/{description} 'codex'
+
+# 4. Send the instruction
+tmux send-keys -t <repo>-<role> -l 'Read /tmp/instructions-{description}.md and follow it.'
+sleep 2
+tmux send-keys -t <repo>-<role> Enter
+
+# 5. Poll for output (twice because agent may ask questions early)
+sleep 10
+tmux capture-pane -t <repo>-<role> -p -S -50
+sleep 10
+tmux capture-pane -t <repo>-<role> -p -S -50
 ```
 
-## Practical Caveats
+The `sleep 2` between the text send and the Enter send matters. Without it, the `Enter` is often not delivered, so the message just sits there unsubmitted.
 
-You can also target panes using `<session>:<window>.<pane>` (for example `codex-review:1.2`).
+## Agent Identity and Messaging
 
-Sending `Enter` can be flaky if you include newlines in the instructions string. I've had better results when I explicitly instruct the agent to press `Enter` after sending the instructions, and when the actual `tmux send-keys ... Enter` is its own command. Consider documenting this in your `AGENTS.md` or an agent skill.
+When agents need to talk to each other, they need an address. I call it the **`tmux` identity**: `session:window.pane`; agents can target it with `send-keys -t`.
+
+```bash
+tmux display-message -p '#S:#I.#P'
+# Output: myrepo-review:1.1
+```
+
+Agents should always re-query this before sharing it, because panes can move.
+
+When one agent contacts another, it uses this message template:
+
+```text
+tmux identity: <session:window.pane>
+Reason: <one sentence max>
+Details: /tmp/<short_description>-$(isosec).md
+```
+
+`isosec` is a script I use. It's just a `date` wrapper that outputs a compact ISO 8601 timestamp (e.g., `20260110T120000Z`).
+
+The instructions file includes the orchestrator's `tmux` identity and asks the agent to send a message to it when done.
+
+## Session Hygiene
+
+* Name sessions `<repo>-<role>` (e.g., `myrepo-review`, `myrepo-fix`, `myrepo-impl`). This prevents collisions when you run agents across repos.
+* Give each agent its own `tmux` session and git worktree. Sessions are easier to navigate (`prefix + s`) than scattered windows and panes. Separate worktrees prevent concurrent `git` conflicts, but you can use checkouts too if you prefer.
+* The orchestrator is responsible for cleaning up `tmux` sessions when they're absolutely certain they won't need them anymore.
+
+## Orchestration Patterns
+
+Once the primitives work (session creation, `send-keys`, identity, callbacks), you can build structured workflows on top.
+
+The one I use the most is the **Review -> Fix loop**. An orchestrator agent spawns a review agent in one `tmux` session and a fix agent in another. The review agent reads the diff and produces a list of findings. The fix agent addresses them. The orchestrator repeats the cycle until we get two consecutive *nihil obstat*.
+
+For larger tasks, the orchestrator splits the work into slices and delegates each to an implementation agent:
+
+* Spawn implementation agent with a scoped definition of done.
+* Run one review pass on its output.
+* If findings exist, spawn a fix agent.
+* Cherry-pick the clean commits into a consolidation branch.
+* Move to the next slice only when the current one is clean.
+
+This is broadly how I handle agent coordination end-to-end: from defining a sliced implementation to merged PR, all through `tmux`.
