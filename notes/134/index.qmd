@@ -8,7 +8,7 @@ date-format: iso
 categories: [notes]
 spotlight: ""
 ---
-These instructions are adapted for my own customized meta key, set to `ctrl-q`. You will obviously need to adapt it to your own meta key if different.
+These instructions are adapted for my own customized `tmux` prefix key, set to `ctrl-q`. You will obviously need to adapt them to your own prefix key if different.
 
 ## Detach the Pane
 
