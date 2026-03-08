@@ -1908,7 +1908,7 @@
     "href": "notes/134/index.html",
     "title": "Moving a Tmux Pane to Another Existing Window",
     "section": "",
-    "text": "These instructions are adapted for my own customized meta key, set to ctrl-q. You will obviously need to adapt it to your own meta key if different."
+    "text": "These instructions are adapted for my own customized tmux prefix key, set to ctrl-q. You will obviously need to adapt them to your own prefix key if different."
   },
   {
     "objectID": "notes/134/index.html#detach-the-pane",
