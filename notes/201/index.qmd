@@ -1,0 +1,29 @@
+---
+title: "Mark Debian Packages as Manual or Auto with `apt-mark`"
+subtitle: "Note#201"
+id: "201"
+date: 2026-03-10
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+APT tracks whether each installed package was explicitly requested (manual) or pulled in as a dependency (auto). Packages marked auto get removed by `apt autoremove` when nothing depends on them anymore. `apt-mark` lets you flip that flag.
+
+## Usage
+
+```bash
+# Mark a package as manually installed (protect it from autoremove)
+sudo apt-mark manual <package>
+
+# Mark a package as automatically installed (eligible for autoremove)
+sudo apt-mark auto <package>
+
+# Check the status of a package
+apt-mark showmanual | grep <package>
+apt-mark showauto | grep <package>
+```
+
+## References
+
+* `man apt-mark`

@@ -1,0 +1,50 @@
+---
+title: "Choose Which Version of a Program Runs by Default with `update-alternatives`"
+subtitle: "Note#200"
+id: "200"
+date: 2026-03-10
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Debian's `update-alternatives` manages symlinks in `/etc/alternatives/` so that several programs providing the same functionality (e.g., `php`, `java`) can coexist, and you pick which one the generic name points to.
+
+## Register an Alternative
+
+```bash
+sudo update-alternatives --install /usr/bin/php php /usr/bin/php8.2 82
+sudo update-alternatives --install /usr/bin/php php /usr/bin/php8.3 83
+```
+
+The last number is the priority. Highest priority wins in auto mode.
+
+## Switch
+
+```bash
+# Interactive picker
+sudo update-alternatives --config php
+
+# Or set it directly
+sudo update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+```
+
+## Inspect
+
+```bash
+# Show current choice and all registered alternatives
+update-alternatives --display php
+
+# List all managed groups
+update-alternatives --get-selections
+```
+
+## Remove
+
+```bash
+sudo update-alternatives --remove php /usr/bin/php8.2
+```
+
+## References
+
+* `man update-alternatives`
