@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-03-10">
 
-<title>Mark Debian Packages as Manual or Auto with apt-mark – Sébastien De Revière</title>
+<title>Control Debian Package State with apt-mark – Sébastien De Revière</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,10 +107,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Mark Debian Packages as Manual or Auto with apt-mark – Sébastien De Revière">
+<meta property="og:title" content="Control Debian Package State with apt-mark – Sébastien De Revière">
 <meta property="og:description" content="Note#201">
 <meta property="og:site_name" content="Sébastien De Revière">
-<meta name="twitter:title" content="Mark Debian Packages as Manual or Auto with apt-mark – Sébastien De Revière">
+<meta name="twitter:title" content="Control Debian Package State with apt-mark – Sébastien De Revière">
 <meta name="twitter:description" content="Note#201">
 <meta name="twitter:creator" content="@sdereviere">
 <meta name="twitter:card" content="summary">
@@ -162,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page">
-      <h1 class="title">Mark Debian Packages as Manual or Auto with <code>apt-mark</code></h1>
+      <h1 class="title">Control Debian Package State with <code>apt-mark</code></h1>
             <p class="subtitle lead">Note#201</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">notes</div>
@@ -181,6 +181,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">2026-03-18</p>
+      </div>
+    </div>
       
     </div>
     
@@ -196,9 +202,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>APT tracks whether each installed package was explicitly requested (manual) or pulled in as a dependency (auto). Packages marked auto get removed by <code>apt autoremove</code> when nothing depends on them anymore. <code>apt-mark</code> lets you flip that flag.</p>
-<section id="usage" class="level2">
-<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<p><code>apt-mark</code> controls two independent flags on installed packages.</p>
+<section id="manual-vs.-auto" class="level2">
+<h2 class="anchored" data-anchor-id="manual-vs.-auto">Manual vs.&nbsp;Auto</h2>
+<p>APT tracks whether each installed package was explicitly requested (manual) or pulled in as a dependency (auto). Packages marked auto get removed by <code>apt autoremove</code> when nothing depends on them anymore.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Mark a package as manually installed (protect it from autoremove)</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">sudo</span> apt-mark manual <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -208,6 +215,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Check the status of a package</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a><span class="ex">apt-mark</span> showmanual <span class="kw">|</span> <span class="fu">grep</span> <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
 <span id="cb1-9"><a href="#cb1-9"></a><span class="ex">apt-mark</span> showauto <span class="kw">|</span> <span class="fu">grep</span> <span class="op">&lt;</span>package<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="hold-vs.-unhold" class="level2">
+<h2 class="anchored" data-anchor-id="hold-vs.-unhold">Hold vs.&nbsp;Unhold</h2>
+<p>A held package is pinned at its current version: <code>apt upgrade</code> and <code>apt full-upgrade</code> skip it entirely. Useful to prevent a known-broken release from landing, or to freeze a critical package until you are ready to upgrade.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Prevent a package from being upgraded</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">sudo</span> apt-mark hold <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Allow upgrades again</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">sudo</span> apt-mark unhold <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># List all held packages</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="ex">apt-mark</span> showhold</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
