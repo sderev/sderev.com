@@ -1,16 +1,18 @@
 ---
-title: "Mark Debian Packages as Manual or Auto with `apt-mark`"
+title: "Control Debian Package State with `apt-mark`"
 subtitle: "Note#201"
 id: "201"
 date: 2026-03-10
-date-modified: ""
+date-modified: 2026-03-18
 date-format: iso
 categories: [notes]
 spotlight: ""
 ---
-APT tracks whether each installed package was explicitly requested (manual) or pulled in as a dependency (auto). Packages marked auto get removed by `apt autoremove` when nothing depends on them anymore. `apt-mark` lets you flip that flag.
+`apt-mark` controls two independent flags on installed packages.
 
-## Usage
+## Manual vs. Auto
+
+APT tracks whether each installed package was explicitly requested (manual) or pulled in as a dependency (auto). Packages marked auto get removed by `apt autoremove` when nothing depends on them anymore.
 
 ```bash
 # Mark a package as manually installed (protect it from autoremove)
@@ -22,6 +24,21 @@ sudo apt-mark auto <package>
 # Check the status of a package
 apt-mark showmanual | grep <package>
 apt-mark showauto | grep <package>
+```
+
+## Hold vs. Unhold
+
+A held package is pinned at its current version: `apt upgrade` and `apt full-upgrade` skip it entirely. Useful to prevent a known-broken release from landing, or to freeze a critical package until you are ready to upgrade.
+
+```bash
+# Prevent a package from being upgraded
+sudo apt-mark hold <package>
+
+# Allow upgrades again
+sudo apt-mark unhold <package>
+
+# List all held packages
+apt-mark showhold
 ```
 
 ## References
