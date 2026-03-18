@@ -236,9 +236,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="agent-identity-and-messaging" class="level2">
 <h2 class="anchored" data-anchor-id="agent-identity-and-messaging">Agent Identity and Messaging</h2>
 <p>When agents need to talk to each other, they need an address. I call it the <strong><code>tmux</code> identity</strong>: <code>session:window.pane</code>; agents can target it with <code>send-keys -t</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">tmux</span> display-message <span class="at">-p</span> <span class="st">'#S:#I.#P'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">tmux</span> display-message <span class="at">-t</span> <span class="st">"</span><span class="va">$TMUX_PANE</span><span class="st">"</span> <span class="at">-p</span> <span class="st">'#S:#I.#P'</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co"># Output: myrepo-review:1.1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Agents should always re-query this before sharing it, because panes can move.</p>
+<p>The <code>-t "$TMUX_PANE"</code> flag is critical: bare <code>tmux display-message -p</code> returns the identity of the currently focused pane, not the pane the command runs in. <code>$TMUX_PANE</code> is set once at shell startup and stays stable.</p>
 <p>When one agent contacts another, it uses this message template:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>tmux identity: &lt;session:window.pane&gt;</span>
 <span id="cb3-2"><a href="#cb3-2"></a>Reason: &lt;one sentence max&gt;</span>
