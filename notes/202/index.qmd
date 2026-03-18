@@ -1,0 +1,55 @@
+---
+title: "Override Apache Configuration Without Editing System Files"
+subtitle: "Note#202"
+id: "202"
+date: 2026-03-18
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Apache has no built-in "override" mechanism for config files. What makes this work is the `IncludeOptional` directive: it expands globs in alphabetical order. For single-value directives like `ServerTokens`, Apache processes files top to bottom, so the last value it reads wins.
+
+On Debian, `apache2.conf` ships with `IncludeOptional conf-enabled/*.conf`. The trick works on any distro that uses `IncludeOptional` with a glob.
+
+You can use this to override values from the default `security.conf` without touching it, so your changes survive package upgrades.
+
+## Create the Override File
+
+```bash
+sudo install -m 640 -o root -g root /dev/null /etc/apache2/conf-available/zzz-security-override.conf
+```
+
+## Write Your Overrides
+
+```bash
+sudo tee /etc/apache2/conf-available/zzz-security-override.conf <<'EOF'
+ServerSignature Off
+ServerTokens Prod
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Content-Security-Policy "frame-ancestors 'self';"
+</IfModule>
+EOF
+```
+
+## Enable and Reload
+
+```bash
+sudo a2enconf zzz-security-override
+sudo apache2ctl -t
+sudo systemctl reload apache2
+```
+
+The `zzz-` prefix guarantees the file loads after `security.conf`. Even if a package update resets `security.conf` to `ServerTokens Full`, your override still wins.
+
+## Verify
+
+Force a conflict by temporarily setting `ServerSignature On` and `ServerTokens Full` in `security.conf`, then reload Apache and check:
+
+```bash
+curl -I https://example.com/
+```
+
+The response should still show `Server: Apache` (no version), proving that `zzz-security-override.conf` takes precedence.
