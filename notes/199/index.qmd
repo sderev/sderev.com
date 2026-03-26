@@ -29,5 +29,5 @@ sudo extrepo disable sury
 
 ## References
 
-* [Debian Wiki - ExtRepos](https://wiki.debian.org/ExtRepos)
+* [Debian Manpages - extrepo](https://manpages.debian.org/stable/extrepo/extrepo.1p.en.html)
 * `man extrepo`
