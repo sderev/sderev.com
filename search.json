@@ -3854,7 +3854,7 @@
     "href": "notes/199/index.html#references",
     "title": "Add External APT Repositories on Debian with extrepo",
     "section": "References",
-    "text": "References\n\nDebian Wiki - ExtRepos\nman extrepo"
+    "text": "References\n\nDebian Manpages - extrepo\nman extrepo"
   },
   {
     "objectID": "notes/20/index.html",
