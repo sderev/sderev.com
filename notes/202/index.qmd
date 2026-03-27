@@ -8,11 +8,11 @@ date-format: iso
 categories: [notes]
 spotlight: ""
 ---
-Apache has no built-in "override" mechanism for config files. What makes this work is the `IncludeOptional` directive: it expands globs in alphabetical order. For single-value directives like `ServerTokens`, Apache processes files top to bottom, so the last value it reads wins.
+Apache has no built-in priority system for config files. What makes this work is the `IncludeOptional` directive: it expands globs in alphabetical order. For directives like `ServerTokens` that take a single value, the last definition Apache reads wins.
 
-On Debian, `apache2.conf` ships with `IncludeOptional conf-enabled/*.conf`. The trick works on any distro that uses `IncludeOptional` with a glob.
+On Debian, `apache2.conf` ships with `IncludeOptional conf-enabled/*.conf`. The same approach works on any distribution that uses `IncludeOptional` with a glob.
 
-You can use this to override values from the default `security.conf` without touching it, so your changes survive package upgrades.
+You can use this to override values from Debian's default `security.conf` without touching it, so your changes survive package upgrades.
 
 ## Create the Override File
 
@@ -42,11 +42,11 @@ sudo apache2ctl -t
 sudo systemctl reload apache2
 ```
 
-The `zzz-` prefix guarantees the file loads after `security.conf`. Even if a package update resets `security.conf` to `ServerTokens Full`, your override still wins.
+The `zzz-` prefix guarantees the file loads after `security.conf`. Even if a package update resets `security.conf` to Debian's default `ServerTokens OS`, your override still wins.
 
 ## Verify
 
-Force a conflict by temporarily setting `ServerSignature On` and `ServerTokens Full` in `security.conf`, then reload Apache and check:
+Force a conflict by temporarily setting `ServerSignature On` and `ServerTokens OS` in `security.conf`, then reload Apache and check:
 
 ```bash
 curl -I https://example.com/
