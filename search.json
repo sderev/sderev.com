@@ -1026,7 +1026,7 @@
     "href": "notes/202/index.html",
     "title": "Override Apache Configuration Without Editing System Files",
     "section": "",
-    "text": "Apache has no built-in “override” mechanism for config files. What makes this work is the IncludeOptional directive: it expands globs in alphabetical order. For single-value directives like ServerTokens, Apache processes files top to bottom, so the last value it reads wins.\nOn Debian, apache2.conf ships with IncludeOptional conf-enabled/*.conf. The trick works on any distro that uses IncludeOptional with a glob.\nYou can use this to override values from the default security.conf without touching it, so your changes survive package upgrades."
+    "text": "Apache has no built-in “override” mechanism for config files. What makes this work is the IncludeOptional directive: it expands globs in alphabetical order. For directives like ServerTokens that take a single value, the last definition Apache reads wins.\nOn Debian, apache2.conf ships with IncludeOptional conf-enabled/*.conf. The trick works on any distro that uses IncludeOptional with a glob.\nYou can use this to override values from the default security.conf without touching it, so your changes survive package upgrades."
   },
   {
     "objectID": "notes/202/index.html#create-the-override-file",
