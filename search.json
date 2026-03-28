@@ -1026,7 +1026,7 @@
     "href": "notes/202/index.html",
     "title": "Override Apache Configuration Without Editing System Files",
     "section": "",
-    "text": "Apache has no built-in “override” mechanism for config files. What makes this work is the IncludeOptional directive: it expands globs in alphabetical order. For directives like ServerTokens that take a single value, the last definition Apache reads wins.\nOn Debian, apache2.conf ships with IncludeOptional conf-enabled/*.conf. The trick works on any distro that uses IncludeOptional with a glob.\nYou can use this to override values from the default security.conf without touching it, so your changes survive package upgrades."
+    "text": "Apache has no built-in priority system for config files. What makes this work is the IncludeOptional directive: it expands globs in alphabetical order. For directives like ServerTokens that take a single value, the last definition Apache reads wins.\nOn Debian, apache2.conf ships with IncludeOptional conf-enabled/*.conf. The same approach works on any distribution that uses IncludeOptional with a glob.\nYou can use this to override values from Debian’s default security.conf without touching it, so your changes survive package upgrades."
   },
   {
     "objectID": "notes/202/index.html#create-the-override-file",
@@ -1047,7 +1047,7 @@
     "href": "notes/202/index.html#enable-and-reload",
     "title": "Override Apache Configuration Without Editing System Files",
     "section": "Enable and Reload",
-    "text": "Enable and Reload\nsudo a2enconf zzz-security-override\nsudo apache2ctl -t\nsudo systemctl reload apache2\nThe zzz- prefix guarantees the file loads after security.conf. Even if a package update resets security.conf to ServerTokens Full, your override still wins."
+    "text": "Enable and Reload\nsudo a2enconf zzz-security-override\nsudo apache2ctl -t\nsudo systemctl reload apache2\nThe zzz- prefix guarantees the file loads after security.conf. Even if a package update resets security.conf to Debian’s default ServerTokens OS, your override still wins."
   },
   {
     "objectID": "notes/202/index.html#verify",

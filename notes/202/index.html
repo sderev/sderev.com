@@ -198,9 +198,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Apache has no built-in “override” mechanism for config files. What makes this work is the <code>IncludeOptional</code> directive: it expands globs in alphabetical order. For directives like <code>ServerTokens</code> that take a single value, the last definition Apache reads wins.</p>
-<p>On Debian, <code>apache2.conf</code> ships with <code>IncludeOptional conf-enabled/*.conf</code>. The trick works on any distro that uses <code>IncludeOptional</code> with a glob.</p>
-<p>You can use this to override values from the default <code>security.conf</code> without touching it, so your changes survive package upgrades.</p>
+<p>Apache has no built-in priority system for config files. What makes this work is the <code>IncludeOptional</code> directive: it expands globs in alphabetical order. For directives like <code>ServerTokens</code> that take a single value, the last definition Apache reads wins.</p>
+<p>On Debian, <code>apache2.conf</code> ships with <code>IncludeOptional conf-enabled/*.conf</code>. The same approach works on any distribution that uses <code>IncludeOptional</code> with a glob.</p>
+<p>You can use this to override values from Debian’s default <code>security.conf</code> without touching it, so your changes survive package upgrades.</p>
 <section id="create-the-override-file" class="level2">
 <h2 class="anchored" data-anchor-id="create-the-override-file">Create the Override File</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sudo</span> install <span class="at">-m</span> 640 <span class="at">-o</span> root <span class="at">-g</span> root /dev/null /etc/apache2/conf-available/zzz-security-override.conf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -222,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">sudo</span> a2enconf zzz-security-override</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">sudo</span> apache2ctl <span class="at">-t</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="fu">sudo</span> systemctl reload apache2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The <code>zzz-</code> prefix guarantees the file loads after <code>security.conf</code>. Even if a package update resets <code>security.conf</code> to <code>ServerTokens Full</code>, your override still wins.</p>
+<p>The <code>zzz-</code> prefix guarantees the file loads after <code>security.conf</code>. Even if a package update resets <code>security.conf</code> to Debian’s default <code>ServerTokens OS</code>, your override still wins.</p>
 </section>
 <section id="verify" class="level2">
 <h2 class="anchored" data-anchor-id="verify">Verify</h2>
