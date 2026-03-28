@@ -1054,7 +1054,7 @@
     "href": "notes/202/index.html#verify",
     "title": "Override Apache Configuration Without Editing System Files",
     "section": "Verify",
-    "text": "Verify\nForce a conflict by temporarily setting ServerSignature On and ServerTokens Full in security.conf, then reload Apache and check:\ncurl -I https://example.com/\nThe response should still show Server: Apache (no version), proving that zzz-security-override.conf takes precedence."
+    "text": "Verify\nForce a conflict by temporarily setting ServerSignature On and ServerTokens OS in security.conf, then reload Apache and check:\ncurl -I https://example.com/\nThe response should still show Server: Apache (no version), proving that zzz-security-override.conf takes precedence."
   },
   {
     "objectID": "notes/200/index.html",

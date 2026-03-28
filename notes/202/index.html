@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="verify" class="level2">
 <h2 class="anchored" data-anchor-id="verify">Verify</h2>
-<p>Force a conflict by temporarily setting <code>ServerSignature On</code> and <code>ServerTokens Full</code> in <code>security.conf</code>, then reload Apache and check:</p>
+<p>Force a conflict by temporarily setting <code>ServerSignature On</code> and <code>ServerTokens OS</code> in <code>security.conf</code>, then reload Apache and check:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">curl</span> <span class="at">-I</span> https://example.com/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The response should still show <code>Server: Apache</code> (no version), proving that <code>zzz-security-override.conf</code> takes precedence.</p>
 
