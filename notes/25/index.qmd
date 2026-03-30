@@ -3,80 +3,102 @@ title: "How to import/export a database in MySQL/MariaDB"
 subtitle: "Note#25"
 id: "25"
 date: 2022-11-28
-date-modified: ""
+date-modified: 2026-03-30
 date-format: iso
 categories: [notes]
 spotlight: ""
 ---
-Databases are an essential part of modern applications, and there are times when you might need to move or backup your database. MySQL and MariaDB provide several ways to export and import databases.
+Use the dump tools to export data, and the client to import it back.
 
-## CLI
+## Export a database
 
-### Exporting a database
-
-To export a database, you can use the `mysql` client.
+**MySQL:**
 
 ```bash
-mysql -u username -p db_name > file.sql
+mysqldump -u username -p db_name > backup.sql
 ```
 
-**Caveat:** You can only use `mysql` from the CLI, so you need to use a terminal or a command prompt to run this command.
-
-### Exporting specific tables
+**MariaDB:**
 
 ```bash
-mysql -u username -p db_name table1 table2 > file.sql
+mariadb-dump -u username -p db_name > backup.sql
 ```
 
-### Importing a database
+### Export specific tables
 
-Note that the DB has to exist before you import the sql file.
+**MySQL:**
+
+```bash
+mysqldump -u username -p db_name table1 table2 > backup.sql
+```
+
+**MariaDB:**
+
+```bash
+mariadb-dump -u username -p db_name table1 table2 > backup.sql
+```
+
+### Export multiple databases
+
+If you want the dump file to include `CREATE DATABASE` and `USE`, add `--databases`:
+
+```bash
+mysqldump -u username -p --databases db1 db2 > backup.sql
+```
+
+```bash
+mariadb-dump -u username -p --databases db1 db2 > backup.sql
+```
+
+Use `--databases` when you want the dump file to recreate the original database names. Skip it if you want to restore into a differently named database.
+
+## Import a database
+
+If the dump file does not contain `CREATE DATABASE` / `USE`, create the target database first.
+
+**MySQL:**
 
 ```bash
 mysql -u username -p db_name < backup.sql
 ```
 
-If the backup file is compressed with gzip, you can use the following command to import the data:
+**MariaDB:**
+
+```bash
+mariadb -u username -p db_name < backup.sql
+```
+
+If the dump file already contains `USE db_name`, you can omit the database name:
+
+```bash
+mysql -u username -p < backup.sql
+```
+
+```bash
+mariadb -u username -p < backup.sql
+```
+
+If the dump is compressed:
 
 ```bash
 gunzip < backup.sql.gz | mysql -u username -p db_name
 ```
 
-## Scripting
-
-If you want to script the backup process, you can use `mysqlpump`. It was introduced in MySQL 5.7.8, so you don't have to install anything else, but note that `mysqlpump` is not included in MariaDB. Instead, you can use `mysqldump`, which is included in both MySQL and MariaDB; however, `mysqldump` is not multithreaded like `mysqlpump`.
-
 ```bash
-mysqlpump -u username -p db_name > file.sql
+gunzip < backup.sql.gz | mariadb -u username -p db_name
 ```
 
-`mysqlpump` offers several features, such as parallel compression, incremental backups, and the ability to exclude specific databases or tables.
+## Notes
 
-### For example, to exclude a database from the backup:
-
-```bash
-mysqlpump -u username -p --exclude-databases=db_name1,db_name2 > file.sql
-```
-
-### To exclude specific tables:
-
-```bash
-mysqlpump -u username -p --exclude-tables=db_name.table_name > file.sql
-```
-
-### Some features of `mysqlpump`
-* `mysqlpump` supports parallel compression, which allows it to compress backup data more efficiently.
-* `mysqlpump` can be used to create **incremental backups** by using the `--incremental` option. This feature enables you to backup only the changes that have been made to the database since the last backup.
-* `mysqlpump` provides better control over the backup process than `mysqldump`. For example, you can use the `--exclude-databases` and `--exclude-tables` options to exclude specific databases or tables from the backup.
-* `mysqlpump` generates backup files that are compatible with `mysqldump`, which means that you can use `mysqldump` to restore a backup created with `mysqlpump`.
-
-### Manage large databases
-
-For large databases (greater than 1TB), consider using the `mydumper` and `myloader` tools, which offer parallelism and other benefits for more efficient database management.
-
+* `mysqldump` is the standard logical backup tool for MySQL.
+* `mariadb-dump` is the current dump tool for MariaDB. `mysqldump` is an older name kept for compatibility in some environments.
+* `mariadb-dump` does not include stored procedures or events unless you ask for them with options such as `--routines` and `--events`.
+* `mysqlpump` exists in MySQL, but it is deprecated as of MySQL 8.0.34. Do not treat it as the default recommendation.
+* For large logical backups, tools such as `mydumper` / `myloader` can be faster because they support parallelism.
 
 ## Documentation
 
-* `mydumper` & `myloader` documentation: <https://centminmod.com/mydumper.html>
-* MySQL documentation on backup and recovery: <https://dev.mysql.com/doc/refman/8.0/en/backup-and-recovery.html>
-* MariaDB knowledge base on backup and restore: <https://mariadb.com/kb/en/backup-and-restore-overview/>
+* MySQL `mysqldump`: <https://dev.mysql.com/doc/refman/en/mysqldump.html>
+* MySQL `mysql` batch import: <https://dev.mysql.com/doc/refman/en/batch-mode.html>
+* MariaDB `mariadb-dump`: <https://mariadb.com/docs/server/clients-and-utilities/backup-restore-and-import-clients/mariadb-dump>
+* MariaDB backup and restore overview: <https://mariadb.com/docs/server/server-usage/backup-and-restore/backup-and-restore-overview>

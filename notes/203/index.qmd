@@ -15,25 +15,25 @@ On Debian-based systems, you can enable a locale in `/etc/locale.gen` and genera
 Enable the locale you want in `/etc/locale.gen`:
 
 ```bash
-sudo sed -i 's/^# *en_US.UTF-8 UTF-8$/en_US.UTF-8 UTF-8/' /etc/locale.gen
+sed -i 's/^# *en_US.UTF-8 UTF-8$/en_US.UTF-8 UTF-8/' /etc/locale.gen
 ```
 
 Or edit the file manually:
 
 ```bash
-sudo vim /etc/locale.gen
+vim /etc/locale.gen
 ```
 
 Generate the enabled locales:
 
 ```bash
-sudo locale-gen
+locale-gen
 ```
 
 Set the system default locale if needed:
 
 ```bash
-sudo update-locale LANG=en_US.UTF-8
+update-locale LANG=en_US.UTF-8
 ```
 
 ## Verify
