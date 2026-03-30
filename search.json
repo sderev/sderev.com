@@ -3959,28 +3959,35 @@
     "href": "notes/25/index.html",
     "title": "How to import/export a database in MySQL/MariaDB",
     "section": "",
-    "text": "Databases are an essential part of modern applications, and there are times when you might need to move or backup your database. MySQL and MariaDB provide several ways to export and import databases."
+    "text": "Use the dump tools to export data, and the client to import it back."
   },
   {
-    "objectID": "notes/25/index.html#cli",
-    "href": "notes/25/index.html#cli",
+    "objectID": "notes/25/index.html#export-a-database",
+    "href": "notes/25/index.html#export-a-database",
     "title": "How to import/export a database in MySQL/MariaDB",
-    "section": "CLI",
-    "text": "CLI\n\nExporting a database\nTo export a database, you can use the mysql client.\nmysql -u username -p db_name &gt; file.sql\nCaveat: You can only use mysql from the CLI, so you need to use a terminal or a command prompt to run this command.\n\n\nExporting specific tables\nmysql -u username -p db_name table1 table2 &gt; file.sql\n\n\nImporting a database\nNote that the DB has to exist before you import the sql file.\nmysql -u username -p db_name &lt; backup.sql\nIf the backup file is compressed with gzip, you can use the following command to import the data:\ngunzip &lt; backup.sql.gz | mysql -u username -p db_name"
+    "section": "Export a database",
+    "text": "Export a database\nMySQL:\nmysqldump -u username -p db_name &gt; backup.sql\nMariaDB:\nmariadb-dump -u username -p db_name &gt; backup.sql\n\nExport specific tables\nMySQL:\nmysqldump -u username -p db_name table1 table2 &gt; backup.sql\nMariaDB:\nmariadb-dump -u username -p db_name table1 table2 &gt; backup.sql\n\n\nExport multiple databases\nIf you want the dump file to include CREATE DATABASE and USE, add --databases:\nmysqldump -u username -p --databases db1 db2 &gt; backup.sql\nmariadb-dump -u username -p --databases db1 db2 &gt; backup.sql\nUse --databases when you want the dump file to recreate the original database names. Skip it if you want to restore into a differently named database."
   },
   {
-    "objectID": "notes/25/index.html#scripting",
-    "href": "notes/25/index.html#scripting",
+    "objectID": "notes/25/index.html#import-a-database",
+    "href": "notes/25/index.html#import-a-database",
     "title": "How to import/export a database in MySQL/MariaDB",
-    "section": "Scripting",
-    "text": "Scripting\nIf you want to script the backup process, you can use mysqlpump. It was introduced in MySQL 5.7.8, so you don’t have to install anything else, but note that mysqlpump is not included in MariaDB. Instead, you can use mysqldump, which is included in both MySQL and MariaDB; however, mysqldump is not multithreaded like mysqlpump.\nmysqlpump -u username -p db_name &gt; file.sql\nmysqlpump offers several features, such as parallel compression, incremental backups, and the ability to exclude specific databases or tables.\n\nFor example, to exclude a database from the backup:\nmysqlpump -u username -p --exclude-databases=db_name1,db_name2 &gt; file.sql\n\n\nTo exclude specific tables:\nmysqlpump -u username -p --exclude-tables=db_name.table_name &gt; file.sql\n\n\nSome features of mysqlpump\n\nmysqlpump supports parallel compression, which allows it to compress backup data more efficiently.\nmysqlpump can be used to create incremental backups by using the --incremental option. This feature enables you to backup only the changes that have been made to the database since the last backup.\nmysqlpump provides better control over the backup process than mysqldump. For example, you can use the --exclude-databases and --exclude-tables options to exclude specific databases or tables from the backup.\nmysqlpump generates backup files that are compatible with mysqldump, which means that you can use mysqldump to restore a backup created with mysqlpump.\n\n\n\nManage large databases\nFor large databases (greater than 1TB), consider using the mydumper and myloader tools, which offer parallelism and other benefits for more efficient database management."
+    "section": "Import a database",
+    "text": "Import a database\nIf the dump file does not contain CREATE DATABASE / USE, create the target database first.\nMySQL:\nmysql -u username -p db_name &lt; backup.sql\nMariaDB:\nmariadb -u username -p db_name &lt; backup.sql\nIf the dump file already contains USE db_name, you can omit the database name:\nmysql -u username -p &lt; backup.sql\nmariadb -u username -p &lt; backup.sql\nIf the dump is compressed:\ngunzip &lt; backup.sql.gz | mysql -u username -p db_name\ngunzip &lt; backup.sql.gz | mariadb -u username -p db_name"
+  },
+  {
+    "objectID": "notes/25/index.html#notes",
+    "href": "notes/25/index.html#notes",
+    "title": "How to import/export a database in MySQL/MariaDB",
+    "section": "Notes",
+    "text": "Notes\n\nmysqldump is the standard logical backup tool for MySQL.\nmariadb-dump is the current dump tool for MariaDB. mysqldump is an older name kept for compatibility in some environments.\nmariadb-dump does not include stored procedures or events unless you ask for them with options such as --routines and --events.\nmysqlpump exists in MySQL, but it is deprecated as of MySQL 8.0.34. Do not treat it as the default recommendation.\nFor large logical backups, tools such as mydumper / myloader can be faster because they support parallelism."
   },
   {
     "objectID": "notes/25/index.html#documentation",
     "href": "notes/25/index.html#documentation",
     "title": "How to import/export a database in MySQL/MariaDB",
     "section": "Documentation",
-    "text": "Documentation\n\nmydumper & myloader documentation: https://centminmod.com/mydumper.html\nMySQL documentation on backup and recovery: https://dev.mysql.com/doc/refman/8.0/en/backup-and-recovery.html\nMariaDB knowledge base on backup and restore: https://mariadb.com/kb/en/backup-and-restore-overview/"
+    "text": "Documentation\n\nMySQL mysqldump: https://dev.mysql.com/doc/refman/en/mysqldump.html\nMySQL mysql batch import: https://dev.mysql.com/doc/refman/en/batch-mode.html\nMariaDB mariadb-dump: https://mariadb.com/docs/server/clients-and-utilities/backup-restore-and-import-clients/mariadb-dump\nMariaDB backup and restore overview: https://mariadb.com/docs/server/server-usage/backup-and-restore/backup-and-restore-overview"
   },
   {
     "objectID": "notes/27/index.html",

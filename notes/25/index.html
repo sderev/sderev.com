@@ -183,6 +183,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">2026-03-30</p>
+      </div>
+    </div>
       
     </div>
     
@@ -198,60 +204,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Databases are an essential part of modern applications, and there are times when you might need to move or backup your database. MySQL and MariaDB provide several ways to export and import databases.</p>
-<section id="cli" class="level2">
-<h2 class="anchored" data-anchor-id="cli">CLI</h2>
-<section id="exporting-a-database" class="level3">
-<h3 class="anchored" data-anchor-id="exporting-a-database">Exporting a database</h3>
-<p>To export a database, you can use the <code>mysql</code> client.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">mysql</span> <span class="at">-u</span> username <span class="at">-p</span> db_name <span class="op">&gt;</span> file.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Caveat:</strong> You can only use <code>mysql</code> from the CLI, so you need to use a terminal or a command prompt to run this command.</p>
+<p>Use the dump tools to export data, and the client to import it back.</p>
+<section id="export-a-database" class="level2">
+<h2 class="anchored" data-anchor-id="export-a-database">Export a database</h2>
+<p><strong>MySQL:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">mysqldump</span> <span class="at">-u</span> username <span class="at">-p</span> db_name <span class="op">&gt;</span> backup.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>MariaDB:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">mariadb-dump</span> <span class="at">-u</span> username <span class="at">-p</span> db_name <span class="op">&gt;</span> backup.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="export-specific-tables" class="level3">
+<h3 class="anchored" data-anchor-id="export-specific-tables">Export specific tables</h3>
+<p><strong>MySQL:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">mysqldump</span> <span class="at">-u</span> username <span class="at">-p</span> db_name table1 table2 <span class="op">&gt;</span> backup.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>MariaDB:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">mariadb-dump</span> <span class="at">-u</span> username <span class="at">-p</span> db_name table1 table2 <span class="op">&gt;</span> backup.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="exporting-specific-tables" class="level3">
-<h3 class="anchored" data-anchor-id="exporting-specific-tables">Exporting specific tables</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">mysql</span> <span class="at">-u</span> username <span class="at">-p</span> db_name table1 table2 <span class="op">&gt;</span> file.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="importing-a-database" class="level3">
-<h3 class="anchored" data-anchor-id="importing-a-database">Importing a database</h3>
-<p>Note that the DB has to exist before you import the sql file.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">mysql</span> <span class="at">-u</span> username <span class="at">-p</span> db_name <span class="op">&lt;</span> backup.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If the backup file is compressed with gzip, you can use the following command to import the data:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">gunzip</span> <span class="op">&lt;</span> backup.sql.gz <span class="kw">|</span> <span class="ex">mysql</span> <span class="at">-u</span> username <span class="at">-p</span> db_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="export-multiple-databases" class="level3">
+<h3 class="anchored" data-anchor-id="export-multiple-databases">Export multiple databases</h3>
+<p>If you want the dump file to include <code>CREATE DATABASE</code> and <code>USE</code>, add <code>--databases</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">mysqldump</span> <span class="at">-u</span> username <span class="at">-p</span> <span class="at">--databases</span> db1 db2 <span class="op">&gt;</span> backup.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">mariadb-dump</span> <span class="at">-u</span> username <span class="at">-p</span> <span class="at">--databases</span> db1 db2 <span class="op">&gt;</span> backup.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <code>--databases</code> when you want the dump file to recreate the original database names. Skip it if you want to restore into a differently named database.</p>
 </section>
 </section>
-<section id="scripting" class="level2">
-<h2 class="anchored" data-anchor-id="scripting">Scripting</h2>
-<p>If you want to script the backup process, you can use <code>mysqlpump</code>. It was introduced in MySQL 5.7.8, so you don’t have to install anything else, but note that <code>mysqlpump</code> is not included in MariaDB. Instead, you can use <code>mysqldump</code>, which is included in both MySQL and MariaDB; however, <code>mysqldump</code> is not multithreaded like <code>mysqlpump</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">mysqlpump</span> <span class="at">-u</span> username <span class="at">-p</span> db_name <span class="op">&gt;</span> file.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>mysqlpump</code> offers several features, such as parallel compression, incremental backups, and the ability to exclude specific databases or tables.</p>
-<section id="for-example-to-exclude-a-database-from-the-backup" class="level3">
-<h3 class="anchored" data-anchor-id="for-example-to-exclude-a-database-from-the-backup">For example, to exclude a database from the backup:</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">mysqlpump</span> <span class="at">-u</span> username <span class="at">-p</span> <span class="at">--exclude-databases</span><span class="op">=</span>db_name1,db_name2 <span class="op">&gt;</span> file.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="import-a-database" class="level2">
+<h2 class="anchored" data-anchor-id="import-a-database">Import a database</h2>
+<p>If the dump file does not contain <code>CREATE DATABASE</code> / <code>USE</code>, create the target database first.</p>
+<p><strong>MySQL:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">mysql</span> <span class="at">-u</span> username <span class="at">-p</span> db_name <span class="op">&lt;</span> backup.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>MariaDB:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">mariadb</span> <span class="at">-u</span> username <span class="at">-p</span> db_name <span class="op">&lt;</span> backup.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the dump file already contains <code>USE db_name</code>, you can omit the database name:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">mysql</span> <span class="at">-u</span> username <span class="at">-p</span> <span class="op">&lt;</span> backup.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">mariadb</span> <span class="at">-u</span> username <span class="at">-p</span> <span class="op">&lt;</span> backup.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the dump is compressed:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">gunzip</span> <span class="op">&lt;</span> backup.sql.gz <span class="kw">|</span> <span class="ex">mysql</span> <span class="at">-u</span> username <span class="at">-p</span> db_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">gunzip</span> <span class="op">&lt;</span> backup.sql.gz <span class="kw">|</span> <span class="ex">mariadb</span> <span class="at">-u</span> username <span class="at">-p</span> db_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="to-exclude-specific-tables" class="level3">
-<h3 class="anchored" data-anchor-id="to-exclude-specific-tables">To exclude specific tables:</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">mysqlpump</span> <span class="at">-u</span> username <span class="at">-p</span> <span class="at">--exclude-tables</span><span class="op">=</span>db_name.table_name <span class="op">&gt;</span> file.sql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="some-features-of-mysqlpump" class="level3">
-<h3 class="anchored" data-anchor-id="some-features-of-mysqlpump">Some features of <code>mysqlpump</code></h3>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">Notes</h2>
 <ul>
-<li><code>mysqlpump</code> supports parallel compression, which allows it to compress backup data more efficiently.</li>
-<li><code>mysqlpump</code> can be used to create <strong>incremental backups</strong> by using the <code>--incremental</code> option. This feature enables you to backup only the changes that have been made to the database since the last backup.</li>
-<li><code>mysqlpump</code> provides better control over the backup process than <code>mysqldump</code>. For example, you can use the <code>--exclude-databases</code> and <code>--exclude-tables</code> options to exclude specific databases or tables from the backup.</li>
-<li><code>mysqlpump</code> generates backup files that are compatible with <code>mysqldump</code>, which means that you can use <code>mysqldump</code> to restore a backup created with <code>mysqlpump</code>.</li>
+<li><code>mysqldump</code> is the standard logical backup tool for MySQL.</li>
+<li><code>mariadb-dump</code> is the current dump tool for MariaDB. <code>mysqldump</code> is an older name kept for compatibility in some environments.</li>
+<li><code>mariadb-dump</code> does not include stored procedures or events unless you ask for them with options such as <code>--routines</code> and <code>--events</code>.</li>
+<li><code>mysqlpump</code> exists in MySQL, but it is deprecated as of MySQL 8.0.34. Do not treat it as the default recommendation.</li>
+<li>For large logical backups, tools such as <code>mydumper</code> / <code>myloader</code> can be faster because they support parallelism.</li>
 </ul>
-</section>
-<section id="manage-large-databases" class="level3">
-<h3 class="anchored" data-anchor-id="manage-large-databases">Manage large databases</h3>
-<p>For large databases (greater than 1TB), consider using the <code>mydumper</code> and <code>myloader</code> tools, which offer parallelism and other benefits for more efficient database management.</p>
-</section>
 </section>
 <section id="documentation" class="level2">
 <h2 class="anchored" data-anchor-id="documentation">Documentation</h2>
 <ul>
-<li><code>mydumper</code> &amp; <code>myloader</code> documentation: <a href="https://centminmod.com/mydumper.html" class="uri">https://centminmod.com/mydumper.html</a></li>
-<li>MySQL documentation on backup and recovery: <a href="https://dev.mysql.com/doc/refman/8.0/en/backup-and-recovery.html" class="uri">https://dev.mysql.com/doc/refman/8.0/en/backup-and-recovery.html</a></li>
-<li>MariaDB knowledge base on backup and restore: <a href="https://mariadb.com/kb/en/backup-and-restore-overview/" class="uri">https://mariadb.com/kb/en/backup-and-restore-overview/</a></li>
+<li>MySQL <code>mysqldump</code>: <a href="https://dev.mysql.com/doc/refman/en/mysqldump.html" class="uri">https://dev.mysql.com/doc/refman/en/mysqldump.html</a></li>
+<li>MySQL <code>mysql</code> batch import: <a href="https://dev.mysql.com/doc/refman/en/batch-mode.html" class="uri">https://dev.mysql.com/doc/refman/en/batch-mode.html</a></li>
+<li>MariaDB <code>mariadb-dump</code>: <a href="https://mariadb.com/docs/server/clients-and-utilities/backup-restore-and-import-clients/mariadb-dump" class="uri">https://mariadb.com/docs/server/clients-and-utilities/backup-restore-and-import-clients/mariadb-dump</a></li>
+<li>MariaDB backup and restore overview: <a href="https://mariadb.com/docs/server/server-usage/backup-and-restore/backup-and-restore-overview" class="uri">https://mariadb.com/docs/server/server-usage/backup-and-restore/backup-and-restore-overview</a></li>
 </ul>
 
 
