@@ -28,7 +28,7 @@ apt-mark showauto | grep <package>
 
 ## Hold vs. Unhold
 
-A held package is pinned at its current version: `apt upgrade` and `apt full-upgrade` skip it entirely. Useful to prevent a known-broken release from landing, or to freeze a critical package until you are ready to upgrade.
+A held package is marked so APT will not automatically install, upgrade, or remove it. Useful to block a known-bad update or defer changes to a critical package until you are ready.
 
 ```bash
 # Prevent a package from being upgraded
