@@ -11,7 +11,7 @@ spotlight: ""
 On Debian (and derivatives), adding a third-party APT repository means fetching a GPG key, writing a `.list` or `.sources` file, and hoping the URL doesn't rot. `extrepo` handles all of that.
 
 ```bash
-sudo apt install extrepo
+apt install extrepo
 ```
 
 ## Usage
@@ -21,10 +21,10 @@ sudo apt install extrepo
 extrepo search
 
 # Enable a repository (adds key + source)
-sudo extrepo enable sury
+extrepo enable sury
 
 # Disable it (removes key + source)
-sudo extrepo disable sury
+extrepo disable sury
 ```
 
 ## References
