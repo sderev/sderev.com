@@ -1033,7 +1033,7 @@
     "href": "notes/203/index.html#procedure",
     "title": "Generate a Locale from /etc/locale.gen",
     "section": "Procedure",
-    "text": "Procedure\nEnable the locale you want in /etc/locale.gen:\nsudo sed -i 's/^# *en_US.UTF-8 UTF-8$/en_US.UTF-8 UTF-8/' /etc/locale.gen\nOr edit the file manually:\nsudo vim /etc/locale.gen\nGenerate the enabled locales:\nsudo locale-gen\nSet the system default locale if needed:\nsudo update-locale LANG=en_US.UTF-8"
+    "text": "Procedure\nEnable the locale you want in /etc/locale.gen:\nsed -i 's/^# *en_US.UTF-8 UTF-8$/en_US.UTF-8 UTF-8/' /etc/locale.gen\nOr edit the file manually:\nvim /etc/locale.gen\nGenerate the enabled locales:\nlocale-gen\nSet the system default locale if needed:\nupdate-locale LANG=en_US.UTF-8"
   },
   {
     "objectID": "notes/203/index.html#verify",
