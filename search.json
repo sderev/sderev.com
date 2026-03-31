@@ -1054,14 +1054,14 @@
     "href": "notes/201/index.html#manual-vs.-auto",
     "title": "Control Debian Package State with apt-mark",
     "section": "Manual vs. Auto",
-    "text": "Manual vs. Auto\nAPT tracks whether each installed package was explicitly requested (manual) or pulled in as a dependency (auto). Packages marked auto get removed by apt autoremove when nothing depends on them anymore.\n# Mark a package as manually installed (protect it from autoremove)\nsudo apt-mark manual &lt;package&gt;\n\n# Mark a package as automatically installed (eligible for autoremove)\nsudo apt-mark auto &lt;package&gt;\n\n# Check the status of a package\napt-mark showmanual | grep &lt;package&gt;\napt-mark showauto | grep &lt;package&gt;"
+    "text": "Manual vs. Auto\nAPT tracks whether each installed package was explicitly requested (manual) or pulled in as a dependency (auto). Packages marked auto get removed by apt autoremove when nothing depends on them anymore.\n# Mark a package as manually installed (protect it from autoremove)\napt-mark manual &lt;package&gt;\n\n# Mark a package as automatically installed (eligible for autoremove)\napt-mark auto &lt;package&gt;\n\n# Check the status of a package\napt-mark showmanual | grep &lt;package&gt;\napt-mark showauto | grep &lt;package&gt;"
   },
   {
     "objectID": "notes/201/index.html#hold-vs.-unhold",
     "href": "notes/201/index.html#hold-vs.-unhold",
     "title": "Control Debian Package State with apt-mark",
     "section": "Hold vs. Unhold",
-    "text": "Hold vs. Unhold\nA held package is pinned at its current version: apt upgrade and apt full-upgrade skip it entirely. Useful to prevent a known-broken release from landing, or to freeze a critical package until you are ready to upgrade.\n# Prevent a package from being upgraded\nsudo apt-mark hold &lt;package&gt;\n\n# Allow upgrades again\nsudo apt-mark unhold &lt;package&gt;\n\n# List all held packages\napt-mark showhold"
+    "text": "Hold vs. Unhold\nA held package is pinned at its current version: apt upgrade and apt full-upgrade skip it entirely. Useful to prevent a known-broken release from landing, or to freeze a critical package until you are ready to upgrade.\n# Prevent a package from being upgraded\napt-mark hold &lt;package&gt;\n\n# Allow upgrades again\napt-mark unhold &lt;package&gt;\n\n# List all held packages\napt-mark showhold"
   },
   {
     "objectID": "notes/201/index.html#references",

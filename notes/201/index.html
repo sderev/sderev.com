@@ -209,10 +209,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="manual-vs.-auto">Manual vs.&nbsp;Auto</h2>
 <p>APT tracks whether each installed package was explicitly requested (manual) or pulled in as a dependency (auto). Packages marked auto get removed by <code>apt autoremove</code> when nothing depends on them anymore.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Mark a package as manually installed (protect it from autoremove)</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">sudo</span> apt-mark manual <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">apt-mark</span> manual <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Mark a package as automatically installed (eligible for autoremove)</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">sudo</span> apt-mark auto <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="ex">apt-mark</span> auto <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a></span>
 <span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Check the status of a package</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a><span class="ex">apt-mark</span> showmanual <span class="kw">|</span> <span class="fu">grep</span> <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
@@ -222,10 +222,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="hold-vs.-unhold">Hold vs.&nbsp;Unhold</h2>
 <p>A held package is pinned at its current version: <code>apt upgrade</code> and <code>apt full-upgrade</code> skip it entirely. Useful to prevent a known-broken release from landing, or to freeze a critical package until you are ready to upgrade.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Prevent a package from being upgraded</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">sudo</span> apt-mark hold <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">apt-mark</span> hold <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Allow upgrades again</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">sudo</span> apt-mark unhold <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">apt-mark</span> unhold <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
 <span id="cb2-6"><a href="#cb2-6"></a></span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="co"># List all held packages</span></span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="ex">apt-mark</span> showhold</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
