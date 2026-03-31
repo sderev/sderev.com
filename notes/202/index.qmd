@@ -17,13 +17,13 @@ You can use this to override values from Debian's default `security.conf` withou
 ## Create the Override File
 
 ```bash
-sudo install -m 640 -o root -g root /dev/null /etc/apache2/conf-available/zzz-security-override.conf
+install -m 640 -o root -g root /dev/null /etc/apache2/conf-available/zzz-security-override.conf
 ```
 
 ## Write Your Overrides
 
 ```bash
-sudo tee /etc/apache2/conf-available/zzz-security-override.conf <<'EOF'
+tee /etc/apache2/conf-available/zzz-security-override.conf <<'EOF'
 ServerSignature Off
 ServerTokens Prod
 
@@ -37,9 +37,9 @@ EOF
 ## Enable and Reload
 
 ```bash
-sudo a2enconf zzz-security-override
-sudo apache2ctl -t
-sudo systemctl reload apache2
+a2enconf zzz-security-override
+apache2ctl -t
+systemctl reload apache2
 ```
 
 The `zzz-` prefix guarantees the file loads after `security.conf`. Even if a package update resets `security.conf` to Debian's default `ServerTokens OS`, your override still wins.
