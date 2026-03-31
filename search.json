@@ -1061,7 +1061,7 @@
     "href": "notes/201/index.html#hold-vs.-unhold",
     "title": "Control Debian Package State with apt-mark",
     "section": "Hold vs. Unhold",
-    "text": "Hold vs. Unhold\nA held package is pinned at its current version: apt upgrade and apt full-upgrade skip it entirely. Useful to prevent a known-broken release from landing, or to freeze a critical package until you are ready to upgrade.\n# Prevent a package from being upgraded\napt-mark hold &lt;package&gt;\n\n# Allow upgrades again\napt-mark unhold &lt;package&gt;\n\n# List all held packages\napt-mark showhold"
+    "text": "Hold vs. Unhold\nA held package is marked so APT will not automatically install, upgrade, or remove it. Useful to block a known-bad update or defer changes to a critical package until you are ready.\n# Prevent a package from being upgraded\napt-mark hold &lt;package&gt;\n\n# Allow upgrades again\napt-mark unhold &lt;package&gt;\n\n# List all held packages\napt-mark showhold"
   },
   {
     "objectID": "notes/201/index.html#references",

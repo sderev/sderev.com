@@ -220,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="hold-vs.-unhold" class="level2">
 <h2 class="anchored" data-anchor-id="hold-vs.-unhold">Hold vs.&nbsp;Unhold</h2>
-<p>A held package is pinned at its current version: <code>apt upgrade</code> and <code>apt full-upgrade</code> skip it entirely. Useful to prevent a known-broken release from landing, or to freeze a critical package until you are ready to upgrade.</p>
+<p>A held package is marked so APT will not automatically install, upgrade, or remove it. Useful to block a known-bad update or defer changes to a critical package until you are ready.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Prevent a package from being upgraded</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="ex">apt-mark</span> hold <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
