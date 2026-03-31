@@ -1096,7 +1096,7 @@
     "href": "notes/199/index.html#usage",
     "title": "Add External APT Repositories on Debian with extrepo",
     "section": "Usage",
-    "text": "Usage\n# List available repositories\nextrepo search\n\n# Enable a repository (adds key + source)\nsudo extrepo enable sury\n\n# Disable it (removes key + source)\nsudo extrepo disable sury"
+    "text": "Usage\n# List available repositories\nextrepo search\n\n# Enable a repository (adds key + source)\nextrepo enable sury\n\n# Disable it (removes key + source)\nextrepo disable sury"
   },
   {
     "objectID": "notes/199/index.html#references",
