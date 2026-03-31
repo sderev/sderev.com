@@ -16,10 +16,10 @@ APT tracks whether each installed package was explicitly requested (manual) or p
 
 ```bash
 # Mark a package as manually installed (protect it from autoremove)
-sudo apt-mark manual <package>
+apt-mark manual <package>
 
 # Mark a package as automatically installed (eligible for autoremove)
-sudo apt-mark auto <package>
+apt-mark auto <package>
 
 # Check the status of a package
 apt-mark showmanual | grep <package>
@@ -32,10 +32,10 @@ A held package is pinned at its current version: `apt upgrade` and `apt full-upg
 
 ```bash
 # Prevent a package from being upgraded
-sudo apt-mark hold <package>
+apt-mark hold <package>
 
 # Allow upgrades again
-sudo apt-mark unhold <package>
+apt-mark unhold <package>
 
 # List all held packages
 apt-mark showhold
