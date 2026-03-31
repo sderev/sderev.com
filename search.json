@@ -3854,14 +3854,14 @@
     "href": "notes/200/index.html#register-an-alternative",
     "title": "Choose Which Version of a Program Runs by Default with update-alternatives",
     "section": "Register an Alternative",
-    "text": "Register an Alternative\nsudo update-alternatives --install /usr/bin/php php /usr/bin/php8.2 82\nsudo update-alternatives --install /usr/bin/php php /usr/bin/php8.3 83\nThe last number is the priority. Highest priority wins in auto mode."
+    "text": "Register an Alternative\nupdate-alternatives --install /usr/bin/php php /usr/bin/php8.2 82\nupdate-alternatives --install /usr/bin/php php /usr/bin/php8.3 83\nThe last number is the priority. Highest priority wins in auto mode."
   },
   {
     "objectID": "notes/200/index.html#switch",
     "href": "notes/200/index.html#switch",
     "title": "Choose Which Version of a Program Runs by Default with update-alternatives",
     "section": "Switch",
-    "text": "Switch\n# Interactive picker\nsudo update-alternatives --config php\n\n# Or set it directly\nsudo update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java"
+    "text": "Switch\n# Interactive picker\nupdate-alternatives --config php\n\n# Or set it directly\nupdate-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java"
   },
   {
     "objectID": "notes/200/index.html#inspect",
@@ -3875,7 +3875,7 @@
     "href": "notes/200/index.html#remove",
     "title": "Choose Which Version of a Program Runs by Default with update-alternatives",
     "section": "Remove",
-    "text": "Remove\nsudo update-alternatives --remove php /usr/bin/php8.2"
+    "text": "Remove\nupdate-alternatives --remove php /usr/bin/php8.2"
   },
   {
     "objectID": "notes/200/index.html#references",

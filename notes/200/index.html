@@ -201,17 +201,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Debian’s <code>update-alternatives</code> manages symlinks in <code>/etc/alternatives/</code> so that several programs providing the same functionality (e.g., <code>php</code>, <code>java</code>) can coexist, and you pick which one the generic name points to.</p>
 <section id="register-an-alternative" class="level2">
 <h2 class="anchored" data-anchor-id="register-an-alternative">Register an Alternative</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sudo</span> update-alternatives <span class="at">--install</span> /usr/bin/php php /usr/bin/php8.2 82</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">sudo</span> update-alternatives <span class="at">--install</span> /usr/bin/php php /usr/bin/php8.3 83</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">update-alternatives</span> <span class="at">--install</span> /usr/bin/php php /usr/bin/php8.2 82</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">update-alternatives</span> <span class="at">--install</span> /usr/bin/php php /usr/bin/php8.3 83</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The last number is the priority. Highest priority wins in auto mode.</p>
 </section>
 <section id="switch" class="level2">
 <h2 class="anchored" data-anchor-id="switch">Switch</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Interactive picker</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">sudo</span> update-alternatives <span class="at">--config</span> php</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">update-alternatives</span> <span class="at">--config</span> php</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Or set it directly</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">sudo</span> update-alternatives <span class="at">--set</span> java /usr/lib/jvm/java-21-openjdk-amd64/bin/java</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">update-alternatives</span> <span class="at">--set</span> java /usr/lib/jvm/java-21-openjdk-amd64/bin/java</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="inspect" class="level2">
 <h2 class="anchored" data-anchor-id="inspect">Inspect</h2>
@@ -223,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="remove" class="level2">
 <h2 class="anchored" data-anchor-id="remove">Remove</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">sudo</span> update-alternatives <span class="at">--remove</span> php /usr/bin/php8.2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">update-alternatives</span> <span class="at">--remove</span> php /usr/bin/php8.2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
