@@ -3896,21 +3896,21 @@
     "href": "notes/202/index.html#create-the-override-file",
     "title": "Override Apache Configuration Without Editing System Files",
     "section": "Create the Override File",
-    "text": "Create the Override File\nsudo install -m 640 -o root -g root /dev/null /etc/apache2/conf-available/zzz-security-override.conf"
+    "text": "Create the Override File\ninstall -m 640 -o root -g root /dev/null /etc/apache2/conf-available/zzz-security-override.conf"
   },
   {
     "objectID": "notes/202/index.html#write-your-overrides",
     "href": "notes/202/index.html#write-your-overrides",
     "title": "Override Apache Configuration Without Editing System Files",
     "section": "Write Your Overrides",
-    "text": "Write Your Overrides\nsudo tee /etc/apache2/conf-available/zzz-security-override.conf &lt;&lt;'EOF'\nServerSignature Off\nServerTokens Prod\n\n&lt;IfModule mod_headers.c&gt;\n  Header set X-Content-Type-Options \"nosniff\"\n  Header set Content-Security-Policy \"frame-ancestors 'self';\"\n&lt;/IfModule&gt;\nEOF"
+    "text": "Write Your Overrides\ntee /etc/apache2/conf-available/zzz-security-override.conf &lt;&lt;'EOF'\nServerSignature Off\nServerTokens Prod\n\n&lt;IfModule mod_headers.c&gt;\n  Header set X-Content-Type-Options \"nosniff\"\n  Header set Content-Security-Policy \"frame-ancestors 'self';\"\n&lt;/IfModule&gt;\nEOF"
   },
   {
     "objectID": "notes/202/index.html#enable-and-reload",
     "href": "notes/202/index.html#enable-and-reload",
     "title": "Override Apache Configuration Without Editing System Files",
     "section": "Enable and Reload",
-    "text": "Enable and Reload\nsudo a2enconf zzz-security-override\nsudo apache2ctl -t\nsudo systemctl reload apache2\nThe zzz- prefix guarantees the file loads after security.conf. Even if a package update resets security.conf to Debian’s default ServerTokens OS, your override still wins."
+    "text": "Enable and Reload\na2enconf zzz-security-override\napache2ctl -t\nsystemctl reload apache2\nThe zzz- prefix guarantees the file loads after security.conf. Even if a package update resets security.conf to Debian’s default ServerTokens OS, your override still wins."
   },
   {
     "objectID": "notes/202/index.html#verify",
