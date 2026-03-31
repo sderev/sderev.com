@@ -13,8 +13,8 @@ Debian's `update-alternatives` manages symlinks in `/etc/alternatives/` so that 
 ## Register an Alternative
 
 ```bash
-sudo update-alternatives --install /usr/bin/php php /usr/bin/php8.2 82
-sudo update-alternatives --install /usr/bin/php php /usr/bin/php8.3 83
+update-alternatives --install /usr/bin/php php /usr/bin/php8.2 82
+update-alternatives --install /usr/bin/php php /usr/bin/php8.3 83
 ```
 
 The last number is the priority. Highest priority wins in auto mode.
@@ -23,10 +23,10 @@ The last number is the priority. Highest priority wins in auto mode.
 
 ```bash
 # Interactive picker
-sudo update-alternatives --config php
+update-alternatives --config php
 
 # Or set it directly
-sudo update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java
 ```
 
 ## Inspect
@@ -42,7 +42,7 @@ update-alternatives --get-selections
 ## Remove
 
 ```bash
-sudo update-alternatives --remove php /usr/bin/php8.2
+update-alternatives --remove php /usr/bin/php8.2
 ```
 
 ## References
