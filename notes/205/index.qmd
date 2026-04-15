@@ -1,0 +1,67 @@
+---
+title: "Inspect Debian Packages with `apt-file`, `rmadison`, and `apt-cache rdepends`"
+subtitle: "Note#205"
+id: "205"
+date: 2026-04-15
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+Which package ships this command? Which version does Debian ship? What depends on this package? Use these commands.
+
+## `apt-file search`
+
+```bash
+apt-file search rg
+```
+
+Search package contents without installing the package. This is substring matching, so bare command names can be noisy (`-F` does exact matching if you already know the full path -- like `$(command -v <cmd>)`).
+
+To use `apt-file`:
+
+```bash
+apt install apt-file
+apt-file update
+```
+
+## `apt-file show`
+
+```bash
+apt-file show ripgrep
+```
+
+List the files shipped by a package, even if it is not installed.
+
+## `rmadison`
+
+```bash
+rmadison postgresql
+```
+
+Show which version of a package is available across Debian suites.
+
+```text
+postgresql | 13+225+deb11u1 | oldoldstable | all
+postgresql | 15+248+deb12u1 | oldstable    | all
+postgresql | 17+278         | stable       | all
+postgresql | 18+290         | testing      | all
+postgresql | 18+290         | unstable     | all
+```
+
+Installed with `apt install devscripts`.
+
+## `apt-cache rdepends`
+
+```bash
+apt-cache rdepends git
+apt-cache --installed rdepends git
+```
+
+Show reverse dependencies from the local APT cache. `--installed` limits the output to installed packages.
+
+## References
+
+* `man apt-file`
+* `man apt-cache`
+* `man rmadison`
