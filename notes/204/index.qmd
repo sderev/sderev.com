@@ -1,0 +1,42 @@
+---
+title: "Protect Dependency Installs from Supply-Chain Attacks with a Release-Age Buffer"
+subtitle: "Note#204"
+id: "204"
+date: 2026-04-01
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+After the `litellm` incident on PyPI, and then `axios` on npm, I came across this trick on Twitter: configure your package manager to reject dependency releases that are too new.
+
+## `uv`
+
+```toml
+# ~/.config/uv/uv.toml
+exclude-newer = "7 days"
+```
+
+## `npm`
+
+```ini
+# ~/.npmrc
+min-release-age=7 # days
+ignore-scripts=true
+```
+
+## `bun`
+
+```toml
+# ~/.bunfig.toml
+[install]
+minimumReleaseAge = 604800 # seconds
+```
+
+## Related Notes
+
+* [Note#126 – Managing Pinned Dependencies for Python Packages with `uv`](https://sderev.com/notes/126)
+
+## References
+
+* [TIL: `uv` settings after `litellm`](https://antisimplistic.com/posts/2026-03-28-til-uv-settings-after-litellm/)
