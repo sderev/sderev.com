@@ -1033,7 +1033,7 @@
     "href": "notes/205/index.html#apt-file-search",
     "title": "Inspect Debian Packages with apt-file, rmadison, and apt-cache rdepends",
     "section": "apt-file search",
-    "text": "apt-file search\napt-file search rg\nSearch package contents without installing the package. This is substring matching, so bare command names can be noisy (-F does exact matching if you already know the full path – like $(command -v &lt;cmd&gt;)).\nTo use apt-file:\nsudo apt install apt-file\nsudo apt-file update"
+    "text": "apt-file search\napt-file search rg\nSearch package contents without installing the package. This is substring matching, so bare command names can be noisy (-F does exact matching if you already know the full path – like $(command -v &lt;cmd&gt;)).\nTo use apt-file:\napt install apt-file\napt-file update"
   },
   {
     "objectID": "notes/205/index.html#apt-file-show",
@@ -1047,7 +1047,7 @@
     "href": "notes/205/index.html#rmadison",
     "title": "Inspect Debian Packages with apt-file, rmadison, and apt-cache rdepends",
     "section": "rmadison",
-    "text": "rmadison\nrmadison postgresql\nShow which version of a package is available across Debian suites.\npostgresql | 13+225+deb11u1 | oldoldstable | all\npostgresql | 15+248+deb12u1 | oldstable    | all\npostgresql | 17+278         | stable       | all\npostgresql | 18+290         | testing      | all\npostgresql | 18+290         | unstable     | all\nInstalled with sudo apt install devscripts."
+    "text": "rmadison\nrmadison postgresql\nShow which version of a package is available across Debian suites.\npostgresql | 13+225+deb11u1 | oldoldstable | all\npostgresql | 15+248+deb12u1 | oldstable    | all\npostgresql | 17+278         | stable       | all\npostgresql | 18+290         | testing      | all\npostgresql | 18+290         | unstable     | all\nInstalled with apt install devscripts."
   },
   {
     "objectID": "notes/205/index.html#apt-cache-rdepends",

@@ -204,8 +204,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">apt-file</span> search rg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Search package contents without installing the package. This is substring matching, so bare command names can be noisy (<code>-F</code> does exact matching if you already know the full path – like <code>$(command -v &lt;cmd&gt;)</code>).</p>
 <p>To use <code>apt-file</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">sudo</span> apt install apt-file</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">sudo</span> apt-file update</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">apt</span> install apt-file</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">apt-file</span> update</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="apt-file-show" class="level2">
 <h2 class="anchored" data-anchor-id="apt-file-show"><code>apt-file show</code></h2>
@@ -221,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-3"><a href="#cb5-3"></a>postgresql | 17+278         | stable       | all</span>
 <span id="cb5-4"><a href="#cb5-4"></a>postgresql | 18+290         | testing      | all</span>
 <span id="cb5-5"><a href="#cb5-5"></a>postgresql | 18+290         | unstable     | all</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Installed with <code>sudo apt install devscripts</code>.</p>
+<p>Installed with <code>apt install devscripts</code>.</p>
 </section>
 <section id="apt-cache-rdepends" class="level2">
 <h2 class="anchored" data-anchor-id="apt-cache-rdepends"><code>apt-cache rdepends</code></h2>
