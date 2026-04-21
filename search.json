@@ -3945,7 +3945,7 @@
     "href": "notes/202/index.html#write-your-overrides",
     "title": "Override Apache Configuration Without Editing System Files",
     "section": "Write Your Overrides",
-    "text": "Write Your Overrides\ntee /etc/apache2/conf-available/zzz-security-override.conf &lt;&lt;'EOF'\nServerSignature Off\nServerTokens Prod\n\n&lt;IfModule mod_headers.c&gt;\n  Header set X-Content-Type-Options \"nosniff\"\n  Header set Content-Security-Policy \"frame-ancestors 'self';\"\n&lt;/IfModule&gt;\nEOF"
+    "text": "Write Your Overrides\ncat /etc/apache2/conf-available/zzz-security-override.conf &lt;&lt;'EOF'\nServerSignature Off\nServerTokens Prod\n\n&lt;IfModule mod_headers.c&gt;\n  Header set X-Content-Type-Options \"nosniff\"\n  Header set Content-Security-Policy \"frame-ancestors 'self';\"\n&lt;/IfModule&gt;\nEOF"
   },
   {
     "objectID": "notes/202/index.html#enable-and-reload",
