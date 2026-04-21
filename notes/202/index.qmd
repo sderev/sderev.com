@@ -23,7 +23,7 @@ install -m 640 -o root -g root /dev/null /etc/apache2/conf-available/zzz-securit
 ## Write Your Overrides
 
 ```bash
-tee /etc/apache2/conf-available/zzz-security-override.conf <<'EOF'
+cat /etc/apache2/conf-available/zzz-security-override.conf <<'EOF'
 ServerSignature Off
 ServerTokens Prod
 
