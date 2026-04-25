@@ -1,28 +1,35 @@
 ---
-title: "How to use ssh-agent to automatically enter your SSH key passphrase"
+title: "How to cache your SSH key passphrase with `ssh-agent`"
 subtitle: "Note#20"
 id: "20"
 date: 2022-11-24
-date-modified: ""
+date-modified: 2026-04-25
 date-format: iso
 categories: [notes]
 spotlight: ""
 ---
-**First, set up the environment variables:**
+## For the current shell
 
 ```bash
-eval $(ssh-agent)
-```
-
-**Then, add your private key to the agent and enter your passphrase:**
-
-```bash
+eval "$(ssh-agent)"
 ssh-add ~/.ssh/id_ed25519
 ```
 
-Your passphrase is now cached for the rest of the shell session.
+Enter your passphrase when prompted. It is cached for the rest of the shell session.
 
-**Finally, you can list the fingerprints of all your keys currently represented by the agent:**
+## Across shells with `keychain`
+
+[`keychain`](https://github.com/danielrobbins/keychain) starts or reuses a long-running `ssh-agent` and loads your keys.
+
+Add this to `~/.bashrc` or `~/.zshrc`:
+
+```bash
+if command -v keychain &>/dev/null; then
+    eval "$(keychain --eval --quiet id_ed25519)"
+fi
+```
+
+## List loaded keys
 
 ```bash
 ssh-add -l
