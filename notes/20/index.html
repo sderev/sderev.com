@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2022-11-24">
 
-<title>How to use ssh-agent to automatically enter your SSH key passphrase – Sébastien De Revière</title>
+<title>How to cache your SSH key passphrase with ssh-agent – Sébastien De Revière</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -109,10 +109,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="How to use ssh-agent to automatically enter your SSH key passphrase – Sébastien De Revière">
+<meta property="og:title" content="How to cache your SSH key passphrase with ssh-agent – Sébastien De Revière">
 <meta property="og:description" content="Note#20">
 <meta property="og:site_name" content="Sébastien De Revière">
-<meta name="twitter:title" content="How to use ssh-agent to automatically enter your SSH key passphrase – Sébastien De Revière">
+<meta name="twitter:title" content="How to cache your SSH key passphrase with ssh-agent – Sébastien De Revière">
 <meta name="twitter:description" content="Note#20">
 <meta name="twitter:creator" content="@sdereviere">
 <meta name="twitter:card" content="summary">
@@ -164,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page">
-      <h1 class="title">How to use ssh-agent to automatically enter your SSH key passphrase</h1>
+      <h1 class="title">How to cache your SSH key passphrase with <code>ssh-agent</code></h1>
             <p class="subtitle lead">Note#20</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">notes</div>
@@ -183,6 +183,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">2026-04-25</p>
+      </div>
+    </div>
       
     </div>
     
@@ -198,13 +204,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p><strong>First, set up the environment variables:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">eval</span> <span class="va">$(</span><span class="fu">ssh-agent</span><span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Then, add your private key to the agent and enter your passphrase:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ssh-add</span> ~/.ssh/id_ed25519</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Your passphrase is now cached for the rest of the shell session.</p>
-<p><strong>Finally, you can list the fingerprints of all your keys currently represented by the agent:</strong></p>
+<section id="for-the-current-shell" class="level2">
+<h2 class="anchored" data-anchor-id="for-the-current-shell">For the current shell</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">eval</span> <span class="st">"</span><span class="va">$(</span><span class="fu">ssh-agent</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">ssh-add</span> ~/.ssh/id_ed25519</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Enter your passphrase when prompted. It is cached for the rest of the shell session.</p>
+</section>
+<section id="across-shells-with-keychain" class="level2">
+<h2 class="anchored" data-anchor-id="across-shells-with-keychain">Across shells with <code>keychain</code></h2>
+<p><a href="https://github.com/danielrobbins/keychain"><code>keychain</code></a> starts or reuses a long-running <code>ssh-agent</code> and loads your keys.</p>
+<p>Add this to <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> keychain <span class="op">&amp;&gt;</span>/dev/null<span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="bu">eval</span> <span class="st">"</span><span class="va">$(</span><span class="ex">keychain</span> <span class="at">--eval</span> <span class="at">--quiet</span> id_ed25519<span class="va">)</span><span class="st">"</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="cf">fi</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="list-loaded-keys" class="level2">
+<h2 class="anchored" data-anchor-id="list-loaded-keys">List loaded keys</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ssh-add</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
 <section id="related-notes" class="level2">
 <h2 class="anchored" data-anchor-id="related-notes">Related Notes</h2>
 <ul>
