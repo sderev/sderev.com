@@ -186,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">2026-02-25</p>
+        <p class="date-modified">2026-05-01</p>
       </div>
     </div>
       
@@ -225,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11"></a></span>
 <span id="cb1-12"><a href="#cb1-12"></a><span class="co"># 4. Send the instruction</span></span>
 <span id="cb1-13"><a href="#cb1-13"></a><span class="ex">tmux</span> send-keys <span class="at">-t</span> <span class="op">&lt;</span>repo<span class="op">&gt;</span>-<span class="op">&lt;</span>role<span class="op">&gt;</span> -l <span class="st">'Read /tmp/instructions-{description}.md and follow it.'</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="fu">sleep</span> 2</span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="fu">sleep</span> 1</span>
 <span id="cb1-15"><a href="#cb1-15"></a><span class="ex">tmux</span> send-keys <span class="at">-t</span> <span class="op">&lt;</span>repo<span class="op">&gt;</span>-<span class="op">&lt;</span>role<span class="op">&gt;</span> Enter</span>
 <span id="cb1-16"><a href="#cb1-16"></a></span>
 <span id="cb1-17"><a href="#cb1-17"></a><span class="co"># 5. Poll for output (twice because agent may ask questions early)</span></span>
@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-19"><a href="#cb1-19"></a><span class="ex">tmux</span> capture-pane <span class="at">-t</span> <span class="op">&lt;</span>repo<span class="op">&gt;</span>-<span class="op">&lt;</span>role<span class="op">&gt;</span> -p <span class="at">-S</span> <span class="at">-50</span></span>
 <span id="cb1-20"><a href="#cb1-20"></a><span class="fu">sleep</span> 10</span>
 <span id="cb1-21"><a href="#cb1-21"></a><span class="ex">tmux</span> capture-pane <span class="at">-t</span> <span class="op">&lt;</span>repo<span class="op">&gt;</span>-<span class="op">&lt;</span>role<span class="op">&gt;</span> -p <span class="at">-S</span> <span class="at">-50</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The <code>sleep 2</code> between the text send and the Enter send matters. Without it, the <code>Enter</code> is often not delivered, so the message just sits there unsubmitted.</p>
+<p>The <code>sleep 1</code> between the text send and the Enter send matters. Without it, the <code>Enter</code> is often not delivered, so the message just sits there unsubmitted.</p>
 </section>
 <section id="agent-identity-and-messaging" class="level2">
 <h2 class="anchored" data-anchor-id="agent-identity-and-messaging">Agent Identity and Messaging</h2>
