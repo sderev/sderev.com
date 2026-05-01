@@ -32,7 +32,7 @@ tmux new-session -d -s <repo>-<role> -c .worktrees/{description} 'codex'
 
 # 4. Send the instruction
 tmux send-keys -t <repo>-<role> -l 'Read /tmp/instructions-{description}.md and follow it.'
-sleep 2
+sleep 1
 tmux send-keys -t <repo>-<role> Enter
 
 # 5. Poll for output (twice because agent may ask questions early)
@@ -42,7 +42,7 @@ sleep 10
 tmux capture-pane -t <repo>-<role> -p -S -50
 ```
 
-The `sleep 2` between the text send and the Enter send matters. Without it, the `Enter` is often not delivered, so the message just sits there unsubmitted.
+The `sleep 1` between the text send and the Enter send matters. Without it, the `Enter` is often not delivered, so the message just sits there unsubmitted.
 
 ## Agent Identity and Messaging
 
