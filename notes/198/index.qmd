@@ -3,63 +3,54 @@ title: "Chrome DevTools MCP from WSL"
 subtitle: "Note#198"
 id: "198"
 date: 2026-01-30
-date-modified: ""
+date-modified: "2026-05-09"
 date-format: iso
 categories: [notes]
 spotlight: ""
 ---
-If you encounter trouble configuring the chrome-devtools-mcp on WSL, just pass this note to your AI agent.
+The `chrome-devtools` MCP server drives Chrome through the Chrome DevTools Protocol. From WSL, use a dedicated Windows Chrome profile and launch it with remote debugging enabled.
 
-(*Report below was written by Claude Code*)
+This works with MCP clients such as Codex and Claude Code.
 
-The `chrome-devtools` MCP server connects to Chrome's remote debugging port on `localhost:9222`. Simple, except when running from WSL.
+## Requirements
 
-## The Problem
+* WSL2 mirrored networking, so WSL should be able to reach Windows Chrome on `localhost`.
+* A dedicated Chrome profile created with `--user-data-dir`.
 
-Chrome runs on Windows. Claude Code runs in WSL. The MCP tries to reach `localhost:9222`, but WSL's `localhost` is not Windows' `localhost` by default. They have separate network stacks.
+Remote debugging exposes browser state for that profile to local clients. Do not use your main Chrome profile for MCP sessions.
 
-### Attempt 1: Direct Connection
+## WSL Networking
 
-```
-Failed to fetch browser webSocket URL from http://127.0.0.1:9222/json/version
-```
-
-The port isn't forwarded.
-
-### Attempt 2: Using Windows Host IP
-
-Tried configuring the MCP to connect to the Windows host IP instead of `localhost`. The MCP doesn't expose a connection URL parameter in its config.
-
-### Attempt 3: Port Forwarding with `netsh`
-
-Windows-side port forwarding from WSL IP. Overly complex, fragile, and didn't work reliably.
-
-## The Solution: Mirrored Networking
-
-WSL2 supports "mirrored" networking mode, which makes WSL share the Windows network stack. Add to `%USERPROFILE%\.wslconfig`:
+Enable mirrored networking in `%USERPROFILE%\.wslconfig`:
 
 ```ini
 [wsl2]
 networkingMode=mirrored
 ```
 
-Then restart WSL:
+Restart WSL:
 
 ```powershell
 wsl --shutdown
 ```
 
-After restart, `localhost` in WSL points to the same network interface as Windows. The MCP connects to Chrome without any extra configuration.
+After restart, WSL should be able to reach the Windows Chrome debugging endpoint through `localhost`.
 
-## Chrome Profile Setup
+## Chrome Profile
 
 Chrome 136+ blocks remote debugging on default profiles. Use a separate profile with `--user-data-dir`.
 
-For projects using DevTools MCP, keep one profile per repository. This isolates logins, cookies, and extensions between projects. Store profiles on the Windows filesystem (e.g., `%LOCALAPPDATA%\ChromeDebugProfiles\<repo-name>`) since Chrome can't access WSL paths.
+Use one profile per project directory. This keeps logins, cookies, and extensions isolated between projects, while still persisting auth across restarts.
+
+Store profiles on the Windows filesystem, for example:
+
+```text
+%LOCALAPPDATA%\ChromeDebugProfiles\<dir-name>
+```
 
 ## Helper Script
 
-A script to launch Chrome with remote debugging from WSL:
+A literate helper script to launch, inspect, and stop directory-scoped debug Chrome instances from WSL:
 
 ```bash
 #!/usr/bin/env bash
@@ -67,38 +58,92 @@ A script to launch Chrome with remote debugging from WSL:
 # chrome-debug - Launch or stop Chrome with remote debugging for DevTools MCP
 #
 # USAGE
-#   ./tools/chrome-debug          Start Chrome with remote debugging
-#   ./tools/chrome-debug stop     Stop only the debug Chrome instance
+#   chrome-debug              Start Chrome (auto-picks port from 9222)
+#   chrome-debug start        Same as above
+#   chrome-debug start -p N   Start on explicit port N
+#   chrome-debug stop         Stop the debug Chrome for current repo
+#   chrome-debug port         Print the port for current repo (for MCP config)
+#   chrome-debug status       List all running debug sessions
 #
-# Run from WSL. Uses a dedicated profile at %LOCALAPPDATA%\ChromeDebugProfiles\<repo-name>
+# Run from WSL. Uses a dedicated profile at %LOCALAPPDATA%\ChromeDebugProfiles\<dir-name>
 # to keep the debug browser separate from your main Chrome. Profile persists between sessions.
 #
-# The stop command closes only Chrome instances with --remote-debugging-port=9222,
-# leaving your regular Chrome untouched.
+# Each repo/directory gets its own port. If port 9222 is already taken by another
+# session, the next free port (9223, 9224, ...) is used automatically.
+# State is tracked in ~/.cache/chrome-debug/<dir-name>.port
 
 set -euo pipefail
 
 CHROME_PATH='C:\Program Files\Google\Chrome\Application\chrome.exe'
-DEBUG_PORT=9222
-REPO_NAME=$(basename "$(git rev-parse --show-toplevel 2>/dev/null || echo "$PWD")")
+BASE_PORT=9222
+MAX_PORT=9230
+STATE_DIR="$HOME/.cache/chrome-debug"
+DIR_NAME=$(basename "$(git rev-parse --show-toplevel 2>/dev/null || echo "$PWD")")
+
+mkdir -p "$STATE_DIR"
+
+# Read port from state file, or return empty
+read_port() {
+    local port_file="$STATE_DIR/$DIR_NAME.port"
+    if [[ -f "$port_file" ]]; then
+        cat "$port_file"
+    fi
+}
+
+# Write port to state file
+write_port() {
+    echo "$1" > "$STATE_DIR/$DIR_NAME.port"
+}
+
+# Remove state file
+clear_port() {
+    rm -f "$STATE_DIR/$DIR_NAME.port"
+}
+
+# Check if a port has a Chrome debug instance listening (from WSL side)
+port_in_use() {
+    local port=$1
+    # Try to connect to the Chrome DevTools JSON endpoint
+    curl -s --connect-timeout 1 "http://localhost:$port/json/version" >/dev/null 2>&1
+}
+
+# Find next free port starting from BASE_PORT
+find_free_port() {
+    local port=$BASE_PORT
+    while (( port <= MAX_PORT )); do
+        if ! port_in_use "$port"; then
+            echo "$port"
+            return
+        fi
+        (( port++ ))
+    done
+    echo "Error: all ports $BASE_PORT-$MAX_PORT are in use." >&2
+    exit 1
+}
 
 stop_debug_chrome() {
-    echo "Stopping Chrome debug instance (port $DEBUG_PORT)..."
+    local port
+    port=$(read_port)
+    if [[ -z "$port" ]]; then
+        echo "No tracked session for '$DIR_NAME'."
+        return
+    fi
 
-    # Get the main Chrome process PID for the debug instance
+    echo "Stopping Chrome debug instance (port $port, profile $DIR_NAME)..."
+
     main_pid=$(powershell.exe -Command "
-        \$proc = Get-CimInstance Win32_Process -Filter \"Name='chrome.exe' AND CommandLine LIKE '%--remote-debugging-port=$DEBUG_PORT%'\" |
+        \$proc = Get-CimInstance Win32_Process -Filter \"Name='chrome.exe' AND CommandLine LIKE '%--remote-debugging-port=$port%'\" |
             Where-Object { \$_.CommandLine -notmatch '--type=' } |
             Select-Object -First 1
         if (\$proc) { \$proc.ProcessId }
     " | tr -d '\r\n')
 
     if [[ -z "$main_pid" ]]; then
-        echo "No debug Chrome instance found."
+        echo "No Chrome process found on port $port (already stopped?)."
+        clear_port
         return
     fi
 
-    # Stop Chrome
     powershell.exe -Command "
         Stop-Process -Id $main_pid -ErrorAction SilentlyContinue
         Start-Sleep -Milliseconds 500
@@ -107,35 +152,124 @@ stop_debug_chrome() {
         }
     "
 
-    # Mark exit as clean in preferences to prevent "restore pages" prompt.
-    # Chrome sets exit_type to "Crashed" when terminated externally; resetting
-    # it avoids the recovery dialog on next launch.
+    # Mark exit as clean to prevent "restore pages" prompt
     local_appdata=$(powershell.exe -Command 'Write-Host $env:LOCALAPPDATA' | tr -d '\r\n' | sed 's|\\|/|g' | sed 's|^\([A-Za-z]\):|/mnt/\L\1|')
-    prefs_file="$local_appdata/ChromeDebugProfiles/$REPO_NAME/Default/Preferences"
+    prefs_file="$local_appdata/ChromeDebugProfiles/$DIR_NAME/Default/Preferences"
     if [[ -f "$prefs_file" ]]; then
         sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/g' "$prefs_file"
         sed -i 's/"exited_cleanly":false/"exited_cleanly":true/g' "$prefs_file"
     fi
 
+    clear_port
     echo "Debug Chrome stopped."
 }
 
 start_debug_chrome() {
-    echo "Starting Chrome with remote debugging on port $DEBUG_PORT..."
+    local port
+
+    # Check if this repo already has a running session
+    local existing_port
+    existing_port=$(read_port)
+    if [[ -n "$existing_port" ]] && port_in_use "$existing_port"; then
+        echo "Already running on port $existing_port (profile $DIR_NAME)."
+        return
+    fi
+
+    # Explicit port via -p flag, or auto-pick
+    if [[ -n "${1:-}" ]]; then
+        port=$1
+        if port_in_use "$port"; then
+            echo "Port $port is already in use by another session."
+            echo "Use 'chrome-debug status' to see all sessions."
+            exit 1
+        fi
+    else
+        port=$(find_free_port)
+    fi
+
+    echo "Starting Chrome with remote debugging on port $port (profile $DIR_NAME)..."
+    # The profile path is persistent, so browser auth state survives restarts.
+    # First-run prompts are disabled because they block automated DevTools use.
+    # Chrome 111+ rejects remote WebSocket clients unless their origin is allowed.
     powershell.exe -Command "
-        \$profileDir = \"\$env:LOCALAPPDATA\\ChromeDebugProfiles\\$REPO_NAME\"
+        \$profileDir = \"\$env:LOCALAPPDATA\\ChromeDebugProfiles\\$DIR_NAME\"
+        \$chromeArgs = @(
+            '--remote-debugging-port=$port',
+            \"--user-data-dir=\$profileDir\",
+            '--disable-session-crashed-bubble',
+            '--no-first-run',
+            '--no-default-browser-check',
+            '--disable-search-engine-choice-screen',
+            '--remote-allow-origins=*'
+        )
         Write-Host \"Profile: \$profileDir\"
-        Start-Process -FilePath '$CHROME_PATH' -ArgumentList '--remote-debugging-port=$DEBUG_PORT', \"--user-data-dir=\$profileDir\", '--disable-session-crashed-bubble'
+        Start-Process -FilePath '$CHROME_PATH' -ArgumentList \$chromeArgs
     "
+
+    write_port "$port"
+    echo "Port $port saved to $STATE_DIR/$DIR_NAME.port"
 }
 
-case "${1:-}" in
-    stop)        stop_debug_chrome ;;
-    ""|start)    start_debug_chrome ;;
-    *)           echo "Usage: $0 [start|stop]"; exit 1 ;;
+show_port() {
+    local port
+    port=$(read_port)
+    if [[ -z "$port" ]]; then
+        echo "No tracked session for '$DIR_NAME'." >&2
+        exit 1
+    fi
+    if port_in_use "$port"; then
+        echo "$port"
+    else
+        echo "Port $port was tracked but Chrome is not responding. Cleaning up." >&2
+        clear_port
+        exit 1
+    fi
+}
+
+show_status() {
+    local found=0
+    for port_file in "$STATE_DIR"/*.port; do
+        [[ -f "$port_file" ]] || continue
+        local name port status
+        name=$(basename "$port_file" .port)
+        port=$(cat "$port_file")
+        if port_in_use "$port"; then
+            status="running"
+        else
+            status="stale (cleaning up)"
+            rm -f "$port_file"
+        fi
+        printf "%-30s port %-5s %s\n" "$name" "$port" "$status"
+        found=1
+    done
+    if (( found == 0 )); then
+        echo "No debug sessions tracked."
+    fi
+}
+
+# Parse command and flags
+cmd="${1:-start}"
+shift || true
+
+case "$cmd" in
+    start|"")
+        explicit_port=""
+        while (( $# > 0 )); do
+            case "$1" in
+                -p) explicit_port="${2:?'-p requires a port number'}"; shift 2 ;;
+                *)  echo "Unknown flag: $1"; exit 1 ;;
+            esac
+        done
+        start_debug_chrome "$explicit_port"
+        ;;
+    stop)    stop_debug_chrome ;;
+    port)    show_port ;;
+    status)  show_status ;;
+    *)       echo "Usage: $0 [start [-p PORT]|stop|port|status]"; exit 1 ;;
 esac
 ```
 
 ## References
 
 * [https://github.com/ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp)
+* [https://developer.chrome.com/blog/chrome-devtools-mcp-debug-your-browser-session](https://developer.chrome.com/blog/chrome-devtools-mcp-debug-your-browser-session)
