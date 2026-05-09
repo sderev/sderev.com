@@ -183,6 +183,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">2026-05-09</p>
+      </div>
+    </div>
       
     </div>
     
@@ -295,18 +301,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-58"><a href="#cb4-58"></a></span>
 <span id="cb4-59"><a href="#cb4-59"></a><span class="fu">start_debug_chrome()</span> <span class="kw">{</span></span>
 <span id="cb4-60"><a href="#cb4-60"></a>    <span class="bu">echo</span> <span class="st">"Starting Chrome with remote debugging on port </span><span class="va">$DEBUG_PORT</span><span class="st">..."</span></span>
-<span id="cb4-61"><a href="#cb4-61"></a>    <span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
-<span id="cb4-62"><a href="#cb4-62"></a><span class="st">        </span><span class="dt">\$</span><span class="st">profileDir = </span><span class="dt">\"\$</span><span class="st">env:LOCALAPPDATA</span><span class="dt">\\</span><span class="st">ChromeDebugProfiles</span><span class="dt">\\</span><span class="va">$REPO_NAME</span><span class="dt">\"</span></span>
-<span id="cb4-63"><a href="#cb4-63"></a><span class="st">        Write-Host </span><span class="dt">\"</span><span class="st">Profile: </span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span></span>
-<span id="cb4-64"><a href="#cb4-64"></a><span class="st">        Start-Process -FilePath '</span><span class="va">$CHROME_PATH</span><span class="st">' -ArgumentList '--remote-debugging-port=</span><span class="va">$DEBUG_PORT</span><span class="st">', </span><span class="dt">\"</span><span class="st">--user-data-dir=</span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span><span class="st">, '--disable-session-crashed-bubble'</span></span>
-<span id="cb4-65"><a href="#cb4-65"></a><span class="st">    "</span></span>
-<span id="cb4-66"><a href="#cb4-66"></a><span class="kw">}</span></span>
-<span id="cb4-67"><a href="#cb4-67"></a></span>
-<span id="cb4-68"><a href="#cb4-68"></a><span class="cf">case</span> <span class="st">"</span><span class="va">${1</span><span class="op">:-</span><span class="va">}</span><span class="st">"</span> <span class="kw">in</span></span>
-<span id="cb4-69"><a href="#cb4-69"></a>    <span class="ss">stop</span><span class="kw">)</span>        <span class="ex">stop_debug_chrome</span> <span class="cf">;;</span></span>
-<span id="cb4-70"><a href="#cb4-70"></a>    <span class="st">""</span><span class="kw">|</span><span class="ss">start</span><span class="kw">)</span>    <span class="ex">start_debug_chrome</span> <span class="cf">;;</span></span>
-<span id="cb4-71"><a href="#cb4-71"></a>    <span class="pp">*</span><span class="kw">)</span>           <span class="bu">echo</span> <span class="st">"Usage: </span><span class="va">$0</span><span class="st"> [start|stop]"</span><span class="kw">;</span> <span class="bu">exit</span> 1 <span class="cf">;;</span></span>
-<span id="cb4-72"><a href="#cb4-72"></a><span class="cf">esac</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-61"><a href="#cb4-61"></a>    <span class="co"># The profile path is persistent, so browser auth state survives restarts.</span></span>
+<span id="cb4-62"><a href="#cb4-62"></a>    <span class="co"># First-run prompts are disabled because they block automated DevTools use.</span></span>
+<span id="cb4-63"><a href="#cb4-63"></a>    <span class="co"># Chrome 111+ rejects remote WebSocket clients unless their origin is allowed.</span></span>
+<span id="cb4-64"><a href="#cb4-64"></a>    <span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
+<span id="cb4-65"><a href="#cb4-65"></a><span class="st">        </span><span class="dt">\$</span><span class="st">profileDir = </span><span class="dt">\"\$</span><span class="st">env:LOCALAPPDATA</span><span class="dt">\\</span><span class="st">ChromeDebugProfiles</span><span class="dt">\\</span><span class="va">$REPO_NAME</span><span class="dt">\"</span></span>
+<span id="cb4-66"><a href="#cb4-66"></a><span class="st">        </span><span class="dt">\$</span><span class="st">chromeArgs = @(</span></span>
+<span id="cb4-67"><a href="#cb4-67"></a><span class="st">            '--remote-debugging-port=</span><span class="va">$DEBUG_PORT</span><span class="st">',</span></span>
+<span id="cb4-68"><a href="#cb4-68"></a><span class="st">            </span><span class="dt">\"</span><span class="st">--user-data-dir=</span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span><span class="st">,</span></span>
+<span id="cb4-69"><a href="#cb4-69"></a><span class="st">            '--disable-session-crashed-bubble',</span></span>
+<span id="cb4-70"><a href="#cb4-70"></a><span class="st">            '--no-first-run',</span></span>
+<span id="cb4-71"><a href="#cb4-71"></a><span class="st">            '--no-default-browser-check',</span></span>
+<span id="cb4-72"><a href="#cb4-72"></a><span class="st">            '--disable-search-engine-choice-screen',</span></span>
+<span id="cb4-73"><a href="#cb4-73"></a><span class="st">            '--remote-allow-origins=*'</span></span>
+<span id="cb4-74"><a href="#cb4-74"></a><span class="st">        )</span></span>
+<span id="cb4-75"><a href="#cb4-75"></a><span class="st">        Write-Host </span><span class="dt">\"</span><span class="st">Profile: </span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span></span>
+<span id="cb4-76"><a href="#cb4-76"></a><span class="st">        Start-Process -FilePath '</span><span class="va">$CHROME_PATH</span><span class="st">' -ArgumentList </span><span class="dt">\$</span><span class="st">chromeArgs</span></span>
+<span id="cb4-77"><a href="#cb4-77"></a><span class="st">    "</span></span>
+<span id="cb4-78"><a href="#cb4-78"></a><span class="kw">}</span></span>
+<span id="cb4-79"><a href="#cb4-79"></a></span>
+<span id="cb4-80"><a href="#cb4-80"></a><span class="cf">case</span> <span class="st">"</span><span class="va">${1</span><span class="op">:-</span><span class="va">}</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb4-81"><a href="#cb4-81"></a>    <span class="ss">stop</span><span class="kw">)</span>        <span class="ex">stop_debug_chrome</span> <span class="cf">;;</span></span>
+<span id="cb4-82"><a href="#cb4-82"></a>    <span class="st">""</span><span class="kw">|</span><span class="ss">start</span><span class="kw">)</span>    <span class="ex">start_debug_chrome</span> <span class="cf">;;</span></span>
+<span id="cb4-83"><a href="#cb4-83"></a>    <span class="pp">*</span><span class="kw">)</span>           <span class="bu">echo</span> <span class="st">"Usage: </span><span class="va">$0</span><span class="st"> [start|stop]"</span><span class="kw">;</span> <span class="bu">exit</span> 1 <span class="cf">;;</span></span>
+<span id="cb4-84"><a href="#cb4-84"></a><span class="cf">esac</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
