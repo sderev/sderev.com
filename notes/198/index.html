@@ -455,28 +455,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">set</span> <span class="at">-euo</span> pipefail</span>
 <span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="cf">if</span> <span class="va">port</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="ex">chrome-debug</span> port <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>    <span class="bu">exec</span> npx <span class="at">--yes</span> chrome-devtools-mcp@latest <span class="at">--browserUrl</span> <span class="st">"http://127.0.0.1:</span><span class="va">${port}</span><span class="st">"</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="cf">fi</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="va">running_sessions</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="ex">chrome-debug</span> status <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'$2 == "port" &amp;&amp; $4 == "running" { print $3 }'</span><span class="va">)</span><span class="st">"</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="va">session_count</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s\n'</span> <span class="st">"</span><span class="va">$running_sessions</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'/^$/d'</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span><span class="va">)</span><span class="st">"</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$session_count</span><span class="st">"</span> <span class="ot">-ne</span> 1 <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a>    <span class="bu">echo</span> <span class="st">"No chrome-debug session for this directory, and could not infer a single running session."</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a>    <span class="bu">echo</span> <span class="st">"Run chrome-debug start from the target repo before using the Chrome DevTools MCP."</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a>    <span class="bu">exit</span> 1</span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="cf">fi</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="va">port</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="bu">printf</span> <span class="st">'%s\n'</span> <span class="st">"</span><span class="va">$running_sessions</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-n</span> <span class="st">'1p'</span><span class="va">)</span><span class="st">"</span></span>
-<span id="cb5-18"><a href="#cb5-18"></a><span class="bu">exec</span> npx <span class="at">--yes</span> chrome-devtools-mcp@latest <span class="at">--browserUrl</span> <span class="st">"http://127.0.0.1:</span><span class="va">${port}</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">start_chrome_debug()</span> <span class="kw">{</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="bu">local</span> <span class="va">output</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="va">output</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="ex">chrome-debug</span> start <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="bu">printf</span> <span class="st">'%s\n'</span> <span class="st">"</span><span class="va">$output</span><span class="st">"</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>    <span class="bu">printf</span> <span class="st">'%s\n'</span> <span class="st">"</span><span class="va">$output</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-n</span> <span class="dt">\</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>        <span class="at">-e</span> <span class="st">'s/^Already running on port \([0-9][0-9]*\) .*/\1/p'</span> <span class="dt">\</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>        <span class="at">-e</span> <span class="st">'s/^Port \([0-9][0-9]*\) saved .*/\1/p'</span> <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 1</span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="kw">}</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="fu">chrome_debug_responds()</span> <span class="kw">{</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>    <span class="bu">local</span> <span class="va">port</span><span class="op">=</span><span class="va">$1</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>    <span class="ex">curl</span> <span class="at">-s</span> <span class="at">--connect-timeout</span> 1 <span class="st">"http://127.0.0.1:</span><span class="va">${port}</span><span class="st">/json/version"</span> <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="kw">}</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="fu">find_single_chrome_debug_port()</span> <span class="kw">{</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a>    <span class="bu">local</span> <span class="va">found</span><span class="op">=</span><span class="va">()</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a>    <span class="bu">local</span> <span class="va">port</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>    <span class="cf">for</span> port <span class="kw">in</span> <span class="va">$(</span><span class="fu">seq</span> 9222 9230<span class="va">)</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>        <span class="cf">if</span> <span class="ex">chrome_debug_responds</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>            <span class="va">found</span><span class="op">+=</span><span class="va">(</span><span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a>        <span class="cf">fi</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a>    <span class="cf">done</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">${</span><span class="op">#</span><span class="va">found</span><span class="op">[@]</span><span class="va">}</span><span class="st">"</span> <span class="ot">-eq</span> 1 <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a>        <span class="bu">printf</span> <span class="st">'%s\n'</span> <span class="st">"</span><span class="va">${found</span><span class="op">[</span><span class="dv">0</span><span class="op">]</span><span class="va">}</span><span class="st">"</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a>    <span class="cf">fi</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="kw">}</span></span>
+<span id="cb5-30"><a href="#cb5-30"></a></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="fu">wait_for_chrome_debug()</span> <span class="kw">{</span></span>
+<span id="cb5-32"><a href="#cb5-32"></a>    <span class="bu">local</span> <span class="va">port</span><span class="op">=</span><span class="va">$1</span></span>
+<span id="cb5-33"><a href="#cb5-33"></a>    <span class="bu">local</span> <span class="va">tries</span><span class="op">=</span>0</span>
+<span id="cb5-34"><a href="#cb5-34"></a>    <span class="cf">while</span> <span class="kw">((</span> <span class="va">tries</span> <span class="op">&lt;</span> <span class="dv">50</span> <span class="kw">));</span> <span class="cf">do</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a>        <span class="cf">if</span> <span class="ex">chrome_debug_responds</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb5-36"><a href="#cb5-36"></a>            <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a>        <span class="cf">fi</span></span>
+<span id="cb5-38"><a href="#cb5-38"></a>        <span class="fu">sleep</span> 0.2</span>
+<span id="cb5-39"><a href="#cb5-39"></a>        <span class="kw">((</span> <span class="va">tries</span><span class="op">++</span> <span class="kw">))</span></span>
+<span id="cb5-40"><a href="#cb5-40"></a>    <span class="cf">done</span></span>
+<span id="cb5-41"><a href="#cb5-41"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="kw">}</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="cf">if</span> <span class="ot">! </span><span class="va">port</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="ex">chrome-debug</span> port <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb5-45"><a href="#cb5-45"></a>    <span class="va">port</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="ex">find_single_chrome_debug_port</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="cf">fi</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a></span>
+<span id="cb5-48"><a href="#cb5-48"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">${port</span><span class="op">:-</span><span class="va">}</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb5-49"><a href="#cb5-49"></a>    <span class="va">port</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="ex">start_chrome_debug</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb5-50"><a href="#cb5-50"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb5-51"><a href="#cb5-51"></a>        <span class="bu">echo</span> <span class="st">"Could not determine chrome-debug port after starting Chrome."</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
+<span id="cb5-52"><a href="#cb5-52"></a>        <span class="bu">exit</span> 1</span>
+<span id="cb5-53"><a href="#cb5-53"></a>    <span class="cf">fi</span></span>
+<span id="cb5-54"><a href="#cb5-54"></a><span class="cf">fi</span></span>
+<span id="cb5-55"><a href="#cb5-55"></a></span>
+<span id="cb5-56"><a href="#cb5-56"></a><span class="cf">if</span> <span class="ot">! </span><span class="ex">wait_for_chrome_debug</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb5-57"><a href="#cb5-57"></a>    <span class="bu">echo</span> <span class="st">"Chrome debug endpoint did not become ready on port </span><span class="va">${port}</span><span class="st">."</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
+<span id="cb5-58"><a href="#cb5-58"></a>    <span class="bu">exit</span> 1</span>
+<span id="cb5-59"><a href="#cb5-59"></a><span class="cf">fi</span></span>
+<span id="cb5-60"><a href="#cb5-60"></a></span>
+<span id="cb5-61"><a href="#cb5-61"></a><span class="bu">exec</span> npx <span class="at">--yes</span> chrome-devtools-mcp@latest <span class="at">--browserUrl</span> <span class="st">"http://127.0.0.1:</span><span class="va">${port}</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then point the MCP client at the wrapper. For Codex:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">[mcp_servers.chrome-devtools]</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="dt">command</span> <span class="op">=</span> <span class="st">"chrome-devtools-mcp"</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="dt">args</span> <span class="op">=</span> <span class="op">[]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Start Chrome from the target repository before using the MCP tools:</p>
+<p>You can start Chrome from the target repository before using the MCP tools:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">chrome-debug</span> start</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The wrapper first asks <code>chrome-debug port</code> for the current repository. If the MCP client starts from another directory, it falls back only when exactly one <code>chrome-debug</code> session is running. The fallback parses <code>chrome-debug status</code>, so keep debug profile names free of spaces unless <code>chrome-debug</code> later grows a machine-readable status output.</p>
+<p>The wrapper first asks <code>chrome-debug port</code> for the current repository. If the state file is missing but exactly one Chrome DevTools endpoint is already live on ports <code>9222</code> to <code>9230</code>, it uses that endpoint. Otherwise it starts <code>chrome-debug</code>, waits for the endpoint to answer, and then launches <code>chrome-devtools-mcp</code> against the detected port.</p>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
