@@ -3,7 +3,7 @@ title: "Chrome DevTools MCP from WSL"
 subtitle: "Note#198"
 id: "198"
 date: 2026-01-30
-date-modified: "2026-05-09"
+date-modified: "2026-05-10"
 date-format: iso
 categories: [notes]
 spotlight: ""
@@ -121,6 +121,28 @@ find_free_port() {
     exit 1
 }
 
+pid_for_port() {
+    local port=$1
+    cmd.exe /C "netstat -a -n -o" 2>/dev/null |
+        tr -d '\r' |
+        awk -v port=":$port" '$1 == "TCP" && $2 ~ port "$" && $4 == "LISTENING" { print $5; exit }' || true
+}
+
+pid_matches_chrome_debug_endpoint() {
+    local pid=$1
+    local port=$2
+    local process_name
+
+    process_name=$(timeout 5s powershell.exe -NoProfile -NonInteractive -Command "
+        \$proc = Get-Process -Id $pid -ErrorAction SilentlyContinue
+        if (\$proc) { \$proc.ProcessName }
+    " | tr -d '\r\n' || true)
+
+    [[ "$process_name" == "chrome" ]] &&
+        curl -s --connect-timeout 1 "http://127.0.0.1:${port}/json/version" |
+            grep -q '"Browser": "Chrome/'
+}
+
 stop_debug_chrome() {
     local port
     port=$(read_port)
@@ -131,12 +153,7 @@ stop_debug_chrome() {
 
     echo "Stopping Chrome debug instance (port $port, profile $DIR_NAME)..."
 
-    main_pid=$(powershell.exe -Command "
-        \$proc = Get-CimInstance Win32_Process -Filter \"Name='chrome.exe' AND CommandLine LIKE '%--remote-debugging-port=$port%'\" |
-            Where-Object { \$_.CommandLine -notmatch '--type=' } |
-            Select-Object -First 1
-        if (\$proc) { \$proc.ProcessId }
-    " | tr -d '\r\n')
+    main_pid=$(pid_for_port "$port")
 
     if [[ -z "$main_pid" ]]; then
         echo "No Chrome process found on port $port (already stopped?)."
@@ -144,16 +161,16 @@ stop_debug_chrome() {
         return
     fi
 
-    powershell.exe -Command "
-        Stop-Process -Id $main_pid -ErrorAction SilentlyContinue
-        Start-Sleep -Milliseconds 500
-        if (Get-Process -Id $main_pid -ErrorAction SilentlyContinue) {
-            Stop-Process -Id $main_pid -Force
-        }
-    "
+    if ! pid_matches_chrome_debug_endpoint "$main_pid" "$port"; then
+        echo "Tracked port $port is not owned by a Chrome DevTools endpoint; refusing to stop PID $main_pid." >&2
+        clear_port
+        exit 1
+    fi
+
+    powershell.exe -NoProfile -NonInteractive -Command "Stop-Process -Id $main_pid -Force -ErrorAction SilentlyContinue"
 
     # Mark exit as clean to prevent "restore pages" prompt
-    local_appdata=$(powershell.exe -Command 'Write-Host $env:LOCALAPPDATA' | tr -d '\r\n' | sed 's|\\|/|g' | sed 's|^\([A-Za-z]\):|/mnt/\L\1|')
+    local_appdata=$(powershell.exe -NoProfile -NonInteractive -Command 'Write-Host $env:LOCALAPPDATA' | tr -d '\r\n' | sed 's|\\|/|g' | sed 's|^\([A-Za-z]\):|/mnt/\L\1|')
     prefs_file="$local_appdata/ChromeDebugProfiles/$DIR_NAME/Default/Preferences"
     if [[ -f "$prefs_file" ]]; then
         sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/g' "$prefs_file"
@@ -191,7 +208,7 @@ start_debug_chrome() {
     # The profile path is persistent, so browser auth state survives restarts.
     # First-run prompts are disabled because they block automated DevTools use.
     # Chrome 111+ rejects remote WebSocket clients unless their origin is allowed.
-    powershell.exe -Command "
+    powershell.exe -NoProfile -NonInteractive -Command "
         \$profileDir = \"\$env:LOCALAPPDATA\\ChromeDebugProfiles\\$DIR_NAME\"
         \$chromeArgs = @(
             '--remote-debugging-port=$port',
@@ -268,6 +285,172 @@ case "$cmd" in
     *)       echo "Usage: $0 [start [-p PORT]|stop|port|status]"; exit 1 ;;
 esac
 ```
+
+## MCP Client Wrapper
+
+Do not hardcode the debug port in MCP client configuration. `chrome-debug` can choose `9222`, `9223`, or another port if earlier sessions already use lower ports.
+
+Install a wrapper script named `chrome-devtools-mcp` somewhere in your `PATH`:
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+chrome_debug_responds() {
+    local port=$1
+    curl -s --connect-timeout 1 "http://127.0.0.1:${port}/json/version" >/dev/null 2>&1
+}
+
+wait_for_chrome_debug() {
+    local port=$1
+    local tries=0
+    while (( tries < 50 )); do
+        if chrome_debug_responds "$port"; then
+            return 0
+        fi
+        sleep 0.2
+        (( tries++ ))
+    done
+    return 1
+}
+
+noop_mcp_server() {
+    exec node -e '
+const input = process.stdin;
+let buffer = Buffer.alloc(0);
+let transport = "content-length";
+
+function send(message) {
+  const body = Buffer.from(JSON.stringify(message), "utf8");
+  if (transport === "newline") {
+    process.stdout.write(`${body.toString("utf8")}\n`);
+    return;
+  }
+  process.stdout.write(`Content-Length: ${body.length}\r\n\r\n`);
+  process.stdout.write(body);
+}
+
+function handle(message) {
+  if (!message || message.id === undefined) {
+    return;
+  }
+
+  if (message.method === "initialize") {
+    send({
+      jsonrpc: "2.0",
+      id: message.id,
+      result: {
+        protocolVersion: message.params?.protocolVersion || "2025-06-18",
+        capabilities: { tools: {} },
+        serverInfo: {
+          name: "chrome-devtools-mcp-wrapper",
+          version: "0.1.0"
+        }
+      }
+    });
+    return;
+  }
+
+  if (message.method === "tools/list") {
+    send({ jsonrpc: "2.0", id: message.id, result: { tools: [] } });
+    return;
+  }
+
+  if (message.method === "resources/list") {
+    send({ jsonrpc: "2.0", id: message.id, result: { resources: [] } });
+    return;
+  }
+
+  if (message.method === "prompts/list") {
+    send({ jsonrpc: "2.0", id: message.id, result: { prompts: [] } });
+    return;
+  }
+
+  send({
+    jsonrpc: "2.0",
+    id: message.id,
+    error: { code: -32601, message: "Chrome DevTools is not running. Start chrome-debug before Codex to enable these MCP tools." }
+  });
+}
+
+input.on("data", chunk => {
+  buffer = Buffer.concat([buffer, chunk]);
+  while (true) {
+    let headerEnd = buffer.indexOf("\r\n\r\n");
+    let separatorLength = 4;
+    if (headerEnd === -1) {
+      headerEnd = buffer.indexOf("\n\n");
+      separatorLength = 2;
+    }
+    if (headerEnd === -1) {
+      const newlineEnd = buffer.indexOf("\n");
+      if (newlineEnd === -1) {
+        return;
+      }
+      transport = "newline";
+      const line = buffer.subarray(0, newlineEnd).toString("utf8").trim();
+      buffer = buffer.subarray(newlineEnd + 1);
+      if (line) {
+        handle(JSON.parse(line));
+      }
+      continue;
+    }
+
+    const header = buffer.subarray(0, headerEnd).toString("utf8");
+    const lengthMatch = header.match(/content-length:\s*(\d+)/i);
+    if (!lengthMatch) {
+      process.exit(1);
+    }
+
+    const length = Number(lengthMatch[1]);
+    const messageStart = headerEnd + separatorLength;
+    const messageEnd = messageStart + length;
+    if (buffer.length < messageEnd) {
+      return;
+    }
+
+    const body = buffer.subarray(messageStart, messageEnd).toString("utf8");
+    buffer = buffer.subarray(messageEnd);
+    handle(JSON.parse(body));
+  }
+});
+'
+}
+
+port="$(chrome-debug port 2>/dev/null || true)"
+
+if [[ -z "${port:-}" ]]; then
+    noop_mcp_server
+fi
+
+if ! wait_for_chrome_debug "$port"; then
+    noop_mcp_server
+fi
+
+if [[ -n "${CHROME_DEVTOOLS_MCP_BIN:-}" ]]; then
+    exec "$CHROME_DEVTOOLS_MCP_BIN" --browserUrl "http://127.0.0.1:${port}"
+fi
+
+exec npx --yes chrome-devtools-mcp@0.25.0 --browserUrl "http://127.0.0.1:${port}"
+```
+
+Then point the MCP client at the wrapper. For Codex:
+
+```toml
+[mcp_servers.chrome-devtools]
+command = "/path/to/chrome-devtools-mcp"
+args = []
+```
+
+You can start Chrome from the target repository before using the MCP tools:
+
+```bash
+chrome-debug start
+```
+
+The wrapper asks `chrome-debug port` for the current repository. If that command cannot return a live tracked port, the wrapper starts a minimal no-tool MCP server so Codex does not show a startup warning. Start `chrome-debug` explicitly from the target repository before starting Codex when you need the DevTools MCP tools. The MCP wrapper should attach to Chrome only; it should not open Chrome as a side effect of starting Codex, and it should not guess by attaching to another untracked Chrome DevTools endpoint.
+
+Do not use `npx --yes chrome-devtools-mcp@latest` in the wrapper. Use a pinned package version so the Chrome-enabled path is reproducible. The wrapper only calls `npx` after it has found a live tracked `chrome-debug` port, so normal Codex startup without Chrome does not wait on npm.
 
 ## References
 
