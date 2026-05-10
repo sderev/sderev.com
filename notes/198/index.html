@@ -301,152 +301,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-66"><a href="#cb4-66"></a>    <span class="bu">exit</span> 1</span>
 <span id="cb4-67"><a href="#cb4-67"></a><span class="kw">}</span></span>
 <span id="cb4-68"><a href="#cb4-68"></a></span>
-<span id="cb4-69"><a href="#cb4-69"></a><span class="fu">stop_debug_chrome()</span> <span class="kw">{</span></span>
-<span id="cb4-70"><a href="#cb4-70"></a>    <span class="bu">local</span> <span class="va">port</span></span>
-<span id="cb4-71"><a href="#cb4-71"></a>    <span class="va">port</span><span class="op">=</span><span class="va">$(</span><span class="ex">read_port</span><span class="va">)</span></span>
-<span id="cb4-72"><a href="#cb4-72"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb4-73"><a href="#cb4-73"></a>        <span class="bu">echo</span> <span class="st">"No tracked session for '</span><span class="va">$DIR_NAME</span><span class="st">'."</span></span>
-<span id="cb4-74"><a href="#cb4-74"></a>        <span class="cf">return</span></span>
-<span id="cb4-75"><a href="#cb4-75"></a>    <span class="cf">fi</span></span>
-<span id="cb4-76"><a href="#cb4-76"></a></span>
-<span id="cb4-77"><a href="#cb4-77"></a>    <span class="bu">echo</span> <span class="st">"Stopping Chrome debug instance (port </span><span class="va">$port</span><span class="st">, profile </span><span class="va">$DIR_NAME</span><span class="st">)..."</span></span>
-<span id="cb4-78"><a href="#cb4-78"></a></span>
-<span id="cb4-79"><a href="#cb4-79"></a>    <span class="va">main_pid</span><span class="op">=</span><span class="va">$(</span><span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
-<span id="cb4-80"><a href="#cb4-80"></a><span class="st">        </span><span class="dt">\$</span><span class="st">proc = Get-CimInstance Win32_Process -Filter </span><span class="dt">\"</span><span class="st">Name='chrome.exe' AND CommandLine LIKE '%--remote-debugging-port=</span><span class="va">$port</span><span class="st">%'</span><span class="dt">\"</span><span class="st"> |</span></span>
-<span id="cb4-81"><a href="#cb4-81"></a><span class="st">            Where-Object { </span><span class="dt">\$</span><span class="st">_.CommandLine -notmatch '--type=' } |</span></span>
-<span id="cb4-82"><a href="#cb4-82"></a><span class="st">            Select-Object -First 1</span></span>
-<span id="cb4-83"><a href="#cb4-83"></a><span class="st">        if (</span><span class="dt">\$</span><span class="st">proc) { </span><span class="dt">\$</span><span class="st">proc.ProcessId }</span></span>
-<span id="cb4-84"><a href="#cb4-84"></a><span class="st">    "</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'\r\n'</span><span class="va">)</span></span>
+<span id="cb4-69"><a href="#cb4-69"></a><span class="fu">pid_for_port()</span> <span class="kw">{</span></span>
+<span id="cb4-70"><a href="#cb4-70"></a>    <span class="bu">local</span> <span class="va">port</span><span class="op">=</span><span class="va">$1</span></span>
+<span id="cb4-71"><a href="#cb4-71"></a>    <span class="ex">cmd.exe</span> /C <span class="st">"netstat -a -n -o"</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span></span>
+<span id="cb4-72"><a href="#cb4-72"></a>        <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'\r'</span> <span class="kw">|</span></span>
+<span id="cb4-73"><a href="#cb4-73"></a>        <span class="fu">awk</span> <span class="at">-v</span> port=<span class="st">":</span><span class="va">$port</span><span class="st">"</span> <span class="st">'$1 == "TCP" &amp;&amp; $2 ~ port "$" &amp;&amp; $4 == "LISTENING" { print $5; exit }'</span> <span class="kw">||</span> <span class="fu">true</span></span>
+<span id="cb4-74"><a href="#cb4-74"></a><span class="kw">}</span></span>
+<span id="cb4-75"><a href="#cb4-75"></a></span>
+<span id="cb4-76"><a href="#cb4-76"></a><span class="fu">stop_debug_chrome()</span> <span class="kw">{</span></span>
+<span id="cb4-77"><a href="#cb4-77"></a>    <span class="bu">local</span> <span class="va">port</span></span>
+<span id="cb4-78"><a href="#cb4-78"></a>    <span class="va">port</span><span class="op">=</span><span class="va">$(</span><span class="ex">read_port</span><span class="va">)</span></span>
+<span id="cb4-79"><a href="#cb4-79"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb4-80"><a href="#cb4-80"></a>        <span class="bu">echo</span> <span class="st">"No tracked session for '</span><span class="va">$DIR_NAME</span><span class="st">'."</span></span>
+<span id="cb4-81"><a href="#cb4-81"></a>        <span class="cf">return</span></span>
+<span id="cb4-82"><a href="#cb4-82"></a>    <span class="cf">fi</span></span>
+<span id="cb4-83"><a href="#cb4-83"></a></span>
+<span id="cb4-84"><a href="#cb4-84"></a>    <span class="bu">echo</span> <span class="st">"Stopping Chrome debug instance (port </span><span class="va">$port</span><span class="st">, profile </span><span class="va">$DIR_NAME</span><span class="st">)..."</span></span>
 <span id="cb4-85"><a href="#cb4-85"></a></span>
-<span id="cb4-86"><a href="#cb4-86"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$main_pid</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb4-87"><a href="#cb4-87"></a>        <span class="bu">echo</span> <span class="st">"No Chrome process found on port </span><span class="va">$port</span><span class="st"> (already stopped?)."</span></span>
-<span id="cb4-88"><a href="#cb4-88"></a>        <span class="ex">clear_port</span></span>
-<span id="cb4-89"><a href="#cb4-89"></a>        <span class="cf">return</span></span>
-<span id="cb4-90"><a href="#cb4-90"></a>    <span class="cf">fi</span></span>
-<span id="cb4-91"><a href="#cb4-91"></a></span>
-<span id="cb4-92"><a href="#cb4-92"></a>    <span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
-<span id="cb4-93"><a href="#cb4-93"></a><span class="st">        Stop-Process -Id </span><span class="va">$main_pid</span><span class="st"> -ErrorAction SilentlyContinue</span></span>
-<span id="cb4-94"><a href="#cb4-94"></a><span class="st">        Start-Sleep -Milliseconds 500</span></span>
-<span id="cb4-95"><a href="#cb4-95"></a><span class="st">        if (Get-Process -Id </span><span class="va">$main_pid</span><span class="st"> -ErrorAction SilentlyContinue) {</span></span>
-<span id="cb4-96"><a href="#cb4-96"></a><span class="st">            Stop-Process -Id </span><span class="va">$main_pid</span><span class="st"> -Force</span></span>
-<span id="cb4-97"><a href="#cb4-97"></a><span class="st">        }</span></span>
-<span id="cb4-98"><a href="#cb4-98"></a><span class="st">    "</span></span>
-<span id="cb4-99"><a href="#cb4-99"></a></span>
-<span id="cb4-100"><a href="#cb4-100"></a>    <span class="co"># Mark exit as clean to prevent "restore pages" prompt</span></span>
-<span id="cb4-101"><a href="#cb4-101"></a>    <span class="va">local_appdata</span><span class="op">=</span><span class="va">$(</span><span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">'Write-Host $env:LOCALAPPDATA'</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'\r\n'</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s|\\|/|g'</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s|^\([A-Za-z]\):|/mnt/\L\1|'</span><span class="va">)</span></span>
-<span id="cb4-102"><a href="#cb4-102"></a>    <span class="va">prefs_file</span><span class="op">=</span><span class="st">"</span><span class="va">$local_appdata</span><span class="st">/ChromeDebugProfiles/</span><span class="va">$DIR_NAME</span><span class="st">/Default/Preferences"</span></span>
-<span id="cb4-103"><a href="#cb4-103"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">$prefs_file</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb4-104"><a href="#cb4-104"></a>        <span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/"exit_type":"Crashed"/"exit_type":"Normal"/g'</span> <span class="st">"</span><span class="va">$prefs_file</span><span class="st">"</span></span>
-<span id="cb4-105"><a href="#cb4-105"></a>        <span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/"exited_cleanly":false/"exited_cleanly":true/g'</span> <span class="st">"</span><span class="va">$prefs_file</span><span class="st">"</span></span>
-<span id="cb4-106"><a href="#cb4-106"></a>    <span class="cf">fi</span></span>
+<span id="cb4-86"><a href="#cb4-86"></a>    <span class="va">main_pid</span><span class="op">=</span><span class="va">$(</span><span class="ex">pid_for_port</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb4-87"><a href="#cb4-87"></a></span>
+<span id="cb4-88"><a href="#cb4-88"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$main_pid</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb4-89"><a href="#cb4-89"></a>        <span class="bu">echo</span> <span class="st">"No Chrome process found on port </span><span class="va">$port</span><span class="st"> (already stopped?)."</span></span>
+<span id="cb4-90"><a href="#cb4-90"></a>        <span class="ex">clear_port</span></span>
+<span id="cb4-91"><a href="#cb4-91"></a>        <span class="cf">return</span></span>
+<span id="cb4-92"><a href="#cb4-92"></a>    <span class="cf">fi</span></span>
+<span id="cb4-93"><a href="#cb4-93"></a></span>
+<span id="cb4-94"><a href="#cb4-94"></a>    <span class="ex">powershell.exe</span> <span class="at">-NoProfile</span> <span class="at">-NonInteractive</span> <span class="at">-Command</span> <span class="st">"Stop-Process -Id </span><span class="va">$main_pid</span><span class="st"> -Force -ErrorAction SilentlyContinue"</span></span>
+<span id="cb4-95"><a href="#cb4-95"></a></span>
+<span id="cb4-96"><a href="#cb4-96"></a>    <span class="co"># Mark exit as clean to prevent "restore pages" prompt</span></span>
+<span id="cb4-97"><a href="#cb4-97"></a>    <span class="va">local_appdata</span><span class="op">=</span><span class="va">$(</span><span class="ex">powershell.exe</span> <span class="at">-NoProfile</span> <span class="at">-NonInteractive</span> <span class="at">-Command</span> <span class="st">'Write-Host $env:LOCALAPPDATA'</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'\r\n'</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s|\\|/|g'</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s|^\([A-Za-z]\):|/mnt/\L\1|'</span><span class="va">)</span></span>
+<span id="cb4-98"><a href="#cb4-98"></a>    <span class="va">prefs_file</span><span class="op">=</span><span class="st">"</span><span class="va">$local_appdata</span><span class="st">/ChromeDebugProfiles/</span><span class="va">$DIR_NAME</span><span class="st">/Default/Preferences"</span></span>
+<span id="cb4-99"><a href="#cb4-99"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">$prefs_file</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb4-100"><a href="#cb4-100"></a>        <span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/"exit_type":"Crashed"/"exit_type":"Normal"/g'</span> <span class="st">"</span><span class="va">$prefs_file</span><span class="st">"</span></span>
+<span id="cb4-101"><a href="#cb4-101"></a>        <span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/"exited_cleanly":false/"exited_cleanly":true/g'</span> <span class="st">"</span><span class="va">$prefs_file</span><span class="st">"</span></span>
+<span id="cb4-102"><a href="#cb4-102"></a>    <span class="cf">fi</span></span>
+<span id="cb4-103"><a href="#cb4-103"></a></span>
+<span id="cb4-104"><a href="#cb4-104"></a>    <span class="ex">clear_port</span></span>
+<span id="cb4-105"><a href="#cb4-105"></a>    <span class="bu">echo</span> <span class="st">"Debug Chrome stopped."</span></span>
+<span id="cb4-106"><a href="#cb4-106"></a><span class="kw">}</span></span>
 <span id="cb4-107"><a href="#cb4-107"></a></span>
-<span id="cb4-108"><a href="#cb4-108"></a>    <span class="ex">clear_port</span></span>
-<span id="cb4-109"><a href="#cb4-109"></a>    <span class="bu">echo</span> <span class="st">"Debug Chrome stopped."</span></span>
-<span id="cb4-110"><a href="#cb4-110"></a><span class="kw">}</span></span>
-<span id="cb4-111"><a href="#cb4-111"></a></span>
-<span id="cb4-112"><a href="#cb4-112"></a><span class="fu">start_debug_chrome()</span> <span class="kw">{</span></span>
-<span id="cb4-113"><a href="#cb4-113"></a>    <span class="bu">local</span> <span class="va">port</span></span>
-<span id="cb4-114"><a href="#cb4-114"></a></span>
-<span id="cb4-115"><a href="#cb4-115"></a>    <span class="co"># Check if this repo already has a running session</span></span>
-<span id="cb4-116"><a href="#cb4-116"></a>    <span class="bu">local</span> <span class="va">existing_port</span></span>
-<span id="cb4-117"><a href="#cb4-117"></a>    <span class="va">existing_port</span><span class="op">=</span><span class="va">$(</span><span class="ex">read_port</span><span class="va">)</span></span>
-<span id="cb4-118"><a href="#cb4-118"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$existing_port</span><span class="st">"</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="ex">port_in_use</span> <span class="st">"</span><span class="va">$existing_port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb4-119"><a href="#cb4-119"></a>        <span class="bu">echo</span> <span class="st">"Already running on port </span><span class="va">$existing_port</span><span class="st"> (profile </span><span class="va">$DIR_NAME</span><span class="st">)."</span></span>
-<span id="cb4-120"><a href="#cb4-120"></a>        <span class="cf">return</span></span>
-<span id="cb4-121"><a href="#cb4-121"></a>    <span class="cf">fi</span></span>
-<span id="cb4-122"><a href="#cb4-122"></a></span>
-<span id="cb4-123"><a href="#cb4-123"></a>    <span class="co"># Explicit port via -p flag, or auto-pick</span></span>
-<span id="cb4-124"><a href="#cb4-124"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">${1</span><span class="op">:-</span><span class="va">}</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb4-125"><a href="#cb4-125"></a>        <span class="va">port</span><span class="op">=</span><span class="va">$1</span></span>
-<span id="cb4-126"><a href="#cb4-126"></a>        <span class="cf">if</span> <span class="ex">port_in_use</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb4-127"><a href="#cb4-127"></a>            <span class="bu">echo</span> <span class="st">"Port </span><span class="va">$port</span><span class="st"> is already in use by another session."</span></span>
-<span id="cb4-128"><a href="#cb4-128"></a>            <span class="bu">echo</span> <span class="st">"Use 'chrome-debug status' to see all sessions."</span></span>
-<span id="cb4-129"><a href="#cb4-129"></a>            <span class="bu">exit</span> 1</span>
-<span id="cb4-130"><a href="#cb4-130"></a>        <span class="cf">fi</span></span>
-<span id="cb4-131"><a href="#cb4-131"></a>    <span class="cf">else</span></span>
-<span id="cb4-132"><a href="#cb4-132"></a>        <span class="va">port</span><span class="op">=</span><span class="va">$(</span><span class="ex">find_free_port</span><span class="va">)</span></span>
-<span id="cb4-133"><a href="#cb4-133"></a>    <span class="cf">fi</span></span>
-<span id="cb4-134"><a href="#cb4-134"></a></span>
-<span id="cb4-135"><a href="#cb4-135"></a>    <span class="bu">echo</span> <span class="st">"Starting Chrome with remote debugging on port </span><span class="va">$port</span><span class="st"> (profile </span><span class="va">$DIR_NAME</span><span class="st">)..."</span></span>
-<span id="cb4-136"><a href="#cb4-136"></a>    <span class="co"># The profile path is persistent, so browser auth state survives restarts.</span></span>
-<span id="cb4-137"><a href="#cb4-137"></a>    <span class="co"># First-run prompts are disabled because they block automated DevTools use.</span></span>
-<span id="cb4-138"><a href="#cb4-138"></a>    <span class="co"># Chrome 111+ rejects remote WebSocket clients unless their origin is allowed.</span></span>
-<span id="cb4-139"><a href="#cb4-139"></a>    <span class="ex">powershell.exe</span> <span class="at">-Command</span> <span class="st">"</span></span>
-<span id="cb4-140"><a href="#cb4-140"></a><span class="st">        </span><span class="dt">\$</span><span class="st">profileDir = </span><span class="dt">\"\$</span><span class="st">env:LOCALAPPDATA</span><span class="dt">\\</span><span class="st">ChromeDebugProfiles</span><span class="dt">\\</span><span class="va">$DIR_NAME</span><span class="dt">\"</span></span>
-<span id="cb4-141"><a href="#cb4-141"></a><span class="st">        </span><span class="dt">\$</span><span class="st">chromeArgs = @(</span></span>
-<span id="cb4-142"><a href="#cb4-142"></a><span class="st">            '--remote-debugging-port=</span><span class="va">$port</span><span class="st">',</span></span>
-<span id="cb4-143"><a href="#cb4-143"></a><span class="st">            </span><span class="dt">\"</span><span class="st">--user-data-dir=</span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span><span class="st">,</span></span>
-<span id="cb4-144"><a href="#cb4-144"></a><span class="st">            '--disable-session-crashed-bubble',</span></span>
-<span id="cb4-145"><a href="#cb4-145"></a><span class="st">            '--no-first-run',</span></span>
-<span id="cb4-146"><a href="#cb4-146"></a><span class="st">            '--no-default-browser-check',</span></span>
-<span id="cb4-147"><a href="#cb4-147"></a><span class="st">            '--disable-search-engine-choice-screen',</span></span>
-<span id="cb4-148"><a href="#cb4-148"></a><span class="st">            '--remote-allow-origins=*'</span></span>
-<span id="cb4-149"><a href="#cb4-149"></a><span class="st">        )</span></span>
-<span id="cb4-150"><a href="#cb4-150"></a><span class="st">        Write-Host </span><span class="dt">\"</span><span class="st">Profile: </span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span></span>
-<span id="cb4-151"><a href="#cb4-151"></a><span class="st">        Start-Process -FilePath '</span><span class="va">$CHROME_PATH</span><span class="st">' -ArgumentList </span><span class="dt">\$</span><span class="st">chromeArgs</span></span>
-<span id="cb4-152"><a href="#cb4-152"></a><span class="st">    "</span></span>
+<span id="cb4-108"><a href="#cb4-108"></a><span class="fu">start_debug_chrome()</span> <span class="kw">{</span></span>
+<span id="cb4-109"><a href="#cb4-109"></a>    <span class="bu">local</span> <span class="va">port</span></span>
+<span id="cb4-110"><a href="#cb4-110"></a></span>
+<span id="cb4-111"><a href="#cb4-111"></a>    <span class="co"># Check if this repo already has a running session</span></span>
+<span id="cb4-112"><a href="#cb4-112"></a>    <span class="bu">local</span> <span class="va">existing_port</span></span>
+<span id="cb4-113"><a href="#cb4-113"></a>    <span class="va">existing_port</span><span class="op">=</span><span class="va">$(</span><span class="ex">read_port</span><span class="va">)</span></span>
+<span id="cb4-114"><a href="#cb4-114"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$existing_port</span><span class="st">"</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="ex">port_in_use</span> <span class="st">"</span><span class="va">$existing_port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb4-115"><a href="#cb4-115"></a>        <span class="bu">echo</span> <span class="st">"Already running on port </span><span class="va">$existing_port</span><span class="st"> (profile </span><span class="va">$DIR_NAME</span><span class="st">)."</span></span>
+<span id="cb4-116"><a href="#cb4-116"></a>        <span class="cf">return</span></span>
+<span id="cb4-117"><a href="#cb4-117"></a>    <span class="cf">fi</span></span>
+<span id="cb4-118"><a href="#cb4-118"></a></span>
+<span id="cb4-119"><a href="#cb4-119"></a>    <span class="co"># Explicit port via -p flag, or auto-pick</span></span>
+<span id="cb4-120"><a href="#cb4-120"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">${1</span><span class="op">:-</span><span class="va">}</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb4-121"><a href="#cb4-121"></a>        <span class="va">port</span><span class="op">=</span><span class="va">$1</span></span>
+<span id="cb4-122"><a href="#cb4-122"></a>        <span class="cf">if</span> <span class="ex">port_in_use</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb4-123"><a href="#cb4-123"></a>            <span class="bu">echo</span> <span class="st">"Port </span><span class="va">$port</span><span class="st"> is already in use by another session."</span></span>
+<span id="cb4-124"><a href="#cb4-124"></a>            <span class="bu">echo</span> <span class="st">"Use 'chrome-debug status' to see all sessions."</span></span>
+<span id="cb4-125"><a href="#cb4-125"></a>            <span class="bu">exit</span> 1</span>
+<span id="cb4-126"><a href="#cb4-126"></a>        <span class="cf">fi</span></span>
+<span id="cb4-127"><a href="#cb4-127"></a>    <span class="cf">else</span></span>
+<span id="cb4-128"><a href="#cb4-128"></a>        <span class="va">port</span><span class="op">=</span><span class="va">$(</span><span class="ex">find_free_port</span><span class="va">)</span></span>
+<span id="cb4-129"><a href="#cb4-129"></a>    <span class="cf">fi</span></span>
+<span id="cb4-130"><a href="#cb4-130"></a></span>
+<span id="cb4-131"><a href="#cb4-131"></a>    <span class="bu">echo</span> <span class="st">"Starting Chrome with remote debugging on port </span><span class="va">$port</span><span class="st"> (profile </span><span class="va">$DIR_NAME</span><span class="st">)..."</span></span>
+<span id="cb4-132"><a href="#cb4-132"></a>    <span class="co"># The profile path is persistent, so browser auth state survives restarts.</span></span>
+<span id="cb4-133"><a href="#cb4-133"></a>    <span class="co"># First-run prompts are disabled because they block automated DevTools use.</span></span>
+<span id="cb4-134"><a href="#cb4-134"></a>    <span class="co"># Chrome 111+ rejects remote WebSocket clients unless their origin is allowed.</span></span>
+<span id="cb4-135"><a href="#cb4-135"></a>    <span class="ex">powershell.exe</span> <span class="at">-NoProfile</span> <span class="at">-NonInteractive</span> <span class="at">-Command</span> <span class="st">"</span></span>
+<span id="cb4-136"><a href="#cb4-136"></a><span class="st">        </span><span class="dt">\$</span><span class="st">profileDir = </span><span class="dt">\"\$</span><span class="st">env:LOCALAPPDATA</span><span class="dt">\\</span><span class="st">ChromeDebugProfiles</span><span class="dt">\\</span><span class="va">$DIR_NAME</span><span class="dt">\"</span></span>
+<span id="cb4-137"><a href="#cb4-137"></a><span class="st">        </span><span class="dt">\$</span><span class="st">chromeArgs = @(</span></span>
+<span id="cb4-138"><a href="#cb4-138"></a><span class="st">            '--remote-debugging-port=</span><span class="va">$port</span><span class="st">',</span></span>
+<span id="cb4-139"><a href="#cb4-139"></a><span class="st">            </span><span class="dt">\"</span><span class="st">--user-data-dir=</span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span><span class="st">,</span></span>
+<span id="cb4-140"><a href="#cb4-140"></a><span class="st">            '--disable-session-crashed-bubble',</span></span>
+<span id="cb4-141"><a href="#cb4-141"></a><span class="st">            '--no-first-run',</span></span>
+<span id="cb4-142"><a href="#cb4-142"></a><span class="st">            '--no-default-browser-check',</span></span>
+<span id="cb4-143"><a href="#cb4-143"></a><span class="st">            '--disable-search-engine-choice-screen',</span></span>
+<span id="cb4-144"><a href="#cb4-144"></a><span class="st">            '--remote-allow-origins=*'</span></span>
+<span id="cb4-145"><a href="#cb4-145"></a><span class="st">        )</span></span>
+<span id="cb4-146"><a href="#cb4-146"></a><span class="st">        Write-Host </span><span class="dt">\"</span><span class="st">Profile: </span><span class="dt">\$</span><span class="st">profileDir</span><span class="dt">\"</span></span>
+<span id="cb4-147"><a href="#cb4-147"></a><span class="st">        Start-Process -FilePath '</span><span class="va">$CHROME_PATH</span><span class="st">' -ArgumentList </span><span class="dt">\$</span><span class="st">chromeArgs</span></span>
+<span id="cb4-148"><a href="#cb4-148"></a><span class="st">    "</span></span>
+<span id="cb4-149"><a href="#cb4-149"></a></span>
+<span id="cb4-150"><a href="#cb4-150"></a>    <span class="ex">write_port</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span></span>
+<span id="cb4-151"><a href="#cb4-151"></a>    <span class="bu">echo</span> <span class="st">"Port </span><span class="va">$port</span><span class="st"> saved to </span><span class="va">$STATE_DIR</span><span class="st">/</span><span class="va">$DIR_NAME</span><span class="st">.port"</span></span>
+<span id="cb4-152"><a href="#cb4-152"></a><span class="kw">}</span></span>
 <span id="cb4-153"><a href="#cb4-153"></a></span>
-<span id="cb4-154"><a href="#cb4-154"></a>    <span class="ex">write_port</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span></span>
-<span id="cb4-155"><a href="#cb4-155"></a>    <span class="bu">echo</span> <span class="st">"Port </span><span class="va">$port</span><span class="st"> saved to </span><span class="va">$STATE_DIR</span><span class="st">/</span><span class="va">$DIR_NAME</span><span class="st">.port"</span></span>
-<span id="cb4-156"><a href="#cb4-156"></a><span class="kw">}</span></span>
-<span id="cb4-157"><a href="#cb4-157"></a></span>
-<span id="cb4-158"><a href="#cb4-158"></a><span class="fu">show_port()</span> <span class="kw">{</span></span>
-<span id="cb4-159"><a href="#cb4-159"></a>    <span class="bu">local</span> <span class="va">port</span></span>
-<span id="cb4-160"><a href="#cb4-160"></a>    <span class="va">port</span><span class="op">=</span><span class="va">$(</span><span class="ex">read_port</span><span class="va">)</span></span>
-<span id="cb4-161"><a href="#cb4-161"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb4-162"><a href="#cb4-162"></a>        <span class="bu">echo</span> <span class="st">"No tracked session for '</span><span class="va">$DIR_NAME</span><span class="st">'."</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
-<span id="cb4-163"><a href="#cb4-163"></a>        <span class="bu">exit</span> 1</span>
-<span id="cb4-164"><a href="#cb4-164"></a>    <span class="cf">fi</span></span>
-<span id="cb4-165"><a href="#cb4-165"></a>    <span class="cf">if</span> <span class="ex">port_in_use</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb4-166"><a href="#cb4-166"></a>        <span class="bu">echo</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span></span>
-<span id="cb4-167"><a href="#cb4-167"></a>    <span class="cf">else</span></span>
-<span id="cb4-168"><a href="#cb4-168"></a>        <span class="bu">echo</span> <span class="st">"Port </span><span class="va">$port</span><span class="st"> was tracked but Chrome is not responding. Cleaning up."</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
-<span id="cb4-169"><a href="#cb4-169"></a>        <span class="ex">clear_port</span></span>
-<span id="cb4-170"><a href="#cb4-170"></a>        <span class="bu">exit</span> 1</span>
-<span id="cb4-171"><a href="#cb4-171"></a>    <span class="cf">fi</span></span>
-<span id="cb4-172"><a href="#cb4-172"></a><span class="kw">}</span></span>
-<span id="cb4-173"><a href="#cb4-173"></a></span>
-<span id="cb4-174"><a href="#cb4-174"></a><span class="fu">show_status()</span> <span class="kw">{</span></span>
-<span id="cb4-175"><a href="#cb4-175"></a>    <span class="bu">local</span> <span class="va">found</span><span class="op">=</span>0</span>
-<span id="cb4-176"><a href="#cb4-176"></a>    <span class="cf">for</span> port_file <span class="kw">in</span> <span class="st">"</span><span class="va">$STATE_DIR</span><span class="st">"</span>/<span class="pp">*</span>.port<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb4-177"><a href="#cb4-177"></a>        <span class="kw">[[</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">$port_file</span><span class="st">"</span> <span class="kw">]]</span> <span class="kw">||</span> <span class="cf">continue</span></span>
-<span id="cb4-178"><a href="#cb4-178"></a>        <span class="bu">local</span> <span class="va">name</span> <span class="va">port</span> <span class="va">status</span></span>
-<span id="cb4-179"><a href="#cb4-179"></a>        <span class="va">name</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="st">"</span><span class="va">$port_file</span><span class="st">"</span> .port<span class="va">)</span></span>
-<span id="cb4-180"><a href="#cb4-180"></a>        <span class="va">port</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="st">"</span><span class="va">$port_file</span><span class="st">"</span><span class="va">)</span></span>
-<span id="cb4-181"><a href="#cb4-181"></a>        <span class="cf">if</span> <span class="ex">port_in_use</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb4-182"><a href="#cb4-182"></a>            <span class="va">status</span><span class="op">=</span><span class="st">"running"</span></span>
-<span id="cb4-183"><a href="#cb4-183"></a>        <span class="cf">else</span></span>
-<span id="cb4-184"><a href="#cb4-184"></a>            <span class="va">status</span><span class="op">=</span><span class="st">"stale (cleaning up)"</span></span>
-<span id="cb4-185"><a href="#cb4-185"></a>            <span class="fu">rm</span> <span class="at">-f</span> <span class="st">"</span><span class="va">$port_file</span><span class="st">"</span></span>
-<span id="cb4-186"><a href="#cb4-186"></a>        <span class="cf">fi</span></span>
-<span id="cb4-187"><a href="#cb4-187"></a>        <span class="bu">printf</span> <span class="st">"%-30s port %-5s %s\n"</span> <span class="st">"</span><span class="va">$name</span><span class="st">"</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span> <span class="st">"</span><span class="va">$status</span><span class="st">"</span></span>
-<span id="cb4-188"><a href="#cb4-188"></a>        <span class="va">found</span><span class="op">=</span>1</span>
-<span id="cb4-189"><a href="#cb4-189"></a>    <span class="cf">done</span></span>
-<span id="cb4-190"><a href="#cb4-190"></a>    <span class="cf">if</span> <span class="kw">((</span> <span class="va">found</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">));</span> <span class="cf">then</span></span>
-<span id="cb4-191"><a href="#cb4-191"></a>        <span class="bu">echo</span> <span class="st">"No debug sessions tracked."</span></span>
-<span id="cb4-192"><a href="#cb4-192"></a>    <span class="cf">fi</span></span>
-<span id="cb4-193"><a href="#cb4-193"></a><span class="kw">}</span></span>
+<span id="cb4-154"><a href="#cb4-154"></a><span class="fu">show_port()</span> <span class="kw">{</span></span>
+<span id="cb4-155"><a href="#cb4-155"></a>    <span class="bu">local</span> <span class="va">port</span></span>
+<span id="cb4-156"><a href="#cb4-156"></a>    <span class="va">port</span><span class="op">=</span><span class="va">$(</span><span class="ex">read_port</span><span class="va">)</span></span>
+<span id="cb4-157"><a href="#cb4-157"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb4-158"><a href="#cb4-158"></a>        <span class="bu">echo</span> <span class="st">"No tracked session for '</span><span class="va">$DIR_NAME</span><span class="st">'."</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
+<span id="cb4-159"><a href="#cb4-159"></a>        <span class="bu">exit</span> 1</span>
+<span id="cb4-160"><a href="#cb4-160"></a>    <span class="cf">fi</span></span>
+<span id="cb4-161"><a href="#cb4-161"></a>    <span class="cf">if</span> <span class="ex">port_in_use</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb4-162"><a href="#cb4-162"></a>        <span class="bu">echo</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span></span>
+<span id="cb4-163"><a href="#cb4-163"></a>    <span class="cf">else</span></span>
+<span id="cb4-164"><a href="#cb4-164"></a>        <span class="bu">echo</span> <span class="st">"Port </span><span class="va">$port</span><span class="st"> was tracked but Chrome is not responding. Cleaning up."</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
+<span id="cb4-165"><a href="#cb4-165"></a>        <span class="ex">clear_port</span></span>
+<span id="cb4-166"><a href="#cb4-166"></a>        <span class="bu">exit</span> 1</span>
+<span id="cb4-167"><a href="#cb4-167"></a>    <span class="cf">fi</span></span>
+<span id="cb4-168"><a href="#cb4-168"></a><span class="kw">}</span></span>
+<span id="cb4-169"><a href="#cb4-169"></a></span>
+<span id="cb4-170"><a href="#cb4-170"></a><span class="fu">show_status()</span> <span class="kw">{</span></span>
+<span id="cb4-171"><a href="#cb4-171"></a>    <span class="bu">local</span> <span class="va">found</span><span class="op">=</span>0</span>
+<span id="cb4-172"><a href="#cb4-172"></a>    <span class="cf">for</span> port_file <span class="kw">in</span> <span class="st">"</span><span class="va">$STATE_DIR</span><span class="st">"</span>/<span class="pp">*</span>.port<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb4-173"><a href="#cb4-173"></a>        <span class="kw">[[</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">$port_file</span><span class="st">"</span> <span class="kw">]]</span> <span class="kw">||</span> <span class="cf">continue</span></span>
+<span id="cb4-174"><a href="#cb4-174"></a>        <span class="bu">local</span> <span class="va">name</span> <span class="va">port</span> <span class="va">status</span></span>
+<span id="cb4-175"><a href="#cb4-175"></a>        <span class="va">name</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="st">"</span><span class="va">$port_file</span><span class="st">"</span> .port<span class="va">)</span></span>
+<span id="cb4-176"><a href="#cb4-176"></a>        <span class="va">port</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="st">"</span><span class="va">$port_file</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb4-177"><a href="#cb4-177"></a>        <span class="cf">if</span> <span class="ex">port_in_use</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb4-178"><a href="#cb4-178"></a>            <span class="va">status</span><span class="op">=</span><span class="st">"running"</span></span>
+<span id="cb4-179"><a href="#cb4-179"></a>        <span class="cf">else</span></span>
+<span id="cb4-180"><a href="#cb4-180"></a>            <span class="va">status</span><span class="op">=</span><span class="st">"stale (cleaning up)"</span></span>
+<span id="cb4-181"><a href="#cb4-181"></a>            <span class="fu">rm</span> <span class="at">-f</span> <span class="st">"</span><span class="va">$port_file</span><span class="st">"</span></span>
+<span id="cb4-182"><a href="#cb4-182"></a>        <span class="cf">fi</span></span>
+<span id="cb4-183"><a href="#cb4-183"></a>        <span class="bu">printf</span> <span class="st">"%-30s port %-5s %s\n"</span> <span class="st">"</span><span class="va">$name</span><span class="st">"</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span> <span class="st">"</span><span class="va">$status</span><span class="st">"</span></span>
+<span id="cb4-184"><a href="#cb4-184"></a>        <span class="va">found</span><span class="op">=</span>1</span>
+<span id="cb4-185"><a href="#cb4-185"></a>    <span class="cf">done</span></span>
+<span id="cb4-186"><a href="#cb4-186"></a>    <span class="cf">if</span> <span class="kw">((</span> <span class="va">found</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb4-187"><a href="#cb4-187"></a>        <span class="bu">echo</span> <span class="st">"No debug sessions tracked."</span></span>
+<span id="cb4-188"><a href="#cb4-188"></a>    <span class="cf">fi</span></span>
+<span id="cb4-189"><a href="#cb4-189"></a><span class="kw">}</span></span>
+<span id="cb4-190"><a href="#cb4-190"></a></span>
+<span id="cb4-191"><a href="#cb4-191"></a><span class="co"># Parse command and flags</span></span>
+<span id="cb4-192"><a href="#cb4-192"></a><span class="va">cmd</span><span class="op">=</span><span class="st">"</span><span class="va">${1</span><span class="op">:-</span>start<span class="va">}</span><span class="st">"</span></span>
+<span id="cb4-193"><a href="#cb4-193"></a><span class="bu">shift</span> <span class="kw">||</span> <span class="fu">true</span></span>
 <span id="cb4-194"><a href="#cb4-194"></a></span>
-<span id="cb4-195"><a href="#cb4-195"></a><span class="co"># Parse command and flags</span></span>
-<span id="cb4-196"><a href="#cb4-196"></a><span class="va">cmd</span><span class="op">=</span><span class="st">"</span><span class="va">${1</span><span class="op">:-</span>start<span class="va">}</span><span class="st">"</span></span>
-<span id="cb4-197"><a href="#cb4-197"></a><span class="bu">shift</span> <span class="kw">||</span> <span class="fu">true</span></span>
-<span id="cb4-198"><a href="#cb4-198"></a></span>
-<span id="cb4-199"><a href="#cb4-199"></a><span class="cf">case</span> <span class="st">"</span><span class="va">$cmd</span><span class="st">"</span> <span class="kw">in</span></span>
-<span id="cb4-200"><a href="#cb4-200"></a>    <span class="ss">start</span><span class="kw">|</span><span class="st">""</span><span class="kw">)</span></span>
-<span id="cb4-201"><a href="#cb4-201"></a>        <span class="va">explicit_port</span><span class="op">=</span><span class="st">""</span></span>
-<span id="cb4-202"><a href="#cb4-202"></a>        <span class="cf">while</span> <span class="kw">((</span> <span class="va">$#</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">));</span> <span class="cf">do</span></span>
-<span id="cb4-203"><a href="#cb4-203"></a>            <span class="cf">case</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">in</span></span>
-<span id="cb4-204"><a href="#cb4-204"></a>                <span class="ss">-p</span><span class="kw">)</span> <span class="va">explicit_port</span><span class="op">=</span><span class="st">"</span><span class="va">${2</span><span class="op">:?</span><span class="st">'-p requires a port number'</span><span class="va">}</span><span class="st">"</span><span class="kw">;</span> <span class="bu">shift</span> 2 <span class="cf">;;</span></span>
-<span id="cb4-205"><a href="#cb4-205"></a>                <span class="pp">*</span><span class="kw">)</span>  <span class="bu">echo</span> <span class="st">"Unknown flag: </span><span class="va">$1</span><span class="st">"</span><span class="kw">;</span> <span class="bu">exit</span> 1 <span class="cf">;;</span></span>
-<span id="cb4-206"><a href="#cb4-206"></a>            <span class="cf">esac</span></span>
-<span id="cb4-207"><a href="#cb4-207"></a>        <span class="cf">done</span></span>
-<span id="cb4-208"><a href="#cb4-208"></a>        <span class="ex">start_debug_chrome</span> <span class="st">"</span><span class="va">$explicit_port</span><span class="st">"</span></span>
-<span id="cb4-209"><a href="#cb4-209"></a>        <span class="cf">;;</span></span>
-<span id="cb4-210"><a href="#cb4-210"></a>    <span class="ss">stop</span><span class="kw">)</span>    <span class="ex">stop_debug_chrome</span> <span class="cf">;;</span></span>
-<span id="cb4-211"><a href="#cb4-211"></a>    <span class="ss">port</span><span class="kw">)</span>    <span class="ex">show_port</span> <span class="cf">;;</span></span>
-<span id="cb4-212"><a href="#cb4-212"></a>    <span class="ss">status</span><span class="kw">)</span>  <span class="ex">show_status</span> <span class="cf">;;</span></span>
-<span id="cb4-213"><a href="#cb4-213"></a>    <span class="pp">*</span><span class="kw">)</span>       <span class="bu">echo</span> <span class="st">"Usage: </span><span class="va">$0</span><span class="st"> [start [-p PORT]|stop|port|status]"</span><span class="kw">;</span> <span class="bu">exit</span> 1 <span class="cf">;;</span></span>
-<span id="cb4-214"><a href="#cb4-214"></a><span class="cf">esac</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-195"><a href="#cb4-195"></a><span class="cf">case</span> <span class="st">"</span><span class="va">$cmd</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb4-196"><a href="#cb4-196"></a>    <span class="ss">start</span><span class="kw">|</span><span class="st">""</span><span class="kw">)</span></span>
+<span id="cb4-197"><a href="#cb4-197"></a>        <span class="va">explicit_port</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb4-198"><a href="#cb4-198"></a>        <span class="cf">while</span> <span class="kw">((</span> <span class="va">$#</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">));</span> <span class="cf">do</span></span>
+<span id="cb4-199"><a href="#cb4-199"></a>            <span class="cf">case</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb4-200"><a href="#cb4-200"></a>                <span class="ss">-p</span><span class="kw">)</span> <span class="va">explicit_port</span><span class="op">=</span><span class="st">"</span><span class="va">${2</span><span class="op">:?</span><span class="st">'-p requires a port number'</span><span class="va">}</span><span class="st">"</span><span class="kw">;</span> <span class="bu">shift</span> 2 <span class="cf">;;</span></span>
+<span id="cb4-201"><a href="#cb4-201"></a>                <span class="pp">*</span><span class="kw">)</span>  <span class="bu">echo</span> <span class="st">"Unknown flag: </span><span class="va">$1</span><span class="st">"</span><span class="kw">;</span> <span class="bu">exit</span> 1 <span class="cf">;;</span></span>
+<span id="cb4-202"><a href="#cb4-202"></a>            <span class="cf">esac</span></span>
+<span id="cb4-203"><a href="#cb4-203"></a>        <span class="cf">done</span></span>
+<span id="cb4-204"><a href="#cb4-204"></a>        <span class="ex">start_debug_chrome</span> <span class="st">"</span><span class="va">$explicit_port</span><span class="st">"</span></span>
+<span id="cb4-205"><a href="#cb4-205"></a>        <span class="cf">;;</span></span>
+<span id="cb4-206"><a href="#cb4-206"></a>    <span class="ss">stop</span><span class="kw">)</span>    <span class="ex">stop_debug_chrome</span> <span class="cf">;;</span></span>
+<span id="cb4-207"><a href="#cb4-207"></a>    <span class="ss">port</span><span class="kw">)</span>    <span class="ex">show_port</span> <span class="cf">;;</span></span>
+<span id="cb4-208"><a href="#cb4-208"></a>    <span class="ss">status</span><span class="kw">)</span>  <span class="ex">show_status</span> <span class="cf">;;</span></span>
+<span id="cb4-209"><a href="#cb4-209"></a>    <span class="pp">*</span><span class="kw">)</span>       <span class="bu">echo</span> <span class="st">"Usage: </span><span class="va">$0</span><span class="st"> [start [-p PORT]|stop|port|status]"</span><span class="kw">;</span> <span class="bu">exit</span> 1 <span class="cf">;;</span></span>
+<span id="cb4-210"><a href="#cb4-210"></a><span class="cf">esac</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="mcp-client-wrapper" class="level2">
 <h2 class="anchored" data-anchor-id="mcp-client-wrapper">MCP Client Wrapper</h2>
@@ -461,61 +457,147 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-6"><a href="#cb6-6"></a>    <span class="ex">curl</span> <span class="at">-s</span> <span class="at">--connect-timeout</span> 1 <span class="st">"http://127.0.0.1:</span><span class="va">${port}</span><span class="st">/json/version"</span> <span class="op">&gt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span>
 <span id="cb6-7"><a href="#cb6-7"></a><span class="kw">}</span></span>
 <span id="cb6-8"><a href="#cb6-8"></a></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">find_single_chrome_debug_port()</span> <span class="kw">{</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a>    <span class="bu">local</span> <span class="va">found</span><span class="op">=</span><span class="va">()</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a>    <span class="bu">local</span> <span class="va">port</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a>    <span class="cf">for</span> port <span class="kw">in</span> <span class="va">$(</span><span class="fu">seq</span> 9222 9230<span class="va">)</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">wait_for_chrome_debug()</span> <span class="kw">{</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a>    <span class="bu">local</span> <span class="va">port</span><span class="op">=</span><span class="va">$1</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>    <span class="bu">local</span> <span class="va">tries</span><span class="op">=</span>0</span>
+<span id="cb6-12"><a href="#cb6-12"></a>    <span class="cf">while</span> <span class="kw">((</span> <span class="va">tries</span> <span class="op">&lt;</span> <span class="dv">50</span> <span class="kw">));</span> <span class="cf">do</span></span>
 <span id="cb6-13"><a href="#cb6-13"></a>        <span class="cf">if</span> <span class="ex">chrome_debug_responds</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a>            <span class="va">found</span><span class="op">+=</span><span class="va">(</span><span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a>            <span class="cf">return</span> <span class="dv">0</span></span>
 <span id="cb6-15"><a href="#cb6-15"></a>        <span class="cf">fi</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a>    <span class="cf">done</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">${</span><span class="op">#</span><span class="va">found</span><span class="op">[@]</span><span class="va">}</span><span class="st">"</span> <span class="ot">-eq</span> 1 <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a>        <span class="bu">printf</span> <span class="st">'%s\n'</span> <span class="st">"</span><span class="va">${found</span><span class="op">[</span><span class="dv">0</span><span class="op">]</span><span class="va">}</span><span class="st">"</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a>    <span class="cf">fi</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>        <span class="fu">sleep</span> 0.2</span>
+<span id="cb6-17"><a href="#cb6-17"></a>        <span class="kw">((</span> <span class="va">tries</span><span class="op">++</span> <span class="kw">))</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a>    <span class="cf">done</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
 <span id="cb6-20"><a href="#cb6-20"></a><span class="kw">}</span></span>
 <span id="cb6-21"><a href="#cb6-21"></a></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="fu">wait_for_chrome_debug()</span> <span class="kw">{</span></span>
-<span id="cb6-23"><a href="#cb6-23"></a>    <span class="bu">local</span> <span class="va">port</span><span class="op">=</span><span class="va">$1</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a>    <span class="bu">local</span> <span class="va">tries</span><span class="op">=</span>0</span>
-<span id="cb6-25"><a href="#cb6-25"></a>    <span class="cf">while</span> <span class="kw">((</span> <span class="va">tries</span> <span class="op">&lt;</span> <span class="dv">50</span> <span class="kw">));</span> <span class="cf">do</span></span>
-<span id="cb6-26"><a href="#cb6-26"></a>        <span class="cf">if</span> <span class="ex">chrome_debug_responds</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb6-27"><a href="#cb6-27"></a>            <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb6-28"><a href="#cb6-28"></a>        <span class="cf">fi</span></span>
-<span id="cb6-29"><a href="#cb6-29"></a>        <span class="fu">sleep</span> 0.2</span>
-<span id="cb6-30"><a href="#cb6-30"></a>        <span class="kw">((</span> <span class="va">tries</span><span class="op">++</span> <span class="kw">))</span></span>
-<span id="cb6-31"><a href="#cb6-31"></a>    <span class="cf">done</span></span>
-<span id="cb6-32"><a href="#cb6-32"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb6-33"><a href="#cb6-33"></a><span class="kw">}</span></span>
-<span id="cb6-34"><a href="#cb6-34"></a></span>
-<span id="cb6-35"><a href="#cb6-35"></a><span class="va">mcp_command</span><span class="op">=</span><span class="st">"</span><span class="va">${CHROME_DEVTOOLS_MCP_BIN</span><span class="op">:-</span><span class="va">$(</span><span class="ex">npm</span> prefix <span class="at">-g</span><span class="va">)</span>/bin/chrome-devtools-mcp<span class="va">}</span><span class="st">"</span></span>
-<span id="cb6-36"><a href="#cb6-36"></a></span>
-<span id="cb6-37"><a href="#cb6-37"></a><span class="cf">if</span> <span class="ot">! </span><span class="va">port</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="ex">chrome-debug</span> port <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb6-38"><a href="#cb6-38"></a>    <span class="va">port</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="ex">find_single_chrome_debug_port</span><span class="va">)</span><span class="st">"</span></span>
-<span id="cb6-39"><a href="#cb6-39"></a><span class="cf">fi</span></span>
-<span id="cb6-40"><a href="#cb6-40"></a></span>
-<span id="cb6-41"><a href="#cb6-41"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">!</span> <span class="ot">-x</span> <span class="st">"</span><span class="va">$mcp_command</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb6-42"><a href="#cb6-42"></a>    <span class="bu">echo</span> <span class="st">"chrome-devtools-mcp is not installed. Run: npm install -g chrome-devtools-mcp@0.25.0"</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
-<span id="cb6-43"><a href="#cb6-43"></a>    <span class="bu">exit</span> 1</span>
-<span id="cb6-44"><a href="#cb6-44"></a><span class="cf">fi</span></span>
-<span id="cb6-45"><a href="#cb6-45"></a></span>
-<span id="cb6-46"><a href="#cb6-46"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">${port</span><span class="op">:-</span><span class="va">}</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb6-47"><a href="#cb6-47"></a>    <span class="bu">echo</span> <span class="st">"No Chrome DevTools endpoint found. Run chrome-debug from the target repository before starting Codex."</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
-<span id="cb6-48"><a href="#cb6-48"></a>    <span class="bu">exit</span> 1</span>
-<span id="cb6-49"><a href="#cb6-49"></a><span class="cf">fi</span></span>
-<span id="cb6-50"><a href="#cb6-50"></a></span>
-<span id="cb6-51"><a href="#cb6-51"></a><span class="cf">if</span> <span class="ot">! </span><span class="ex">wait_for_chrome_debug</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb6-52"><a href="#cb6-52"></a>    <span class="bu">echo</span> <span class="st">"Chrome debug endpoint did not become ready on port </span><span class="va">${port}</span><span class="st">."</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
-<span id="cb6-53"><a href="#cb6-53"></a>    <span class="bu">exit</span> 1</span>
-<span id="cb6-54"><a href="#cb6-54"></a><span class="cf">fi</span></span>
-<span id="cb6-55"><a href="#cb6-55"></a></span>
-<span id="cb6-56"><a href="#cb6-56"></a><span class="bu">exec</span> <span class="st">"</span><span class="va">$mcp_command</span><span class="st">"</span> <span class="at">--browserUrl</span> <span class="st">"http://127.0.0.1:</span><span class="va">${port}</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="fu">noop_mcp_server()</span> <span class="kw">{</span></span>
+<span id="cb6-23"><a href="#cb6-23"></a>    <span class="bu">exec</span> node <span class="at">-e</span> <span class="st">'</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="st">const input = process.stdin;</span></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="st">let buffer = Buffer.alloc(0);</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a><span class="st">let transport = "content-length";</span></span>
+<span id="cb6-27"><a href="#cb6-27"></a></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="st">function send(message) {</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="st">  const body = Buffer.from(JSON.stringify(message), "utf8");</span></span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="st">  if (transport === "newline") {</span></span>
+<span id="cb6-31"><a href="#cb6-31"></a><span class="st">    process.stdout.write(`${body.toString("utf8")}\n`);</span></span>
+<span id="cb6-32"><a href="#cb6-32"></a><span class="st">    return;</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a><span class="st">  }</span></span>
+<span id="cb6-34"><a href="#cb6-34"></a><span class="st">  process.stdout.write(`Content-Length: ${body.length}\r\n\r\n`);</span></span>
+<span id="cb6-35"><a href="#cb6-35"></a><span class="st">  process.stdout.write(body);</span></span>
+<span id="cb6-36"><a href="#cb6-36"></a><span class="st">}</span></span>
+<span id="cb6-37"><a href="#cb6-37"></a></span>
+<span id="cb6-38"><a href="#cb6-38"></a><span class="st">function handle(message) {</span></span>
+<span id="cb6-39"><a href="#cb6-39"></a><span class="st">  if (!message || message.id === undefined) {</span></span>
+<span id="cb6-40"><a href="#cb6-40"></a><span class="st">    return;</span></span>
+<span id="cb6-41"><a href="#cb6-41"></a><span class="st">  }</span></span>
+<span id="cb6-42"><a href="#cb6-42"></a></span>
+<span id="cb6-43"><a href="#cb6-43"></a><span class="st">  if (message.method === "initialize") {</span></span>
+<span id="cb6-44"><a href="#cb6-44"></a><span class="st">    send({</span></span>
+<span id="cb6-45"><a href="#cb6-45"></a><span class="st">      jsonrpc: "2.0",</span></span>
+<span id="cb6-46"><a href="#cb6-46"></a><span class="st">      id: message.id,</span></span>
+<span id="cb6-47"><a href="#cb6-47"></a><span class="st">      result: {</span></span>
+<span id="cb6-48"><a href="#cb6-48"></a><span class="st">        protocolVersion: message.params?.protocolVersion || "2025-06-18",</span></span>
+<span id="cb6-49"><a href="#cb6-49"></a><span class="st">        capabilities: { tools: {} },</span></span>
+<span id="cb6-50"><a href="#cb6-50"></a><span class="st">        serverInfo: {</span></span>
+<span id="cb6-51"><a href="#cb6-51"></a><span class="st">          name: "chrome-devtools-mcp-wrapper",</span></span>
+<span id="cb6-52"><a href="#cb6-52"></a><span class="st">          version: "0.1.0"</span></span>
+<span id="cb6-53"><a href="#cb6-53"></a><span class="st">        }</span></span>
+<span id="cb6-54"><a href="#cb6-54"></a><span class="st">      }</span></span>
+<span id="cb6-55"><a href="#cb6-55"></a><span class="st">    });</span></span>
+<span id="cb6-56"><a href="#cb6-56"></a><span class="st">    return;</span></span>
+<span id="cb6-57"><a href="#cb6-57"></a><span class="st">  }</span></span>
+<span id="cb6-58"><a href="#cb6-58"></a></span>
+<span id="cb6-59"><a href="#cb6-59"></a><span class="st">  if (message.method === "tools/list") {</span></span>
+<span id="cb6-60"><a href="#cb6-60"></a><span class="st">    send({ jsonrpc: "2.0", id: message.id, result: { tools: [] } });</span></span>
+<span id="cb6-61"><a href="#cb6-61"></a><span class="st">    return;</span></span>
+<span id="cb6-62"><a href="#cb6-62"></a><span class="st">  }</span></span>
+<span id="cb6-63"><a href="#cb6-63"></a></span>
+<span id="cb6-64"><a href="#cb6-64"></a><span class="st">  if (message.method === "resources/list") {</span></span>
+<span id="cb6-65"><a href="#cb6-65"></a><span class="st">    send({ jsonrpc: "2.0", id: message.id, result: { resources: [] } });</span></span>
+<span id="cb6-66"><a href="#cb6-66"></a><span class="st">    return;</span></span>
+<span id="cb6-67"><a href="#cb6-67"></a><span class="st">  }</span></span>
+<span id="cb6-68"><a href="#cb6-68"></a></span>
+<span id="cb6-69"><a href="#cb6-69"></a><span class="st">  if (message.method === "prompts/list") {</span></span>
+<span id="cb6-70"><a href="#cb6-70"></a><span class="st">    send({ jsonrpc: "2.0", id: message.id, result: { prompts: [] } });</span></span>
+<span id="cb6-71"><a href="#cb6-71"></a><span class="st">    return;</span></span>
+<span id="cb6-72"><a href="#cb6-72"></a><span class="st">  }</span></span>
+<span id="cb6-73"><a href="#cb6-73"></a></span>
+<span id="cb6-74"><a href="#cb6-74"></a><span class="st">  send({</span></span>
+<span id="cb6-75"><a href="#cb6-75"></a><span class="st">    jsonrpc: "2.0",</span></span>
+<span id="cb6-76"><a href="#cb6-76"></a><span class="st">    id: message.id,</span></span>
+<span id="cb6-77"><a href="#cb6-77"></a><span class="st">    error: { code: -32601, message: "Chrome DevTools is not running. Start chrome-debug before Codex to enable these MCP tools." }</span></span>
+<span id="cb6-78"><a href="#cb6-78"></a><span class="st">  });</span></span>
+<span id="cb6-79"><a href="#cb6-79"></a><span class="st">}</span></span>
+<span id="cb6-80"><a href="#cb6-80"></a></span>
+<span id="cb6-81"><a href="#cb6-81"></a><span class="st">input.on("data", chunk =&gt; {</span></span>
+<span id="cb6-82"><a href="#cb6-82"></a><span class="st">  buffer = Buffer.concat([buffer, chunk]);</span></span>
+<span id="cb6-83"><a href="#cb6-83"></a><span class="st">  while (true) {</span></span>
+<span id="cb6-84"><a href="#cb6-84"></a><span class="st">    let headerEnd = buffer.indexOf("\r\n\r\n");</span></span>
+<span id="cb6-85"><a href="#cb6-85"></a><span class="st">    let separatorLength = 4;</span></span>
+<span id="cb6-86"><a href="#cb6-86"></a><span class="st">    if (headerEnd === -1) {</span></span>
+<span id="cb6-87"><a href="#cb6-87"></a><span class="st">      headerEnd = buffer.indexOf("\n\n");</span></span>
+<span id="cb6-88"><a href="#cb6-88"></a><span class="st">      separatorLength = 2;</span></span>
+<span id="cb6-89"><a href="#cb6-89"></a><span class="st">    }</span></span>
+<span id="cb6-90"><a href="#cb6-90"></a><span class="st">    if (headerEnd === -1) {</span></span>
+<span id="cb6-91"><a href="#cb6-91"></a><span class="st">      const newlineEnd = buffer.indexOf("\n");</span></span>
+<span id="cb6-92"><a href="#cb6-92"></a><span class="st">      if (newlineEnd === -1) {</span></span>
+<span id="cb6-93"><a href="#cb6-93"></a><span class="st">        return;</span></span>
+<span id="cb6-94"><a href="#cb6-94"></a><span class="st">      }</span></span>
+<span id="cb6-95"><a href="#cb6-95"></a><span class="st">      transport = "newline";</span></span>
+<span id="cb6-96"><a href="#cb6-96"></a><span class="st">      const line = buffer.subarray(0, newlineEnd).toString("utf8").trim();</span></span>
+<span id="cb6-97"><a href="#cb6-97"></a><span class="st">      buffer = buffer.subarray(newlineEnd + 1);</span></span>
+<span id="cb6-98"><a href="#cb6-98"></a><span class="st">      if (line) {</span></span>
+<span id="cb6-99"><a href="#cb6-99"></a><span class="st">        handle(JSON.parse(line));</span></span>
+<span id="cb6-100"><a href="#cb6-100"></a><span class="st">      }</span></span>
+<span id="cb6-101"><a href="#cb6-101"></a><span class="st">      continue;</span></span>
+<span id="cb6-102"><a href="#cb6-102"></a><span class="st">    }</span></span>
+<span id="cb6-103"><a href="#cb6-103"></a></span>
+<span id="cb6-104"><a href="#cb6-104"></a><span class="st">    const header = buffer.subarray(0, headerEnd).toString("utf8");</span></span>
+<span id="cb6-105"><a href="#cb6-105"></a><span class="st">    const lengthMatch = header.match(/content-length:\s*(\d+)/i);</span></span>
+<span id="cb6-106"><a href="#cb6-106"></a><span class="st">    if (!lengthMatch) {</span></span>
+<span id="cb6-107"><a href="#cb6-107"></a><span class="st">      process.exit(1);</span></span>
+<span id="cb6-108"><a href="#cb6-108"></a><span class="st">    }</span></span>
+<span id="cb6-109"><a href="#cb6-109"></a></span>
+<span id="cb6-110"><a href="#cb6-110"></a><span class="st">    const length = Number(lengthMatch[1]);</span></span>
+<span id="cb6-111"><a href="#cb6-111"></a><span class="st">    const messageStart = headerEnd + separatorLength;</span></span>
+<span id="cb6-112"><a href="#cb6-112"></a><span class="st">    const messageEnd = messageStart + length;</span></span>
+<span id="cb6-113"><a href="#cb6-113"></a><span class="st">    if (buffer.length &lt; messageEnd) {</span></span>
+<span id="cb6-114"><a href="#cb6-114"></a><span class="st">      return;</span></span>
+<span id="cb6-115"><a href="#cb6-115"></a><span class="st">    }</span></span>
+<span id="cb6-116"><a href="#cb6-116"></a></span>
+<span id="cb6-117"><a href="#cb6-117"></a><span class="st">    const body = buffer.subarray(messageStart, messageEnd).toString("utf8");</span></span>
+<span id="cb6-118"><a href="#cb6-118"></a><span class="st">    buffer = buffer.subarray(messageEnd);</span></span>
+<span id="cb6-119"><a href="#cb6-119"></a><span class="st">    handle(JSON.parse(body));</span></span>
+<span id="cb6-120"><a href="#cb6-120"></a><span class="st">  }</span></span>
+<span id="cb6-121"><a href="#cb6-121"></a><span class="st">});</span></span>
+<span id="cb6-122"><a href="#cb6-122"></a><span class="st">'</span></span>
+<span id="cb6-123"><a href="#cb6-123"></a><span class="kw">}</span></span>
+<span id="cb6-124"><a href="#cb6-124"></a></span>
+<span id="cb6-125"><a href="#cb6-125"></a><span class="va">mcp_command</span><span class="op">=</span><span class="st">"</span><span class="va">${CHROME_DEVTOOLS_MCP_BIN</span><span class="op">:-</span><span class="va">$(</span><span class="ex">npm</span> prefix <span class="at">-g</span><span class="va">)</span>/bin/chrome-devtools-mcp<span class="va">}</span><span class="st">"</span></span>
+<span id="cb6-126"><a href="#cb6-126"></a></span>
+<span id="cb6-127"><a href="#cb6-127"></a><span class="va">port</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="ex">chrome-debug</span> port <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">||</span> <span class="fu">true</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb6-128"><a href="#cb6-128"></a></span>
+<span id="cb6-129"><a href="#cb6-129"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">${port</span><span class="op">:-</span><span class="va">}</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb6-130"><a href="#cb6-130"></a>    <span class="ex">noop_mcp_server</span></span>
+<span id="cb6-131"><a href="#cb6-131"></a><span class="cf">fi</span></span>
+<span id="cb6-132"><a href="#cb6-132"></a></span>
+<span id="cb6-133"><a href="#cb6-133"></a><span class="cf">if</span> <span class="ot">! </span><span class="ex">wait_for_chrome_debug</span> <span class="st">"</span><span class="va">$port</span><span class="st">"</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb6-134"><a href="#cb6-134"></a>    <span class="ex">noop_mcp_server</span></span>
+<span id="cb6-135"><a href="#cb6-135"></a><span class="cf">fi</span></span>
+<span id="cb6-136"><a href="#cb6-136"></a></span>
+<span id="cb6-137"><a href="#cb6-137"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="ot">!</span> <span class="ot">-x</span> <span class="st">"</span><span class="va">$mcp_command</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb6-138"><a href="#cb6-138"></a>    <span class="bu">echo</span> <span class="st">"chrome-devtools-mcp is not installed. Run: npm install -g chrome-devtools-mcp@0.25.0"</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
+<span id="cb6-139"><a href="#cb6-139"></a>    <span class="bu">exit</span> 1</span>
+<span id="cb6-140"><a href="#cb6-140"></a><span class="cf">fi</span></span>
+<span id="cb6-141"><a href="#cb6-141"></a></span>
+<span id="cb6-142"><a href="#cb6-142"></a><span class="bu">exec</span> <span class="st">"</span><span class="va">$mcp_command</span><span class="st">"</span> <span class="at">--browserUrl</span> <span class="st">"http://127.0.0.1:</span><span class="va">${port}</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then point the MCP client at the wrapper. For Codex:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">[mcp_servers.chrome-devtools]</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="dt">command</span> <span class="op">=</span> <span class="st">"chrome-devtools-mcp"</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="dt">command</span> <span class="op">=</span> <span class="st">"/path/to/chrome-devtools-mcp"</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="dt">args</span> <span class="op">=</span> <span class="op">[]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can start Chrome from the target repository before using the MCP tools:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">chrome-debug</span> start</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The wrapper first asks <code>chrome-debug port</code> for the current repository. If the state file is missing but exactly one Chrome DevTools endpoint is already live on ports <code>9222</code> to <code>9230</code>, it uses that endpoint. Otherwise it exits and asks you to start <code>chrome-debug</code> explicitly from the target repository. The MCP wrapper should attach to Chrome only; it should not open Chrome as a side effect of starting Codex.</p>
+<p>The wrapper asks <code>chrome-debug port</code> for the current repository. If that command cannot return a live tracked port, the wrapper starts a minimal no-tool MCP server so Codex does not show a startup warning. Start <code>chrome-debug</code> explicitly from the target repository before starting Codex when you need the DevTools MCP tools. The MCP wrapper should attach to Chrome only; it should not open Chrome as a side effect of starting Codex, and it should not guess by attaching to another untracked Chrome DevTools endpoint.</p>
 <p>Do not use <code>npx --yes chrome-devtools-mcp@latest</code> in the wrapper. Resolving <code>latest</code> through npm during Codex startup can consume most of Codex’s MCP startup timeout before the server starts handshaking.</p>
 </section>
 <section id="references" class="level2">
