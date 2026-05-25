@@ -3,7 +3,7 @@ title: "Learn Git and GitHub"
 subtitle: "Note#91"
 id: "91"
 date: 2023-05-27
-date-modified: 2025-02-19
+date-modified: 2026-05-25
 date-format: iso
 categories: [notes]
 spotlight: "⭐"
@@ -26,6 +26,7 @@ spotlight: "⭐"
   * [Git 3: Team Version Control](https://web.mit.edu/6.102/www/sp23/tools/git-3-team-version-control/)
 * [Learn Git Branching](https://learngitbranching.js.org/): An interactive tutorial to learn about Git branching.
 * [ThePrimeagen doing both of his own boot.dev courses on `git`](https://www.youtube.com/watch?v=rH3zE7VlIMs)
+* [Beej's Guide to Git](https://beej.us/guide/bggit/)
 
 ### Not Free Resources
 
