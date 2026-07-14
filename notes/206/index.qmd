@@ -1,0 +1,42 @@
+---
+title: "Reminder: `tar` Can Infer the Compression Format"
+subtitle: "Note#206"
+id: "206"
+date: 2026-07-14
+date-modified: ""
+date-format: iso
+categories: [notes]
+spotlight: ""
+---
+```bash
+# Create: select the compressor from the archive suffix
+tar -caf archive.tar.gz PATH
+
+# Extract into the current directory: detect compression automatically
+tar -xf archive.tar.gz
+
+# Extract into DIR: detect compression automatically
+tar -xf archive.tar.gz -C DIR
+```
+
+* `-a`: during creation, select the compressor from the archive suffix
+* `-c`: create
+* `-x`: extract
+* `-f`: use the following archive filename
+* `-C DIR`: change to `DIR` before operating
+* `-v`: list files as they are processed
+* `-z`: explicitly use gzip (not deprecated)
+
+Automatic detection may not work when reading an archive from a pipe because tar cannot rewind the input. Specify the compression format explicitly:
+
+```bash
+curl -fsSL URL | tar -xzf -
+```
+
+The final `-` is the archive filename supplied to `-f`; it means standard input.
+
+`tar` added automatic recognition in 1.15 (2004-12-20), `-a` for creation in 1.20 (2008-04-14), and suffix fallback when reading in 1.21 (2008-12-27).
+
+## References
+
+* [tar manual: Working with Compressed Archives](https://www.gnu.org/software/tar/manual/html_node/gzip.html)
