@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -75,10 +78,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5f9bd8518c0a10978d34e663cc679a92.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-4097905089b9665dd3ecebc1726e40fb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-0136e4330a16840dddf279fc0c3da08a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-70189b548640fd928e71e97a1561578f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -199,31 +202,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>So you want to block your agents from deleting files? Can you list all the ways to destroy data?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">python</span> <span class="at">-c</span> <span class="st">"import os; os.remove('file')"</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">python</span> <span class="at">-c</span> <span class="st">"from pathlib import Path; Path('file').unlink()"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">python</span> <span class="at">-c</span> <span class="st">"import shutil; shutil.rmtree('dir')"</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="ex">node</span> <span class="at">-e</span> <span class="st">"require('fs').rmSync('file')"</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="ex">node</span> <span class="at">-e</span> <span class="st">"require('fs').rmSync('dir', { recursive: true, force: true })"</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">'file'</span> <span class="at">-delete</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">unlink</span> file</span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">rmdir</span> dir</span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="fu">git</span> clean <span class="at">-fdx</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="fu">rsync</span> <span class="at">-a</span> <span class="at">--delete</span> src_dir/ dest_dir/</span>
-<span id="cb1-13"><a href="#cb1-13"></a></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="fu">truncate</span> <span class="at">-s</span> 0 file</span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="fu">dd</span> if=/dev/zero of=file bs=1M count=1</span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="fu">shred</span> <span class="at">-u</span> file</span>
-<span id="cb1-17"><a href="#cb1-17"></a></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="bu">set</span> <span class="at">-o</span> noclobber</span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="bu">:</span> <span class="op">&gt;</span> file <span class="co"># This will fail, sure.</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="bu">:</span> <span class="op">&gt;|</span> file <span class="co"># But agents don’t care about safety nets.</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="co"># Bypassing a PATH-wrapped `rm`</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="ex">/bin/rm</span> <span class="at">-f</span> file</span>
-<span id="cb1-24"><a href="#cb1-24"></a></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="ex">...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="ex">python</span> <span class="at">-c</span> <span class="st">"import os; os.remove('file')"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="ex">python</span> <span class="at">-c</span> <span class="st">"from pathlib import Path; Path('file').unlink()"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="ex">python</span> <span class="at">-c</span> <span class="st">"import shutil; shutil.rmtree('dir')"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a><span class="ex">node</span> <span class="at">-e</span> <span class="st">"require('fs').rmSync('file')"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a><span class="ex">node</span> <span class="at">-e</span> <span class="st">"require('fs').rmSync('dir', { recursive: true, force: true })"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">'file'</span> <span class="at">-delete</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a><span class="fu">unlink</span> file</span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a><span class="fu">rmdir</span> dir</span>
+<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a><span class="fu">git</span> clean <span class="at">-fdx</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-label="12"></a><span class="fu">rsync</span> <span class="at">-a</span> <span class="at">--delete</span> src_dir/ dest_dir/</span>
+<span id="cb1-13"><a href="#cb1-13" aria-label="13"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-label="14"></a><span class="fu">truncate</span> <span class="at">-s</span> 0 file</span>
+<span id="cb1-15"><a href="#cb1-15" aria-label="15"></a><span class="fu">dd</span> if=/dev/zero of=file bs=1M count=1</span>
+<span id="cb1-16"><a href="#cb1-16" aria-label="16"></a><span class="fu">shred</span> <span class="at">-u</span> file</span>
+<span id="cb1-17"><a href="#cb1-17" aria-label="17"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-label="18"></a><span class="bu">set</span> <span class="at">-o</span> noclobber</span>
+<span id="cb1-19"><a href="#cb1-19" aria-label="19"></a><span class="bu">:</span> <span class="op">&gt;</span> file <span class="co"># This will fail, sure.</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-label="20"></a><span class="bu">:</span> <span class="op">&gt;|</span> file <span class="co"># But agents don’t care about safety nets.</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-label="21"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-label="22"></a><span class="co"># Bypassing a PATH-wrapped `rm`</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-label="23"></a><span class="ex">/bin/rm</span> <span class="at">-f</span> file</span>
+<span id="cb1-24"><a href="#cb1-24" aria-label="24"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-label="25"></a><span class="ex">...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You get my point. We can’t block them all; there are too many.</p>
 <p>Instead of squandering your time building failing guardrails with over-engineered hooks, preventing your agent from accessing commands by wrapping them in your <code>PATH</code>, or whatever, you’d be better off building a sandbox (a container or a micro VM) with all the tools you need. And if you want to feel safe when agents are running amok on your files, then it’s time to build a good backup system.</p>
 <p>Adding instructions in <code>AGENTS.md</code> to prefer <code>trash</code> over <code>rm</code> is better than nothing, but it’s not a real protection charm.</p>

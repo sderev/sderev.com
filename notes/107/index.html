@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -75,10 +78,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5f9bd8518c0a10978d34e663cc679a92.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-4097905089b9665dd3ecebc1726e40fb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-0136e4330a16840dddf279fc0c3da08a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-70189b548640fd928e71e97a1561578f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -201,23 +204,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Using <code>print()</code> is easy and convenient, but it prints everything to <code>stdout</code>. It can be the right tool for quick and dirty debugging—everyone does it. However, it’s not without its problems. For instance, what if we want the output to go to a file instead of the screen (for logging purposes)? Also, do we really want to print our error messages to <code>stdout</code> in production?</p>
 <section id="using-print-with-the-file-parameter" class="level2">
 <h2 class="anchored" data-anchor-id="using-print-with-the-file-parameter">Using <code>print()</code> with the <code>file</code> parameter</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> sys</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(<span class="st">"This is an error message."</span>, <span class="bu">file</span><span class="op">=</span>sys.stderr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="im">import</span> sys</span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="bu">print</span>(<span class="st">"This is an error message."</span>, <span class="bu">file</span><span class="op">=</span>sys.stderr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="using-the-sys.stderr-object" class="level2">
 <h2 class="anchored" data-anchor-id="using-the-sys.stderr-object">Using the <code>sys.stderr</code> object</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> sys</span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a>sys.stderr.write(<span class="st">"This is an error message.</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="im">import</span> sys</span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>sys.stderr.write(<span class="st">"This is an error message.</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Note that it’s important to include the newline character <code>\n</code> at the end of the message to ensure proper formatting.</p>
 </section>
 <section id="using-click.echo" class="level2">
 <h2 class="anchored" data-anchor-id="using-click.echo">Using <code>click.echo()</code></h2>
 <p>The Click library allows printing to <code>stderr</code> by passing <code>err=True</code> to <code>click.echo()</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> click</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a>click.echo(<span class="st">"This is an error message."</span>, err<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="im">import</span> click</span>
+<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a>click.echo(<span class="st">"This is an error message."</span>, err<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="logging-error-messages" class="level2">
 <h2 class="anchored" data-anchor-id="logging-error-messages">Logging Error Messages</h2>
@@ -226,24 +229,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="example" class="level3">
 <h3 class="anchored" data-anchor-id="example">Example</h3>
 <p>Here’s an example of how to configure a logging handler to write error messages to a file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> logging</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># Create a logger</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>logger <span class="op">=</span> logging.getLogger(<span class="st">'error_logger'</span>)</span>
-<span id="cb4-5"><a href="#cb4-5"></a>logger.setLevel(logging.ERROR)</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># Create a file handler</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>file_handler <span class="op">=</span> logging.FileHandler(<span class="st">'error.log'</span>)</span>
-<span id="cb4-9"><a href="#cb4-9"></a></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co"># Set the formatter</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>formatter <span class="op">=</span> logging.Formatter(<span class="st">'</span><span class="sc">%(asctime)s</span><span class="st"> - </span><span class="sc">%(levelname)s</span><span class="st"> - </span><span class="sc">%(message)s</span><span class="st">'</span>)</span>
-<span id="cb4-12"><a href="#cb4-12"></a>file_handler.setFormatter(formatter)</span>
-<span id="cb4-13"><a href="#cb4-13"></a></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co"># Add the handler to the logger</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a>logger.addHandler(file_handler)</span>
-<span id="cb4-16"><a href="#cb4-16"></a></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="co"># Write an error message to the log file</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a>logger.error(<span class="st">"This is an error message."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="im">import</span> logging</span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a><span class="co"># Create a logger</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a>logger <span class="op">=</span> logging.getLogger(<span class="st">'error_logger'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>logger.setLevel(logging.ERROR)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a><span class="co"># Create a file handler</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a>file_handler <span class="op">=</span> logging.FileHandler(<span class="st">'error.log'</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a><span class="co"># Set the formatter</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>formatter <span class="op">=</span> logging.Formatter(<span class="st">'</span><span class="sc">%(asctime)s</span><span class="st"> - </span><span class="sc">%(levelname)s</span><span class="st"> - </span><span class="sc">%(message)s</span><span class="st">'</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a>file_handler.setFormatter(formatter)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-label="13"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-label="14"></a><span class="co"># Add the handler to the logger</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-label="15"></a>logger.addHandler(file_handler)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-label="16"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-label="17"></a><span class="co"># Write an error message to the log file</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-label="18"></a>logger.error(<span class="st">"This is an error message."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This example sets the logging level to <code>ERROR</code> to ensure that only error messages are written to the file. The log format is specified using a formatter, which includes the timestamp, log level, and log message. The <code>logger.error()</code> method is used to write the error message to the log file.</p>
 <p>By logging error messages to a file, you can easily track and analyze them, helping to identify and troubleshoot issues more effectively.</p>
 </section>

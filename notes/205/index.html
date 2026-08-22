@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -75,10 +78,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5f9bd8518c0a10978d34e663cc679a92.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-4097905089b9665dd3ecebc1726e40fb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-0136e4330a16840dddf279fc0c3da08a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-70189b548640fd928e71e97a1561578f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -201,32 +204,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Which package ships this command? Which version does Debian ship? What depends on this package? Use these commands.</p>
 <section id="apt-file-search" class="level2">
 <h2 class="anchored" data-anchor-id="apt-file-search"><code>apt-file search</code></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">apt-file</span> search rg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="ex">apt-file</span> search rg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Search package contents without installing the package. This is substring matching, so bare command names can be noisy (<code>-F</code> does exact matching if you already know the full path – like <code>$(command -v &lt;cmd&gt;)</code>).</p>
 <p>To use <code>apt-file</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">apt</span> install apt-file</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">apt-file</span> update</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="ex">apt</span> install apt-file</span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="ex">apt-file</span> update</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="apt-file-show" class="level2">
 <h2 class="anchored" data-anchor-id="apt-file-show"><code>apt-file show</code></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">apt-file</span> show ripgrep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a><span class="ex">apt-file</span> show ripgrep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>List the files shipped by a package, even if it is not installed.</p>
 </section>
 <section id="rmadison" class="level2">
 <h2 class="anchored" data-anchor-id="rmadison"><code>rmadison</code></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">rmadison</span> postgresql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="ex">rmadison</span> postgresql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Show which version of a package is available across Debian suites.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1"></a>postgresql | 13+225+deb11u1 | oldoldstable | all</span>
-<span id="cb5-2"><a href="#cb5-2"></a>postgresql | 15+248+deb12u1 | oldstable    | all</span>
-<span id="cb5-3"><a href="#cb5-3"></a>postgresql | 17+278         | stable       | all</span>
-<span id="cb5-4"><a href="#cb5-4"></a>postgresql | 18+290         | testing      | all</span>
-<span id="cb5-5"><a href="#cb5-5"></a>postgresql | 18+290         | unstable     | all</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a>postgresql | 13+225+deb11u1 | oldoldstable | all</span>
+<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a>postgresql | 15+248+deb12u1 | oldstable    | all</span>
+<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a>postgresql | 17+278         | stable       | all</span>
+<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a>postgresql | 18+290         | testing      | all</span>
+<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a>postgresql | 18+290         | unstable     | all</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Installed with <code>apt install devscripts</code>.</p>
 </section>
 <section id="apt-cache-rdepends" class="level2">
 <h2 class="anchored" data-anchor-id="apt-cache-rdepends"><code>apt-cache rdepends</code></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">apt-cache</span> rdepends git</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">apt-cache</span> <span class="at">--installed</span> rdepends git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="ex">apt-cache</span> rdepends git</span>
+<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="ex">apt-cache</span> <span class="at">--installed</span> rdepends git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Show reverse dependencies from the local APT cache. <code>--installed</code> limits the output to installed packages.</p>
 </section>
 <section id="references" class="level2">

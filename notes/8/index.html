@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -40,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5f9bd8518c0a10978d34e663cc679a92.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-4097905089b9665dd3ecebc1726e40fb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-0136e4330a16840dddf279fc0c3da08a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-70189b548640fd928e71e97a1561578f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -148,12 +151,6 @@ ul.task-list li input[type="checkbox"] {
       </div>
     </div>
     
-      <div>
-      <div class="quarto-title-meta-heading">Modified</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date-modified">2024-08-15</p>
-      </div>
-    </div>
       
     </div>
     
@@ -171,7 +168,6 @@ ul.task-list li input[type="checkbox"] {
 
 <p><strong>Interview with Jeremy Howard, the founder of fast.ai.</strong></p>
 <p><a href="https://future.com/the-rise-of-domain-experts-in-deep-learning" class="uri">https://future.com/the-rise-of-domain-experts-in-deep-learning</a></p>
-<p><strong>Edit</strong>: I changed my mind about what I wrote below at that time. It was really naive of me.</p>
 <p>Article qui présente une histoire accélérée des praticiens du deep learning : des chercheurs aux <em>prompt engineers</em>. C’est une expression qu’on voit souvent depuis les débats enflammés autour des IA de générations d’images qui voleraient les artistes – mon emploi du conditionnel dénote ma posture éthique, car je trouve que les discussions autour du scraping relèvent d’un problème accessoire de légaliste. C’est à une toute autre échelle, mais n’importe quel artiste apprend par le pastiche sans jamais qu’il ne soit question de droits d’auteurs. Le véritable enjeu se trouve dans l’accès aux données : les grosses entreprises ont les moyens de récolter des données colossales pour construire leurs modèles ; mais sans les mettre à la disposition de tout un chacun, elles créent un problème d’équité majeur.</p>
 <p>Certains détracteurs et “lanceurs d’alertes” utilisent parfois cette qualification de <em>prompt engineer</em> pour nommer avec sarcasme les personnes qui se servent de ces IA pour créer des images, et ainsi retirer toute la créativité de leur agentivité. Pour moi, il est plutôt clair que c’est la machine qui est le réel “artiste”, tandis que les <em>prompt engineers</em> ont un rôle de directeur artistique – à la façon d’un réalisateur de cinéma. Ici, Jeremy Howard parle du <em>prompt engineering</em> comme d’un ensemble de compétences, sans aucun mépris, que tout le monde va devoir développer par la force des choses. C’est une question d’interactions homme-machine, dit-il, de la même manière que nous avons dû apprendre à nous servir des interfaces graphiques, de nos smartphones, etc.</p>
 
