@@ -207,10 +207,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>When you want Codex to orchestrate other Codex agents, or Claude Code to drive Codex, or any mix of agent CLIs (OpenCode, Amp, pi), don’t over-engineer it with hooks or whatnot. Just use <code>tmux</code>.</p>
+<p>When you want Codex to orchestrate other Codex agents, or Claude Code to drive Codex, or any mix of agent TUIs (OpenCode, Amp, pi), don’t over-engineer it with hooks or whatnot. Just use <code>tmux</code>.</p>
 <section id="use-tmux-as-a-bridge" class="level2">
 <h2 class="anchored" data-anchor-id="use-tmux-as-a-bridge">Use <code>tmux</code> as a Bridge</h2>
-<p>Treat <code>tmux</code> as a coordination layer. Have one agent create a new session that runs another agent CLI, then drive it with <code>tmux send-keys</code>. That gives you a scriptable way to coordinate multiple agents without any special framework.</p>
+<p>Treat <code>tmux</code> as a coordination layer. Have one agent create a new session that runs another agent TUI, then drive it with <code>tmux send-keys</code>. That gives you a scriptable way to coordinate multiple agents without any special framework.</p>
 </section>
 <section id="the-workflow" class="level2">
 <h2 class="anchored" data-anchor-id="the-workflow">The Workflow</h2>
