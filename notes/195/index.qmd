@@ -8,11 +8,11 @@ date-format: iso
 categories: [notes]
 spotlight: ""
 ---
-When you want Codex to orchestrate other Codex agents, or Claude Code to drive Codex, or any mix of agent CLIs (OpenCode, Amp, pi), don't over-engineer it with hooks or whatnot. Just use `tmux`.
+When you want Codex to orchestrate other Codex agents, or Claude Code to drive Codex, or any mix of agent TUIs (OpenCode, Amp, pi), don't over-engineer it with hooks or whatnot. Just use `tmux`.
 
 ## Use `tmux` as a Bridge
 
-Treat `tmux` as a coordination layer. Have one agent create a new session that runs another agent CLI, then drive it with `tmux send-keys`. That gives you a scriptable way to coordinate multiple agents without any special framework.
+Treat `tmux` as a coordination layer. Have one agent create a new session that runs another agent TUI, then drive it with `tmux send-keys`. That gives you a scriptable way to coordinate multiple agents without any special framework.
 
 ## The Workflow
 
