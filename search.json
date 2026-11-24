@@ -1064,6 +1064,13 @@
     "text": "bun\n# ~/.bunfig.toml\n[install]\nminimumReleaseAge = 604800 # seconds"
   },
   {
+    "objectID": "notes/204/index.html#installing-from-a-lockfile-in-ci",
+    "href": "notes/204/index.html#installing-from-a-lockfile-in-ci",
+    "title": "Protect Dependency Installs from Supply-Chain Attacks with a Release-Age Buffer",
+    "section": "Installing from a lockfile in CI",
+    "text": "Installing from a lockfile in CI\nA release-age buffer applies when selecting dependency versions. In CI, install from the lockfile committed to your repository instead of letting the install update it. These commands fail if the lockfile needs to change to match the project’s dependency declarations:\n\nuv: uv sync --locked\nnpm: npm ci\nBun: bun ci (equivalent to bun install --frozen-lockfile)"
+  },
+  {
     "objectID": "notes/204/index.html#related-notes",
     "href": "notes/204/index.html#related-notes",
     "title": "Protect Dependency Installs from Supply-Chain Attacks with a Release-Age Buffer",
@@ -1075,7 +1082,7 @@
     "href": "notes/204/index.html#references",
     "title": "Protect Dependency Installs from Supply-Chain Attacks with a Release-Age Buffer",
     "section": "References",
-    "text": "References\n\nTIL: uv settings after litellm"
+    "text": "References\n\nTIL: uv settings after litellm\nSecuring Python projects from supply-chain attacks (Astral)"
   },
   {
     "objectID": "notes/202/index.html",
@@ -5030,6 +5037,6 @@
     "href": "posts/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Week 1: When and Why to Fine-Tune an LLM\n\n\n\nmastering-llm\n\n\n\nMy notes for the first week of the Mastering LLMs conference hosted by Hamel Husain and Dan Becker.\n\n\n\n\n\nMay 26, 2024\n\n5 min\n\n\n\n\nNo matching items"
+    "text": "Week 1: When and Why to Fine-Tune an LLM\n\n\n\nmastering-llm\n\n\n\n\nMy notes for the first week of the Mastering LLMs conference hosted by Hamel Husain and Dan Becker.\n\n\n\n\n\n\nMay 26, 2024\n\n5 min\n\n\n\n\nNo matching items"
   }
 ]
