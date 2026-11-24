@@ -1068,7 +1068,7 @@
     "href": "notes/204/index.html#installing-from-a-lockfile-in-ci",
     "title": "Protect Dependency Installs from Supply-Chain Attacks with a Release-Age Buffer",
     "section": "Installing from a lockfile in CI",
-    "text": "Installing from a lockfile in CI\nA release-age buffer applies when selecting dependency versions. In CI, install from the lockfile committed to your repository instead of letting the install update it. These commands fail if the lockfile needs to change to match the project’s dependency declarations:\n\nuv: uv sync --locked\nnpm: npm ci\nBun: bun ci (equivalent to bun install --frozen-lockfile)"
+    "text": "Installing from a lockfile in CI\nA release-age buffer applies when selecting dependency versions. In CI, install from the lockfile committed to your repository instead of letting the install update it. These commands fail if the lockfile needs to change to match the project’s dependency declarations:\n\nuv: uv sync --locked\nnpm: npm ci\nBun: bun ci\n\nbun ci is equivalent to:\nbun install --frozen-lockfile"
   },
   {
     "objectID": "notes/204/index.html#related-notes",
