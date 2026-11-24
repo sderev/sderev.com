@@ -33,6 +33,20 @@ ignore-scripts=true
 minimumReleaseAge = 604800 # seconds
 ```
 
+## Installing from a lockfile in CI
+
+A release-age buffer applies when selecting dependency versions. In CI, install from the lockfile committed to your repository instead of letting the install update it. These commands fail if the lockfile needs to change to match the project’s dependency declarations:
+
+* uv: `uv sync --locked`
+* npm: `npm ci`
+* Bun: `bun ci`
+
+`bun ci` is equivalent to:
+
+```sh
+bun install --frozen-lockfile
+```
+
 ## Related Notes
 
 * [Note#126 – Managing Pinned Dependencies for Python Packages with `uv`](https://sderev.com/notes/126)
@@ -40,3 +54,4 @@ minimumReleaseAge = 604800 # seconds
 ## References
 
 * [TIL: `uv` settings after `litellm`](https://antisimplistic.com/posts/2026-03-28-til-uv-settings-after-litellm/)
+* [Securing Python projects from supply-chain attacks (Astral)](https://astral.sh/blog/securing-from-supply-chain-attacks)
